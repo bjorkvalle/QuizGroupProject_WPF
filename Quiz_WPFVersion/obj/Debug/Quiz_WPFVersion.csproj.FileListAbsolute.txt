@@ -13,3 +13,9 @@ C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\
 C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
 C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
 C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\NavigationWindowView.g.cs
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Data\ResourceDictionary.baml
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\NavigationWindowView.baml
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Navigation Window - Master.baml
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Navigation Window - Master.g.cs
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\App.baml

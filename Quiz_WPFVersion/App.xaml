@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:Quiz_WPFVersion"
              StartupUri="View\_Shared\MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Data/ResourceDictionary.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
