@@ -55,7 +55,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="MainWindow.xaml">
+    <Compile Include="Data\Command\TestCommand.cs" />
+    <Compile Include="Data\Repository.cs" />
+    <Compile Include="Enum\Enum_QuestionType.cs" />
+    <Compile Include="Enum\Enum_UserType.cs" />
+    <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="View\_Shared\NavigationWindowView.xaml.cs">
+      <DependentUpon>NavigationWindowView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Data\ResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\_Shared\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -63,12 +75,25 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="View\_Shared\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\_Shared\NavigationWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Alternative.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Quiz.cs" />
+    <Compile Include="Models\QuizPayload.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserCourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -94,6 +119,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Data\Images\" />
+    <Folder Include="ViewModels\" />
+    <Folder Include="View\Admin\" />
+    <Folder Include="View\Student\" />
+    <Folder Include="View\Teacher\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

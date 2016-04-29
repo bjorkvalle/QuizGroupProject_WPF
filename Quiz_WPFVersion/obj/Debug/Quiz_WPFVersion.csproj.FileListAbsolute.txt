@@ -1,1 +1,15 @@
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.exe.config
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.exe.config
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.exe
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.pdb
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csprojResolveAssemblyReference.cache
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\MainWindow.g.cs
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\App.g.cs
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion_MarkupCompile.cache
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion_MarkupCompile.lref
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\MainWindow.baml
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.g.resources
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Properties.Resources.resources
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
+C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
