@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\App.xaml
-4-1007390567
+11887281359
 
-20-687445317
+291547293805
 13738642453
-Data\ResourceDictionary.xaml;View\_Shared\MainWindow.xaml;View\_Shared\Navigation Window - Master.xaml;View\_Shared\NavigationWindowView.xaml;
+Data\ResourceDictionary.xaml;View\Admin\AddRemoveUsers.xaml;View\Admin\AdminView.xaml;View\Student\StudentView.xaml;View\Teacher\TeacherView.xaml;View\Teacher\CreateQuiz.xaml;View\_Shared\MainWindow.xaml;View\_Shared\NavigationWindowView.xaml;View\_Shared\SeeQuizzes.xaml;View\_Shared\SendQuizzes.xaml;View\_Shared\Statistics.xaml;
 
 False
 

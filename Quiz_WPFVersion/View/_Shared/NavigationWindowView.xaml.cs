@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Quiz_WPFVersion.ViewModels;
+using Quiz_WPFVersion.View.Teacher;
+using Quiz_WPFVersion.View.Student;
+using Quiz_WPFVersion.View.Admin;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +27,13 @@ namespace Quiz_WPFVersion.View._Shared
         public NavigationWindowView()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //this.NavigationService.Navigate(new SeeQuizzes());
+            this.Content = new SeeQuizzes();
+            //this.NavigationService.Source = new Uri("SeeQuizzes.xaml",UriKind.RelativeOrAbsolute);
         }
     }
 }

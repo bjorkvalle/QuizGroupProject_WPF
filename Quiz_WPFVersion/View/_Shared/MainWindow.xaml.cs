@@ -1,6 +1,9 @@
 ﻿using Quiz_WPFVersion.View._Shared;
+using Quiz_WPFVersion.View.Admin;
+using Quiz_WPFVersion.View.Teacher;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +27,39 @@ namespace Quiz_WPFVersion
         public MainWindow()
         {
             InitializeComponent();
-            MainFrame.Navigate(new NavigationWindowView());
+            //menuItemCreateQuiz.Visibility = Visibility.Collapsed;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Button senderButton = sender as Button;
+            if (sender == null) return;
+
+            switch (senderButton.Name)
+            {
+                case "btnBack":
+                    Debug.WriteLine("btnBackward");
+                    break;
+                case "btnForward":
+                    Debug.WriteLine("btnForward");
+                    break;
+                case "btnSeeQuizzes":
+                    MainFrame.Content = new SeeQuizzes();
+                    break;
+                case "btnCreateQuiz":
+                    MainFrame.Content = new CreateQuiz();
+                    break;
+                case "btnSendQuiz":
+                    MainFrame.Content = new SendQuizzes();
+                    break;
+                case "btnAdministrate":
+                    MainFrame.Content = new AddRemoveUsers();
+                    break;
+
+                default:
+                    break;
+            }
+
         }
     }
 }
