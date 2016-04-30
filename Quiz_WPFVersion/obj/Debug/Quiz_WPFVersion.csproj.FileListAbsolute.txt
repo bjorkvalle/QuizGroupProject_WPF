@@ -35,8 +35,6 @@ C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\
 C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Admin\AddRemoveUsers.baml
 C:\Users\Haron\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Teacher\CreateQuiz.baml
 C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.exe.config
-C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
-C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
 C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.exe
 C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.pdb
 C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csprojResolveAssemblyReference.cache
@@ -69,3 +67,5 @@ C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion
 C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.g.resources
 C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Properties.Resources.resources
 C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
+C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
+C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb

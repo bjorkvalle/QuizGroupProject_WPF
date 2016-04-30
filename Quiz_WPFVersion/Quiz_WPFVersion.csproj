@@ -178,8 +178,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Data\Images\" />
+    <Resource Include="Data\Images\Newton_Black.png" />
+    <Resource Include="Data\Images\Newton_Gray.tif" />
+    <Resource Include="Data\Images\Newton_White.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

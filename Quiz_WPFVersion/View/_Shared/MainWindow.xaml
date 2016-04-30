@@ -26,14 +26,18 @@
                     <GradientStop Color="#FFFF8000" Offset="0.909"/>
                 </LinearGradientBrush>
             </StackPanel.Background>
-            
+
             <!--Behövs detta?-->
             <!--Back and Forward-->
             <!--<Button x:Name="btnBack" Margin="12,0" Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}" Click="Button_Click"/>
 
 
-            <Button x:Name="btnForward" Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE72A;" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}" Click="Button_Click"/>
-            <GridSplitter x:Name="gridSplitter" Height="30" Width="2.5" Background="{DynamicResource NavigationColor}" Margin="30,0,0,0" Opacity="0.5"/>-->
+            <Button x:Name="btnForward" Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE72A;" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}" Click="Button_Click"/>-->
+            
+            <!--Logo-->
+            <Image x:Name="image" Width="117" Margin="25,0,0,0.4" Source="/Quiz_WPFVersion;component/Data/Images/Newton_White.png" Stretch="Uniform" Cursor="Hand" />
+
+            <GridSplitter x:Name="gridSplitter" Height="30" Width="2.5" Background="{DynamicResource NavigationColor}" Margin="30,0,0,0" Opacity="0.5"/>
 
             <!--See Quizzes-->
             <StackPanel x:Name="ItemSeeQuizzes" Margin="25,11,0,0" Orientation="Vertical">
