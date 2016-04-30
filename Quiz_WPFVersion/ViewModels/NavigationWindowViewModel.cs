@@ -15,7 +15,7 @@ namespace Quiz_WPFVersion.ViewModels
 
         public NavigationWindowViewModel()
         {
-            NavigationWindowViewModel xx = this;
+            //NavigationWindowViewModel xx = this;
            
             this.testCommand = new TestCommand(this);
         }

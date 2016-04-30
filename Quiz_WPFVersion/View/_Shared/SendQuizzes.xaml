@@ -1,4 +1,4 @@
-﻿<Page x:Class="Quiz_WPFVersion.View._Shared.SendQuizzes"
+﻿<Page x:Class="Quiz_WPFVersion.View._Shared.SendQuiz"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
-      Title="SendQuizzes">
+      Title="SendQuiz">
 
     <Grid>
         <Ellipse Fill="#FFFF2C2C" HorizontalAlignment="Left" Height="100" Margin="85,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>

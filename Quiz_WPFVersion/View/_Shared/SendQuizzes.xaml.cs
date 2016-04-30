@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace Quiz_WPFVersion.View._Shared
 {
     /// <summary>
-    /// Interaction logic for SendQuizzes.xaml
+    /// Interaction logic for SendQuiz.xaml
     /// </summary>
-    public partial class SendQuizzes : Page
+    public partial class SendQuiz : Page
     {
-        public SendQuizzes()
+        public SendQuiz()
         {
             InitializeComponent();
         }

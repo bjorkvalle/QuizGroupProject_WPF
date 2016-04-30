@@ -18,9 +18,9 @@ namespace Quiz_WPFVersion.View._Shared
     /// <summary>
     /// Interaction logic for SeeQuizzes.xaml
     /// </summary>
-    public partial class SeeQuizzes : Page
+    public partial class SeeQuiz : Page
     {
-        public SeeQuizzes()
+        public SeeQuiz()
         {
             InitializeComponent();
         }

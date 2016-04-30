@@ -1,6 +1,8 @@
-﻿using Quiz_WPFVersion.View._Shared;
+﻿using Quiz_WPFVersion.Models;
+using Quiz_WPFVersion.View._Shared;
 using Quiz_WPFVersion.View.Admin;
 using Quiz_WPFVersion.View.Teacher;
+using Quiz_WPFVersion.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -24,41 +26,34 @@ namespace Quiz_WPFVersion
     /// </summary>
     public partial class MainWindow : Window
     {
+        internal MainWindowViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
-            //menuItemCreateQuiz.Visibility = Visibility.Collapsed;
+            viewModel = this.DataContext as MainWindowViewModel;
+
+
+            //Mock-up User
+            User ActiveUser = new User
+            {
+                ID = 13,
+                Name = "Haroun",
+                Password = "123",
+                AcessLevel = Enum.UserType.Techer
+            };
+
+
+            viewModel.RenderAccessibility(ActiveUser, this);
+
         }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button senderButton = sender as Button;
-            if (sender == null) return;
-
-            switch (senderButton.Name)
-            {
-                case "btnBack":
-                    Debug.WriteLine("btnBackward");
-                    break;
-                case "btnForward":
-                    Debug.WriteLine("btnForward");
-                    break;
-                case "btnSeeQuizzes":
-                    MainFrame.Content = new SeeQuizzes();
-                    break;
-                case "btnCreateQuiz":
-                    MainFrame.Content = new CreateQuiz();
-                    break;
-                case "btnSendQuiz":
-                    MainFrame.Content = new SendQuizzes();
-                    break;
-                case "btnAdministrate":
-                    MainFrame.Content = new AddRemoveUsers();
-                    break;
-
-                default:
-                    break;
-            }
+            if (sender == null || viewModel == null) return;
+            viewModel.Navigate(MainFrame, senderButton.Name);
 
         }
     }

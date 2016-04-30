@@ -60,6 +60,7 @@
     <Compile Include="Enum\Enum_QuestionType.cs" />
     <Compile Include="Enum\Enum_UserType.cs" />
     <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
     <Compile Include="View\Admin\AddRemoveUsers.xaml.cs">
       <DependentUpon>AddRemoveUsers.xaml</DependentUpon>
@@ -79,8 +80,8 @@
     <Compile Include="View\_Shared\NavigationWindowView.xaml.cs">
       <DependentUpon>NavigationWindowView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\_Shared\SeeQuizzes.xaml.cs">
-      <DependentUpon>SeeQuizzes.xaml</DependentUpon>
+    <Compile Include="View\_Shared\SeeQuiz.xaml.cs">
+      <DependentUpon>SeeQuiz.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\_Shared\SendQuizzes.xaml.cs">
       <DependentUpon>SendQuizzes.xaml</DependentUpon>
@@ -128,7 +129,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\_Shared\SeeQuizzes.xaml">
+    <Page Include="View\_Shared\SeeQuiz.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

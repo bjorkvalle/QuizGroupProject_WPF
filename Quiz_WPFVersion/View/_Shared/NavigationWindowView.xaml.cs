@@ -32,7 +32,7 @@ namespace Quiz_WPFVersion.View._Shared
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             //this.NavigationService.Navigate(new SeeQuizzes());
-            this.Content = new SeeQuizzes();
+            this.Content = new SeeQuiz();
             //this.NavigationService.Source = new Uri("SeeQuizzes.xaml",UriKind.RelativeOrAbsolute);
         }
     }
