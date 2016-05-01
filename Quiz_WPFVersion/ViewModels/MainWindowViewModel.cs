@@ -31,11 +31,8 @@ namespace Quiz_WPFVersion.ViewModels
         {
             switch (command)
             {
-                case "btnBack":
-                    Debug.WriteLine("btnBackward");
-                    break;
-                case "btnForward":
-                    Debug.WriteLine("btnForward");
+                case "menuLogo":
+                    Debug.WriteLine("menuLogo");
                     break;
                 case "btnSeeQuizzes":
                     frame.Content = new SeeQuiz();
@@ -55,25 +52,21 @@ namespace Quiz_WPFVersion.ViewModels
             }
         }
 
-        //public UserType CheckAcessibility(User user)
-        //{
 
-
-        //    return UserType.Student;
-        //}
 
         public void RenderAccessibility(User user, MainWindow window)
         {
             switch (user.AcessLevel)
             {
                 case UserType.Techer:
-                    window.menuItemSendQuiz.Visibility = Visibility.Collapsed;
-                    window.menuItemAdministrateUsers.Visibility = Visibility.Collapsed;
+                    window.btnSendQuiz.Visibility = Visibility.Collapsed;
+                    window.btnAdministrate.Visibility = Visibility.Collapsed;
                     break;
                 case UserType.Admin:
-                    window.menuItemCreateQuiz.Visibility = Visibility.Collapsed;
+                    window.btnCreateQuiz.Visibility = Visibility.Collapsed;
                     break;
                 case UserType.Student:
+                    Debug.WriteLine("User is student - no acessibility should be allowed");
                     break;
                 default:
                     break;

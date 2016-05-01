@@ -56,5 +56,12 @@ namespace Quiz_WPFVersion
             viewModel.Navigate(MainFrame, senderButton.Name);
 
         }
+
+        private void Button_Click(object sender, MouseButtonEventArgs e)
+        {
+            Image senderImage = sender as Image;
+            if (senderImage == null || viewModel == null) return;
+            viewModel.Navigate(MainFrame, senderImage.Name);
+        }
     }
 }
