@@ -8,6 +8,11 @@ namespace Quiz_WPFVersion.Models
 {
     public class Course
     {
+        public Course()
+        {
+            Users = new List<User>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public IList<User> Users { get; set; }

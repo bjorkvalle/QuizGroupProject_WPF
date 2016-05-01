@@ -64,7 +64,7 @@ namespace Quiz_WPFVersion.ViewModels
 
         public void RenderAccessibility(User user, MainWindow window)
         {
-            switch (user.AcessLevel)
+            switch (user.Type)
             {
                 case UserType.Techer:
                     window.menuItemSendQuiz.Visibility = Visibility.Collapsed;

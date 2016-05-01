@@ -10,6 +10,11 @@ namespace Quiz_WPFVersion.Models
 {
     public class User
     {
+        public User()
+        {
+            Courses = new List<Course>();
+        }
+
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
