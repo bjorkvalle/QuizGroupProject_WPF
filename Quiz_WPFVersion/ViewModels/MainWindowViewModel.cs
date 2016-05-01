@@ -19,8 +19,10 @@ namespace Quiz_WPFVersion.ViewModels
     class MainWindowViewModel
     {
 
-        //public TestCommand testCommand { get; set; }
+        ////public TestCommand testCommand { get; set; }
         private IRepository repository { get; set; }
+        private User activeUser { get; set; }
+
 
         public MainWindowViewModel()
         {
@@ -32,7 +34,14 @@ namespace Quiz_WPFVersion.ViewModels
             switch (command)
             {
                 case "menuLogo":
-                    Debug.WriteLine("menuLogo");
+                    if (activeUser.AcessLevel == UserType.Techer)
+                    {
+                        frame.Content = new TeacherView();
+                    }
+                    else if (activeUser.AcessLevel == UserType.Admin)
+                    {
+                        frame.Content = new AdminView();
+                    }
                     break;
                 case "btnSeeQuizzes":
                     frame.Content = new SeeQuiz();
@@ -52,22 +61,22 @@ namespace Quiz_WPFVersion.ViewModels
             }
         }
 
-
-
         public void RenderAccessibility(User user, MainWindow window)
         {
+            activeUser = user;
             switch (user.AcessLevel)
             {
                 case UserType.Techer:
                     window.btnSendQuiz.Visibility = Visibility.Collapsed;
                     window.btnAdministrate.Visibility = Visibility.Collapsed;
+                    window.MainFrame.Content = new TeacherView();
                     break;
                 case UserType.Admin:
                     window.btnCreateQuiz.Visibility = Visibility.Collapsed;
+                    window.MainFrame.Content = new AdminView();
                     break;
                 case UserType.Student:
-                    Debug.WriteLine("User is student - no acessibility should be allowed");
-                    break;
+                    throw new ArgumentException("User is student - no acessibility should be allowed in this program");
                 default:
                     break;
             }
