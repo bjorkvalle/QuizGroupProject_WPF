@@ -68,10 +68,7 @@ namespace Quiz_WPFVersion.ViewModels
                 case UserType.Techer:
                     window.btnSendQuiz.Visibility = Visibility.Collapsed;
                     window.btnAdministrate.Visibility = Visibility.Collapsed;
-                    var page = new TeacherView();
-                    
                     window.DetailFrame.Content = new TeacherView();
-                    
                     break;
                 case UserType.Admin:
                     window.btnCreateQuiz.Visibility = Visibility.Collapsed;
