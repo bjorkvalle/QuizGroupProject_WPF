@@ -12,54 +12,75 @@
     <Page.DataContext>
         <ViewModels:NavigationWindowViewModel/>
     </Page.DataContext>
-
-    <Grid Background="White">
+    <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <!--Navigation Menu-->
-        <StackPanel Orientation="Horizontal" Grid.Row="0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
-            <StackPanel.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.9,0">
-                    <GradientStop Color="#FFFFDDA3"/>
-                    <GradientStop Color="#FFFFA200" Offset="0.645"/>
-                    <GradientStop Color="#FFFF8000" Offset="0.909"/>
-                </LinearGradientBrush>
-            </StackPanel.Background>
-            <!--Back and Forward-->
-            <Button Margin="12,0" Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE72B;" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"/>
-            <Button  Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE72A;" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"/>
+        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="{StaticResource backgroundGardinentOrange}">
+
+            <!--Logo-->
+            <!--Home button / welcome screen -->
+            <Image x:Name="menuLogo" Width="117" Margin="25,0,0,0.4" Source="/Quiz_WPFVersion;component/Data/Images/Newton_White.png" Stretch="Uniform" Cursor="Hand" MouseLeftButtonDown="Button_Click" />
+
             <GridSplitter x:Name="gridSplitter" Height="30" Width="2.5" Background="{DynamicResource NavigationColor}" Margin="30,0,0,0" Opacity="0.5"/>
 
             <!--See Quizzes-->
-            <StackPanel x:Name="ItemSeeQuizzes" Margin="25,11,0,0" Orientation="Vertical">
-                <Button Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE7C5;" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}" Click="Button_Click" />
-                <TextBlock Margin="0,-12" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Se prov"/></TextBlock>
-            </StackPanel>
+            <Button x:Name="btnSeeQuizzes" Style="{StaticResource MyButtonStyle}" Width="50" Height="40" Click="Button_Click" Margin="25,8,0,0">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE7C5;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
+                            <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Se prov"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
             <!--Teacher-->
-            <StackPanel x:Name="menuItemCreateQuiz"  Margin="25,11,0,0" Orientation="Vertical">
-                <Button Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE8F4;" FontSize="24" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"/>
-                <TextBlock Margin="0,-12" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skapa prov"/>
-            </StackPanel>
+            <!--Create Quiz-->
+            <Button x:Name="btnCreateQuiz" Width="60" Height="40" Margin="25,8,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8F4;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
+                            <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skapa prov"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
 
             <!--Admin-->
-            <StackPanel x:Name="menuItemSendQuiz" Margin="25,11,0,0" Orientation="Vertical">
-                <Button Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE8CA;" FontSize="30" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"/>
-                <TextBlock Margin="0,-12" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skicka prov"/>
-            </StackPanel>
+            <!--send Quiz-->
+            <Button x:Name="btnSendQuiz" Width="60" Height="50" Margin="25,6,0,0"  Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8CA;" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
+                            <TextBlock Margin="0,1" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skicka prov"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
-            <StackPanel x:Name="menuItemAdministrateUsers" Margin="25,11,0,0" Orientation="Vertical">
-                <Button Width="50" Height="40" FontFamily="Segoe MDL2 Assets" Content="&#xE8D4;" FontSize="28" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"/>
-                <TextBlock x:Name="txt" Margin="0,-12" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Lägg/ta bort" TextWrapping="Wrap"/>
-            </StackPanel>
+            <!--Add remove user-->
+            <Button x:Name="btnAdministrate" Width="67" Height="40" Margin="25,6,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8D4;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
+                            <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Lägg/ta bort"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
 
-
-
-
-     
         </StackPanel>
+
+        <Frame x:Name="DetailFrame"
+               Grid.Row="1"
+               />
     </Grid>
 </Page>

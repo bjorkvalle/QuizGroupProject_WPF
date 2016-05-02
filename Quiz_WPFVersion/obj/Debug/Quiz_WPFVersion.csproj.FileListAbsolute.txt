@@ -104,3 +104,5 @@ C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.P
 C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
 C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
 C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
+C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Login.g.cs
+C:\Users\Haroun\OneDrive\Newton\WPF-Applikation\Projekt\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Login.baml
