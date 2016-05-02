@@ -32,17 +32,8 @@ namespace Quiz_WPFVersion
         public MainWindow()
         {
             InitializeComponent();
-            //using (var db = new QuizContext())
-            //{
-            //    db.Database.Delete();
-            //}
-                viewModel = this.DataContext as MainWindowViewModel;
-
-            using(var db = new QuizContext())
-            {
-                db.Database.Delete();
-            }
-
+            viewModel = this.DataContext as MainWindowViewModel;
+            
             //Mock-up User
             User ActiveUser = new User
             {
@@ -53,11 +44,7 @@ namespace Quiz_WPFVersion
             };
             
             viewModel.RenderAccessibility(ActiveUser, this);
-
-            Repository<User>.GetInstance().AddData(ActiveUser);
-            Repository<User>.GetInstance().GetDataList().ToList().ForEach(x=> Debug.WriteLine(x.Name));
-            Debug.WriteLine("its a: " + Repository<User>.GetInstance().GetData(1).Name);
-    }
+        }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
