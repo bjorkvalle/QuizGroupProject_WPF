@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quiz_WPFVersion.HelperClass;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,12 @@ namespace Quiz_WPFVersion.View.Teacher
         public CreateQuiz()
         {
             InitializeComponent();
+        }
+
+        private void btnAddAlternative_Click(object sender, RoutedEventArgs e)
+        {
+            CreateQuestionHelper createQuizHelper = new CreateQuestionHelper(this);
+            createQuizHelper.CreateAlternativeSingleQuestionType();
         }
     }
 }

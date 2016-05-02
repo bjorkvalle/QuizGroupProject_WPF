@@ -1,22 +1,25 @@
-﻿<Page x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
-      mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="600"
+      xmlns:ViewModels="clr-namespace:Quiz_WPFVersion.ViewModels" x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
+
       Title="CreateQuiz">
+    <Page.DataContext>
+        <ViewModels:CreateQuizViewModel/>
+    </Page.DataContext>
     <Grid Background="{StaticResource backgroundOrangeLight}">
         <Grid Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
             <StackPanel Orientation="Vertical">
 
 
-                <TextBlock x:Name="blockHeader_Copy" TextWrapping="Wrap" Text="SKAPA ETT PROV" d:LayoutOverrides="LeftPosition, RightPosition" FontFamily="Segoe UI Semibold" FontSize="20"/>
-                <TextBlock x:Name="blockHeader_Copy1" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="13.333" d:LayoutOverrides="LeftPosition, RightPosition" Foreground="{DynamicResource fontColor}"/>
+                <TextBlock x:Name="blockHeader_Copy" TextWrapping="Wrap" Text="SKAPA ETT PROV"  FontFamily="Segoe UI Semibold" FontSize="20"/>
+                <TextBlock x:Name="blockHeader_Copy1" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="13.333"  Foreground="{DynamicResource fontColor}"/>
                 <Grid x:Name="gridRubrik" Height="38.92" Margin="0,25,0,0">
                     <TextBlock x:Name="blockHeader" TextWrapping="Wrap" Text="Rubrik" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource fontColor}"/>
-                    <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" d:LayoutOverrides="Height" Margin="0,15.96,0,5">
+                    <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,15.96,0,5">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
@@ -26,7 +29,7 @@
                 </Grid>
                 <Grid x:Name="gridBeskrivning" Height="38.92" Margin="0,5,0,0" MinHeight="99">
                     <TextBlock x:Name="blockHeader1" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
-                    <TextBox x:Name="txtbDescription" TextWrapping="Wrap" BorderBrush="{x:Null}" d:LayoutOverrides="Height" Margin="0,15.96,0,5">
+                    <TextBox x:Name="txtbDescription" TextWrapping="Wrap" BorderBrush="{x:Null}"  Margin="0,15.96,0,5">
                         <TextBox.Background>
                             <SolidColorBrush Color="White" Opacity="0.5"/>
                         </TextBox.Background>
@@ -34,26 +37,50 @@
 
 
                 </Grid>
-                <TextBlock x:Name="blockHeader1_Copy" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Margin="0,5,0,0"/>
-                <StackPanel x:Name="stackpanelAddCommand" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                    <Button x:Name="btnSingelQuestion" Content="Alternativ" Height="20.71" Margin="0" Background="#FFFFC000"/>
+                <Grid x:Name="gridAddQuestionType" Height="41.67">
+                    <TextBlock x:Name="blockHeader1_Copy" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top"/>
+                    <StackPanel x:Name="stackpanelAddCommand" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
+                        <Button x:Name="btnSingelQuestion" Content="Alternativ" Height="20.71" Margin="0" Background="#FFFFC000"/>
 
 
-                    <Button x:Name="btnMultiQuestion" Content="Flerval" Height="20.71" d:LayoutOverrides="LeftPosition, RightPosition" Background="#FFFFC000" Margin="5,0,0,0"/>
-                    <Button x:Name="btnRankQuestion" Content="Rangordning" Height="20.71" Margin="5,0,0,0" Background="#FFFFC000"/>
+                        <Button x:Name="btnMultiQuestion" Content="Flerval" Height="20.71"  Background="#FFFFC000" Margin="5,0,0,0"/>
+                        <Button x:Name="btnRankQuestion" Content="Rangordning" Height="20.71" Margin="5,0,0,0" Background="#FFFFC000"/>
 
 
-                </StackPanel>
-                <StackPanel x:Name="gridQuestion" Margin="0,15,0,0">
-                    <TextBlock x:Name="blockHeader1_Copy1" TextWrapping="Wrap" Text="Fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
-                    <TextBox x:Name="textBox" HorizontalAlignment="Left" TextWrapping="Wrap" Width="178.04" Height="17.96" d:LayoutOverrides="LeftPosition, RightPosition"/>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBlock x:Name="blockHeader1_Copy2" TextWrapping="Wrap" Text="Alternativ" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
                     </StackPanel>
-                    <TextBox x:Name="textBox_Copy" HorizontalAlignment="Left" TextWrapping="Wrap" Width="178.04" Height="17.96" d:LayoutOverrides="LeftPosition, RightPosition"/>
+                </Grid>
+                <ScrollViewer x:Name="ScrollQuestionContainer" Margin="0,15,-21,0" >
+                    <StackPanel x:Name="gridQuestion">
+                        <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" Text="Fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" />
+                        <StackPanel Orientation="Horizontal">
+                            <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" Opacity="0.5" MinWidth="387"/>
+                            <Image x:Name="image" Width="50" Height="50" Source="/Quiz_WPFVersion;component/Data/Images/1.png" HorizontalAlignment="Left" Margin="13,0,0,0"/>
+                        </StackPanel>
+                        <TextBlock x:Name="lblAlternative" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"  Margin="0,10,0,0"><Run Text="Alternativ"/></TextBlock>
+                        <StackPanel x:Name="AlternativeContainer1">
+                            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal">
+                                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="175" Width="426" Opacity="0.5"/>
+                                <RadioButton x:Name="rbtAlt" Margin="10,2,0,0" GroupName="Correct"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel x:Name="AlternativeContainer2" Margin="0,6,0,0">
+                            <StackPanel x:Name="Alternative1" HorizontalAlignment="Left" Orientation="Horizontal">
+                                <TextBox x:Name="txtbAlternative2" TextWrapping="Wrap" Height="17.96" MinWidth="175" Width="426" Opacity="0.5"/>
+                                <RadioButton x:Name="rbtAlt1" Margin="10,2,0,0" GroupName="Correct"/>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel x:Name="Alternative_QuestionMenu" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,10,0,0">
+                            <Button x:Name="btnAddAlternative" Content="+" Background="#FFFF9800" Width="25" Click="btnAddAlternative_Click"/>
 
 
-                </StackPanel>
+
+                        </StackPanel>
+
+
+                    </StackPanel>
+
+
+                </ScrollViewer>
 
 
             </StackPanel>

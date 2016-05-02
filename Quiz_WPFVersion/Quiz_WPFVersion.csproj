@@ -65,6 +65,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\QuizContext.cs" />
+    <Compile Include="HelperClass\CreateQuestionHelper.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Models\LoginHandler.cs" />
     <Compile Include="ViewModels\Command\TestCommand.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Enum\Enum_QuestionType.cs" />
     <Compile Include="Enum\Enum_UserType.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="ViewModels\CreateQuizViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
@@ -199,7 +201,9 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\Images\1.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\Images\Newton_Black.png" />
     <Resource Include="Data\Images\Newton_Gray.tif" />
