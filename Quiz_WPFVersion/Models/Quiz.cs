@@ -12,6 +12,7 @@ namespace Quiz_WPFVersion.Models
     {
         public int Id { get; set; }
         public string Title { get; set; }
+        public string Description { get; set; }
         public int GScore { get; set; }
         public int VGScore { get; set; }
         public DateTime? StartDate { get; set; }

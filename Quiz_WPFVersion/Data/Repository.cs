@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data.Entity;
 
 namespace Quiz_WPFVersion.Data
 {
@@ -42,8 +43,7 @@ namespace Quiz_WPFVersion.Data
             {
                 if (typeof(T) == typeof(User))
                 {
-                    var query = db.Users.Find(dataId);
-                    return (T)Convert.ChangeType(query as User, typeof(T));
+                    return (T)Convert.ChangeType(db.Users.Find(dataId) as User, typeof(T));
                 }
                 else
                     return (T)Convert.ChangeType(null, typeof(T));
