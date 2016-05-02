@@ -18,66 +18,68 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Orientation="Horizontal" Grid.Row="0" Background="{StaticResource backgroundGardinentOrange}">
+        <Grid x:Name="navMenu" Visibility="Collapsed">
+            <StackPanel Orientation="Horizontal" Grid.Row="0" Background="{StaticResource backgroundGardinentOrange}">
 
-            <!--Logo-->
-            <!--Home button / welcome screen -->
-            <Image x:Name="menuLogo" Width="117" Margin="25,0,0,0.4" Source="/Quiz_WPFVersion;component/Data/Images/Newton_White.png" Stretch="Uniform" Cursor="Hand" MouseLeftButtonDown="Button_Click" />
+                <!--Logo-->
+                <!--Home button / welcome screen -->
+                <Image x:Name="menuLogo" Width="117" Margin="25,0,0,0.4" Source="/Quiz_WPFVersion;component/Data/Images/Newton_White.png" Stretch="Uniform" Cursor="Hand" MouseLeftButtonDown="Button_Click" />
 
-            <GridSplitter x:Name="gridSplitter" Height="30" Width="2.5" Background="{DynamicResource NavigationColor}" Margin="30,0,0,0" Opacity="0.5"/>
+                <GridSplitter x:Name="gridSplitter" Height="30" Width="2.5" Background="{DynamicResource NavigationColor}" Margin="30,0,0,0" Opacity="0.5"/>
 
-            <!--See Quizzes-->
-            <Button x:Name="btnSeeQuizzes" Style="{StaticResource MyButtonStyle}" Width="50" Height="40" Click="Button_Click" Margin="25,8,0,0">
-                <Button.Template>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE7C5;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
-                            <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Se prov"/>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                <!--See Quizzes-->
+                <Button x:Name="btnSeeQuizzes" Style="{StaticResource MyButtonStyle}" Width="50" Height="40" Click="Button_Click" Margin="25,8,0,0">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE7C5;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
+                                <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Se prov"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
-            <!--Teacher-->
-            <!--Create Quiz--> 
-            <Button x:Name="btnCreateQuiz" Width="60" Height="40" Margin="25,8,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click">
-                <Button.Template>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8F4;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
-                            <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skapa prov"/>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                <!--Teacher-->
+                <!--Create Quiz-->
+                <Button x:Name="btnCreateQuiz" Width="60" Height="40" Margin="25,8,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8F4;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
+                                <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skapa prov"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
 
-            <!--Admin-->
+                <!--Admin-->
                 <!--send Quiz-->
-            <Button x:Name="btnSendQuiz" Width="60" Height="50" Margin="25,6,0,0"  Style="{StaticResource MyButtonStyle}" Click="Button_Click">
-                <Button.Template>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8CA;" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
-                            <TextBlock Margin="0,1" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skicka prov"/>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                <Button x:Name="btnSendQuiz" Width="60" Height="50" Margin="25,6,0,0"  Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8CA;" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
+                                <TextBlock Margin="0,1" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Skicka prov"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
-                    <!--Add remove user-->
-            <Button x:Name="btnAdministrate" Width="67" Height="40" Margin="25,6,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click">
-                <Button.Template>
-                    <ControlTemplate>
-                        <StackPanel>
-                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8D4;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
-                            <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Lägg/ta bort"/>
-                        </StackPanel>
-                    </ControlTemplate>
-                </Button.Template>
-            </Button>
+                <!--Add remove user-->
+                <Button x:Name="btnAdministrate" Width="67" Height="40" Margin="25,6,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE8D4;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource NavigationColor}"></TextBlock>
+                                <TextBlock Margin="0,0" Foreground="{DynamicResource NavigationColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Lägg/ta bort"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
 
-        </StackPanel>
+            </StackPanel>
+        </Grid>
         <Frame 
 			x:Name="MainFrame" 
 			Grid.Row="1"

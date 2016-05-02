@@ -32,7 +32,6 @@ namespace Quiz_WPFVersion
         public MainWindow()
         {
             InitializeComponent();
-            viewModel = this.DataContext as MainWindowViewModel;
             
             //Mock-up User
             User ActiveUser = new User

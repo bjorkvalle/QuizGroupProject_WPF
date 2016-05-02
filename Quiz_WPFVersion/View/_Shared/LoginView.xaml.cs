@@ -24,5 +24,10 @@ namespace Quiz_WPFVersion.View._Shared
         {
             InitializeComponent();
         }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
