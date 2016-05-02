@@ -33,7 +33,7 @@ namespace Quiz_WPFVersion
         {
             InitializeComponent();
             viewModel = this.DataContext as MainWindowViewModel;
-
+            
             //Mock-up User
             User ActiveUser = new User
             {
@@ -44,10 +44,7 @@ namespace Quiz_WPFVersion
             };
             
             viewModel.RenderAccessibility(ActiveUser, this);
-
-            Repository<User>.GetInstance().AddData(ActiveUser);
-            Debug.WriteLine("its a: " + Repository<User>.GetInstance().GetData(1).Name);
-    }
+        }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)
