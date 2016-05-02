@@ -26,7 +26,7 @@ namespace Quiz_WPFVersion.View.Teacher
             InitializeComponent();
         }
 
-        private void btnAddAlternative_Click(object sender, RoutedEventArgs e)
+        public void btnAddAlternative_Click(object sender, RoutedEventArgs e)
         {
             CreateQuestionHelper createQuizHelper = new CreateQuestionHelper(this);
             createQuizHelper.CreateAlternativeSingleQuestionType();

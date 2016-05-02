@@ -6,12 +6,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+
 
 namespace Quiz_WPFVersion.HelperClass
 {
     public class CreateQuestionHelper
     {
         private CreateQuiz crtQuizview { get; set; }
+        private static BrushConverter bc = new BrushConverter();
+
+
+
         private CreateQuestionHelper()
         {
             throw new ArgumentException("No argument constructor is not allowed");
@@ -24,6 +30,8 @@ namespace Quiz_WPFVersion.HelperClass
         public CreateQuestionHelper(CreateQuiz view)
         {
             crtQuizview = view;
+
+
         }
 
         //TextBox Alternative - SingelQtype
@@ -35,13 +43,14 @@ namespace Quiz_WPFVersion.HelperClass
         int alternativeCounter;
 
         public static int radioButtonGroupCounter;
+        UIElement[] xx = new UIElement[1];
 
         public void CreateAlternativeSingleQuestionType()
         {
             StackPanel stackOuter = new StackPanel
             {
                 Margin = new Thickness(0, 6, 0, 0),
-                
+
             };
 
 
@@ -69,7 +78,14 @@ namespace Quiz_WPFVersion.HelperClass
             stackInner.Children.Add(radioButton);
             stackOuter.Children.Add(stackInner);
 
+            //Get button, and remove button
+            Button addButtonAlternative = crtQuizview.gridQuestion.Children.OfType<Button>().FirstOrDefault();
+            crtQuizview.gridQuestion.Children.RemoveAt((crtQuizview.gridQuestion.Children.Count - 1));
+
+            //Add alternative and add button
             crtQuizview.gridQuestion.Children.Add(stackOuter);
+            crtQuizview.gridQuestion.Children.Add(addButtonAlternative);
+
         }
 
     }

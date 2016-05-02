@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       xmlns:ViewModels="clr-namespace:Quiz_WPFVersion.ViewModels" x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
-
-      Title="CreateQuiz">
-    <Page.DataContext>
+      mc:Ignorable="d" 
+      Title="CreateQuiz" d:DesignWidth="681.478" d:DesignHeight="626.371">
+    <!--<Page.DataContext>
         <ViewModels:CreateQuizViewModel/>
-    </Page.DataContext>
+    </Page.DataContext>-->
     <Grid Background="{StaticResource backgroundOrangeLight}">
         <Grid Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
             <StackPanel Orientation="Vertical">
@@ -37,50 +37,84 @@
 
 
                 </Grid>
-                <Grid x:Name="gridAddQuestionType" Height="41.67">
-                    <TextBlock x:Name="blockHeader1_Copy" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top"/>
-                    <StackPanel x:Name="stackpanelAddCommand" HorizontalAlignment="Left" Orientation="Horizontal" VerticalAlignment="Bottom">
-                        <Button x:Name="btnSingelQuestion" Content="Alternativ" Height="20.71" Margin="0" Background="#FFFFC000"/>
+                <Grid x:Name="gridAddQuestionType" Height="66.17">
+                    <StackPanel x:Name="menuAddQuestionType" d:LayoutOverrides="Width" Margin="0,4,0,0">
+                        <TextBlock x:Name="lblAddQuestion" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" d:LayoutOverrides="TopPosition, BottomPosition"/>
+                        <StackPanel x:Name="stackpanelAddCommand" Orientation="Horizontal"  Margin="0,9,0,0">
+
+                            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}"  Margin="0,0,0,0">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE73A;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
+                                            <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Alternativ"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+
+                            <Button x:Name="btnMultiQuestion" Style="{StaticResource MyButtonStyle}"  Margin="16,0,0,0">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE133;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}" Margin="0,-2,0,0"/>
+                                            <TextBlock Margin="0,-2,0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Flerval"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
+                            <!--&#xE133;-->
+                            
+                            <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0">
+                                <Button.Template>
+                                    <ControlTemplate>
+                                        <StackPanel>
+                                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE71D;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
+                                            <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Rank"/>
+                                        </StackPanel>
+                                    </ControlTemplate>
+                                </Button.Template>
+                            </Button>
 
 
-                        <Button x:Name="btnMultiQuestion" Content="Flerval" Height="20.71"  Background="#FFFFC000" Margin="5,0,0,0"/>
-                        <Button x:Name="btnRankQuestion" Content="Rangordning" Height="20.71" Margin="5,0,0,0" Background="#FFFFC000"/>
-
-
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
-                <ScrollViewer x:Name="ScrollQuestionContainer" Margin="0,15,-21,0" >
-                    <StackPanel x:Name="gridQuestion">
-                        <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" Text="Fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" />
-                        <StackPanel Orientation="Horizontal">
-                            <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" Opacity="0.5" MinWidth="387"/>
-                            <Image x:Name="image" Width="50" Height="50" Source="/Quiz_WPFVersion;component/Data/Images/1.png" HorizontalAlignment="Left" Margin="13,0,0,0"/>
+                <StackPanel x:Name="gridQuestion" Margin="0,15,0,0">
+                    <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" Text="Fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" />
+                    <StackPanel Orientation="Horizontal">
+                        <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" Opacity="0.5" MinWidth="387"/>
+                        <Border Width="50" Height="50" HorizontalAlignment="Left" Margin="13,0,0,0" BorderBrush="#FFB9B9B9" BorderThickness="1">
+                            <Image x:Name="image" Source="/Quiz_WPFVersion;component/Data/Images/1.png"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel x:Name="stkAltHeader" Orientation="Horizontal" Margin="0,14,0,0">
+                        <TextBlock x:Name="lblAlternative" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"><Run Text="Alternativ"/></TextBlock>
+                        <TextBlock x:Name="lblAlternative_Copy" TextWrapping="Wrap" FontFamily="Segoe UI Light" Foreground="{DynamicResource fontColor}" Text="Rätt" Margin="345,0,0,0"></TextBlock>
+                    </StackPanel>
+                    <StackPanel x:Name="AlternativeContainer1">
+                        <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                            <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="391" Opacity="0.5"/>
+                            <RadioButton x:Name="rbtAlt" Margin="10,2,0,0" GroupName="Correct"/>
+                            <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
                         </StackPanel>
-                        <TextBlock x:Name="lblAlternative" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"  Margin="0,10,0,0"><Run Text="Alternativ"/></TextBlock>
-                        <StackPanel x:Name="AlternativeContainer1">
-                            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal">
-                                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="175" Width="426" Opacity="0.5"/>
-                                <RadioButton x:Name="rbtAlt" Margin="10,2,0,0" GroupName="Correct"/>
-                            </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="AlternativeContainer2" Margin="0,6,0,0">
+                        <StackPanel x:Name="Alternative1" HorizontalAlignment="Left" Orientation="Horizontal">
+                            <TextBox x:Name="txtbAlternative2" TextWrapping="Wrap" Height="17.96" MinWidth="175" Width="391" Opacity="0.5"/>
+                            <RadioButton x:Name="rbtAlt1" Margin="10,2,0,0" GroupName="Correct"/>
+                            <Button x:Name="btnRemoveAlternative_Copy" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
                         </StackPanel>
-                        <StackPanel x:Name="AlternativeContainer2" Margin="0,6,0,0">
-                            <StackPanel x:Name="Alternative1" HorizontalAlignment="Left" Orientation="Horizontal">
-                                <TextBox x:Name="txtbAlternative2" TextWrapping="Wrap" Height="17.96" MinWidth="175" Width="426" Opacity="0.5"/>
-                                <RadioButton x:Name="rbtAlt1" Margin="10,2,0,0" GroupName="Correct"/>
-                            </StackPanel>
-                        </StackPanel>
-                        <StackPanel x:Name="Alternative_QuestionMenu" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,10,0,0">
-                            <Button x:Name="btnAddAlternative" Content="+" Background="#FFFF9800" Width="25" Click="btnAddAlternative_Click"/>
-
-
-
-                        </StackPanel>
-
-
                     </StackPanel>
 
+                    <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25" Click="btnAddAlternative_Click" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,10,0,0" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold"/>
 
-                </ScrollViewer>
+
+
+
+
+
+                </StackPanel>
 
 
             </StackPanel>
