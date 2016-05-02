@@ -22,6 +22,7 @@ namespace Quiz_WPFVersion.ViewModels
         ////public TestCommand testCommand { get; set; }
         private IRepository repository { get; set; }
         private User activeUser { get; set; }
+        public NavigationWindowView window { get; set; }
 
 
         public MainWindowViewModel()

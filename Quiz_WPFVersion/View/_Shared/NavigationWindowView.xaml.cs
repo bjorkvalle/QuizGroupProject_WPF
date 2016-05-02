@@ -16,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Quiz_WPFVersion.Models;
 
 namespace Quiz_WPFVersion.View._Shared
 {
@@ -24,16 +25,41 @@ namespace Quiz_WPFVersion.View._Shared
     /// </summary>
     public partial class NavigationWindowView : Page
     {
+
+        internal NavigationWindowViewModel viewModel;
         public NavigationWindowView()
         {
             InitializeComponent();
-        }
 
+            
+
+            User ActiveUser = new User
+            {
+                ID = 13,
+                Name = "Haroun",
+                Password = "123",
+                AcessLevel = Enum.UserType.Techer
+            };
+
+
+            viewModel = this.DataContext as NavigationWindowViewModel;
+            viewModel.RenderAccessibility(ActiveUser, this);
+
+
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //this.NavigationService.Navigate(new SeeQuizzes());
-            this.Content = new SeeQuiz();
-            //this.NavigationService.Source = new Uri("SeeQuizzes.xaml",UriKind.RelativeOrAbsolute);
+            Button senderButton = sender as Button;
+            if (sender == null || viewModel == null) return;
+            viewModel.Navigate(this, senderButton.Name);
+
+        }
+
+        private void Button_Click(object sender, MouseButtonEventArgs e)
+        {
+            Image senderImage = sender as Image;
+            if (senderImage == null || viewModel == null) return;
+            viewModel.Navigate(this, senderImage.Name);
         }
     }
 }
