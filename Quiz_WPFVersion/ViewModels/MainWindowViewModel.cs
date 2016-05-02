@@ -34,11 +34,11 @@ namespace Quiz_WPFVersion.ViewModels
             switch (command)
             {
                 case "menuLogo":
-                    if (activeUser.AcessLevel == UserType.Techer)
+                    if (activeUser.Type == UserType.Techer)
                     {
                         frame.Content = new TeacherView();
                     }
-                    else if (activeUser.AcessLevel == UserType.Admin)
+                    else if (activeUser.Type == UserType.Admin)
                     {
                         frame.Content = new AdminView();
                     }
@@ -63,12 +63,8 @@ namespace Quiz_WPFVersion.ViewModels
 
         public void RenderAccessibility(User user, MainWindow window)
         {
-<<<<<<< HEAD
             activeUser = user;
-            switch (user.AcessLevel)
-=======
             switch (user.Type)
->>>>>>> refs/remotes/origin/RepoSetup
             {
                 case UserType.Techer:
                     window.btnSendQuiz.Visibility = Visibility.Collapsed;
