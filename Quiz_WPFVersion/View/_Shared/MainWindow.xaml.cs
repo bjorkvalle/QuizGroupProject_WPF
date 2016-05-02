@@ -32,7 +32,11 @@ namespace Quiz_WPFVersion
         public MainWindow()
         {
             InitializeComponent();
-            viewModel = this.DataContext as MainWindowViewModel;
+            //using (var db = new QuizContext())
+            //{
+            //    db.Database.Delete();
+            //}
+                viewModel = this.DataContext as MainWindowViewModel;
 
             using(var db = new QuizContext())
             {
@@ -51,6 +55,7 @@ namespace Quiz_WPFVersion
             viewModel.RenderAccessibility(ActiveUser, this);
 
             Repository<User>.GetInstance().AddData(ActiveUser);
+            Repository<User>.GetInstance().GetDataList().ToList().ForEach(x=> Debug.WriteLine(x.Name));
             Debug.WriteLine("its a: " + Repository<User>.GetInstance().GetData(1).Name);
     }
 
