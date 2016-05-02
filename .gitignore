@@ -46,3 +46,5 @@ Network Trash Folder
 Temporary Items
 .apdisk
 /Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.i.lref
+/Quiz_WPFVersion/Migrations
+/Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.Migrations.init.resources
