@@ -34,6 +34,11 @@ namespace Quiz_WPFVersion
             InitializeComponent();
             viewModel = this.DataContext as MainWindowViewModel;
 
+            using(var db = new QuizContext())
+            {
+                db.Database.Delete();
+            }
+
             //Mock-up User
             User ActiveUser = new User
             {
