@@ -1,4 +1,5 @@
-﻿using Quiz_WPFVersion.Models;
+﻿using Quiz_WPFVersion.Data;
+using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.View._Shared;
 using Quiz_WPFVersion.View.Admin;
 using Quiz_WPFVersion.View.Teacher;
@@ -33,20 +34,20 @@ namespace Quiz_WPFVersion
             InitializeComponent();
             viewModel = this.DataContext as MainWindowViewModel;
 
-
             //Mock-up User
             User ActiveUser = new User
             {
-                ID = 13,
+                Id = 13,
                 Name = "Haroun",
                 Password = "123",
-                AcessLevel = Enum.UserType.Techer
+                Type = Enum.UserType.Techer
             };
-
-
+            
             viewModel.RenderAccessibility(ActiveUser, this);
 
-        }
+            Repository<User>.GetInstance().AddData(ActiveUser);
+            Debug.WriteLine("its a: " + Repository<User>.GetInstance().GetData(1).Name);
+    }
 
 
         private void Button_Click(object sender, RoutedEventArgs e)

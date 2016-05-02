@@ -63,8 +63,12 @@ namespace Quiz_WPFVersion.ViewModels
 
         public void RenderAccessibility(User user, MainWindow window)
         {
+<<<<<<< HEAD
             activeUser = user;
             switch (user.AcessLevel)
+=======
+            switch (user.Type)
+>>>>>>> refs/remotes/origin/RepoSetup
             {
                 case UserType.Techer:
                     window.btnSendQuiz.Visibility = Visibility.Collapsed;
