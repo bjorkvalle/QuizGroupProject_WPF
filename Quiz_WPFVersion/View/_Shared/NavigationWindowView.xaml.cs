@@ -35,10 +35,10 @@ namespace Quiz_WPFVersion.View._Shared
 
             User ActiveUser = new User
             {
-                ID = 13,
+                Id = 13,
                 Name = "Haroun",
                 Password = "123",
-                AcessLevel = Enum.UserType.Techer
+                Type = Enum.UserType.Techer
             };
 
 

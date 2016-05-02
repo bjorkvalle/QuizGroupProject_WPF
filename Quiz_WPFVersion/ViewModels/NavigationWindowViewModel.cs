@@ -31,12 +31,12 @@ namespace Quiz_WPFVersion.ViewModels
             switch (command)
             {
                 case "menuLogo":
-                    if (activeUser.AcessLevel == UserType.Techer)
+                    if (activeUser.Type == UserType.Techer)
                     {
                         
                         window.DetailFrame.Content = new TeacherView();
                     }
-                    else if (activeUser.AcessLevel == UserType.Admin)
+                    else if (activeUser.Type == UserType.Admin)
                     {
                         window.DetailFrame.Content = new AdminView();
                     }
@@ -63,15 +63,15 @@ namespace Quiz_WPFVersion.ViewModels
         {
             this.window = window;
             activeUser = user;
-            switch (user.AcessLevel)
+            switch (user.Type)
             {
                 case UserType.Techer:
                     window.btnSendQuiz.Visibility = Visibility.Collapsed;
                     window.btnAdministrate.Visibility = Visibility.Collapsed;
                     var page = new TeacherView();
-                    //window.NavigationService.Navigate(page,);
+                    
                     window.DetailFrame.Content = new TeacherView();
-                    //var x =  window.Parent;
+                    
                     break;
                 case UserType.Admin:
                     window.btnCreateQuiz.Visibility = Visibility.Collapsed;

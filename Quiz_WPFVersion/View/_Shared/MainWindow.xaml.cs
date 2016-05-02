@@ -32,8 +32,7 @@ namespace Quiz_WPFVersion
         public MainWindow()
         {
             InitializeComponent();
-            //MainFrame.Content = new NavigationWindowView();
-            //MainFrame.Content = new Login();
+            MainFrame.Content = new LoginView();
         }
     }
 }
