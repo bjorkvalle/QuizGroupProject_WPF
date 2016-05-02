@@ -66,6 +66,11 @@
     </ApplicationDefinition>
     <Compile Include="Data\QuizContext.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
+    <Compile Include="Migrations\201605020903085_init.cs" />
+    <Compile Include="Migrations\201605020903085_init.Designer.cs">
+      <DependentUpon>201605020903085_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="ViewModels\Command\TestCommand.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Enum\Enum_QuestionType.cs" />
@@ -176,6 +181,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201605020903085_init.resx">
+      <DependentUpon>201605020903085_init.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
