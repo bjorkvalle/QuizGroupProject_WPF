@@ -64,6 +64,7 @@ namespace Quiz_WPFVersion.ViewModels
         public void RenderAccessibility(User user, MainWindow window)
         {
             activeUser = user;
+
             switch (user.Type)
             {
                 case UserType.Techer:
