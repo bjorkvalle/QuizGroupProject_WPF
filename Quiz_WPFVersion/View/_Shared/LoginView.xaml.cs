@@ -32,46 +32,27 @@ namespace Quiz_WPFVersion.View._Shared
         {
             InitializeComponent();
 
-            User user = new User
-            {
-                Name = "Test",
-                Password = "123",
-                Type = UserType.Admin
-            };
+            //User user = new User
+            //{
+            //    Name = "Test2",
+            //    Password = "123",
+            //    Type = UserType.Teacher
+            //};
 
-            Repository<User>.GetInstance().AddData(user);
+            //Repository<User>.GetInstance().AddData(user);
 
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            User user = loginVM.LoginControll(UsernameBox.Text, PasswordBox.Text);
+            User user = loginVM.LoginControll(UsernameBox.Text, PasswordBox.Password);
 
             if (user != null)
-                UserTypeNavigation(user);
+                this.NavigationService.Navigate(new NavigationWindowView(user));
             else
             errormessageBox.Visibility = Visibility.Visible;
 
         }
-
-        private void UserTypeNavigation(User user)
-        {
-            switch(user.Type)
-            {
-                case UserType.Techer:
-                    teacherVM.GetUser(user);
-                    this.NavigationService.Navigate(new NavigationWindowView());
-                    break;
-                case UserType.Admin:
-                    adminVM.GetUser(user);
-                    this.NavigationService.Navigate(new NavigationWindowView());
-                    break;
-                default:
-                    break;
-
-            }
-        }
-
 
     }
 }
