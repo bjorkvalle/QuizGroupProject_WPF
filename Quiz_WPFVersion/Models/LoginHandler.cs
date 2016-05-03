@@ -17,19 +17,13 @@ namespace Quiz_WPFVersion.Models
 
             User currentUser = Repository<User>.GetInstance().GetDataList().FirstOrDefault(u => u.Name == username);
 
-            if (currentUser != null)
-                return CheckUserPassword(currentUser, password);
-            else
-                return null;
+            return currentUser != null ? CheckUserPassword(currentUser, password) : null;
 
         }
 
         public User CheckUserPassword(User user, string password)
         {
-            if (user.Password == password)
-                return user;
-            else
-                return null;
+            return user.Password == password ? user : null;
         }
 
 
