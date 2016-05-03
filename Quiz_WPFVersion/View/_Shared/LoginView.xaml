@@ -10,9 +10,12 @@
 
     <Grid Background="{StaticResource backgroundOrangeLight}">
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-            <TextBox Text="awdwadawd" Height="30" Width="150" FontSize="20" Name="UsernameBox"></TextBox>
-            <TextBox Text="awdwadawd" Height="30" Width="150" FontSize="20" Name="PasswordBox"></TextBox>
-            <Button Style="{StaticResource MyButtonStyle}" Content="Login" Click="LoginButton_Click"></Button>
+            <Label Content="Username"></Label>
+            <TextBox Height="30" Width="150" FontSize="20" Name="UsernameBox"></TextBox>
+            <Label Content="Password"></Label>
+            <TextBox Height="30" Width="150" FontSize="20" Name="PasswordBox"></TextBox>
+            <TextBlock Margin="0,5,0,0" Name="errormessageBox" Text="Incorrect username or password" Visibility="Collapsed"></TextBlock>
+            <Button Width="100" Margin="0,10,0,0" Content="Login" Click="LoginButton_Click"></Button>
         </StackPanel>
     </Grid>
 </Page>

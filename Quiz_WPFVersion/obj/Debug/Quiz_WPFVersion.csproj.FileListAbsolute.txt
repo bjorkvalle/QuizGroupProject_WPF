@@ -39,3 +39,44 @@ C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.P
 C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
 C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
 C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.exe.config
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.exe
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.pdb
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\bin\Debug\EntityFramework.dll
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\bin\Debug\EntityFramework.xml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csprojResolveAssemblyReference.cache
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Admin\AddRemoveUsers.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Admin\AdminView.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Student\StudentView.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Teacher\TeacherView.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Teacher\CreateQuiz.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\LoginView.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\MainWindow.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\NavigationWindowView.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\SeeQuiz.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\SendQuizzes.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Statistics.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\App.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion_MarkupCompile.cache
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion_MarkupCompile.lref
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\App.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Data\ResourceDictionary.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Admin\AddRemoveUsers.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Admin\AdminView.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Student\StudentView.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Teacher\TeacherView.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Teacher\CreateQuiz.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\LoginView.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\MainWindow.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\NavigationWindowView.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\SeeQuiz.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\SendQuizzes.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Statistics.baml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.g.resources
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Properties.Resources.resources
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
