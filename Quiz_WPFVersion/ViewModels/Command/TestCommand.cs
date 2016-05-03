@@ -28,7 +28,7 @@ namespace Quiz_WPFVersion.ViewModels.Command
 
         public void Execute(object parameter)
         {
-            this.ViewModelBase.Simple();
+            //this.ViewModelBase.Simple();
            
 
         }

@@ -27,39 +27,12 @@ namespace Quiz_WPFVersion
     /// </summary>
     public partial class MainWindow : Window
     {
-        internal MainWindowViewModel viewModel;
+        //internal MainWindowViewModel viewModel;
 
         public MainWindow()
         {
             InitializeComponent();
-            viewModel = this.DataContext as MainWindowViewModel;
-            
-            //Mock-up User
-            User ActiveUser = new User
-            {
-                Id = 13,
-                Name = "Haroun",
-                Password = "123",
-                Type = Enum.UserType.Techer
-            };
-            
-            viewModel.RenderAccessibility(ActiveUser, this);
-        }
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Button senderButton = sender as Button;
-            if (sender == null || viewModel == null) return;
-            viewModel.Navigate(MainFrame, senderButton.Name);
-
-        }
-
-        private void Button_Click(object sender, MouseButtonEventArgs e)
-        {
-            Image senderImage = sender as Image;
-            if (senderImage == null || viewModel == null) return;
-            viewModel.Navigate(MainFrame, senderImage.Name);
+            MainFrame.Content = new LoginView();
         }
     }
 }
