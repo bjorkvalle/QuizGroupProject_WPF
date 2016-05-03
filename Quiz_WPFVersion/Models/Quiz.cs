@@ -19,5 +19,6 @@ namespace Quiz_WPFVersion.Models
         public DateTime? EndDate { get; set; }
         public TimeSpan TimeLimit { get; set; } //correct type?
         public IList<Question> Questions { get; set; }
+        public bool ShowStudentResult { get; set; }
     }
 }

@@ -27,7 +27,8 @@ namespace Quiz_WPFVersion.View._Shared
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-
+            //If Acess is true!
+            this.NavigationService.Navigate(new NavigationWindowView());
         }
     }
 }

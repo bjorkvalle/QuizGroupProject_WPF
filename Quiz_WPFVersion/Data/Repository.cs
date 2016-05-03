@@ -110,7 +110,7 @@ namespace Quiz_WPFVersion.Data
 
                 return true;
             }
-            return false;
+            return false; // UnReachable code!
         }
         public bool DeleteData(T data)
         {
