@@ -1,0 +1,73 @@
+﻿Added database connection in student app
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 3 and 17 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# Changes to be committed:
+#	modified:   Quiz_StudentApp/App.config
+#	new file:   Quiz_StudentApp/Data/Repository.cs
+#	modified:   Quiz_StudentApp/Interfaces/IGenericRepository.cs
+#	modified:   Quiz_StudentApp/Interfaces/IRepository.cs
+#	modified:   Quiz_StudentApp/MainWindow.xaml.cs
+#	new file:   Quiz_StudentApp/Models/Alternative.cs
+#	new file:   Quiz_StudentApp/Models/Course.cs
+#	new file:   Quiz_StudentApp/Models/Education.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/AlternativeMap.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/CoursMap.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/EducationMap.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/QuestionMap.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/QuizMap.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/QuizPayloadMap.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/ResultMap.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/UserCoursMap.cs
+#	new file:   Quiz_StudentApp/Models/Mapping/UserMap.cs
+#	new file:   Quiz_StudentApp/Models/Question.cs
+#	new file:   Quiz_StudentApp/Models/Quiz.cs
+#	new file:   Quiz_StudentApp/Models/QuizContext.cs
+#	new file:   Quiz_StudentApp/Models/QuizPayload.cs
+#	new file:   Quiz_StudentApp/Models/Result.cs
+#	new file:   Quiz_StudentApp/Models/User.cs
+#	new file:   Quiz_StudentApp/Models/UserCourse.cs
+#	modified:   Quiz_StudentApp/Quiz_StudentApp.csproj
+#	new file:   Quiz_StudentApp/bin/Debug/EntityFramework.SqlServer.dll
+#	new file:   Quiz_StudentApp/bin/Debug/EntityFramework.SqlServer.xml
+#	new file:   Quiz_StudentApp/bin/Debug/EntityFramework.dll
+#	new file:   Quiz_StudentApp/bin/Debug/EntityFramework.xml
+#	new file:   Quiz_StudentApp/bin/Debug/Quiz_StudentApp.exe
+#	modified:   Quiz_StudentApp/bin/Debug/Quiz_StudentApp.exe.config
+#	new file:   Quiz_StudentApp/bin/Debug/Quiz_StudentApp.pdb
+#	modified:   Quiz_StudentApp/bin/Debug/Quiz_StudentApp.vshost.exe.config
+#	deleted:    Quiz_StudentApp/bin/Debug/Quiz_StudentApp.vshost.exe.manifest
+#	new file:   Quiz_StudentApp/obj/Debug/App.g.cs
+#	modified:   Quiz_StudentApp/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+#	new file:   Quiz_StudentApp/obj/Debug/MainWindow.baml
+#	new file:   Quiz_StudentApp/obj/Debug/MainWindow.g.cs
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.Properties.Resources.resources
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.csproj.FileListAbsolute.txt
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.csproj.GenerateResource.Cache
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.csprojResolveAssemblyReference.cache
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.exe
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.g.resources
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.pdb
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.cache
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.i.cache
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.lref
+#	new file:   Quiz_StudentApp/obj/Debug/TempPE/Properties.Resources.Designer.cs.dll
+#	new file:   Quiz_StudentApp/onrk0xf1.tmp_proj
+#	modified:   Quiz_WPFVersion/.vs/Quiz_WPFVersion/v14/.suo
+#	modified:   Quiz_WPFVersion/Quiz_WPFVersion.csproj
+#	modified:   Quiz_WPFVersion/bin/Debug/Quiz_WPFVersion.exe
+#	modified:   Quiz_WPFVersion/bin/Debug/Quiz_WPFVersion.pdb
+#	deleted:    Quiz_WPFVersion/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.csproj.FileListAbsolute.txt
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.csprojResolveAssemblyReference.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.exe
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.g.resources
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.pdb
+#	renamed:    Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.i.cache -> Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.lref
+#
+

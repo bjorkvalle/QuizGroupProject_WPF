@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quiz_WPFVersion.Interfaces
+namespace Quiz_StudentApp.Interfaces
 {
     public interface IGenericRepository<T>
     {

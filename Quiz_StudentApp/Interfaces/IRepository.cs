@@ -1,11 +1,11 @@
-﻿using Quiz_WPFVersion.Models;
+﻿using Quiz_StudentApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Quiz_WPFVersion.Interfaces
+namespace Quiz_StudentApp.Interfaces
 {
     public interface IRepository
     {
