@@ -16,19 +16,24 @@ using System.Windows.Shapes;
 namespace Quiz_WPFVersion.View._Shared
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for Login.xaml
     /// </summary>
-    public partial class LoginView : Page
+    public partial class Login : Page
     {
-        public LoginView()
+        public Login()
         {
             InitializeComponent();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
-            //If Acess is true!
+            //var x = this.Parent;
+            
             this.NavigationService.Navigate(new NavigationWindowView());
+
+            //this.Content = new NavigationWindow();
+
+            
         }
     }
 }
