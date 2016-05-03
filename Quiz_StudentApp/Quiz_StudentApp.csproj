@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BE160A47-C7C4-4334-BA12-660A0C3A21D5}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Quiz_StudentApp</RootNamespace>
     <AssemblyName>Quiz_StudentApp</AssemblyName>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -72,6 +75,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Data\Repository.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="MainWindow.xaml.cs">
@@ -80,6 +84,25 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Alternative.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\Mapping\AlternativeMap.cs" />
+    <Compile Include="Models\Mapping\CoursMap.cs" />
+    <Compile Include="Models\Mapping\EducationMap.cs" />
+    <Compile Include="Models\Mapping\QuestionMap.cs" />
+    <Compile Include="Models\Mapping\QuizMap.cs" />
+    <Compile Include="Models\Mapping\QuizPayloadMap.cs" />
+    <Compile Include="Models\Mapping\ResultMap.cs" />
+    <Compile Include="Models\Mapping\UserCoursMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Quiz.cs" />
+    <Compile Include="Models\QuizPayload.cs" />
+    <Compile Include="Models\QuizContext.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Models\UserCourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -108,7 +131,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Data\" />
     <Folder Include="Enums\" />
     <Folder Include="ViewModels\" />
     <Folder Include="Views\" />
