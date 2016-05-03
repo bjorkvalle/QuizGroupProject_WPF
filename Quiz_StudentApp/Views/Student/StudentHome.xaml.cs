@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quiz_StudentApp.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,12 @@ namespace Quiz_StudentApp.Views.Student
     /// </summary>
     public partial class StudentHome : Page
     {
-        public StudentHome()
+        public StudentHome(User user)
         {
             InitializeComponent();
+            //vm.ActiveUser = user;
+            //list1.ItemsSource = vm.DisplayListData<Quiz>();
+            //list2.ItemsSource = vm.DisplayListData<Result>();
         }
     }
 }
