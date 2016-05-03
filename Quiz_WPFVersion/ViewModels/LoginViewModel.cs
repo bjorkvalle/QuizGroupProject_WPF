@@ -14,6 +14,7 @@ namespace Quiz_WPFVersion.ViewModels
 
         public User LoginControll(string username, string password)
         {
+            //If true, grant acess
             return loginHandler.CheckUserInformation(username, password);
 
         }
