@@ -26,20 +26,9 @@ namespace Quiz_StudentApp
         public MainWindow()
         {
             InitializeComponent();
-
-            using(var db = new QuizContext())
-            {
-                User u = new User
-                {
-                    Name = "Timmy!",
-                    Password = "ymmiT"
-                };
-
-                Repository<User>.GetInstance().AddData(u);
-
-                string userName = Repository<User>.GetInstance().GetDataList().Last().Name;
-                Console.WriteLine(userName);
-            }
+            
+            string userName = Repository<User>.GetInstance().GetDataList().Last().Name;
+            Console.WriteLine(userName);
         }
     }
 }
