@@ -1,4 +1,5 @@
-﻿using Quiz_WPFVersion.View.Teacher;
+﻿using Quiz_WPFVersion.HelperClass.TemplateQuiz;
+using Quiz_WPFVersion.View.Teacher;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,37 +14,28 @@ namespace Quiz_WPFVersion.HelperClass
 {
     public class CreateQuestionHelper
     {
-        private CreateQuiz crtQuizview { get; set; }
-        private static BrushConverter bc = new BrushConverter();
+        private static CreateQuiz crtQuizview { get; set; }
+        private static BrushConverter brushConverter = new BrushConverter();
+        public static int radioButtonGroupCounter;
+        UIElement[] containButton = new UIElement[1];
+        containerAlt tempVisalAlt = new containerAlt();
+        double
+    txtbAltHeight = 18,
+    txtbAltWidth = 426,
+    txtbAltMinWidth = 175,
+    txtbOpacity = 0.5;
+        int alternativeCounter;
 
-
-
-        private CreateQuestionHelper()
+        public CreateQuestionHelper()
         {
-            throw new ArgumentException("No argument constructor is not allowed");
+
         }
 
-        /// <summary>
-        /// Send  CreateView
-        /// </summary>
-        /// <param name="view"></param>
         public CreateQuestionHelper(CreateQuiz view)
         {
             crtQuizview = view;
 
-
         }
-
-        //TextBox Alternative - SingelQtype
-        double
-            txtbAltHeight = 18,
-            txtbAltWidth = 426,
-            txtbAltMinWidth = 175,
-            txtbOpacity = 0.5;
-        int alternativeCounter;
-
-        public static int radioButtonGroupCounter;
-        UIElement[] xx = new UIElement[1];
 
         public void CreateAlternativeSingleQuestionType()
         {
@@ -60,22 +52,10 @@ namespace Quiz_WPFVersion.HelperClass
                 Orientation = Orientation.Horizontal
             };
 
-            TextBox textBox = new TextBox
-            {
-                //Name = "Alternavite" + alternativeCounter++.ToString(),
-                Height = txtbAltHeight,
-                Width = txtbAltWidth,
-                MinWidth = txtbAltMinWidth,
-                Opacity = txtbOpacity
-            };
 
-            RadioButton radioButton = new RadioButton
-            {
-                GroupName = radioButtonGroupCounter.ToString(),
-                Margin = new Thickness(10, 2, 0, 0),
-            };
-            stackInner.Children.Add(textBox);
-            stackInner.Children.Add(radioButton);
+            stackInner.Children.Add(tempVisalAlt.textBox);
+            stackInner.Children.Add(tempVisalAlt.radioButton);
+            stackInner.Children.Add(tempVisalAlt.removeButton);
             stackOuter.Children.Add(stackInner);
 
             //Get button, and remove button
@@ -86,6 +66,17 @@ namespace Quiz_WPFVersion.HelperClass
             crtQuizview.gridQuestion.Children.Add(stackOuter);
             crtQuizview.gridQuestion.Children.Add(addButtonAlternative);
 
+        }
+
+        public void RemoveAlternative(StackPanel stackAlternative)
+        {
+            crtQuizview.gridQuestion.Children.Remove(stackAlternative);
+        }
+
+        public void CreateQuestion()
+        {
+            tempVisualQuestionSingle test = new tempVisualQuestionSingle();
+            crtQuizview.gridQuestion.Children.Add(test.GetVisualQuestion());
         }
 
     }

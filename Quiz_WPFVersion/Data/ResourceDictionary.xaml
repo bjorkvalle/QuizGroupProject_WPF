@@ -47,6 +47,29 @@
                 </Setter.Value>
             </Setter>
         </Style>
+    
+    <!--<DataTemplate x:Key="ListView_Alternative2">
+        <Grid>
+            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}"/>
+                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
+                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>-->
+
+
+    <DataTemplate x:Key="listAlternative" >
+        <Grid>
+            <StackPanel x:Name="stackAlternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}"/>
+                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
+                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
 
 
 

@@ -66,7 +66,8 @@
     </ApplicationDefinition>
     <Compile Include="Data\QuizContext.cs" />
     <Compile Include="HelperClass\CreateQuestionHelper.cs" />
-    <Compile Include="HelperClass\TemplateQuiz\Alternative.cs" />
+    <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />
+    <Compile Include="HelperClass\TemplateQuiz\tempVisualQuestionSingle.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Models\LoginHandler.cs" />
     <Compile Include="ViewModels\Command\TestCommand.cs" />

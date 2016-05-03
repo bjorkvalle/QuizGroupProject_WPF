@@ -1,4 +1,5 @@
 ﻿using Quiz_WPFVersion.HelperClass;
+using Quiz_WPFVersion.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,15 +22,33 @@ namespace Quiz_WPFVersion.View.Teacher
     /// </summary>
     public partial class CreateQuiz : Page
     {
+        //public List<Alternative> alternative = new List<Alternative>();
+
+        public List<Alternative> alternative { get; set; }
+
         public CreateQuiz()
         {
             InitializeComponent();
+            alternative = new List<Alternative>();
+            listAlternative.ItemsSource = alternative;
         }
 
         public void btnAddAlternative_Click(object sender, RoutedEventArgs e)
         {
             CreateQuestionHelper createQuizHelper = new CreateQuestionHelper(this);
             createQuizHelper.CreateAlternativeSingleQuestionType();
+        }
+
+        private void btn_Add_alt_NEW(object sender, RoutedEventArgs e)
+        {
+            alternative.Add(new Alternative() { Title ="Hej", ScoreValue=35 });
+            listAlternative.ItemsSource = alternative;
+        }
+
+        private void btn_AddSignleQuestion(object sender, RoutedEventArgs e)
+        {
+            CreateQuestionHelper createQuizHelper = new CreateQuestionHelper(this);
+            createQuizHelper.CreateQuestion();
         }
     }
 }
