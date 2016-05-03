@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_StudentApp.Views.Student"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="400"
       Title="StudentHome">
 
     <Grid>
@@ -15,10 +15,47 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <ListView Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Namn" Width="200"  DisplayMemberBinding="{Binding Name}" />
+                    <GridViewColumn Header="Årskurs" Width="Auto" DisplayMemberBinding="{Binding Eductation}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <Button Margin="4" Name="btnNewQuiz" Content="Nya" Grid.Row="1" Grid.Column="0" Height="30" Width="60" Click="btnNewQuiz_Click"/>
+        <Button Margin="4" Name="btnOldQuiz" Content="Avklarade" Grid.Row="1" Grid.Column="1" Height="30" Width="60" Click="btnOldQuiz_Click" />
+
+        <ListView  Name="quizListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Titel" Width="Auto"  DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="Beskrivning" Width="Auto" DisplayMemberBinding="{Binding Description}" />
+                    <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate}" />
+                    <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate}" />
+                    <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <ListView Visibility="Collapsed"  Name="resultListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Titel" Width="Auto"  DisplayMemberBinding="{Binding Title}" />
+                    <GridViewColumn Header="Beskrivning" Width="Auto" DisplayMemberBinding="{Binding Description}" />
+                    <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate}" />
+                    <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate}" />
+                    <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
+                    <GridViewColumn Header="Antal Frågor" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+
 
     </Grid>
 </Page>

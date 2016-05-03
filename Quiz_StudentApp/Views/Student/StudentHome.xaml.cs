@@ -24,5 +24,15 @@ namespace Quiz_StudentApp.Views.Student
         {
             InitializeComponent();
         }
+
+        private void btnNewQuiz_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnOldQuiz_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
