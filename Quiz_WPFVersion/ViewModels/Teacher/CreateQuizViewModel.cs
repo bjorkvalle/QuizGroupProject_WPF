@@ -16,7 +16,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
         public CreateQuizViewModel()
         {
-            //questionList = new ObservableCollection<Question>();
+            questionList = new ObservableCollection<Question>();
             alternativeList = new ObservableCollection<Alternative>();
 
 
@@ -27,24 +27,44 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
                 ScoreValue = 45,
             });
 
-            //questionList.Add(new Question
-            //{
-            //    Id = 45,
-            //    Title = "KingKong",
-            //    Type = Enum.QuestionType.SingleChoiceQuestion,
-            //    Alternatives = new List<Alternative>(),
-            //});
+            questionList.Add(new Question
+            {
+                Id = 45,
+                Title = "KingKong",
+                Type = Enum.QuestionType.SingleChoiceQuestion,
 
-            //questionList.Add(new Question
-            //{
-            //    Title = "KorreBorre",
-            //    Type = Enum.QuestionType.SingleChoiceQuestion,
-            //});
-            //questionList.Add(new Question
-            //{
-            //    Title = "Fänrik",
-            //    Type = Enum.QuestionType.SingleChoiceQuestion,
-            //});
+                Alternatives = new List<Alternative>()
+                {
+                    new Alternative
+                        {
+                            Id = 45,
+                            Title = "Zorro",
+                            ScoreValue = 45,
+                        },
+                    new Alternative
+                    {
+                            Id = 45,
+                            Title = "Ghost",
+                            ScoreValue = 45,
+
+                    },
+                }
+
+
+            });
+
+            questionList.Add(new Question
+            {
+                Title = "KorreBorre",
+                Type = Enum.QuestionType.SingleChoiceQuestion,
+                Alternatives = new List<Alternative>(),
+            });
+            questionList.Add(new Question
+            {
+                Title = "Fänrik",
+                Type = Enum.QuestionType.SingleChoiceQuestion,
+                Alternatives = new List<Alternative>(),
+            });
         }
 
         public void AddNewItem(CreateQuiz view)
@@ -55,7 +75,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
                 Title = "KorreBorre",
                 Type = Enum.QuestionType.SingleChoiceQuestion,
                 Alternatives = new List<Alternative>(),
-                
+
             });
 
             //view.listQuestion.ItemsSource = questionList;

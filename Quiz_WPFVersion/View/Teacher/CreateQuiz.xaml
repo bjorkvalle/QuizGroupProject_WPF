@@ -36,7 +36,7 @@
                     <TextBlock x:Name="blockHeader" TextWrapping="Wrap" Text="Rubrik" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource fontColor}"/>
                     <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,15.96,0,5">
                         <TextBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0.5"/>
+                            <SolidColorBrush Color="#FFFFEBC7"/>
                         </TextBox.Background>
                     </TextBox>
 
@@ -46,7 +46,7 @@
                     <TextBlock x:Name="blockHeader1" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
                     <TextBox x:Name="txtbDescription" TextWrapping="Wrap" BorderBrush="{x:Null}"  Margin="0,15.96,0,5">
                         <TextBox.Background>
-                            <SolidColorBrush Color="White" Opacity="0.5"/>
+                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                         </TextBox.Background>
                     </TextBox>
 
@@ -90,7 +90,7 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
-                            <ComboBox x:Name="comboBox" Width="120"/>
+                            <ComboBox x:Name="comboBox" Width="120" Visibility="Collapsed"/>
 
 
                         </StackPanel>
@@ -137,16 +137,18 @@
 
 
                 </StackPanel>
-                <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Collapsed">
+                <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
                     <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
 
-                    <!--<ListView x:Name="listQuestion" ItemTemplate="{DynamicResource listQuestionItemTemplate}" Height="280.2">
-                        <ListView.View>
-                            <GridView>
-                                <GridViewColumn/>
-                            </GridView>
-                        </ListView.View>
-                    </ListView>-->
+                    <ListBox x:Name="listQuestion2" ItemTemplate="{DynamicResource listQuestionItemTemplate}" Height="304" ItemsSource="{Binding questionList}" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+
+                        <ListBox.BorderBrush>
+                            <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox" StartPoint="1,1">
+                                <GradientStop Color="#FF959595"/>
+                                <GradientStop Color="#FFFFD68F" Offset="1"/>
+                            </LinearGradientBrush>
+                        </ListBox.BorderBrush>
+                    </ListBox>
 
 
 
@@ -187,14 +189,14 @@
 
                 </StackPanel>
 
-                <ListView x:Name="listQuestion" ItemsSource="{Binding alternativeList}"  Margin="0,20,0.4,0" Height="105" IsSynchronizedWithCurrentItem="True"  >
+                <ListView x:Name="listQuestion" ItemsSource="{Binding alternativeList}"  Margin="0,20,0.4,0" Height="105" IsSynchronizedWithCurrentItem="True" Visibility="Collapsed"  >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="160" Header="Alternativ">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <TextBox Text="{Binding Title}"  Cursor="Hand" />
-                                        
+
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                             </GridViewColumn>
@@ -207,17 +209,17 @@
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
 
-                                
+
                             </GridViewColumn>
                         </GridView>
-                        
+
                     </ListView.View>
 
                 </ListView>
 
 
 
-                <Button x:Name="button" Content="Button" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Click="button_Click"/>
+                <Button x:Name="button" Content="Button" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Click="button_Click" Visibility="Collapsed"/>
             </StackPanel>
 
 

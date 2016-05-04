@@ -81,3 +81,4 @@ C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.
 C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
 C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csprojResolveAssemblyReference.cache
 C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Simple Styles.baml
+C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Simple Styles.baml
