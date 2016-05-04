@@ -4,15 +4,29 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
+      xmlns:local1="clr-namespace:Quiz_WPFVersion.Models"
+    
       xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher"
       x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
       mc:Ignorable="d" 
       Title="CreateQuiz" d:DesignWidth="681.478" d:DesignHeight="847.024">
+    <Page.Resources>
+        <ControlTemplate x:Key="ListViewControlTemplate1" TargetType="{x:Type ListView}">
+            <Grid Background="White" Height="54" VerticalAlignment="Top" DataContext="{Binding questionList}">
+                <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="22.222" TextWrapping="Wrap" VerticalAlignment="Top" Width="79.146" Text="{Binding Title}"/>
+                <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="25.4" Margin="61.2,0,0,0" TextWrapping="Wrap" Text="{Binding Type}" VerticalAlignment="Top" Width="131.4"/>
+                <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Stretch" Margin="197.6,1,187.98,0" Style="{DynamicResource SimpleCheckBox}" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
+            </Grid>
+        </ControlTemplate>
+    </Page.Resources>
+
     <Page.DataContext>
         <Teacher:CreateQuizViewModel/>
     </Page.DataContext>
+
     <Grid Background="{StaticResource backgroundOrangeLight}">
         <Grid Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+
             <StackPanel Orientation="Vertical">
 
 
@@ -76,12 +90,13 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
+                            <ComboBox x:Name="comboBox" Width="120"/>
 
 
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <StackPanel x:Name="gridQuestion" Margin="0,15,0,0" Visibility="Collapsed" d:IsHidden="True">
+                <StackPanel x:Name="gridQuestion" Margin="0,15,0,0" Visibility="Collapsed">
 
                     <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
 
@@ -122,15 +137,22 @@
 
 
                 </StackPanel>
-                <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0">
+                <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Collapsed">
                     <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
-                    <ListView x:Name="listQuestion" ItemTemplate="{DynamicResource listQuestionItemTemplate}" Height="280.2">
+
+                    <!--<ListView x:Name="listQuestion" ItemTemplate="{DynamicResource listQuestionItemTemplate}" Height="280.2">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
                             </GridView>
                         </ListView.View>
-                    </ListView>
+                    </ListView>-->
+
+
+
+
+
+
                     <StackPanel Orientation="Horizontal" d:IsHidden="True">
                         <TextBox x:Name="txtbQuestion1" TextWrapping="Wrap" Opacity="0.5" MinWidth="387" Visibility="Collapsed"/>
                         <Border Width="50" Height="50" HorizontalAlignment="Left" Margin="13,0,0,0" BorderBrush="#FFB9B9B9" BorderThickness="1" Visibility="Collapsed">
@@ -165,7 +187,37 @@
 
                 </StackPanel>
 
+                <ListView x:Name="listQuestion" ItemsSource="{Binding alternativeList}"  Margin="0,20,0.4,0" Height="105" IsSynchronizedWithCurrentItem="True"  >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="160" Header="Alternativ">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <TextBox Text="{Binding Title}"  Cursor="Hand" />
+                                        
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                            </GridViewColumn>
+                            <GridViewColumn Width="160" Header="Rätt svar">
+                                <GridViewColumn.CellTemplate>
 
+                                    <DataTemplate>
+
+                                        <RadioButton  Cursor="Hand" />
+                                    </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+
+                                
+                            </GridViewColumn>
+                        </GridView>
+                        
+                    </ListView.View>
+
+                </ListView>
+
+
+
+                <Button x:Name="button" Content="Button" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Click="button_Click"/>
             </StackPanel>
 
 

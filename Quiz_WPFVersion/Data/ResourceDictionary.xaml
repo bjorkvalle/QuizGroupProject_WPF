@@ -1,6 +1,6 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-                    xmlns:local="clr-namespace:Quiz_WPFVersion.Data" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Models="clr-namespace:Quiz_WPFVersion.Models" mc:Ignorable="d">
+                    xmlns:local="clr-namespace:Quiz_WPFVersion.Data" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:Models="clr-namespace:Quiz_WPFVersion.Models" xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher" mc:Ignorable="d">
 
 
     <!--Button wihtout mouseovereffect-->
@@ -85,7 +85,7 @@
     <DataTemplate x:Key="listQuestionItemTemplate" >
         <Grid d:DesignHeight="255.502">
             <Grid.DataContext>
-                <Models:Question/>
+                <Teacher:CreateQuizViewModel/>
             </Grid.DataContext>
             <StackPanel Margin="0,0,80,0" Orientation="Vertical" d:LayoutOverrides="Width">
                 <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="450" HorizontalAlignment="Right" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
