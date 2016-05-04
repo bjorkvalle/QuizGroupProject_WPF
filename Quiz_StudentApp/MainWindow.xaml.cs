@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quiz_StudentApp.Models;
 using Quiz_WPFVersion.Data;
+using Quiz_StudentApp.Views.Student;
 
 namespace Quiz_StudentApp
 {
@@ -26,9 +27,13 @@ namespace Quiz_StudentApp
         public MainWindow()
         {
             InitializeComponent();
-            
-            string userName = Repository<User>.GetInstance().GetDataList().Last().Name;
-            Console.WriteLine(userName);
+            //User currentUser = Repository<User>.GetInstance().GetData(1);
+            User currentUser = new User() {
+                Name = "Bengt",
+                Password = "123",
+                Type = 1
+            };
+            MainFrame.Content = new StudentHome(currentUser);
         }
     }
 }

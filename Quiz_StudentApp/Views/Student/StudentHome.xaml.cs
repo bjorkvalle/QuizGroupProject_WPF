@@ -21,9 +21,23 @@ namespace Quiz_StudentApp.Views.Student
     /// </summary>
     public partial class StudentHome : Page
     {
+        User _user;
+        IList<Quiz> _quizlist;
         public StudentHome(User user)
         {
+            
             InitializeComponent();
+            var quiz1 = new Quiz() { Title = "Quiz1", Description = "Blabla" };
+            //_quizlist.Add(quiz1);
+            //_quizlist.Add(new Quiz()
+            //{
+            //    Title = "Quiz2",
+            //    Description = "derpderp"
+            //});
+
+
+
+            _user = user;
             //vm.ActiveUser = user;
             //list1.ItemsSource = vm.DisplayListData<Quiz>();
             //list2.ItemsSource = vm.DisplayListData<Result>();
@@ -37,6 +51,13 @@ namespace Quiz_StudentApp.Views.Student
         private void btnOldQuiz_Click(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(_user.Name);
+            userInfoTemplate.DataContext = _user;
+            quizListTemplate.ItemsSource = _quizlist;
         }
     }
 }
