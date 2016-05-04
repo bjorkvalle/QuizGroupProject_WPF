@@ -25,6 +25,8 @@ namespace Quiz_WPFVersion.Models
         public DateTime? EndDate { get; set; }
         public TimeSpan TimeLimit { get; set; } //correct type?
         public bool ShowStudentResult { get; set; }
+        public bool SentToAdmin { get; set; }
+        public bool SentToStudent { get; set; }
         public int UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }

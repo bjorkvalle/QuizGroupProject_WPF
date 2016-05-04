@@ -14,7 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quiz_StudentApp.Models;
-using Quiz_WPFVersion.Data;
+using Quiz_StudentApp.Data;
 
 namespace Quiz_StudentApp
 {
