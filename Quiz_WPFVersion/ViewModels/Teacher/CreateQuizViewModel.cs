@@ -15,11 +15,11 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
         public CreateQuizViewModel()
         {
-            questionList.Add(new Question
-            {
-                Title = "Första",
-                Type = Enum.QuestionType.SingleChoiceQuestion,
-            });
+            //questionList.Add(new Question
+            //{
+            //    Title = "Första",
+            //    Type = Enum.QuestionType.SingleChoiceQuestion,
+            //});
         }
 
     }
