@@ -9,11 +9,12 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Quiz_StudentApp</RootNamespace>
     <AssemblyName>Quiz_StudentApp</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -67,6 +68,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Data\Repository.cs" />
+    <Compile Include="Models\Alternative.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\Mapping\AlternativeMap.cs" />
+    <Compile Include="Models\Mapping\CoursMap.cs" />
+    <Compile Include="Models\Mapping\EducationMap.cs" />
+    <Compile Include="Models\Mapping\QuestionMap.cs" />
+    <Compile Include="Models\Mapping\QuizMap.cs" />
+    <Compile Include="Models\Mapping\ResultMap.cs" />
+    <Compile Include="Models\Mapping\UserMap.cs" />
+    <Compile Include="Models\Question.cs" />
+    <Compile Include="Models\Quiz.cs" />
+    <Compile Include="Models\QuizContext.cs" />
+    <Compile Include="Models\Result.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Views\Student\StudentHome.xaml.cs">
       <DependentUpon>StudentHome.xaml</DependentUpon>
     </Compile>
@@ -78,10 +95,8 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Data\Repository.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
-    <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\_Shared\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -91,25 +106,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\Alternative.cs" />
-    <Compile Include="Models\Course.cs" />
-    <Compile Include="Models\Education.cs" />
-    <Compile Include="Models\Mapping\AlternativeMap.cs" />
-    <Compile Include="Models\Mapping\CoursMap.cs" />
-    <Compile Include="Models\Mapping\EducationMap.cs" />
-    <Compile Include="Models\Mapping\QuestionMap.cs" />
-    <Compile Include="Models\Mapping\QuizMap.cs" />
-    <Compile Include="Models\Mapping\QuizPayloadMap.cs" />
-    <Compile Include="Models\Mapping\ResultMap.cs" />
-    <Compile Include="Models\Mapping\UserCoursMap.cs" />
-    <Compile Include="Models\Mapping\UserMap.cs" />
-    <Compile Include="Models\Question.cs" />
-    <Compile Include="Models\Quiz.cs" />
-    <Compile Include="Models\QuizPayload.cs" />
-    <Compile Include="Models\QuizContext.cs" />
-    <Compile Include="Models\Result.cs" />
-    <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserCourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
