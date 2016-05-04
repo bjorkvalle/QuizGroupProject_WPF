@@ -19,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace Quiz_WPFVersion
 {
@@ -33,6 +34,28 @@ namespace Quiz_WPFVersion
         {
             InitializeComponent();
             MainFrame.Content = new LoginView();
+
+            //using (var db = new QuizContext())
+            //{
+            //    db.Database.Delete();
+            //}
+
+            //User user = new User();
+            //user.Name = "Timmy";
+
+            //user.Quizs.Add(new Quiz()
+            //{
+            //    Title = "TimmysQuiz1"
+            //});
+            //user.Quizs.Add(new Quiz()
+            //{
+            //    Title = "TimmysQuiz2"
+            //});
+
+            //Repository<User>.GetInstance().AddData(user);
+
+            //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
+            
         }
     }
 }
