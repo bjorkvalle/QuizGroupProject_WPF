@@ -7,9 +7,8 @@ namespace Quiz_StudentApp.Models
     {
         public User()
         {
-            this.QuizPayloads = new List<QuizPayload>();
+            this.Quizs = new List<Quiz>();
             this.Results = new List<Result>();
-            this.UserCourses = new List<UserCourse>();
             this.Courses = new List<Course>();
         }
 
@@ -19,9 +18,8 @@ namespace Quiz_StudentApp.Models
         public int Type { get; set; }
         public Nullable<int> EducationId_Id { get; set; }
         public virtual Education Education { get; set; }
-        public virtual ICollection<QuizPayload> QuizPayloads { get; set; }
+        public virtual ICollection<Quiz> Quizs { get; set; }
         public virtual ICollection<Result> Results { get; set; }
-        public virtual ICollection<UserCourse> UserCourses { get; set; }
         public virtual ICollection<Course> Courses { get; set; }
     }
 }

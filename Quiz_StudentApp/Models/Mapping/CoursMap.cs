@@ -22,7 +22,7 @@ namespace Quiz_StudentApp.Models.Mapping
                 .WithMany(t => t.Courses)
                 .Map(m =>
                     {
-                        m.ToTable("UserCourse1");
+                        m.ToTable("UserCourses");
                         m.MapLeftKey("Course_Id");
                         m.MapRightKey("User_Id");
                     });

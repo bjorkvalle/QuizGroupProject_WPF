@@ -35,6 +35,8 @@ namespace Quiz_WPFVersion
             InitializeComponent();
             MainFrame.Content = new LoginView();
 
+            Repository<User>.GetInstance().AddData(new User() { Name = "Timmy!" });
+
             //using (var db = new QuizContext())
             //{
             //    db.Database.Delete();
@@ -55,7 +57,7 @@ namespace Quiz_WPFVersion
             //Repository<User>.GetInstance().AddData(user);
 
             //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
-            
+
         }
     }
 }
