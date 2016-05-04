@@ -75,7 +75,7 @@
     <Compile Include="Enum\Enum_QuestionType.cs" />
     <Compile Include="Enum\Enum_UserType.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="ViewModels\CreateQuizViewModel.cs" />
+    <Compile Include="ViewModels\Teacher\CreateQuizViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
@@ -210,6 +210,10 @@
     <Resource Include="Data\Images\Newton_Black.png" />
     <Resource Include="Data\Images\Newton_Gray.tif" />
     <Resource Include="Data\Images\Newton_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\Admin\" />
+    <Folder Include="ViewModels\_Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

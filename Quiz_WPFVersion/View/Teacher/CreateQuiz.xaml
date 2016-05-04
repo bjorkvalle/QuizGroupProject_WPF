@@ -4,11 +4,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
-      xmlns:ViewModels="clr-namespace:Quiz_WPFVersion.ViewModels" x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
+      xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher"
+      x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
       mc:Ignorable="d" 
       Title="CreateQuiz" d:DesignWidth="681.478" d:DesignHeight="847.024">
     <Page.DataContext>
-        <ViewModels:CreateQuizViewModel/>
+        <Teacher:CreateQuizViewModel/>
     </Page.DataContext>
     <Grid Background="{StaticResource backgroundOrangeLight}">
         <Grid Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
@@ -64,7 +65,7 @@
                                 </Button.Template>
                             </Button>
                             <!--&#xE133;-->
-                            
+
                             <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0">
                                 <Button.Template>
                                     <ControlTemplate>
@@ -80,23 +81,23 @@
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <StackPanel x:Name="gridQuestion" Margin="0,15,0,0">
-                    
+                <StackPanel x:Name="gridQuestion" Margin="0,15,0,0" Visibility="Collapsed" d:IsHidden="True">
+
                     <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
-                    
+
                     <StackPanel Orientation="Horizontal">
                         <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" Opacity="0.5" MinWidth="387"/>
-                        
+
                         <Border Width="50" Height="50" HorizontalAlignment="Left" Margin="13,0,0,0" BorderBrush="#FFB9B9B9" BorderThickness="1">
-                            
+
                             <Image x:Name="image" Source="/Quiz_WPFVersion;component/Data/Images/1.png"/>
-                            
+
                         </Border>
                     </StackPanel>
-                    
+
                     <StackPanel x:Name="stkAltHeader" Orientation="Horizontal" Margin="0,14,0,0">
                         <TextBlock x:Name="lblAlternative" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"><Run Text="Alternativ"/></TextBlock>
-                        <TextBlock x:Name="lblAlternative_Copy" TextWrapping="Wrap" FontFamily="Segoe UI Light" Foreground="{DynamicResource fontColor}" Text="Rätt" Margin="345,0,0,0"></TextBlock>
+                        <TextBlock x:Name="lblAlternative_Copy" TextWrapping="Wrap" FontFamily="Segoe UI Light" Foreground="{DynamicResource fontColor}" Text="Rätt" Margin="345,0,0,0"/>
                     </StackPanel>
                     <!--<StackPanel x:Name="AlternativeContainer1">
                         <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
@@ -121,41 +122,41 @@
 
 
                 </StackPanel>
-                <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Collapsed">
-                    <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
-                    <StackPanel Orientation="Horizontal">
-                        <TextBox x:Name="txtbQuestion1" TextWrapping="Wrap" Opacity="0.5" MinWidth="387"/>
-                        <Border Width="50" Height="50" HorizontalAlignment="Left" Margin="13,0,0,0" BorderBrush="#FFB9B9B9" BorderThickness="1">
-                            <Image x:Name="image1" Source="/Quiz_WPFVersion;component/Data/Images/1.png"/>
-                        </Border>
-                    </StackPanel>
-                    <StackPanel x:Name="stkAltHeader1" Orientation="Horizontal" Margin="0,14,0,0">
-                        <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"><Run Text="Alternativ"/></TextBlock>
-                        <TextBlock x:Name="lblAlternative_Copy1" TextWrapping="Wrap" FontFamily="Segoe UI Light" Foreground="{DynamicResource fontColor}" Text="Rätt" Margin="345,0,0,0"/>
-                    </StackPanel>
-                    <StackPanel x:Name="AlternativeContainer3">
-                        <StackPanel x:Name="Alternative2" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                            <TextBox x:Name="txtbAlternative3" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="391" Opacity="0.5"/>
-                            <RadioButton x:Name="rbtAlt2" Margin="10,2,0,0" GroupName="Correct"/>
-                            <Button x:Name="btnRemoveAlternative1" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
-                        </StackPanel>
-                    </StackPanel>
-                    <StackPanel x:Name="AlternativeContainer4" Margin="0,6,0,0">
-                        <StackPanel x:Name="Alternative3" HorizontalAlignment="Left" Orientation="Horizontal">
-                            <TextBox x:Name="txtbAlternative4" TextWrapping="Wrap" Height="17.96" MinWidth="175" Width="391" Opacity="0.5"/>
-                            <RadioButton x:Name="rbtAlt3" Margin="10,2,0,0" GroupName="Correct"/>
-                            <Button x:Name="btnRemoveAlternative_Copy1" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
-                        </StackPanel>
-                    </StackPanel>
-
-                    <Button x:Name="btnAddAlternative1" Content="&#xE710;" Background="{x:Null}" Width="25" Click="btn_Add_alt_NEW" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,10,0,0" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold"/>
-                    <ListView x:Name="listAlternative" Height="153.6" ItemTemplate="{DynamicResource listAlternative}">
+                <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0">
+                    <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
+                    <ListView x:Name="listQuestion" ItemTemplate="{DynamicResource listQuestionItemTemplate}" Height="280.2">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn/>
                             </GridView>
                         </ListView.View>
                     </ListView>
+                    <StackPanel Orientation="Horizontal" d:IsHidden="True">
+                        <TextBox x:Name="txtbQuestion1" TextWrapping="Wrap" Opacity="0.5" MinWidth="387" Visibility="Collapsed"/>
+                        <Border Width="50" Height="50" HorizontalAlignment="Left" Margin="13,0,0,0" BorderBrush="#FFB9B9B9" BorderThickness="1" Visibility="Collapsed">
+                            <Image x:Name="image1" Source="/Quiz_WPFVersion;component/Data/Images/1.png" Visibility="Collapsed"/>
+                        </Border>
+                    </StackPanel>
+                    <StackPanel x:Name="stkAltHeader1" Orientation="Horizontal" Margin="0,14,0,0" d:IsHidden="True">
+                        <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed"><Run Text="Alternativ"/></TextBlock>
+                        <TextBlock x:Name="lblAlternative_Copy1" TextWrapping="Wrap" FontFamily="Segoe UI Light" Foreground="{DynamicResource fontColor}" Text="Rätt" Margin="345,0,0,0" Visibility="Collapsed"/>
+                    </StackPanel>
+                    <StackPanel x:Name="AlternativeContainer3" d:IsHidden="True">
+                        <StackPanel x:Name="Alternative2" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                            <TextBox x:Name="txtbAlternative3" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="391" Opacity="0.5" Visibility="Collapsed"/>
+                            <RadioButton x:Name="rbtAlt2" Margin="10,2,0,0" GroupName="Correct" Visibility="Collapsed"/>
+                            <Button x:Name="btnRemoveAlternative1" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" Visibility="Collapsed"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel x:Name="AlternativeContainer4" Margin="0,6,0,0" d:IsHidden="True">
+                        <StackPanel x:Name="Alternative3" HorizontalAlignment="Left" Orientation="Horizontal">
+                            <TextBox x:Name="txtbAlternative4" TextWrapping="Wrap" Height="17.96" MinWidth="175" Width="391" Opacity="0.5" Visibility="Collapsed"/>
+                            <RadioButton x:Name="rbtAlt3" Margin="10,2,0,0" GroupName="Correct" Visibility="Collapsed"/>
+                            <Button x:Name="btnRemoveAlternative_Copy1" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" Visibility="Collapsed"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <Button x:Name="btnAddAlternative1" Content="&#xE710;" Background="{x:Null}" Width="25" Click="btn_Add_alt_NEW" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,10,0,0" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Visibility="Collapsed" d:IsHidden="True"/>
 
 
 

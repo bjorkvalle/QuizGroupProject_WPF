@@ -29,26 +29,28 @@ namespace Quiz_WPFVersion.View.Teacher
         public CreateQuiz()
         {
             InitializeComponent();
-            alternative = new List<Alternative>();
-            listAlternative.ItemsSource = alternative;
+
+            DataContext = new Question { Id = 13, Title = "Hej", Type = Enum.QuestionType.MultiChoiceQuestion };
+            //alternative = new List<Alternative>();
+            //listAlternative.ItemsSource = alternative;
         }
 
         public void btnAddAlternative_Click(object sender, RoutedEventArgs e)
         {
-            CreateQuestionHelper createQuizHelper = new CreateQuestionHelper(this);
-            createQuizHelper.CreateAlternativeSingleQuestionType();
+            //CreateQuestionHelper createQuizHelper = new CreateQuestionHelper(this);
+            //createQuizHelper.CreateAlternativeSingleQuestionType();
         }
 
         private void btn_Add_alt_NEW(object sender, RoutedEventArgs e)
         {
-            alternative.Add(new Alternative() { Title ="Hej", ScoreValue=35 });
-            listAlternative.ItemsSource = alternative;
+            //alternative.Add(new Alternative() { Title ="Hej", ScoreValue=35 });
+            //listAlternative.ItemsSource = alternative;
         }
 
         private void btn_AddSignleQuestion(object sender, RoutedEventArgs e)
         {
-            CreateQuestionHelper createQuizHelper = new CreateQuestionHelper(this);
-            createQuizHelper.CreateQuestion();
+            //CreateQuestionHelper createQuizHelper = new CreateQuestionHelper(this);
+            //createQuizHelper.CreateQuestion();
         }
     }
 }
