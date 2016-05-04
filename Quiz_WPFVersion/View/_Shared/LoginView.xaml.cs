@@ -16,6 +16,7 @@ using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.ViewModels;
 using Quiz_WPFVersion.Enum;
 using Quiz_WPFVersion.Data;
+using System.Diagnostics;
 
 namespace Quiz_WPFVersion.View._Shared
 {
@@ -40,6 +41,7 @@ namespace Quiz_WPFVersion.View._Shared
             //};
 
             //Repository<User>.GetInstance().AddData(user);
+
 
         }
 

@@ -9,11 +9,6 @@ namespace Quiz_WPFVersion.ViewModels
 {
     class TeacherViewModel
     {
-        User user = null;
 
-        public void GetUser(User user)
-        {
-            this.user = user;
-        }
     }
 }

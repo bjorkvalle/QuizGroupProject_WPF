@@ -9,12 +9,6 @@ namespace Quiz_WPFVersion.ViewModels
 {
     class AdminViewModel
     {
-        User user = null;
-
-        public void GetUser(User user)
-        {
-            this.user = user;
-        }
 
     }
 }
