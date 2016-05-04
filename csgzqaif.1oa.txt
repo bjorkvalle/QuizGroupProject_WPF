@@ -1,0 +1,14 @@
+﻿updated backend and added example in mainwindow
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch studentHome
+# Your branch is behind 'origin/studentHome' by 2 commits, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes to be committed:
+#	modified:   Quiz_WPFVersion/Data/QuizContext.cs
+#	modified:   Quiz_WPFVersion/Models/Quiz.cs
+#	modified:   Quiz_WPFVersion/Models/User.cs
+#	modified:   Quiz_WPFVersion/View/_Shared/MainWindow.xaml.cs
+#
+
