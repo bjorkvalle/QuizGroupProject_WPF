@@ -4,11 +4,14 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_StudentApp.Views.Student"
+      xmlns:data="clr-namespace:Quiz_StudentApp.Models"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="400"
       Title="StudentHome">
 
+        <!--<DataTemplate DataType="{x:Type data:Quiz}">-->
     <Grid>
+            
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -31,7 +34,7 @@
         <Button Margin="4" Name="btnNewQuiz" Content="Nya" Grid.Row="1" Grid.Column="0" Height="30" Width="60" Click="btnNewQuiz_Click"/>
         <Button Margin="4" Name="btnOldQuiz" Content="Avklarade" Grid.Row="1" Grid.Column="1" Height="30" Width="60" Click="btnOldQuiz_Click" />
 
-        <ListView  Name="quizListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
+        <ListView ItemsSource="{Binding}"  Name="quizListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Titel" Width="Auto"  DisplayMemberBinding="{Binding Title}" />
@@ -58,4 +61,5 @@
 
 
     </Grid>
+        <!--</DataTemplate>-->
 </Page>
