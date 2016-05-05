@@ -19,3 +19,6 @@ C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\Student\StudentHome.baml
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\MainWindow.g.cs
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\MainWindow.baml
+C:\Users\david\Source\Repos\NGG4_WPF2\Quiz_StudentApp\bin\Debug\Quiz_StudentApp.exe.config
+C:\Users\david\Source\Repos\NGG4_WPF2\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.exe
+C:\Users\david\Source\Repos\NGG4_WPF2\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.pdb
