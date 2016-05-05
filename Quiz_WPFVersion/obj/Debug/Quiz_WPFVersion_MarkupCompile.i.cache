@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\
+C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_WPFVersion\obj\Debug\
 Quiz_WPFVersion
 none
 false
 DEBUG;TRACE
-C:\Users\Haron\Source\Repos\NGG4_WPF\Quiz_WPFVersion\App.xaml
-1337759122
+C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_WPFVersion\App.xaml
+141485704979
 
-44-247852390
-16-2082669278
-Data\ResourceDictionary.xaml;Simple Styles.xaml;View\Admin\AddRemoveUsers.xaml;View\Admin\AdminView.xaml;View\Student\StudentView.xaml;View\Teacher\TeacherView.xaml;View\Teacher\CreateQuiz.xaml;View\_Shared\LoginView.xaml;View\_Shared\MainWindow.xaml;View\_Shared\NavigationWindowView.xaml;View\_Shared\SeeQuiz.xaml;View\_Shared\SendQuizzes.xaml;View\_Shared\Statistics.xaml;
+45803351820
+16-636095371
+Data\ResourceDictionary.xaml;Data\ResourceDictionary2.xaml;Simple Styles.xaml;View\Admin\AddRemoveUsers.xaml;View\Admin\AdminView.xaml;View\Student\StudentView.xaml;View\Teacher\TeacherView.xaml;View\Teacher\CreateQuiz.xaml;View\_Shared\LoginView.xaml;View\_Shared\MainWindow.xaml;View\_Shared\NavigationWindowView.xaml;View\_Shared\SeeQuiz.xaml;View\_Shared\SendQuizzes.xaml;View\_Shared\Statistics.xaml;
 
 True
 
