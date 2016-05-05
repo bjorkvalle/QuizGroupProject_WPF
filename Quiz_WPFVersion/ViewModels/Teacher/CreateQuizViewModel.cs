@@ -3,16 +3,34 @@ using Quiz_WPFVersion.View.Teacher;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Quiz_WPFVersion.ViewModels.Teacher
 {
-    public class CreateQuizViewModel
+
+    //: INotifyPropertyChanged, INotifyCollectionChanged
+    public class CreateQuizViewModel 
     {
+        //public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        //public event NotifyCollectionChangedEventHandler CollectionChanged = delegate { };
+
         public ObservableCollection<Question> questionList { get; set; }
-        public ObservableCollection<Alternative> alternativeList { get; set; }
+        public ObservableCollection<Alternative> alternativeList
+        {
+            get;
+            //{
+            //    return alternativeList;
+            //}
+            set;
+            //{
+            //    alternativeList = value;
+            //    PropertyChanged(this, new PropertyChangedEventArgs("alternativeList"));
+            //}
+        }
 
         public CreateQuizViewModel()
         {
@@ -67,6 +85,72 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
             });
         }
 
+
+        public void AddSingelChoice_Question()
+        {
+            questionList.Add(new Question
+            {
+                Title = "Singel Choice",
+                Type = Enum.QuestionType.SingleChoiceQuestion,
+
+                Alternatives = new ObservableCollection<Alternative>
+                {
+                    new Alternative(), new Alternative(),
+                },
+
+            });
+
+        }
+
+
+
+        public void AddMultiChoice_Question()
+        {
+            questionList.Add(new Question
+            {
+                Title = "Multi Choice",
+                Type = Enum.QuestionType.MultiChoiceQuestion,
+
+                Alternatives = new ObservableCollection<Alternative>
+                {
+                    new Alternative(), new Alternative(),
+                },
+            });
+        }
+
+        public void AddRankChoice_Question()
+        {
+            questionList.Add(new Question
+            {
+                Title = "Rank Choice",
+                Type = Enum.QuestionType.MultiChoiceQuestion,
+
+                Alternatives = new ObservableCollection<Alternative>
+                {
+                    new Alternative(), new Alternative(),
+                },
+            });
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void AddNewItem(CreateQuiz view)
         {
             questionList.Add(new Question
@@ -80,6 +164,12 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
             //view.listQuestion.ItemsSource = questionList;
         }
+
+
+
+
+
+
 
     }
 }

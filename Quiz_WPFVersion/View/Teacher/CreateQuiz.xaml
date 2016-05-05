@@ -58,7 +58,7 @@
                         <TextBlock x:Name="lblAddQuestion" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" d:LayoutOverrides="TopPosition, BottomPosition"/>
                         <StackPanel x:Name="stackpanelAddCommand" Orientation="Horizontal"  Margin="0,9,0,0">
 
-                            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}"  Margin="0,0,0,0" Click="btn_AddSignleQuestion">
+                            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}"  Margin="0,0,0,0" Click="btn_AddSingleQuestion">
                                 <Button.Template>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -69,7 +69,7 @@
                                 </Button.Template>
                             </Button>
 
-                            <Button x:Name="btnMultiQuestion" Style="{StaticResource MyButtonStyle}"  Margin="16,0,0,0">
+                            <Button x:Name="btnMultiQuestion" Style="{StaticResource MyButtonStyle}"  Margin="16,0,0,0" Click="btnMultiQuestion_Click">
                                 <Button.Template>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -81,7 +81,7 @@
                             </Button>
                             <!--&#xE133;-->
 
-                            <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0">
+                            <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0" Click="btnRankQuestion_Click">
                                 <Button.Template>
                                     <ControlTemplate>
                                         <StackPanel>
