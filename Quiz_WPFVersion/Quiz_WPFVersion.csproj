@@ -67,6 +67,7 @@
     <Compile Include="Data\QuizContext.cs" />
     <Compile Include="HelperClass\CheckBoxConverter.cs" />
     <Compile Include="HelperClass\CreateQuestionHelper.cs" />
+    <Compile Include="HelperClass\QuestionTemplateSelector.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisualQuestionSingle.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
