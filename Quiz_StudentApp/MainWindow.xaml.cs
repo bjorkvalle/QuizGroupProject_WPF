@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using Quiz_StudentApp.Models;
 using Quiz_StudentApp.Data;
 using Quiz_StudentApp.ViewModels;
+using Quiz_StudentApp.Views.Student;
 
 namespace Quiz_StudentApp
 {
@@ -32,6 +33,14 @@ namespace Quiz_StudentApp
             Console.WriteLine(user.Name);
 
             Console.WriteLine(new HomeViewModel(user).GetUserQuizs());
+
+            //User currentUser = Repository<User>.GetInstance().GetData(1);
+            User currentUser = new User() {
+                Name = "Bengt",
+                Password = "123",
+                Type = 1
+            };
+            MainFrame.Content = new StudentHome(currentUser);
         }
     }
 }

@@ -81,6 +81,54 @@ namespace Quiz_StudentApp.Views.Student {
         #line default
         #line hidden
         
+        
+        #line 28 "..\..\..\..\Views\Student\StudentHome.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.StackPanel userInfoTemplate;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 30 "..\..\..\..\Views\Student\StudentHome.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock txtBlockName;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 42 "..\..\..\..\Views\Student\StudentHome.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnNewQuiz;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 43 "..\..\..\..\Views\Student\StudentHome.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.Button btnOldQuiz;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 45 "..\..\..\..\Views\Student\StudentHome.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListView quizListTemplate;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 56 "..\..\..\..\Views\Student\StudentHome.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.ListView resultListTemplate;
+        
+        #line default
+        #line hidden
+        
         private bool _contentLoaded;
         
         /// <summary>
@@ -112,30 +160,41 @@ namespace Quiz_StudentApp.Views.Student {
             switch (connectionId)
             {
             case 1:
-            this.userInfoTemplate = ((System.Windows.Controls.ListView)(target));
+            
+            #line 8 "..\..\..\..\Views\Student\StudentHome.xaml"
+            ((Quiz_StudentApp.Views.Student.StudentHome)(target)).Loaded += new System.Windows.RoutedEventHandler(this.Page_Loaded);
+            
+            #line default
+            #line hidden
             return;
             case 2:
+            this.userInfoTemplate = ((System.Windows.Controls.StackPanel)(target));
+            return;
+            case 3:
+            this.txtBlockName = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 4:
             this.btnNewQuiz = ((System.Windows.Controls.Button)(target));
             
-            #line 34 "..\..\..\..\Views\Student\StudentHome.xaml"
+            #line 42 "..\..\..\..\Views\Student\StudentHome.xaml"
             this.btnNewQuiz.Click += new System.Windows.RoutedEventHandler(this.btnNewQuiz_Click);
             
             #line default
             #line hidden
             return;
-            case 3:
+            case 5:
             this.btnOldQuiz = ((System.Windows.Controls.Button)(target));
             
-            #line 35 "..\..\..\..\Views\Student\StudentHome.xaml"
+            #line 43 "..\..\..\..\Views\Student\StudentHome.xaml"
             this.btnOldQuiz.Click += new System.Windows.RoutedEventHandler(this.btnOldQuiz_Click);
             
             #line default
             #line hidden
             return;
-            case 4:
+            case 6:
             this.quizListTemplate = ((System.Windows.Controls.ListView)(target));
             return;
-            case 5:
+            case 7:
             this.resultListTemplate = ((System.Windows.Controls.ListView)(target));
             return;
             }
