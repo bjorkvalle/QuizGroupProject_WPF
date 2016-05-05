@@ -24,5 +24,6 @@ namespace Quiz_WPFVersion.Models
         public Education EducationId { get; set; }
         public IList<Course> Courses { get; set; }
         public IList<Quiz> Quizs { get; set; }
+        public ICollection<Result> Results { get; set; }
     }
 }

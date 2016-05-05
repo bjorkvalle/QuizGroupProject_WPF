@@ -71,7 +71,6 @@
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Enums\Enum_QuestionType.cs" />
     <Compile Include="Enums\Enum_UserType.cs" />
-    <Compile Include="MainWindow.xaml.cs">
     <Compile Include="Views\_Shared\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>

@@ -1,5 +1,6 @@
 ﻿using Quiz_StudentApp.Data;
 using Quiz_StudentApp.Models;
+using Quiz_StudentApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,14 @@ namespace Quiz_StudentApp.Views.Student
     {
         User _user;
         IList<Quiz> _quizlist;
+        HomeViewModel vm;
+
         public StudentHome(User user)
         {
             
             InitializeComponent();
             _user = user;
-
+            vm = new HomeViewModel(_user);
         }
 
         private void btnNewQuiz_Click(object sender, RoutedEventArgs e)
@@ -44,8 +47,9 @@ namespace Quiz_StudentApp.Views.Student
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             Console.WriteLine(_user.Name);
-            userInfoTemplate.DataContext = _user;
-            quizListTemplate.ItemsSource = _quizlist;
+            userInfoTemplate.DataContext = vm;
+            quizListTemplate.ItemsSource = vm.UserQuizs;
+            resultListTemplate.ItemsSource = vm.UserResults;
         }
     }
 }

@@ -10,7 +10,6 @@
       d:DesignHeight="300" d:DesignWidth="400"
       Title="StudentHome">
     
-
         <!--<DataTemplate DataType="{x:Type data:Quiz}">-->
     <Grid>
             

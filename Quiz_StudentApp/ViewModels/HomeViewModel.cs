@@ -16,16 +16,19 @@ namespace Quiz_StudentApp.ViewModels
         {
             ActiveUser = user;
             UserQuizs = GetUserQuizs();
-            //UserResults = DisplayListData<Result>();
+            UserResults = GetUserResults();
         }
 
         public ObservableCollection<Quiz> GetUserQuizs()
         {
             var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(ActiveUser.Id).Id);
             return quizzes as ObservableCollection<Quiz>;
-            //ObservableCollection<Quiz> quizs = (Repository<Quiz>.GetInstance().GetDataList() as List<QuizPayload>).FindAll(x => x.UserId_Id == ActiveUser.Id)) as ObservableCollection<Quiz>;
+        }
 
-            //return GetListData<Quiz>() as ObservableCollection<Quiz>;
+        public ObservableCollection<Result> GetUserResults()
+        {
+            var results = Repository<Result>.GetInstance().GetDataList().Where(result => result.UserId_Id == Repository<User>.GetInstance().GetData(ActiveUser.Id).Id);
+            return results as ObservableCollection<Result>;
         }
     }
 }
