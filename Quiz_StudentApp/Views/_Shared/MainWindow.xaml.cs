@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quiz_StudentApp.Models;
 using Quiz_StudentApp.Data;
+using Quiz_StudentApp.ViewModels;
 
 namespace Quiz_StudentApp
 {
@@ -23,12 +24,14 @@ namespace Quiz_StudentApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        public MainWindow(User user1)
         {
             InitializeComponent();
             
-            string userName = Repository<User>.GetInstance().GetDataList().Last().Name;
-            Console.WriteLine(userName);
+            User user = Repository<User>.GetInstance().GetDataList().Last();
+            Console.WriteLine(user.Name);
+
+            Console.WriteLine(new HomeViewModel(user).GetUserQuizs());
         }
     }
 }

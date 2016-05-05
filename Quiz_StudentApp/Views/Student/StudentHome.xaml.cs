@@ -24,6 +24,7 @@ namespace Quiz_StudentApp.Views.Student
         public StudentHome(User user)
         {
             InitializeComponent();
+            
             //vm.ActiveUser = user;
             //list1.ItemsSource = vm.DisplayListData<Quiz>();
             //list2.ItemsSource = vm.DisplayListData<Result>();
@@ -31,7 +32,6 @@ namespace Quiz_StudentApp.Views.Student
 
         private void btnNewQuiz_Click(object sender, RoutedEventArgs e)
         {
-
         }
 
         private void btnOldQuiz_Click(object sender, RoutedEventArgs e)
