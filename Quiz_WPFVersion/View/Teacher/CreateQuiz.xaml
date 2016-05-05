@@ -141,7 +141,13 @@
                 <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
                     <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed"  Text="Fråga (TEMPLATE)"></TextBlock>
 
-                    <ListBox x:Name="listQuestion2"  Height="304" ItemsSource="{Binding questionList}" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1" ItemContainerStyle="{DynamicResource ListBox_Transparent}" >
+                    <ListBox ItemTemplateSelector="{StaticResource questionTemplateSelector}">
+                        
+                        
+                    </ListBox>
+                    
+                    
+                    <ListBox x:Name="listQuestion2"  Height="304" ItemsSource="{Binding questionList}" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1" ItemContainerStyle="{DynamicResource ListBox_Transparent}"  >
 
                         <ListBox.BorderBrush>
                             <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox" StartPoint="1,1">
