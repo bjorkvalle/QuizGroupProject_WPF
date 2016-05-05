@@ -27,11 +27,11 @@
         
         <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Vertical">
             <StackPanel Orientation="Vertical">
-                <TextBlock FontSize="12" Text="Välkommen "/>
+                <TextBlock FontSize="12" Text="Välkommen: "/>
                 <TextBlock x:Name="txtBlockName" Margin="8,0,0,0" FontSize="12" Text="{Binding Name}" />
             </StackPanel>
             <StackPanel Orientation="Vertical">
-                <TextBlock FontSize="12" Text="Välkommen "/>
+                <TextBlock FontSize="12" Text="Klass:  "/>
                 <TextBlock x:Name="txtBlockEducation" Margin="8,0,0,0" FontSize="12" Text="{Binding Education}" />
             </StackPanel>
         </StackPanel>

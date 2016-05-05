@@ -29,18 +29,18 @@ namespace Quiz_StudentApp
         {
             InitializeComponent();
 
-            User user = Repository<User>.GetInstance().GetData(1);
-            Console.WriteLine(user.Name);
+            //User user = Repository<User>.GetInstance().GetData(1);
+            //Console.WriteLine(user.Name);
 
            // Console.WriteLine(new HomeViewModel(user).GetUserQuizs());
 
             //User currentUser = Repository<User>.GetInstance().GetData(1);
-            //User currentUser = new User() {
-            //    Name = "Bengt",
-            //    Password = "123",
-            //    Type = 1
-            //};
-            MainFrame.Content = new StudentHome(user);
+            User currentUser = new User() {
+                Name = "bengt",
+                Password = "123",
+                Type = 1
+            };
+            MainFrame.Content = new StudentHome(currentUser);
 
         }
     }
