@@ -65,6 +65,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\QuizContext.cs" />
+    <Compile Include="Data\ResourceDictionary.xaml.cs">
+      <DependentUpon>ResourceDictionary.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HelperClass\CheckBoxConverter.cs" />
     <Compile Include="HelperClass\CreateQuestionHelper.cs" />
     <Compile Include="HelperClass\QuestionTemplateSelector.cs" />

@@ -38,51 +38,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
             alternativeList = new ObservableCollection<Alternative>();
 
 
-            alternativeList.Add(new Alternative
-            {
-                Id = 45,
-                Title = "KingKong",
-                ScoreValue = 45,
-            });
 
-            questionList.Add(new Question
-            {
-                Id = 45,
-                Title = "KingKong",
-                Type = Enum.QuestionType.SingleChoiceQuestion,
-
-                Alternatives = new List<Alternative>()
-                {
-                    new Alternative
-                        {
-                            Id = 45,
-                            Title = "Zorro",
-                            ScoreValue = 45,
-                        },
-                    new Alternative
-                    {
-                            Id = 45,
-                            Title = "Ghost",
-                            ScoreValue = 45,
-
-                    },
-                }
-
-
-            });
-
-            questionList.Add(new Question
-            {
-                Title = "KorreBorre",
-                Type = Enum.QuestionType.SingleChoiceQuestion,
-                Alternatives = new List<Alternative>(),
-            });
-            questionList.Add(new Question
-            {
-                Title = "Fänrik",
-                Type = Enum.QuestionType.SingleChoiceQuestion,
-                Alternatives = new List<Alternative>(),
-            });
         }
 
 
@@ -123,7 +79,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
             questionList.Add(new Question
             {
                 Title = "Rank Choice",
-                Type = Enum.QuestionType.MultiChoiceQuestion,
+                Type = Enum.QuestionType.RankQuestion,
 
                 Alternatives = new ObservableCollection<Alternative>
                 {
@@ -146,8 +102,53 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
 
 
+        #region Dont Need
+
+        //alternativeList.Add(new Alternative
+        //{
+        //    Id = 45,
+        //    Title = "KingKong",
+        //    ScoreValue = 45,
+        //});
+
+        //questionList.Add(new Question
+        //{
+        //    Id = 45,
+        //    Title = "KingKong",
+        //    Type = Enum.QuestionType.SingleChoiceQuestion,
+
+        //    Alternatives = new List<Alternative>()
+        //    {
+        //        new Alternative
+        //            {
+        //                Id = 45,
+        //                Title = "Zorro",
+        //                ScoreValue = 45,
+        //            },
+        //        new Alternative
+        //        {
+        //                Id = 45,
+        //                Title = "Ghost",
+        //                ScoreValue = 45,
+
+        //        },
+        //    }
 
 
+        //});
+
+        //questionList.Add(new Question
+        //{
+        //    Title = "KorreBorre",
+        //    Type = Enum.QuestionType.SingleChoiceQuestion,
+        //    Alternatives = new List<Alternative>(),
+        //});
+        //questionList.Add(new Question
+        //{
+        //    Title = "Fänrik",
+        //    Type = Enum.QuestionType.SingleChoiceQuestion,
+        //    Alternatives = new List<Alternative>(),
+        //});
 
 
 
@@ -168,6 +169,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
 
 
+        #endregion
 
 
 

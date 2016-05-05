@@ -51,7 +51,10 @@ namespace Quiz_WPFVersion.View.Teacher
         }
 
 
-
+        private void Test(object sender, RoutedEventArgs e)
+        {
+            var x = sender;
+        }
 
 
 
