@@ -3,8 +3,8 @@ Thumbs.db
 ehthumbs.db
 
 # David
-.suo
-.exe
+*.suo
+*.exe
 # Folder config file
 Desktop.ini
 
@@ -49,3 +49,18 @@ Network Trash Folder
 Temporary Items
 .apdisk
 *.suo
+/Quiz_WPFVersion/bin/Debug
+/Quiz_StudentApp/bin/Debug
+/Quiz_StudentApp/obj/Debug
+/Quiz_WPFVersion/obj/Debug/View/Admin
+/Quiz_WPFVersion/obj/Debug/View/Student
+/Quiz_WPFVersion/obj/Debug/View/Teacher
+/Quiz_WPFVersion/obj/Debug/View/_Shared
+/Quiz_WPFVersion/obj/Debug
+/Quiz_StudentApp/obj/Debug/GeneratedInternalTypeHelper.g.i.cs
+/Quiz_StudentApp/bin/Debug/Quiz_StudentApp.pdb
+/Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.cache
+/Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.i.cache
+/Quiz_StudentApp/obj/Debug
+/Quiz_StudentApp/obj/Debug/Views/Student
+/Quiz_StudentApp/bin/Debug/Quiz_StudentApp.exe
