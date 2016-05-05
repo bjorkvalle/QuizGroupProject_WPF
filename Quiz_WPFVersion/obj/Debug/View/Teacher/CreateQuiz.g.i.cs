@@ -171,70 +171,6 @@ namespace Quiz_WPFVersion.View.Teacher {
         #line hidden
         
         
-        #line 99 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.StackPanel gridQuestion;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 101 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock lblQuestionHeader;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 104 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBox txtbQuestion;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 108 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Image image;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 113 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.StackPanel stkAltHeader;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 114 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock lblAlternative;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 115 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock lblAlternative_Copy;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 132 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button btnAddAlternative;
-        
-        #line default
-        #line hidden
-        
-        
         #line 140 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.StackPanel gridQuestion_V_2;
@@ -487,90 +423,60 @@ namespace Quiz_WPFVersion.View.Teacher {
             this.comboBox = ((System.Windows.Controls.ComboBox)(target));
             return;
             case 17:
-            this.gridQuestion = ((System.Windows.Controls.StackPanel)(target));
-            return;
-            case 18:
-            this.lblQuestionHeader = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 19:
-            this.txtbQuestion = ((System.Windows.Controls.TextBox)(target));
-            return;
-            case 20:
-            this.image = ((System.Windows.Controls.Image)(target));
-            return;
-            case 21:
-            this.stkAltHeader = ((System.Windows.Controls.StackPanel)(target));
-            return;
-            case 22:
-            this.lblAlternative = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 23:
-            this.lblAlternative_Copy = ((System.Windows.Controls.TextBlock)(target));
-            return;
-            case 24:
-            this.btnAddAlternative = ((System.Windows.Controls.Button)(target));
-            
-            #line 132 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
-            this.btnAddAlternative.Click += new System.Windows.RoutedEventHandler(this.btnAddAlternative_Click);
-            
-            #line default
-            #line hidden
-            return;
-            case 25:
             this.gridQuestion_V_2 = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 26:
+            case 18:
             this.lblQuestionHeader1 = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 27:
+            case 19:
             this.listQuestion2 = ((System.Windows.Controls.ListBox)(target));
             return;
-            case 28:
+            case 20:
             this.txtbQuestion1 = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 29:
+            case 21:
             this.image1 = ((System.Windows.Controls.Image)(target));
             return;
-            case 30:
+            case 22:
             this.stkAltHeader1 = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 31:
+            case 23:
             this.lblAlternative1 = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 32:
+            case 24:
             this.lblAlternative_Copy1 = ((System.Windows.Controls.TextBlock)(target));
             return;
-            case 33:
+            case 25:
             this.AlternativeContainer3 = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 34:
+            case 26:
             this.Alternative2 = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 35:
+            case 27:
             this.txtbAlternative3 = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 36:
+            case 28:
             this.rbtAlt2 = ((System.Windows.Controls.RadioButton)(target));
             return;
-            case 37:
+            case 29:
             this.btnRemoveAlternative1 = ((System.Windows.Controls.Button)(target));
             return;
-            case 38:
+            case 30:
             this.AlternativeContainer4 = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 39:
+            case 31:
             this.Alternative3 = ((System.Windows.Controls.StackPanel)(target));
             return;
-            case 40:
+            case 32:
             this.txtbAlternative4 = ((System.Windows.Controls.TextBox)(target));
             return;
-            case 41:
+            case 33:
             this.rbtAlt3 = ((System.Windows.Controls.RadioButton)(target));
             return;
-            case 42:
+            case 34:
             this.btnRemoveAlternative_Copy1 = ((System.Windows.Controls.Button)(target));
             return;
-            case 43:
+            case 35:
             this.btnAddAlternative1 = ((System.Windows.Controls.Button)(target));
             
             #line 183 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
@@ -579,10 +485,10 @@ namespace Quiz_WPFVersion.View.Teacher {
             #line default
             #line hidden
             return;
-            case 44:
+            case 36:
             this.listQuestion = ((System.Windows.Controls.ListView)(target));
             return;
-            case 45:
+            case 37:
             this.button = ((System.Windows.Controls.Button)(target));
             
             #line 222 "..\..\..\..\View\Teacher\CreateQuiz.xaml"
