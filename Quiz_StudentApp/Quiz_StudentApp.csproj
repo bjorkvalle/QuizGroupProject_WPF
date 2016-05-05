@@ -72,6 +72,7 @@
     <Compile Include="Enums\Enum_QuestionType.cs" />
     <Compile Include="Enums\Enum_UserType.cs" />
     <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Views\_Shared\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Models\Alternative.cs" />
@@ -93,7 +94,7 @@
     <Compile Include="Views\Student\StudentHome.xaml.cs">
       <DependentUpon>StudentHome.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Views\_Shared\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -138,6 +139,7 @@
   <ItemGroup>
     <Folder Include="Views\_Shared\" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

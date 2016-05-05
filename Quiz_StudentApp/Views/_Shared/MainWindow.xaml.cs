@@ -18,7 +18,7 @@ using Quiz_StudentApp.Data;
 using Quiz_StudentApp.ViewModels;
 using Quiz_StudentApp.Views.Student;
 
-namespace Quiz_StudentApp
+namespace Quiz_StudentApp.Views._Shared
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
