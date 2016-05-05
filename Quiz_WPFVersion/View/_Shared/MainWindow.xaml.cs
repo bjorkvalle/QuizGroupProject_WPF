@@ -70,9 +70,9 @@ namespace Quiz_WPFVersion
 
             Repository<Question>.GetInstance().AddData(q);
 
-            Console.WriteLine(q.Alternatives.First().Id + ", " + q.Alternatives.First().questionId.Id.ToString());
-            Console.WriteLine(q.Alternatives.ToList()[1].Id + ", " + q.Alternatives.ToList()[1].questionId.Id.ToString());
-            Console.WriteLine(q.Alternatives.Last().Id + ", " + q.Alternatives.Last().questionId.Id.ToString());
+            Console.WriteLine(q.Alternatives.First().Id + ", " + q.Alternatives.First().QuestionId.ToString());
+            Console.WriteLine(q.Alternatives.ToList()[1].Id + ", " + q.Alternatives.ToList()[1].QuestionId.ToString());
+            Console.WriteLine(q.Alternatives.Last().Id + ", " + q.Alternatives.Last().QuestionId.ToString());
         }
     }
 }

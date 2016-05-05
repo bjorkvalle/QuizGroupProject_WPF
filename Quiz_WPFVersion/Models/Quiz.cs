@@ -28,8 +28,7 @@ namespace Quiz_WPFVersion.Models
         public bool ShowStudentResult { get; set; }
         public bool SentToAdmin { get; set; }
         public bool SentToStudent { get; set; }
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
+        public int? UserId { get; set; }
         public User User { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
     }

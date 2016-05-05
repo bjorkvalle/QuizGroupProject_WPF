@@ -11,11 +11,9 @@ namespace Quiz_WPFVersion.Models
     {
         public int Id { get; set; }
         public int Score { get; set; }
-        public int UserId { get; set; }
-        [ForeignKey("UserId")]
+        public int? User_Id { get; set; }
         public User User { get; set; }
-        public int QuizId { get; set; }
-        [ForeignKey("QuizId")]
+        public int? Quiz_Id { get; set; }
         public Quiz Quiz { get; set; }
     }
 }

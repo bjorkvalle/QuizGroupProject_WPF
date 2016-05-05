@@ -17,8 +17,7 @@ namespace Quiz_WPFVersion.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public int EducationId { get; set; }
-        [ForeignKey("EducationId")]
+        public int? EducationId { get; set; }
         public Education Education { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
