@@ -29,6 +29,7 @@ namespace Quiz_StudentApp.Views.Student
             
             InitializeComponent();
             _user = user;
+
         }
 
         private void btnNewQuiz_Click(object sender, RoutedEventArgs e)
