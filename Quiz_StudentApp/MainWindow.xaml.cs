@@ -42,6 +42,8 @@ namespace Quiz_StudentApp
             };
             MainFrame.Content = new StudentHome(currentUser);
 
+            
+
         }
     }
 }
