@@ -1,6 +1,7 @@
 ﻿using Quiz_WPFVersion.Data;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -13,7 +14,7 @@ namespace Quiz_WPFVersion.Models
     {
         public Quiz()
         {
-            Questions = new List<Question>();
+            Questions = new Collection<Question>();
         }
 
         public int Id { get; set; }
@@ -23,13 +24,13 @@ namespace Quiz_WPFVersion.Models
         public int VGScore { get; set; }
         public DateTime? StartDate { get; set; }
         public DateTime? EndDate { get; set; }
-        public TimeSpan TimeLimit { get; set; } //correct type?
+        public TimeSpan TimeLimit { get; set; }
         public bool ShowStudentResult { get; set; }
         public bool SentToAdmin { get; set; }
         public bool SentToStudent { get; set; }
         public int UserId { get; set; }
         [ForeignKey("UserId")]
         public User User { get; set; }
-        public IList<Question> Questions { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }
