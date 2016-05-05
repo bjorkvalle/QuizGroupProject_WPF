@@ -5,12 +5,13 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       xmlns:local1="clr-namespace:Quiz_WPFVersion.Models"
-    
+      xmlns:local3="clr-namespace:Quiz_WPFVersion.HelperClass"
       xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher"
       x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
       mc:Ignorable="d" 
       Title="CreateQuiz" d:DesignWidth="681.478" d:DesignHeight="847.024">
     <Page.Resources>
+        <local3:QuestionTemplSelect x:Key="questionTemplateSelector"/>
         <ControlTemplate x:Key="ListViewControlTemplate1" TargetType="{x:Type ListView}">
             <Grid Background="White" Height="54" VerticalAlignment="Top" DataContext="{Binding questionList}">
                 <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Height="22.222" TextWrapping="Wrap" VerticalAlignment="Top" Width="79.146" Text="{Binding Title}"/>
@@ -57,7 +58,7 @@
                         <TextBlock x:Name="lblAddQuestion" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" d:LayoutOverrides="TopPosition, BottomPosition"/>
                         <StackPanel x:Name="stackpanelAddCommand" Orientation="Horizontal"  Margin="0,9,0,0">
 
-                            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}"  Margin="0,0,0,0" Click="btn_AddSignleQuestion">
+                            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}"  Margin="0,0,0,0" Click="btn_AddSingelQuestion">
                                 <Button.Template>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -68,7 +69,7 @@
                                 </Button.Template>
                             </Button>
 
-                            <Button x:Name="btnMultiQuestion" Style="{StaticResource MyButtonStyle}"  Margin="16,0,0,0">
+                            <Button x:Name="btnMultiQuestion" Style="{StaticResource MyButtonStyle}"  Margin="16,0,0,0" Click="btnMultiQuestion_Click">
                                 <Button.Template>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -80,7 +81,7 @@
                             </Button>
                             <!--&#xE133;-->
 
-                            <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0">
+                            <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0" Click="btnRankQuestion_Click">
                                 <Button.Template>
                                     <ControlTemplate>
                                         <StackPanel>
@@ -90,13 +91,13 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
-                            <ComboBox x:Name="comboBox" Width="120" Visibility="Collapsed"/>
-
+                            <!--<ComboBox x:Name="comboBox" Width="120" Visibility="Collapsed"/>-->
 
                         </StackPanel>
                     </StackPanel>
                 </Grid>
-                <StackPanel x:Name="gridQuestion" Margin="0,15,0,0" Visibility="Collapsed">
+                
+                <!--<StackPanel x:Name="gridQuestion" Margin="0,15,0,0" Visibility="Collapsed">
 
                     <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
 
@@ -114,7 +115,7 @@
                         <TextBlock x:Name="lblAlternative" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"><Run Text="Alternativ"/></TextBlock>
                         <TextBlock x:Name="lblAlternative_Copy" TextWrapping="Wrap" FontFamily="Segoe UI Light" Foreground="{DynamicResource fontColor}" Text="Rätt" Margin="345,0,0,0"/>
                     </StackPanel>
-                    <!--<StackPanel x:Name="AlternativeContainer1">
+                    <StackPanel x:Name="AlternativeContainer1">
                         <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
                             <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="391" Opacity="0.5"/>
                             <RadioButton x:Name="rbtAlt" Margin="10,2,0,0" GroupName="Correct"/>
@@ -127,20 +128,20 @@
                             <RadioButton x:Name="rbtAlt1" Margin="10,2,0,0" GroupName="Correct"/>
                             <Button x:Name="btnRemoveAlternative_Copy" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
                         </StackPanel>
-                    </StackPanel>-->
+                    </StackPanel>
 
                     <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25" Click="btnAddAlternative_Click" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,10,0,0" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold"/>
+                </StackPanel>-->
 
 
 
 
 
-
-                </StackPanel>
+                    <!--Question ListBox-->
                 <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
-                    <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
+                    <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed"  Text="Fråga (TEMPLATE)"></TextBlock>
 
-                    <ListBox x:Name="listQuestion2" ItemTemplate="{DynamicResource listQuestionItemTemplate}" Height="304" ItemsSource="{Binding questionList}" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+                    <ListBox x:Name="listQuestion2"  Height="304" ItemsSource="{Binding questionList}" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1" ItemContainerStyle="{DynamicResource ListBox_Transparent}" >
 
                         <ListBox.BorderBrush>
                             <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox" StartPoint="1,1">
@@ -155,7 +156,7 @@
 
 
 
-                    <StackPanel Orientation="Horizontal" d:IsHidden="True">
+                    <!--<StackPanel Orientation="Horizontal" d:IsHidden="True">
                         <TextBox x:Name="txtbQuestion1" TextWrapping="Wrap" Opacity="0.5" MinWidth="387" Visibility="Collapsed"/>
                         <Border Width="50" Height="50" HorizontalAlignment="Left" Margin="13,0,0,0" BorderBrush="#FFB9B9B9" BorderThickness="1" Visibility="Collapsed">
                             <Image x:Name="image1" Source="/Quiz_WPFVersion;component/Data/Images/1.png" Visibility="Collapsed"/>
@@ -180,16 +181,11 @@
                         </StackPanel>
                     </StackPanel>
 
-                    <Button x:Name="btnAddAlternative1" Content="&#xE710;" Background="{x:Null}" Width="25" Click="btn_Add_alt_NEW" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,10,0,0" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Visibility="Collapsed" d:IsHidden="True"/>
-
-
-
-
-
+                    <Button x:Name="btnAddAlternative1" Content="&#xE710;" Background="{x:Null}" Width="25" Click="btn_Add_alt_NEW" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,10,0,0" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Visibility="Collapsed" d:IsHidden="True"/>-->
 
                 </StackPanel>
 
-                <ListView x:Name="listQuestion" ItemsSource="{Binding alternativeList}"  Margin="0,20,0.4,0" Height="105" IsSynchronizedWithCurrentItem="True" Visibility="Collapsed"  >
+                <!--<ListView x:Name="listQuestion" ItemsSource="{Binding alternativeList}"  Margin="0,20,0.4,0" Height="105" IsSynchronizedWithCurrentItem="True" Visibility="Collapsed"  >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="160" Header="Alternativ">
@@ -215,16 +211,10 @@
 
                     </ListView.View>
 
-                </ListView>
+                </ListView>-->
 
-
-
-                <Button x:Name="button" Content="Button" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Click="button_Click" Visibility="Collapsed"/>
+                <!--<Button x:Name="button" Content="Button" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Click="button_Click" Visibility="Collapsed"/>-->
             </StackPanel>
-
-
         </Grid>
-
-
     </Grid>
 </Page>

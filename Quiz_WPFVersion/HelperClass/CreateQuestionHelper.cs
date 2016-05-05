@@ -59,24 +59,24 @@ namespace Quiz_WPFVersion.HelperClass
             stackOuter.Children.Add(stackInner);
 
             //Get button, and remove button
-            Button addButtonAlternative = crtQuizview.gridQuestion.Children.OfType<Button>().FirstOrDefault();
-            crtQuizview.gridQuestion.Children.RemoveAt((crtQuizview.gridQuestion.Children.Count - 1));
+            //Button addButtonAlternative = crtQuizview.gridQuestion.Children.OfType<Button>().FirstOrDefault();
+            //crtQuizview.gridQuestion.Children.RemoveAt((crtQuizview.gridQuestion.Children.Count - 1));
 
-            //Add alternative and add button
-            crtQuizview.gridQuestion.Children.Add(stackOuter);
-            crtQuizview.gridQuestion.Children.Add(addButtonAlternative);
+            ////Add alternative and add button
+            //crtQuizview.gridQuestion.Children.Add(stackOuter);
+            //crtQuizview.gridQuestion.Children.Add(addButtonAlternative);
 
         }
 
         public void RemoveAlternative(StackPanel stackAlternative)
         {
-            crtQuizview.gridQuestion.Children.Remove(stackAlternative);
+            //crtQuizview.gridQuestion.Children.Remove(stackAlternative);
         }
 
         public void CreateQuestion()
         {
             tempVisualQuestionSingle test = new tempVisualQuestionSingle();
-            crtQuizview.gridQuestion.Children.Add(test.GetVisualQuestion());
+            //crtQuizview.gridQuestion.Children.Add(test.GetVisualQuestion());
         }
 
     }

@@ -81,5 +81,57 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
             //view.listQuestion.ItemsSource = questionList;
         }
 
+
+        public void AddSingelChoice_Question()
+        {
+            questionList.Add(new Question
+            {
+                Title = "Singel Choice",
+                Type = Enum.QuestionType.SingleChoiceQuestion,
+
+                Alternatives = new ObservableCollection<Alternative>
+                {
+                    new Alternative(), new Alternative(),
+                },
+
+            });
+
+
+
+        }
+
+
+
+        public void AddMultiChoice_Question()
+        {
+            questionList.Add(new Question
+            {
+                Title = "Multi Choice",
+                Type = Enum.QuestionType.MultiChoiceQuestion,
+
+                Alternatives = new ObservableCollection<Alternative>
+                {
+                    new Alternative(), new Alternative(),
+                },
+
+            });
+        }
+
+        public void AddRankChoice_Question()
+        {
+            questionList.Add(new Question
+            {
+                Title = "Rank Choice",
+                Type = Enum.QuestionType.MultiChoiceQuestion,
+
+                Alternatives = new ObservableCollection<Alternative>
+                {
+                    new Alternative(), new Alternative(),
+                },
+
+            });
+        }
+
+
     }
 }

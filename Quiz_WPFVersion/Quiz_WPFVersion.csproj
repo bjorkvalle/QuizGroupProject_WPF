@@ -67,6 +67,7 @@
     <Compile Include="Data\QuizContext.cs" />
     <Compile Include="HelperClass\CheckBoxConverter.cs" />
     <Compile Include="HelperClass\CreateQuestionHelper.cs" />
+    <Compile Include="HelperClass\QuestionTemplSelect.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisualQuestionSingle.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
@@ -113,6 +114,10 @@
     <Page Include="Data\ResourceDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Data\ResourceDictionary2.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Simple Styles.xaml">
       <Generator>MSBuild:Compile</Generator>

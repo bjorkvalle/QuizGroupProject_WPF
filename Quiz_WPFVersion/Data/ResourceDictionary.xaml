@@ -63,7 +63,7 @@
     </DataTemplate>-->
 
 
-
+        <!--ListView Orginal-->
     <DataTemplate x:Key="ListView_Alternative">
 
         <Grid>
@@ -80,6 +80,13 @@
 
         </Grid>
     </DataTemplate>
+    
+    
+    
+    
+    
+    
+    <!--Singel Question--> 
     <DataTemplate x:Key="listQuestionItemTemplate" >
         <Grid d:DesignHeight="255.502">
 
@@ -98,8 +105,24 @@
                     </Rectangle>
                 </StackPanel>
                 <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
-                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" ItemTemplate="{DynamicResource ListView_Alternative}" Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+                
+                
+                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}"  Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}">
+                                    <TextBox.Background>
+                                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                                    </TextBox.Background>
+                                </TextBox>
+                                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
+                                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+                            </StackPanel>
 
+                        </DataTemplate>
+                        
+                    </ListBox.ItemTemplate>
                 </ListBox>
                 <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold"/>
             </StackPanel>
