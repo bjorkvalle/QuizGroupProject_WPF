@@ -1,4 +1,4 @@
-﻿namespace Quiz_WPFVersion.Enum
+﻿namespace Quiz_StudentApp.Enum
 {
     public enum QuestionType
     {

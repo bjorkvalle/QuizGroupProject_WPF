@@ -27,7 +27,7 @@ namespace Quiz_StudentApp.ViewModels
 
         public ObservableCollection<Result> GetUserResults()
         {
-            var results = Repository<Result>.GetInstance().GetDataList().Where(result => result.UserId_Id == Repository<User>.GetInstance().GetData(ActiveUser.Id).Id);
+            var results = Repository<Result>.GetInstance().GetDataList().Where(result => result.User_Id == Repository<User>.GetInstance().GetData(ActiveUser.Id).Id);
             return results as ObservableCollection<Result>;
         }
     }

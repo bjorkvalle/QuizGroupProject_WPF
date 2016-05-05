@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using Quiz_StudentApp.Models;
 using Quiz_StudentApp.Views.Student;
+using Quiz_StudentApp.Data;
 
 namespace Quiz_StudentApp.Views._Shared
 {
@@ -18,6 +19,14 @@ namespace Quiz_StudentApp.Views._Shared
                 Password = "123",
                 Type = 1
             };
+
+            currentUser.Quizs.Add(new Quiz()
+            {
+                Title = "Quiz1"
+            });
+
+            Repository<User>.GetInstance().AddData(currentUser);
+
             MainFrame.Content = new StudentHome(currentUser);
 
             
