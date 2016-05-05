@@ -50,3 +50,5 @@ Temporary Items
 .apdisk
 *.suo
 
+/Quiz_WPFVersion/obj/Debug
+/Quiz_WPFVersion/bin/Debug
