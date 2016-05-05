@@ -17,7 +17,7 @@ namespace Quiz_WPFVersion.HelperClass
             FrameworkElement element = container as FrameworkElement;
             if (question == null || element == null) return null;
 
-            DataTemplate template = element.FindResource(question.Type.ToString()) as DataTemplate;
+            DataTemplate template = element.FindResource("listQuestionItemTemplate") as DataTemplate;
 
             return template;
         }

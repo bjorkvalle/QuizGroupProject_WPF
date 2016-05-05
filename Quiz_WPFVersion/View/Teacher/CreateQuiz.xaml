@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       xmlns:local1="clr-namespace:Quiz_WPFVersion.Models"
-    
+      xmlns:loc="clr-namespace:Quiz_WPFVersion.HelperClass"
       xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher"
       x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
       mc:Ignorable="d" 
@@ -18,6 +18,7 @@
                 <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Stretch" Margin="197.6,1,187.98,0" Style="{DynamicResource SimpleCheckBox}" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
             </Grid>
         </ControlTemplate>
+        <loc:QuestionTemplateSelector x:Key="Q_uestionTemplateSelector"/>
     </Page.Resources>
 
     <Page.DataContext>
@@ -140,7 +141,8 @@
                 <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
                     <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
 
-                    <ListBox x:Name="listQuestion2" ItemTemplate="{DynamicResource listQuestionItemTemplate}" Height="304" ItemsSource="{Binding questionList}" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+                    <ListBox x:Name="listQuestion2" Height="304" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1" ItemTemplateSelector="{Binding Mode=OneWay, Source={StaticResource Q_uestionTemplateSelector}}" ItemsSource="{Binding questionList}" >
+                        <!--ItemsSource="{Binding questionList}"   ItemContainerStyle="{DynamicResource ListBox_Transparent}" -->
 
                         <ListBox.BorderBrush>
                             <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox" StartPoint="1,1">

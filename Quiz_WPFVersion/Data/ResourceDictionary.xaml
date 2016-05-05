@@ -61,10 +61,8 @@
 
         </Grid>
     </DataTemplate>-->
-
-
-
-    <DataTemplate x:Key="ListView_Alternative">
+    
+    <!--<DataTemplate x:Key="ListView_Alternative">
 
         <Grid>
             <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
@@ -79,10 +77,12 @@
 
 
         </Grid>
-    </DataTemplate>
-    <DataTemplate x:Key="listQuestionItemTemplate" >
-        <Grid d:DesignHeight="255.502">
+    </DataTemplate>-->
 
+    <!--ListQuestion Template-->
+    <!-- Single-->
+    <DataTemplate x:Key="SingleChoiceQuestion" >
+        <Grid d:DesignHeight="255.502">
             <StackPanel Margin="0" Orientation="Vertical">
                 <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
                 <StackPanel x:Name="stackQuestion" Orientation="Horizontal" Width="Auto" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Margin="0,3,0,0">
@@ -98,14 +98,115 @@
                     </Rectangle>
                 </StackPanel>
                 <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
-                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" ItemTemplate="{DynamicResource ListView_Alternative}" Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
-
+                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}" >
+                    <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}">
+                                        <TextBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                                        </TextBox.Background>
+                                    </TextBox>
+                                    <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
+                                    <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
                 </ListBox>
                 <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold"/>
             </StackPanel>
         </Grid>
     </DataTemplate>
 
+
+    <!-- Multi-->
+    <DataTemplate x:Key="MultiChoiceQuestion" >
+        <Grid d:DesignHeight="255.502">
+            <StackPanel Margin="0" Orientation="Vertical">
+                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
+                <StackPanel x:Name="stackQuestion" Orientation="Horizontal" Width="Auto" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Margin="0,3,0,0">
+                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title}" MinWidth="200">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <Rectangle x:Name="image" Width="50" Height="50" Margin="15,0,0,0" Fill="#FFFFF7C4" VerticalAlignment="Stretch">
+                        <!--<Image.OpacityMask>
+                            <ImageBrush ImageSource="Images/1.png" Stretch="UniformToFill"/>
+                        </Image.OpacityMask>-->
+                    </Rectangle>
+                </StackPanel>
+                <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
+                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}" >
+                    <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title}" Margin="0,0,10,0">
+                                        <TextBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                                        </TextBox.Background>
+                                    </TextBox>
+                                    <CheckBox x:Name="checkBox" Padding="0" Margin="0,1,0,0">
+                                        <CheckBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                                        </CheckBox.Background>
+                                    </CheckBox>
+                                    <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+    <!-- Rank-->
+    <DataTemplate x:Key="RankQuestion" >
+        <Grid d:DesignHeight="255.502">
+            <StackPanel Margin="0" Orientation="Vertical">
+                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
+                <StackPanel x:Name="stackQuestion" Orientation="Horizontal" Width="Auto" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Margin="0,3,0,0">
+                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title}" MinWidth="200">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <Rectangle x:Name="image" Width="50" Height="50" Margin="15,0,0,0" Fill="#FFFFF7C4" VerticalAlignment="Stretch">
+                        <!--<Image.OpacityMask>
+                            <ImageBrush ImageSource="Images/1.png" Stretch="UniformToFill"/>
+                        </Image.OpacityMask>-->
+                    </Rectangle>
+                </StackPanel>
+                <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
+                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}" >
+                    <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}">
+                                        <TextBox.Background>
+                                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                                        </TextBox.Background>
+                                    </TextBox>
+                                    <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+                                </StackPanel>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+    <!--<<<< END  >>>>>-->
 
     <!--Transparent style-->
     <Style x:Key="ListBox_Transparent" TargetType="{x:Type ListBoxItem}">
