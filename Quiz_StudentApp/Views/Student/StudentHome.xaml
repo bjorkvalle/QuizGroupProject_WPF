@@ -25,19 +25,16 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
         
-        <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Horizontal">
-            <Label FontSize="12" Content="Välkommen"/>
-            <TextBlock x:Name="txtBlockName" FontSize="12" Text="{Binding Name}" />
+        <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Vertical">
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontSize="12" Text="Välkommen "/>
+                <TextBlock x:Name="txtBlockName" Margin="8,0,0,0" FontSize="12" Text="{Binding Name}" />
+            </StackPanel>
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontSize="12" Text="Välkommen "/>
+                <TextBlock x:Name="txtBlockEducation" Margin="8,0,0,0" FontSize="12" Text="{Binding Education}" />
+            </StackPanel>
         </StackPanel>
-        
-        <!--<ListView x:Name="userInfoTemplate" ItemsSource="{Binding}" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Namn" Width="200"  DisplayMemberBinding="{Binding Name}" />
-                    <GridViewColumn Header="Årskurs" Width="Auto" DisplayMemberBinding="{Binding Id}" />
-                </GridView>
-            </ListView.View>
-        </ListView>-->
 
         <Button Margin="4" Name="btnNewQuiz" Content="Nya" Grid.Row="1" Grid.Column="0" Height="30" Width="60" Click="btnNewQuiz_Click"/>
         <Button Margin="4" Name="btnOldQuiz" Content="Avklarade" Grid.Row="1" Grid.Column="1" Height="30" Width="60" Click="btnOldQuiz_Click" />

@@ -1,4 +1,5 @@
-﻿using Quiz_StudentApp.Models;
+﻿using Quiz_StudentApp.Data;
+using Quiz_StudentApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,18 +28,6 @@ namespace Quiz_StudentApp.Views.Student
         {
             
             InitializeComponent();
-
-            var quiz1 = new Quiz() { Title = "Quiz1", Description = "Blabla" };
-            //_quizlist.Add(quiz1);
-            //_quizlist.Add(new Quiz()
-            //{
-            //    Title = "Quiz2",
-            //    Description = "derpderp"
-            //});
-
-
-
-            _user = user;
 
         }
 

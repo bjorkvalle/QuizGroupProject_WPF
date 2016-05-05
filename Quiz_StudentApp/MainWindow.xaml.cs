@@ -25,22 +25,22 @@ namespace Quiz_StudentApp
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow(User user1)
+        public MainWindow()
         {
             InitializeComponent();
-            
-            User user = Repository<User>.GetInstance().GetDataList().Last();
+
+            User user = Repository<User>.GetInstance().GetData(1);
             Console.WriteLine(user.Name);
 
-            Console.WriteLine(new HomeViewModel(user).GetUserQuizs());
+           // Console.WriteLine(new HomeViewModel(user).GetUserQuizs());
 
             //User currentUser = Repository<User>.GetInstance().GetData(1);
-            User currentUser = new User() {
-                Name = "Bengt",
-                Password = "123",
-                Type = 1
-            };
-            MainFrame.Content = new StudentHome(currentUser);
+            //User currentUser = new User() {
+            //    Name = "Bengt",
+            //    Password = "123",
+            //    Type = 1
+            //};
+            MainFrame.Content = new StudentHome(user);
         }
     }
 }
