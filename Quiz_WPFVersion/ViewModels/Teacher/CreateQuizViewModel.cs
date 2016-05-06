@@ -32,21 +32,20 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         //    //}
         //}
         public ObservableCollection<Question> questionList { get; set; }
-
         public Command_Add_Alternative commandAdd_Alternative { get; set; }
         public Command_Remove_Alternative commandRemove_Alternative { get; set; }
-
         public Command_Remove_Question commandRemove_Question { get; set; }
+        public Command_Save_Quiz command_SaveQuiz { get; set; }
 
+        public CreateQuiz createQuizView { get; set; }
 
         public CreateQuizViewModel()
         {
             questionList = new ObservableCollection<Question>();
-            //alternativeList = new ObservableCollection<Alternative>();
             commandAdd_Alternative = new Command_Add_Alternative(this);
             commandRemove_Alternative = new Command_Remove_Alternative(this);
             commandRemove_Question = new Command_Remove_Question(this);
-
+            command_SaveQuiz = new Command_Save_Quiz(this);
         }
 
 
@@ -65,8 +64,6 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
             });
 
         }
-
-
 
         public void AddMultiChoice_Question()
         {
@@ -96,88 +93,24 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
             });
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        #region Dont Need
-
-        //alternativeList.Add(new Alternative
-        //{
-        //    Id = 45,
-        //    Title = "KingKong",
-        //    ScoreValue = 45,
-        //});
-
-        //questionList.Add(new Question
-        //{
-        //    Id = 45,
-        //    Title = "KingKong",
-        //    Type = Enum.QuestionType.SingleChoiceQuestion,
-
-        //    Alternatives = new List<Alternative>()
-        //    {
-        //        new Alternative
-        //            {
-        //                Id = 45,
-        //                Title = "Zorro",
-        //                ScoreValue = 45,
-        //            },
-        //        new Alternative
-        //        {
-        //                Id = 45,
-        //                Title = "Ghost",
-        //                ScoreValue = 45,
-
-        //        },
-        //    }
-
-
-        //});
-
-        //questionList.Add(new Question
-        //{
-        //    Title = "KorreBorre",
-        //    Type = Enum.QuestionType.SingleChoiceQuestion,
-        //    Alternatives = new List<Alternative>(),
-        //});
-        //questionList.Add(new Question
-        //{
-        //    Title = "Fänrik",
-        //    Type = Enum.QuestionType.SingleChoiceQuestion,
-        //    Alternatives = new List<Alternative>(),
-        //});
-
-
-
-        public void AddNewItem(CreateQuiz view)
+        public void SendInstanceView(CreateQuiz createQuizView)
         {
-            questionList.Add(new Question
-            {
-                Id = 25,
-                Title = "KorreBorre",
-                Type = Enum.QuestionType.SingleChoiceQuestion,
-                Alternatives = new List<Alternative>(),
-
-            });
-
-            //view.listQuestion.ItemsSource = questionList;
+            this.createQuizView = createQuizView;
         }
 
 
 
 
-        #endregion
+
+
+
+
+
+
+
+
+
+       
 
 
 

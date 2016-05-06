@@ -18,7 +18,12 @@
                 <CheckBox x:Name="checkBox" Content="CheckBox" HorizontalAlignment="Stretch" Margin="197.6,1,187.98,0" Style="{DynamicResource SimpleCheckBox}" VerticalAlignment="Top" d:LayoutOverrides="Width"/>
             </Grid>
         </ControlTemplate>
-        <loc:QuestionTemplateSelector x:Key="Q_uestionTemplateSelector"/>
+        <loc:QuestionTemplateSelector x:Key="questionTemplateSelector"/>
+
+        <!--<Style x:Key="txtbScoreValue_Style" TargetType="TextBox">
+            <EventSetter Event="FrameworkElement.KeyDown" Handler="txtbScoreValue_CheckValue" />
+        </Style>-->
+
     </Page.Resources>
 
     <Page.DataContext>
@@ -29,15 +34,11 @@
         <Grid Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
 
             <StackPanel Orientation="Vertical">
-
-
                 <TextBlock x:Name="lblHeader" TextWrapping="Wrap" Text="SKAPA ETT PROV"  FontFamily="Segoe UI Semibold" FontSize="20"/>
                 <TextBlock x:Name="lblHeader_under" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="13.333"  Foreground="{DynamicResource fontColor}"/>
                 <Grid x:Name="gridRubrik" Height="38.92" Margin="0,25,0,0">
                     <TextBlock x:Name="blockHeader" TextWrapping="Wrap" Text="Rubrik" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource fontColor}"/>
-                    <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,15.96,0,5" Background="#FFFFEBC7"/>
-
-
+                    <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,16,0,4.92" Background="#FFFFEBC7"/>
                 </Grid>
                 <Grid x:Name="gridBeskrivning" Height="38.92" Margin="0,5,0,0" MinHeight="99">
                     <TextBlock x:Name="blockHeader1" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
@@ -46,16 +47,12 @@
                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                         </TextBox.Background>
                     </TextBox>
-
-
                 </Grid>
+
                 <Grid x:Name="gridAddQuestionType" Height="66.17">
-
-
                     <StackPanel x:Name="menuAddQuestionType" d:LayoutOverrides="Width" Margin="0,4,0,0">
                         <TextBlock x:Name="lblAddQuestion" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" d:LayoutOverrides="TopPosition, BottomPosition"/>
                         <StackPanel x:Name="stackpanelAddCommand" Orientation="Horizontal"  Margin="0,9,0,0">
-
                             <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}"  Margin="0,0,0,0" Click="btn_AddSingleQuestion">
                                 <Button.Template>
                                     <ControlTemplate>
@@ -66,7 +63,6 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
-
                             <Button x:Name="btnMultiQuestion" Style="{StaticResource MyButtonStyle}"  Margin="16,0,0,0" Click="btnMultiQuestion_Click">
                                 <Button.Template>
                                     <ControlTemplate>
@@ -77,8 +73,6 @@
                                     </ControlTemplate>
                                 </Button.Template>
                             </Button>
-                            <!--&#xE133;-->
-
                             <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0" Click="btnRankQuestion_Click">
                                 <Button.Template>
                                     <ControlTemplate>
@@ -90,84 +84,33 @@
                                 </Button.Template>
                             </Button>
                             <ComboBox x:Name="comboBox" Width="120" Visibility="Collapsed"/>
-
-
                         </StackPanel>
                     </StackPanel>
                 </Grid>
+
                 <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
-
-
-
-
-
-
                     <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
-
-                    <ListBox x:Name="listQuestion2" Height="304" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1,1,1" ItemTemplateSelector="{Binding Mode=OneWay, Source={StaticResource Q_uestionTemplateSelector}}" ItemsSource="{Binding questionList}" ItemTemplate="{DynamicResource SingleChoiceQuestion}" >
+                    <ListBox x:Name="listQuestion2" Height="263" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1,1,1" ItemTemplateSelector="{Binding Mode=OneWay, Source={StaticResource questionTemplateSelector}}" ItemsSource="{Binding questionList}" ItemTemplate="{DynamicResource SingleChoiceQuestion}" ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderBrush="{x:Null}" >
                         <!--ItemsSource="{Binding questionList}"   ItemContainerStyle="{DynamicResource ListBox_Transparent}" -->
-
-                        <ListBox.BorderBrush>
-                            <LinearGradientBrush EndPoint="0,1" MappingMode="RelativeToBoundingBox" StartPoint="1,1">
-                                <GradientStop Color="#FF959595"/>
-                                <GradientStop Color="#FFFFD68F" Offset="1"/>
-                            </LinearGradientBrush>
-                        </ListBox.BorderBrush>
+                        <!--ItemTemplate="{DynamicResource SingleChoiceQuestion}"-->
                     </ListBox>
-
-
-
-
-
-
                 </StackPanel>
-                <Button x:Name="btnSaveQuiz" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,15,0,0">
-                    <Button.Template>
-                        <ControlTemplate>
-                            <StackPanel>
-                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#59214;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
-                                <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Spara"/>
-                            </StackPanel>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
 
-                <!--<ListView x:Name="listQuestion"   Margin="0,20,0.4,0" Height="105" IsSynchronizedWithCurrentItem="True" Visibility="Collapsed"  >
-                    <ListView.View>
-                        <GridView>
-                            <GridViewColumn Width="160" Header="Alternativ">
-                                <GridViewColumn.CellTemplate>
-                                    <DataTemplate>
-                                        <TextBox Text=""  Cursor="Hand" />
+                <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                    <Button x:Name="btnSaveQuiz" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,15,0,0" Command="{Binding command_SaveQuiz}" CommandParameter="{Binding}">
+                        <Button.Template>
+                            <ControlTemplate>
+                                <StackPanel>
+                                    <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#59214;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
+                                    <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Spara"/>
+                                </StackPanel>
+                            </ControlTemplate>
+                        </Button.Template>
+                    </Button>
+                    <Label x:Name="lblMessageBoard" Foreground="{DynamicResource fontColor}" Margin="12,15,12,12" Content=""/>
+                </StackPanel>
 
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-                            </GridViewColumn>
-                            <GridViewColumn Width="160" Header="Rätt svar">
-                                <GridViewColumn.CellTemplate>
-
-                                    <DataTemplate>
-
-                                        <RadioButton  Cursor="Hand" />
-                                    </DataTemplate>
-                                </GridViewColumn.CellTemplate>
-
-
-                            </GridViewColumn>
-                        </GridView>
-
-                    </ListView.View>
-
-                </ListView>
-
-
-
-                <Button x:Name="button" Content="Button" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Click="button_Click" Visibility="Collapsed"/>-->
             </StackPanel>
-
-
         </Grid>
-
-
     </Grid>
 </Page>

@@ -24,69 +24,35 @@ namespace Quiz_WPFVersion.View.Teacher
     public partial class CreateQuiz : Page
     {
 
-        CreateQuizViewModel vm;
+        CreateQuizViewModel viewModel;
 
 
         public CreateQuiz()
         {
             InitializeComponent();
-            vm = this.DataContext as CreateQuizViewModel;
+            viewModel = this.DataContext as CreateQuizViewModel;
+            viewModel.SendInstanceView(this);
         }
 
 
 
         private void btnMultiQuestion_Click(object sender, RoutedEventArgs e)
         {
-            vm.AddMultiChoice_Question();
+            viewModel.AddMultiChoice_Question();
         }
 
         private void btnRankQuestion_Click(object sender, RoutedEventArgs e)
         {
-            vm.AddRankChoice_Question();
+            viewModel.AddRankChoice_Question();
         }
 
         private void btn_AddSingleQuestion(object sender, RoutedEventArgs e)
         {
-            vm.AddSingelChoice_Question();
-        }
-
-
-        private void Test(object sender, RoutedEventArgs e)
-        {
-            var x = sender;
+            viewModel.AddSingelChoice_Question();
         }
 
 
 
-
-
-
-        ///----------------------------///
-        ///     TA BORT               ///
-
-
-
-
-
-        public void btnAddAlternative_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn_Add_alt_NEW(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void btn_AddSignleQuestion(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
 
     }

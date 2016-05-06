@@ -1,4 +1,5 @@
-﻿using Quiz_WPFVersion.ViewModels.Teacher;
+﻿using Quiz_WPFVersion.Models;
+using Quiz_WPFVersion.ViewModels.Teacher;
 using System;
 
 using System.Windows.Input;
@@ -16,10 +17,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
             this.vModel = vModel;
         }
 
-        //public Command_Remove_Question()
-        //{
 
-        //}
 
         public bool CanExecute(object parameter)
         {
@@ -28,7 +26,8 @@ namespace Quiz_WPFVersion.HelperClass.Command
 
         public void Execute(object parameter)
         {
-            //throw new NotImplementedException();
+            var selObj = parameter as Question;
+            vModel.questionList.Remove(selObj);
         }
     }
 }

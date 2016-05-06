@@ -5,12 +5,47 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                     xmlns:Models="clr-namespace:Quiz_WPFVersion.Models" 
                     xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher" 
+                    xmlns:HelperClass="clr-namespace:Quiz_WPFVersion.HelperClass" 
+                    x:Class="Quiz_WPFVersion.Data.ResourceDictionary"
+                    x:ClassModifier="public"
                     mc:Ignorable="d">
-    <!--x:Class="Quiz_WPFVersion.Data.ResourceDictionary"
-                    x:ClassModifier="public"-->
 
 
     <!--Button wihtout mouseovereffect-->
+
+    <!--<DataTemplate x:Key="ListView_Alternative2">
+        <Grid>
+            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}"/>
+                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
+                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>-->
+
+    <!--<DataTemplate x:Key="ListView_Alternative">
+
+        <Grid>
+            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </TextBox.Background>
+                </TextBox>
+                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
+                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>-->
+
+    <!--ListQuestion Template-->
+    <!--<<<< END  >>>>>-->
+
+    <HelperClass:CheckBoxConverter x:Key="CheckBoxConverter"/>
     <!--Background Color for all sites-->
     <SolidColorBrush x:Key="background" Color="White"/>
 
@@ -57,43 +92,19 @@
     </Style>
     <Color x:Key="TextBox_Background_LightYellow">#FFFFEBC7</Color>
 
-    <!--<DataTemplate x:Key="ListView_Alternative2">
-        <Grid>
-            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}"/>
-                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
-                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
-            </StackPanel>
+    <!--EventHandler-->
+    <!--<Style x:Key="txtbScoreValue_Style" TargetType="TextBox">
+        <EventSetter Event="FrameworkElement.KeyDown" Handler="txtbScoreValue_CheckValue" />
+    </Style>-->
 
 
-        </Grid>
-    </DataTemplate>-->
-
-    <!--<DataTemplate x:Key="ListView_Alternative">
-
-        <Grid>
-            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}">
-                    <TextBox.Background>
-                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
-                    </TextBox.Background>
-                </TextBox>
-                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
-                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
-            </StackPanel>
-
-
-        </Grid>
-    </DataTemplate>-->
-
-    <!--ListQuestion Template-->
     <!-- Single-->
     <DataTemplate x:Key="SingleChoiceQuestion" >
         <Grid d:DesignHeight="255.502">
             <StackPanel Margin="0" Orientation="Vertical">
-                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Text="Fråga"></TextBlock>
+                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Text="Fråga"/>
                 <StackPanel x:Name="stackQuestion" Orientation="Horizontal" Width="Auto" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Margin="0,3,0,0">
-                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title}" MinWidth="200">
+                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title, Mode=TwoWay}" MinWidth="200">
                         <TextBox.Background>
                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                         </TextBox.Background>
@@ -106,34 +117,34 @@
                     <!--Poäng-->
                     <StackPanel Orientation="Vertical" Margin="2,-24,0,0">
                         <Label Content="Poäng" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
-                        <TextBox Width="25" Height="20" Margin="0,-1,0,0" Text="{Binding ScoreValue}"  >
+                        <TextBox x:Name="txtbScoreValue" Width="25" Height="20" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"  >
                             <TextBox.Background>
                                 <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                             </TextBox.Background>
                         </TextBox>
                     </StackPanel>
-                    <Button x:Name="btnRemoveAlternative" Command="{Binding DataContext.commandRemove_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="27.7,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button x:Name="btnRemoveQuestion" Command="{Binding DataContext.commandRemove_Question, ElementName=listQuestion2}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="27.7,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
-                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="-7,0,0,0">
+                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title}">
+                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title, Mode=TwoWay}">
                                         <TextBox.Background>
                                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                                         </TextBox.Background>
                                     </TextBox>
-                                    <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
-                                    <Button x:Name="btnRemoveAlternative" Command="{Binding ElementName=listQuestion2, Path=DataContext.commandRemove_Alternative}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+                                    <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue, Mode=TwoWay}" Margin="10,2,0,0" GroupName="Correct"/>
+                                    <Button x:Name="btnRemoveAlternative" Command="{Binding DataContext.commandRemove_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Command="{Binding ElementName=listQuestion2, Path=DataContext.commandAdd_Alternative}" CommandParameter="{Binding}" />
+                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,8,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Command="{Binding DataContext.commandAdd_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" />
 
                 <!--Verkar som den skapar en ny vymodell-->
                 <!--ElementName=listAlternative-->
@@ -148,9 +159,9 @@
     <DataTemplate x:Key="MultiChoiceQuestion" >
         <Grid d:DesignHeight="255.502">
             <StackPanel Margin="0" Orientation="Vertical">
-                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Text="Fråga"></TextBlock>
+                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" Text="Fråga"/>
                 <StackPanel x:Name="stackQuestion" Orientation="Horizontal" Width="Auto" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Margin="0,3,0,0">
-                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title}" MinWidth="200">
+                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title, Mode=TwoWay}" MinWidth="200">
                         <TextBox.Background>
                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                         </TextBox.Background>
@@ -163,38 +174,38 @@
                     <!--Poäng-->
                     <StackPanel Orientation="Vertical" Margin="2,-24,0,0">
                         <Label Content="Poäng" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
-                        <TextBox Width="25" Height="20" Margin="0,-1,0,0" Text="{Binding ScoreValue}"  >
+                        <TextBox x:Name="txtbScoreValue" Width="25" Height="20" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"  >
                             <TextBox.Background>
                                 <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                             </TextBox.Background>
                         </TextBox>
                     </StackPanel>
-                    <Button x:Name="btnRemoveAlternative" Command="{Binding DataContext.commandRemove_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="27.7,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button x:Name="btnRemoveQuestion" Command="{Binding DataContext.commandRemove_Question, ElementName=listQuestion2}" CommandParameter="{Binding}"  Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="27.7,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
-                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="-7,0,0,0" >
+                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title}" Margin="0,0,10,0">
+                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title, Mode=TwoWay}" Margin="0,0,10,0">
                                         <TextBox.Background>
                                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                                         </TextBox.Background>
                                     </TextBox>
-                                    <CheckBox x:Name="checkBox" Padding="0" Margin="0,1,0,0">
+                                    <CheckBox x:Name="checkBox" Padding="0" Margin="0,1,0,0" IsChecked="{Binding ScoreValue , Mode=TwoWay}">
                                         <CheckBox.Background>
                                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                                         </CheckBox.Background>
                                     </CheckBox>
-                                    <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" Command="{Binding ElementName=listQuestion2, Path=DataContext.commandRemove_Alternative}" CommandParameter="{Binding}" />
+                                    <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" Command="{Binding DataContext.commandRemove_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" />
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Command="{Binding ElementName=listQuestion2, Path=DataContext.commandAdd_Alternative}" CommandParameter="{Binding}" />
+                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,8,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Command="{Binding DataContext.commandAdd_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" />
             </StackPanel>
         </Grid>
     </DataTemplate>
@@ -203,9 +214,9 @@
     <DataTemplate x:Key="RankQuestion" >
         <Grid d:DesignHeight="255.502">
             <StackPanel Margin="0" Orientation="Vertical">
-                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
-                <StackPanel x:Name="stackQuestion" Orientation="Horizontal" Width="Auto" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Margin="0,3,0,0">
-                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title}" MinWidth="200">
+                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Text="Fråga"/>
+                <StackPanel x:Name="stackQuestion" Orientation="Horizontal" Width="Auto"  Margin="0,3,0,0">
+                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title, Mode=TwoWay}" MinWidth="200">
                         <TextBox.Background>
                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                         </TextBox.Background>
@@ -218,55 +229,51 @@
                     <!--Poäng-->
                     <StackPanel Orientation="Vertical" Margin="2,-24,0,0">
                         <Label Content="Poäng" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
-                        <TextBox Width="25" Height="20" Margin="0,-1,0,0" Text="{Binding ScoreValue}"  >
+                        <TextBox x:Name="txtbScoreValue" Width="25" Height="20" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"   >
                             <TextBox.Background>
                                 <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                             </TextBox.Background>
                         </TextBox>
                     </StackPanel>
-                    <Button x:Name="btnRemoveAlternative" Command="{Binding DataContext.commandRemove_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="27.7,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Button x:Name="btnRemoveQuestion" Command="{Binding DataContext.commandRemove_Question, ElementName=listQuestion2}" CommandParameter="{Binding}"  Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="3,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
-                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="-7,0,0,0" >
+                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
                     <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid>
                                 <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title}">
+                                    <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title, Mode=TwoWay}">
                                         <TextBox.Background>
                                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                                         </TextBox.Background>
                                     </TextBox>
-                                    <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"  Command="{Binding ElementName=listQuestion2, Path=DataContext.commandRemove_Alternative}" CommandParameter="{Binding}" />
+                                    <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"  Command="{Binding DataContext.commandRemove_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" />
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Command="{Binding ElementName=listQuestion2, Path=DataContext.commandAdd_Alternative}" CommandParameter="{Binding}" />
+                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,8,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Command="{Binding DataContext.commandAdd_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" />
             </StackPanel>
         </Grid>
     </DataTemplate>
-    <!--<<<< END  >>>>>-->
-
     <!--Transparent style-->
     <Style x:Key="ListBox_Transparent" TargetType="{x:Type ListBoxItem}">
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, 
-            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment,
-             RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="Padding" Value="0,0,0,0"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
                     <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" 
-                            BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
-                            Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+						BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+						Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
-                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+							SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+							VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsSelected" Value="true">
@@ -277,6 +284,7 @@
             </Setter.Value>
         </Setter>
     </Style>
+    <Color x:Key="ListBox_GardinentBackground_List">#FFFFD68F</Color>
 
 
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Quiz_WPFVersion.Data
 {
@@ -10,10 +11,15 @@ namespace Quiz_WPFVersion.Data
     {
 
 
-        private void btnAddAlternative_Click(object sender, System.Windows.RoutedEventArgs e)
+        private void txtbScoreValue_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
-            //var w = e;
-            //var x = 45;
+            TextBox txtb = sender as TextBox;
+            int parsedValue;
+            if (!int.TryParse(txtb.Text, out parsedValue))
+            {
+                txtb.Text = "";
+                return;
+            }
         }
     }
 }
