@@ -1,5 +1,12 @@
-﻿using System;
+﻿using Quiz_WPFVersion.Data;
+using Quiz_WPFVersion.Models;
+using Quiz_WPFVersion.View._Shared;
+using Quiz_WPFVersion.View.Admin;
+using Quiz_WPFVersion.View.Teacher;
+using Quiz_WPFVersion.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,9 +27,12 @@ namespace Quiz_WPFVersion
     /// </summary>
     public partial class MainWindow : Window
     {
+        //internal MainWindowViewModel viewModel;
+
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Content = new LoginView();
         }
     }
 }

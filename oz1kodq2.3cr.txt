@@ -1,0 +1,28 @@
+﻿Test db
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch RepoSetup2
+# Your branch is up-to-date with 'origin/RepoSetup2'.
+#
+# Changes to be committed:
+#	modified:   Quiz_WPFVersion/.vs/Quiz_WPFVersion/v14/.suo
+#	modified:   Quiz_WPFVersion/View/_Shared/MainWindow.xaml.cs
+#	modified:   Quiz_WPFVersion/ViewModels/MainWindowViewModel.cs
+#	modified:   Quiz_WPFVersion/bin/Debug/Quiz_WPFVersion.exe
+#	modified:   Quiz_WPFVersion/bin/Debug/Quiz_WPFVersion.pdb
+#	modified:   Quiz_WPFVersion/obj/Debug/Data/ResourceDictionary.baml
+#	modified:   Quiz_WPFVersion/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.csprojResolveAssemblyReference.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.exe
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.g.resources
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.pdb
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.i.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/View/Teacher/TeacherView.baml
+#	modified:   Quiz_WPFVersion/obj/Debug/View/Teacher/TeacherView.g.cs
+#	modified:   Quiz_WPFVersion/obj/Debug/View/Teacher/TeacherView.g.i.cs
+#	modified:   Quiz_WPFVersion/obj/Debug/View/_Shared/MainWindow.baml
+#	modified:   Quiz_WPFVersion/obj/Debug/View/_Shared/MainWindow.g.cs
+#	modified:   Quiz_WPFVersion/obj/Debug/View/_Shared/MainWindow.g.i.cs
+#
+

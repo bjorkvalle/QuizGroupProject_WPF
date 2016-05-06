@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BBAC86E8-DAB6-4208-8C53-01501A3441A5}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Quiz_WPFVersion</RootNamespace>
     <AssemblyName>Quiz_WPFVersion</AssemblyName>
@@ -34,8 +34,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,15 +67,74 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Data\Command\TestCommand.cs" />
+    <Compile Include="Data\QuizContext.cs" />
+    <Compile Include="Interfaces\IGenericRepository.cs" />
+    <Compile Include="Models\LoginHandler.cs" />
+    <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\Command\TestCommand.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Enum\Enum_QuestionType.cs" />
     <Compile Include="Enum\Enum_UserType.cs" />
-    <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
+    <Compile Include="ViewModels\TeacherViewModel.cs" />
+    <Compile Include="View\Admin\AddRemoveUsers.xaml.cs">
+      <DependentUpon>AddRemoveUsers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Admin\AdminView.xaml.cs">
+      <DependentUpon>AdminView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Student\StudentView.xaml.cs">
+      <DependentUpon>StudentView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\TeacherView.xaml.cs">
+      <DependentUpon>TeacherView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Teacher\CreateQuiz.xaml.cs">
+      <DependentUpon>CreateQuiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\_Shared\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\_Shared\NavigationWindowView.xaml.cs">
       <DependentUpon>NavigationWindowView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\_Shared\SeeQuiz.xaml.cs">
+      <DependentUpon>SeeQuiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\_Shared\SendQuizzes.xaml.cs">
+      <DependentUpon>SendQuizzes.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\_Shared\Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
+    </Compile>
     <Page Include="Data\ResourceDictionary.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\AddRemoveUsers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Admin\AdminView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Student\StudentView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Teacher\TeacherView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Teacher\CreateQuiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\_Shared\LoginView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -80,6 +151,18 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="View\_Shared\NavigationWindowView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\_Shared\SeeQuiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\_Shared\SendQuizzes.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\_Shared\Statistics.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -111,6 +194,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -120,12 +204,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Data\Images\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="View\Admin\" />
-    <Folder Include="View\Student\" />
-    <Folder Include="View\Teacher\" />
+    <Resource Include="Data\Images\Newton_Black.png" />
+    <Resource Include="Data\Images\Newton_Gray.tif" />
+    <Resource Include="Data\Images\Newton_White.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
