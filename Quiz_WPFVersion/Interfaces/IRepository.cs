@@ -15,10 +15,8 @@ namespace Quiz_WPFVersion.Interfaces
         bool AddQuestion(Question question);
         bool AddAlternative(Alternative alternative);
         bool AddResult(Result result);
-        bool AddQuizPayload(QuizPayload quizPayload);
         bool AddEducation(Education education);
         bool AddCourse(Course course);
-        bool AddUserCourse(UserCourse course);
 
 
         //Read
@@ -27,20 +25,16 @@ namespace Quiz_WPFVersion.Interfaces
         Question GetQuestion(int questionId);
         Alternative GetAlternative(int alternativeId);
         Result GetResult(int resultId);
-        QuizPayload GetQuizPayload(int quizPayloadId);
         Education GetEducation(int educationId);
         Course GetCourse(int courseId);
-        UserCourse GetUserCourse(int userCourseId);
 
         IList<User> GetAllUsers();
         IList<Quiz> GetAllQuizzes();
         IList<Question> GetAllQuestions();
         IList<Alternative> GetAllAlternatives();
         IList<Result> GetAllResults();
-        IList<QuizPayload> GetAllQuizPayloads();
         IList<Education> GetEducations();
         IList<Course> GetCourses();
-        IList<UserCourse> GetUserCourses();
 
         //Update
         bool UpdateUser(User user);
@@ -48,10 +42,8 @@ namespace Quiz_WPFVersion.Interfaces
         bool UpdateQuestion(Question question);
         bool UpdateAlternative(Alternative alternative);
         bool UpdateResult(Result result);
-        bool UpdateQuizPayload(QuizPayload quizPayload);
         bool UpdateEducation(Education education);
         bool UpdateCourse(Course course);
-        bool UpdateUserCourse(UserCourse userCourse);
 
         //Delete
         bool DeleteUser(int userId);

@@ -22,6 +22,15 @@ namespace Quiz_StudentApp.Models.Mapping
             this.Property(t => t.EndDate).HasColumnName("EndDate");
             this.Property(t => t.TimeLimit).HasColumnName("TimeLimit");
             this.Property(t => t.ShowStudentResult).HasColumnName("ShowStudentResult");
+            this.Property(t => t.SentToAdmin).HasColumnName("SentToAdmin");
+            this.Property(t => t.SentToStudent).HasColumnName("SentToStudent");
+            this.Property(t => t.UserId).HasColumnName("UserId");
+
+            // Relationships
+            this.HasOptional(t => t.User)
+                .WithMany(t => t.Quizs)
+                .HasForeignKey(d => d.UserId);
+
         }
     }
 }

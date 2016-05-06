@@ -8,9 +8,7 @@ namespace Quiz_StudentApp.Models
         public Quiz()
         {
             this.Questions = new List<Question>();
-            this.QuizPayloads = new List<QuizPayload>();
             this.Results = new List<Result>();
-            this.UserCourses = new List<UserCourse>();
         }
 
         public int Id { get; set; }
@@ -22,9 +20,11 @@ namespace Quiz_StudentApp.Models
         public Nullable<System.DateTime> EndDate { get; set; }
         public System.TimeSpan TimeLimit { get; set; }
         public bool ShowStudentResult { get; set; }
+        public bool SentToAdmin { get; set; }
+        public bool SentToStudent { get; set; }
+        public Nullable<int> UserId { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<QuizPayload> QuizPayloads { get; set; }
+        public virtual User User { get; set; }
         public virtual ICollection<Result> Results { get; set; }
-        public virtual ICollection<UserCourse> UserCourses { get; set; }
     }
 }
