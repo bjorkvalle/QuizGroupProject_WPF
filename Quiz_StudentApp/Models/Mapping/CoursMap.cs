@@ -15,21 +15,21 @@ namespace Quiz_StudentApp.Models.Mapping
             this.ToTable("Courses");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Name).HasColumnName("Name");
-            this.Property(t => t.EducationId_Id).HasColumnName("EducationId_Id");
+            this.Property(t => t.EducationId).HasColumnName("EducationId");
 
             // Relationships
             this.HasMany(t => t.Users)
                 .WithMany(t => t.Courses)
                 .Map(m =>
                     {
-                        m.ToTable("UserCourse1");
+                        m.ToTable("UserCourses");
                         m.MapLeftKey("Course_Id");
                         m.MapRightKey("User_Id");
                     });
 
             this.HasOptional(t => t.Education)
                 .WithMany(t => t.Courses)
-                .HasForeignKey(d => d.EducationId_Id);
+                .HasForeignKey(d => d.EducationId);
 
         }
     }

@@ -9,12 +9,21 @@ Quiz_StudentApp
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\App.xaml
 11151548125
 
 271046524864
 161719302077
 MainWindow.xaml;
+=======
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\App.xaml
+2-2098299504
+
+26960601216
+161500826544
+Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
+>>>>>>> refs/remotes/origin/studentHome
 
 False
 

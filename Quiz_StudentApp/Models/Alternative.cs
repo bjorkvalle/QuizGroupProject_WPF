@@ -8,7 +8,7 @@ namespace Quiz_StudentApp.Models
         public int Id { get; set; }
         public string Title { get; set; }
         public int ScoreValue { get; set; }
-        public Nullable<int> questionId_Id { get; set; }
+        public Nullable<int> QuestionId { get; set; }
         public virtual Question Question { get; set; }
     }
 }

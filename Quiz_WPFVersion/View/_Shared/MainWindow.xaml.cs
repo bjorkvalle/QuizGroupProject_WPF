@@ -19,6 +19,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Data.Entity;
 
 namespace Quiz_WPFVersion
 {
@@ -33,6 +34,45 @@ namespace Quiz_WPFVersion
         {
             InitializeComponent();
             MainFrame.Content = new LoginView();
+
+            Repository<User>.GetInstance().AddData(new User() { Name = "Timmy!" });
+
+            //using (var db = new QuizContext())
+            //{
+            //    db.Database.Delete();
+            //}
+
+            //User user = new User();
+            //user.Name = "Timmy";
+
+            //user.Quizs.Add(new Quiz()
+            //{
+            //    Title = "TimmysQuiz1"
+            //});
+            //user.Quizs.Add(new Quiz()
+            //{
+            //    Title = "TimmysQuiz2"
+            //});
+
+            //Repository<User>.GetInstance().AddData(user);
+
+            //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
+
+
+
+            Question q = new Question();
+            q.Alternatives = new List<Alternative>()
+            {
+                new Alternative(),
+                new Alternative(),
+                new Alternative()
+            };
+
+            Repository<Question>.GetInstance().AddData(q);
+
+            Console.WriteLine(q.Alternatives.First().Id + ", " + q.Alternatives.First().QuestionId.ToString());
+            Console.WriteLine(q.Alternatives.ToList()[1].Id + ", " + q.Alternatives.ToList()[1].QuestionId.ToString());
+            Console.WriteLine(q.Alternatives.Last().Id + ", " + q.Alternatives.Last().QuestionId.ToString());
         }
     }
 }

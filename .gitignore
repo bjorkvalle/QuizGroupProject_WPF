@@ -2,6 +2,9 @@
 Thumbs.db
 ehthumbs.db
 
+# David
+*.suo
+*.exe
 # Folder config file
 Desktop.ini
 
@@ -45,9 +48,7 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
-/Quiz_WPFVersion/bin/Debug
-/Quiz_WPFVersion/obj/Debug/View/Admin
-/Quiz_WPFVersion/obj/Debug/View/Student
-/Quiz_WPFVersion/obj/Debug/View/Teacher
-/Quiz_WPFVersion/obj/Debug/View/_Shared
+*.suo
+
 /Quiz_WPFVersion/obj/Debug
+/Quiz_WPFVersion/bin/Debug
