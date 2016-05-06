@@ -12,7 +12,8 @@ namespace Quiz_WPFVersion.Data
 
         private void btnAddAlternative_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            var x = 45;
+            //var w = e;
+            //var x = 45;
         }
     }
 }

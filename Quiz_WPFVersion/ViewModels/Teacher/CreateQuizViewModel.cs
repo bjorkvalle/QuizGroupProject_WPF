@@ -1,4 +1,5 @@
-﻿using Quiz_WPFVersion.Models;
+﻿using Quiz_WPFVersion.HelperClass.Command;
+using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.View.Teacher;
 using System;
 using System.Collections.Generic;
@@ -18,26 +19,33 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         //public event PropertyChangedEventHandler PropertyChanged = delegate { };
         //public event NotifyCollectionChangedEventHandler CollectionChanged = delegate { };
 
+        //public ObservableCollection<Alternative> alternativeList
+        //{
+        //    get;
+        //    //{
+        //    //    return alternativeList;
+        //    //}
+        //    set;
+        //    //{
+        //    //    alternativeList = value;
+        //    //    PropertyChanged(this, new PropertyChangedEventArgs("alternativeList"));
+        //    //}
+        //}
         public ObservableCollection<Question> questionList { get; set; }
-        public ObservableCollection<Alternative> alternativeList
-        {
-            get;
-            //{
-            //    return alternativeList;
-            //}
-            set;
-            //{
-            //    alternativeList = value;
-            //    PropertyChanged(this, new PropertyChangedEventArgs("alternativeList"));
-            //}
-        }
+
+        public Command_Add_Alternative commandAdd_Alternative { get; set; }
+        public Command_Remove_Alternative commandRemove_Alternative { get; set; }
+
+        public Command_Remove_Question commandRemove_Question { get; set; }
+
 
         public CreateQuizViewModel()
         {
             questionList = new ObservableCollection<Question>();
-            alternativeList = new ObservableCollection<Alternative>();
-
-
+            //alternativeList = new ObservableCollection<Alternative>();
+            commandAdd_Alternative = new Command_Add_Alternative(this);
+            commandRemove_Alternative = new Command_Remove_Alternative(this);
+            commandRemove_Question = new Command_Remove_Question(this);
 
         }
 

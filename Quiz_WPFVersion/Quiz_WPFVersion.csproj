@@ -69,6 +69,9 @@
       <DependentUpon>ResourceDictionary.xaml</DependentUpon>
     </Compile>
     <Compile Include="HelperClass\CheckBoxConverter.cs" />
+    <Compile Include="HelperClass\Command\Command_Add_Alternative.cs" />
+    <Compile Include="HelperClass\Command\Command_Remove_Alternative.cs" />
+    <Compile Include="HelperClass\Command\Command_Remove_Question.cs" />
     <Compile Include="HelperClass\CreateQuestionHelper.cs" />
     <Compile Include="HelperClass\QuestionTemplateSelector.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />

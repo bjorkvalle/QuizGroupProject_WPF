@@ -191,13 +191,13 @@
 
                 </StackPanel>
 
-                <ListView x:Name="listQuestion" ItemsSource="{Binding alternativeList}"  Margin="0,20,0.4,0" Height="105" IsSynchronizedWithCurrentItem="True" Visibility="Collapsed"  >
+                <!--<ListView x:Name="listQuestion"   Margin="0,20,0.4,0" Height="105" IsSynchronizedWithCurrentItem="True" Visibility="Collapsed"  >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="160" Header="Alternativ">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                        <TextBox Text="{Binding Title}"  Cursor="Hand" />
+                                        <TextBox Text=""  Cursor="Hand" />
 
                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -221,7 +221,7 @@
 
 
 
-                <Button x:Name="button" Content="Button" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Click="button_Click" Visibility="Collapsed"/>
+                <Button x:Name="button" Content="Button" HorizontalAlignment="Left"  VerticalAlignment="Bottom" Width="75" Click="button_Click" Visibility="Collapsed"/>-->
             </StackPanel>
 
 

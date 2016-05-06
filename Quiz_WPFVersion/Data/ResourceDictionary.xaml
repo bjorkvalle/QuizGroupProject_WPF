@@ -5,10 +5,9 @@
                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                     xmlns:Models="clr-namespace:Quiz_WPFVersion.Models" 
                     xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher" 
-                    x:Class="Quiz_WPFVersion.Data.ResourceDictionary"
-                    
-                    x:ClassModifier="public"
                     mc:Ignorable="d">
+                    <!--x:Class="Quiz_WPFVersion.Data.ResourceDictionary"
+                    x:ClassModifier="public"-->
 
 
     <!--Button wihtout mouseovereffect-->
@@ -124,7 +123,12 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
-                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Click="btnAddAlternative_Click"/>
+                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold" Command="{Binding ElementName=listQuestion2, Path=DataContext.commandAdd_Alternative}" CommandParameter="{Binding}" />
+                    
+                <!--Verkar som den skapar en ny vymodell-->
+                <!--ElementName=listAlternative-->
+
+                <!--Command="{Binding AlternativeRemove}" CommandParameter="{Binding , RelativeSource={RelativeSource TemplatedParent}}"  Click="btnAddAlternative_Click"-->
             </StackPanel>
         </Grid>
     </DataTemplate>
