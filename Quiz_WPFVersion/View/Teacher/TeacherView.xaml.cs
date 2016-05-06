@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Quiz_WPFVersion.ViewModels;
 
 namespace Quiz_WPFVersion.View.Teacher
 {
@@ -20,6 +21,7 @@ namespace Quiz_WPFVersion.View.Teacher
     /// </summary>
     public partial class TeacherView : Page
     {
+
         public TeacherView()
         {
             InitializeComponent();
