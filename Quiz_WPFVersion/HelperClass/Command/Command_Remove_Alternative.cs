@@ -1,4 +1,5 @@
-﻿using Quiz_WPFVersion.ViewModels.Teacher;
+﻿using Quiz_WPFVersion.Models;
+using Quiz_WPFVersion.ViewModels.Teacher;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
             this.vModel = vModel;
         }
 
-        //public Command_Remove_Alternative()
-        //{
 
-        //}
 
         public bool CanExecute(object parameter)
         {
@@ -30,7 +28,20 @@ namespace Quiz_WPFVersion.HelperClass.Command
 
         public void Execute(object parameter)
         {
-            //throw new NotImplementedException();
+            Alternative selAlternative = parameter as Alternative;
+
+            foreach (Question qustion in vModel.questionList)
+            {
+                foreach (Alternative alternative in qustion.Alternatives)
+                {
+                    if (alternative == selAlternative)
+                    {
+                        qustion.Alternatives.Remove(selAlternative);
+                        break;
+                    }
+                }
+            }
+
         }
     }
 }

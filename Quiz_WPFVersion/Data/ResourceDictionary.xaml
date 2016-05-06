@@ -117,7 +117,7 @@
                                         </TextBox.Background>
                                     </TextBox>
                                     <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
-                                    <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+                                    <Button x:Name="btnRemoveAlternative" Command="{Binding ElementName=listQuestion2, Path=DataContext.commandRemove_Alternative}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
                                 </StackPanel>
                             </Grid>
                         </DataTemplate>
