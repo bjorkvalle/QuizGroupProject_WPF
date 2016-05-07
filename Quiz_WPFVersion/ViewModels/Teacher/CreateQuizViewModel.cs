@@ -53,14 +53,15 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         {
             if (questionList.Count == 0)
             {
-                createQuizView.stackMessage_SaveButton.Visibility = System.Windows.Visibility.Hidden;
+                createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Hidden;
             }
             else
             {
-                createQuizView.stackMessage_SaveButton.Visibility = System.Windows.Visibility.Visible;
+                createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Visible;
+                createQuizView.lblMessageBoard.Content = "";
 
             }
-            createQuizView.lblMessageBoard.Content = "";
+
         }
 
         public void AddSingelChoice_Question()

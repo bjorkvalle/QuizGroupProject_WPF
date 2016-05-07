@@ -91,13 +91,20 @@
                 <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
                     <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
                     <ListBox x:Name="listQuestion2" Height="263" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1,1,1" ItemTemplateSelector="{Binding Mode=OneWay, Source={StaticResource questionTemplateSelector}}" ItemsSource="{Binding questionList}" ItemTemplate="{DynamicResource SingleChoiceQuestion}" ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderBrush="{x:Null}" >
+
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <VirtualizingStackPanel VerticalAlignment="Bottom"/>
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+
                         <!--ItemsSource="{Binding questionList}"   ItemContainerStyle="{DynamicResource ListBox_Transparent}" -->
                         <!--ItemTemplate="{DynamicResource SingleChoiceQuestion}"-->
                     </ListBox>
                 </StackPanel>
 
-                <StackPanel x:Name="stackMessage_SaveButton" Orientation="Horizontal" Margin="5,0,0,0" Visibility="Hidden">
-                    <Button x:Name="btnSaveQuiz" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,15,0,0" Command="{Binding command_SaveQuiz}" CommandParameter="{Binding}">
+                <StackPanel x:Name="stackMessage_SaveButton" Orientation="Horizontal" Margin="5,0,0,0">
+                    <Button x:Name="btnSaveQuiz" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,15,0,0" Command="{Binding command_SaveQuiz}" CommandParameter="{Binding}"  Visibility="Hidden">
                         <Button.Template>
                             <ControlTemplate>
                                 <StackPanel>
