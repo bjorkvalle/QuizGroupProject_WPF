@@ -25,34 +25,28 @@ namespace Quiz_WPFVersion.HelperClass.Command
 
         public bool CanExecute(object parameter)
         {
-            
 
             if (CheckEmptyValues())
             {
-                              
-                vModel.createQuizView.lblMessageBoard.Content = "• Kan inte spara. Vissa fält är inte ifyllda";
                 return false;
             }
             else
             {
-
                 return true;
             }
         }
 
         private bool CheckEmptyValues()
         {
-
-
-
+            string message = "• Kan inte spara. Vissa fält är inte ifyllda";
             foreach (var question in vModel.questionList)
             {
-                if (String.IsNullOrEmpty(question.Title)) return true;
-                if (question.Alternatives.Count < 1) return true;
+                if (String.IsNullOrEmpty(question.Title)) { vModel.createQuizView.lblMessageBoard.Content = message; return true; }
+                if (question.Alternatives.Count < 1) { vModel.createQuizView.lblMessageBoard.Content = message; return true; }
 
                 foreach (var alternative in question.Alternatives)
                 {
-                    if (String.IsNullOrEmpty(alternative.Title)) return true;
+                    if (String.IsNullOrEmpty(alternative.Title)) { vModel.createQuizView.lblMessageBoard.Content = message; return true; }
                 }
             }
             return false;

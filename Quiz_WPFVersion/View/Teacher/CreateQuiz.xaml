@@ -96,7 +96,7 @@
                     </ListBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Horizontal" Margin="5,0,0,0">
+                <StackPanel x:Name="stackMessage_SaveButton" Orientation="Horizontal" Margin="5,0,0,0" Visibility="Hidden">
                     <Button x:Name="btnSaveQuiz" Style="{StaticResource MyButtonStyle}" HorizontalAlignment="Left" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,15,0,0" Command="{Binding command_SaveQuiz}" CommandParameter="{Binding}">
                         <Button.Template>
                             <ControlTemplate>

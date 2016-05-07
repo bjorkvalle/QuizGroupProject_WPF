@@ -42,12 +42,26 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         public CreateQuizViewModel()
         {
             questionList = new ObservableCollection<Question>();
+            questionList.CollectionChanged += QuestionList_CollectionChanged;
             commandAdd_Alternative = new Command_Add_Alternative(this);
             commandRemove_Alternative = new Command_Remove_Alternative(this);
             commandRemove_Question = new Command_Remove_Question(this);
             command_SaveQuiz = new Command_Save_Quiz(this);
         }
 
+        private void QuestionList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            if (questionList.Count == 0)
+            {
+                createQuizView.stackMessage_SaveButton.Visibility = System.Windows.Visibility.Hidden;
+            }
+            else
+            {
+                createQuizView.stackMessage_SaveButton.Visibility = System.Windows.Visibility.Visible;
+
+            }
+            createQuizView.lblMessageBoard.Content = "";
+        }
 
         public void AddSingelChoice_Question()
         {
@@ -96,6 +110,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         public void SendInstanceView(CreateQuiz createQuizView)
         {
             this.createQuizView = createQuizView;
+            //createQuizView.P
         }
 
 
