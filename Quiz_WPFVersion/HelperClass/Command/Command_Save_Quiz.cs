@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Collections.ObjectModel;
 
 namespace Quiz_WPFVersion.HelperClass.Command
 {
@@ -42,12 +43,16 @@ namespace Quiz_WPFVersion.HelperClass.Command
             foreach (var question in vModel.questionList)
             {
                 if (String.IsNullOrEmpty(question.Title)) { vModel.createQuizView.lblMessageBoard.Content = message; return true; }
+                if (question.ScoreValue == 0) { vModel.createQuizView.lblMessageBoard.Content = message; return true; }
                 if (question.Alternatives.Count < 1) { vModel.createQuizView.lblMessageBoard.Content = message; return true; }
 
+                Boolean isChecked = false;
                 foreach (var alternative in question.Alternatives)
                 {
                     if (String.IsNullOrEmpty(alternative.Title)) { vModel.createQuizView.lblMessageBoard.Content = message; return true; }
+                    if (alternative.ScoreValue == 1) { isChecked = true; }
                 }
+                if (question.Type != Enum.QuestionType.RankQuestion && !isChecked) { vModel.createQuizView.lblMessageBoard.Content = message; return true; }
             }
             return false;
 
@@ -56,12 +61,17 @@ namespace Quiz_WPFVersion.HelperClass.Command
         public void Execute(object parameter)
         {
 
-            //repo.AddQuiz(new Quiz
-            //{
-            //    Title = vModel.createQuizView.txtbHeader.Text,
-            //    Description = vModel.createQuizView.txtbDescription.Text,
-            //    Questions = vModel.questionList,
-            //});
+            repo.AddQuiz(new Quiz
+            {
+                Title = vModel.createQuizView.txtbHeader.Text,
+                Description = vModel.createQuizView.txtbDescription.Text,
+                Questions = QuestionListConverter(vModel.questionList),
+            });
+
+            //var ss = vModel.questionList;
+
+
+            //List<Question> questionList_converted = QuestionListConverter(vModel.questionList);
 
             vModel.createQuizView.lblMessageBoard.Content = "• Provet är nu sparat.";
 
@@ -71,9 +81,53 @@ namespace Quiz_WPFVersion.HelperClass.Command
             vModel.createQuizView.txtbDescription.Text = "";
         }
 
-        //private void DivideRightScoreValue()
-        //{
+        private List<Question> QuestionListConverter(ObservableCollection<Question_Binding> questionList)
+        {
+            List<Question> questionList_converted = new List<Question>();
 
-        //}
+            foreach (var question in questionList)
+            {
+                questionList_converted.Add(new Question
+                {
+                    Title = question.Title,
+                    Alternatives = AlternativeCorrectScore(question),
+                });
+            }
+
+            return questionList_converted;
+        }
+
+        public List<Alternative> AlternativeCorrectScore(Question_Binding question)
+        {
+
+            foreach (var alternative in question.Alternatives)
+            {
+                if (question.Type == Enum.QuestionType.MultiChoiceQuestion)
+                {
+
+                    if (alternative.ScoreValue == 1)
+                    {
+                        alternative.ScoreValue = question.ScoreValue / question.Alternatives.Count * 1;
+                    }
+                    else
+                    {
+                        alternative.ScoreValue = question.ScoreValue / question.Alternatives.Count * -1;
+                    }
+                }
+                else if (question.Type == Enum.QuestionType.SingleChoiceQuestion)
+                {
+                    if (alternative.ScoreValue == 1)
+                    {
+                        alternative.ScoreValue = question.ScoreValue ;
+                    }
+                }
+                else if (question.Type == Enum.QuestionType.RankQuestion)
+                {
+                    alternative.ScoreValue = question.ScoreValue / question.Alternatives.Count;
+                }
+            }
+
+            return question.Alternatives.ToList();
+        }
     }
 }

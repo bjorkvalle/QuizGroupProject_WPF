@@ -26,7 +26,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
 
         public void Execute(object parameter)
         {
-            var selObj = parameter as Question;
+            var selObj = parameter as Question_Binding;
             vModel.questionList.Remove(selObj);
         }
     }

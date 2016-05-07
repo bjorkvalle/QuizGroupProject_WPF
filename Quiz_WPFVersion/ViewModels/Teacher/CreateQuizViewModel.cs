@@ -31,7 +31,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         //    //    PropertyChanged(this, new PropertyChangedEventArgs("alternativeList"));
         //    //}
         //}
-        public ObservableCollection<Question> questionList { get; set; }
+        public ObservableCollection<Question_Binding> questionList { get; set; }
         public Command_Add_Alternative commandAdd_Alternative { get; set; }
         public Command_Remove_Alternative commandRemove_Alternative { get; set; }
         public Command_Remove_Question commandRemove_Question { get; set; }
@@ -41,7 +41,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
         public CreateQuizViewModel()
         {
-            questionList = new ObservableCollection<Question>();
+            questionList = new ObservableCollection<Question_Binding>();
             questionList.CollectionChanged += QuestionList_CollectionChanged;
             commandAdd_Alternative = new Command_Add_Alternative(this);
             commandRemove_Alternative = new Command_Remove_Alternative(this);
@@ -66,7 +66,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
         public void AddSingelChoice_Question()
         {
-            questionList.Add(new Question
+            questionList.Add(new Question_Binding
             {
                 Title = "Singel Choice",
                 Type = Enum.QuestionType.SingleChoiceQuestion,
@@ -82,7 +82,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
         public void AddMultiChoice_Question()
         {
-            questionList.Add(new Question
+            questionList.Add(new Question_Binding
             {
                 Title = "Multi Choice",
                 Type = Enum.QuestionType.MultiChoiceQuestion,
@@ -96,7 +96,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
 
         public void AddRankChoice_Question()
         {
-            questionList.Add(new Question
+            questionList.Add(new Question_Binding
             {
                 Title = "Rank Choice",
                 Type = Enum.QuestionType.RankQuestion,

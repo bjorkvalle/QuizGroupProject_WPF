@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Quiz_WPFVersion.ViewModels.Teacher
 {
-    class Question_Binding : Question
+    public class Question_Binding : Question
     {
         public int ScoreValue { get; set; }
     }

@@ -117,7 +117,7 @@
                     <!--Poäng-->
                     <StackPanel Orientation="Vertical" Margin="2,-24,0,0">
                         <Label Content="Poäng" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
-                        <TextBox x:Name="txtbScoreValue" Width="25" Height="20" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"  >
+                        <TextBox x:Name="txtbScoreValue" Width="25" Text="{Binding ScoreValue}" Height="20" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"  >
                             <TextBox.Background>
                                 <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                             </TextBox.Background>
@@ -137,7 +137,7 @@
                                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                                         </TextBox.Background>
                                     </TextBox>
-                                    <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue, Mode=TwoWay}" Margin="10,2,0,0" GroupName="Correct"/>
+                                    <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue, Converter={StaticResource CheckBoxConverter}, Mode=TwoWay}" Margin="10,2,0,0" GroupName="Correct"/>
                                     <Button x:Name="btnRemoveAlternative" Command="{Binding DataContext.commandRemove_Alternative, ElementName=listQuestion2}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
                                 </StackPanel>
                             </Grid>
@@ -174,7 +174,7 @@
                     <!--Poäng-->
                     <StackPanel Orientation="Vertical" Margin="2,-24,0,0">
                         <Label Content="Poäng" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
-                        <TextBox x:Name="txtbScoreValue" Width="25" Height="20" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"  >
+                        <TextBox x:Name="txtbScoreValue" Width="25"  Text="{Binding ScoreValue}" Height="20" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"  >
                             <TextBox.Background>
                                 <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                             </TextBox.Background>
@@ -194,7 +194,7 @@
                                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                                         </TextBox.Background>
                                     </TextBox>
-                                    <CheckBox x:Name="checkBox" Padding="0" Margin="0,1,0,0" IsChecked="{Binding ScoreValue , Mode=TwoWay}">
+                                    <CheckBox x:Name="checkBox" Padding="0" Margin="0,1,0,0" IsChecked="{Binding ScoreValue, Converter={StaticResource CheckBoxConverter}, Mode=TwoWay}">
                                         <CheckBox.Background>
                                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                                         </CheckBox.Background>
@@ -229,7 +229,7 @@
                     <!--Poäng-->
                     <StackPanel Orientation="Vertical" Margin="2,-24,0,0">
                         <Label Content="Poäng" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
-                        <TextBox x:Name="txtbScoreValue" Width="25" Height="20" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"   >
+                        <TextBox x:Name="txtbScoreValue" Width="25" Height="20"  Text="{Binding ScoreValue}" Margin="0,-1,0,0" KeyUp="txtbScoreValue_KeyDown"   >
                             <TextBox.Background>
                                 <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                             </TextBox.Background>

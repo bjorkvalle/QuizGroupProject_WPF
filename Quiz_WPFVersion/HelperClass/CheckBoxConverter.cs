@@ -12,13 +12,13 @@ namespace Quiz_WPFVersion.HelperClass
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            if ( -1 < (int)value)
+            if ( 0 == (int)value)
             {
-                return +1;
+                return false;
             }
             else
             {
-                return -1;
+                return true;
             }
         }
 
@@ -26,11 +26,11 @@ namespace Quiz_WPFVersion.HelperClass
         {
             if ((Boolean)value)
             {
-                return true;
+                return 1;
             }
             else
             {
-                return false;
+                return 0;
             }
         }
     }
