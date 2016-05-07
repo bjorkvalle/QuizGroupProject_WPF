@@ -88,6 +88,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
+    <Compile Include="ViewModels\Teacher\Question_Binding.cs" />
     <Compile Include="View\Admin\AddRemoveUsers.xaml.cs">
       <DependentUpon>AddRemoveUsers.xaml</DependentUpon>
     </Compile>

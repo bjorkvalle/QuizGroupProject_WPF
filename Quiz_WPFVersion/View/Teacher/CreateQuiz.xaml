@@ -24,6 +24,30 @@
             <EventSetter Event="FrameworkElement.KeyDown" Handler="txtbScoreValue_CheckValue" />
         </Style>-->
 
+        <!--<Style  x:Key="ListBox_Transparent2" TargetType="{x:Type ListBoxItem}">
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True" >
+                    <Setter Property="FontWeight" Value="Bold" />
+                    <Setter Property="Background" Value="Transparent" />
+                    <Setter Property="Foreground" Value="Black" />
+                </Trigger>
+            </Style.Triggers>
+            --><!--<Style.Resources>
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+                Background of selected item when focussed
+                <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightCyan"/>
+                Background of selected item when not focussed
+                <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightGray" />
+            </Style.Resources>--><!--
+
+
+
+
+        </Style>-->
+
+
+
+
     </Page.Resources>
 
     <Page.DataContext>
@@ -90,7 +114,7 @@
 
                 <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
                     <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
-                    <ListBox x:Name="listQuestion2" Height="263" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1,1,1" ItemTemplateSelector="{Binding Mode=OneWay, Source={StaticResource questionTemplateSelector}}" ItemsSource="{Binding questionList}" ItemTemplate="{DynamicResource SingleChoiceQuestion}" ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderBrush="{x:Null}" >
+                    <ListBox x:Name="listQuestion2" Height="263" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1,1,1" ItemTemplateSelector="{Binding Mode=OneWay, Source={StaticResource questionTemplateSelector}}" ItemsSource="{Binding questionList}" ItemTemplate="{DynamicResource SingleChoiceQuestion}" ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
 
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>

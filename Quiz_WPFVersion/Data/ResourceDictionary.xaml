@@ -126,7 +126,7 @@
                     <Button x:Name="btnRemoveQuestion" Command="{Binding DataContext.commandRemove_Question, ElementName=listQuestion2}" CommandParameter="{Binding}" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="27.7,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
-                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemContainerStyle="{DynamicResource ListBox_Transparent}" >
                     <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -183,7 +183,7 @@
                     <Button x:Name="btnRemoveQuestion" Command="{Binding DataContext.commandRemove_Question, ElementName=listQuestion2}" CommandParameter="{Binding}"  Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="27.7,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
-                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}"  Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                     <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -238,7 +238,7 @@
                     <Button x:Name="btnRemoveQuestion" Command="{Binding DataContext.commandRemove_Question, ElementName=listQuestion2}" CommandParameter="{Binding}"  Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="3,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                 </StackPanel>
                 <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
-                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden">
+                <ListBox x:Name="listAlternative" Height="118" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}" Margin="-7,0,0,0" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                     <!--ItemContainerStyle="{DynamicResource ListBox_Transparent}"-->
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -264,7 +264,7 @@
         <Setter Property="Background" Value="Transparent"/>
         <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
         <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment, RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
-        <Setter Property="Padding" Value="0,0,0,0"/>
+        <!--<Setter Property="Padding" Value="0,0,0,0"/>-->
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ListBoxItem}">
@@ -284,7 +284,56 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Color x:Key="ListBox_GardinentBackground_List">#FFFFD68F</Color>
+
+    <!--<Style  x:Key="ListBox_Transparent22" TargetType="{x:Type ListBoxItem}">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True" >
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="Foreground" Value="Black" />
+            </Trigger>
+        </Style.Triggers>
+        <Style.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black"/>
+             Background of selected item when focussed 
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="LightCyan"/>
+             Background of selected item when not focussed 
+            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="LightGray" />
+        </Style.Resources>
+
+        --><!--<Style.Resources>
+            --><!-- SelectedItem with focus --><!--
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}"
+                       Color="Transparent" />
+            --><!-- SelectedItem without focus --><!--
+            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}"
+                       Color="Transparent" />
+            --><!-- SelectedItem text foreground --><!--
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}"
+                       Color="Black" />
+        </Style.Resources>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}" />--><!--
+
+
+    </Style>-->
+
+    <!--<Style x:Key="Lizt" TargetType="{x:Type ListViewItem}">
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListViewItem}">
+                    <Border
+                         BorderBrush="Transparent"
+                         BorderThickness="0"
+                         Background="{TemplateBinding Background}">
+                        <GridViewRowPresenter HorizontalAlignment="Stretch" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Width="Auto" Margin="0" Content="{TemplateBinding Content}"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
 
 
 
