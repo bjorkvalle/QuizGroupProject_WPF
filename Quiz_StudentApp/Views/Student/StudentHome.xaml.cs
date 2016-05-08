@@ -23,31 +23,30 @@ namespace Quiz_StudentApp.Views.Student
     /// </summary>
     public partial class StudentHome : Page
     {
-        User _user;
-        IList<Quiz> _quizlist;
         HomeViewModel vm;
 
         public StudentHome(User user)
         {
             
             InitializeComponent();
-            _user = user;
-            vm = new HomeViewModel(_user);
+            vm = new HomeViewModel(user);
         }
 
         private void btnNewQuiz_Click(object sender, RoutedEventArgs e)
         {
+            resultListTemplate.Visibility = Visibility.Collapsed;
+            quizListTemplate.Visibility = Visibility.Visible;
         }
 
         private void btnOldQuiz_Click(object sender, RoutedEventArgs e)
         {
-
+            quizListTemplate.Visibility = Visibility.Collapsed;
+            resultListTemplate.Visibility = Visibility.Visible;
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(_user.Name);
-            userInfoTemplate.DataContext = vm;
+            userInfoTemplate.DataContext = vm.ActiveUser; ;
             quizListTemplate.ItemsSource = vm.UserQuizs;
             resultListTemplate.ItemsSource = vm.UserResults;
         }

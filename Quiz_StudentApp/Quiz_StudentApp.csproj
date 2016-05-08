@@ -86,6 +86,12 @@
     <Compile Include="Models\QuizContext.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Views\Student\CommenceQuiz.xaml.cs">
+      <DependentUpon>CommenceQuiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\DisplayResult.xaml.cs">
+      <DependentUpon>DisplayResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\_Shared\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +99,14 @@
     <Compile Include="Views\Student\StudentHome.xaml.cs">
       <DependentUpon>StudentHome.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Student\CommenceQuiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Student\DisplayResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\_Shared\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

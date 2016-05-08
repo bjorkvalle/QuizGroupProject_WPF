@@ -1,7 +1,10 @@
-﻿using System.Windows;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using Quiz_StudentApp.Models;
 using Quiz_StudentApp.Views.Student;
 using Quiz_StudentApp.Data;
+using System.Linq;
 
 namespace Quiz_StudentApp.Views._Shared
 {
@@ -13,20 +16,10 @@ namespace Quiz_StudentApp.Views._Shared
         public MainWindow()
         {
             InitializeComponent();
-            
-            User currentUser = new User() {
-                Name = "bengt",
-                Password = "123",
-                Type = 1
-            };
+                 
+            User currentUser = Repository<User>.GetInstance().GetDataList().Where(c => c.Id == 1).First();
 
-            currentUser.Quizs.Add(new Quiz()
-            {
-                Title = "Quiz1"
-            });
-
-            Repository<User>.GetInstance().AddData(currentUser);
-
+            Console.WriteLine(currentUser.Name);
             MainFrame.Content = new StudentHome(currentUser);
 
             
