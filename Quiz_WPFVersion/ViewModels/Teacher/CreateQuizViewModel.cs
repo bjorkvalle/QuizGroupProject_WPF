@@ -9,12 +9,13 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 
 namespace Quiz_WPFVersion.ViewModels.Teacher
 {
 
     //: INotifyPropertyChanged, INotifyCollectionChanged
-    public class CreateQuizViewModel 
+    public class CreateQuizViewModel
     {
         //public event PropertyChangedEventHandler PropertyChanged = delegate { };
         //public event NotifyCollectionChangedEventHandler CollectionChanged = delegate { };
@@ -53,11 +54,27 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         {
             if (questionList.Count == 0)
             {
+                if (createQuizView.btnSaveQuiz.Visibility != System.Windows.Visibility.Hidden)
+                {
+                    createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("Save_animation_hide"));
+                }
                 createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Hidden;
+                createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("ListBox_hide"));
             }
             else
             {
-                createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Visible;
+                if (createQuizView.btnSaveQuiz.Visibility == System.Windows.Visibility.Hidden)
+                {
+                    if (questionList.Count == 1)
+                    {
+                        createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("ListBox_show"));
+
+                    }
+
+                    createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("Save_animation_show"));
+                    createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Visible;
+                }
+
                 createQuizView.lblMessageBoard.Content = "";
 
             }
@@ -111,24 +128,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         public void SendInstanceView(CreateQuiz createQuizView)
         {
             this.createQuizView = createQuizView;
-            //createQuizView.P
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-       
-
-
 
     }
 }

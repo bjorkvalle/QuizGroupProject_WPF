@@ -60,18 +60,15 @@ namespace Quiz_WPFVersion.HelperClass.Command
 
         public void Execute(object parameter)
         {
+            List<Question> listQuestion = QuestionListConverter(vModel.questionList);
+            if (listQuestion == null || listQuestion.Count == 0) return;
 
             repo.AddQuiz(new Quiz
             {
                 Title = vModel.createQuizView.txtbHeader.Text,
                 Description = vModel.createQuizView.txtbDescription.Text,
-                Questions = QuestionListConverter(vModel.questionList),
+                Questions = listQuestion,
             });
-
-            //var ss = vModel.questionList;
-
-
-            //List<Question> questionList_converted = QuestionListConverter(vModel.questionList);
 
             vModel.createQuizView.lblMessageBoard.Content = "• Provet är nu sparat.";
 
