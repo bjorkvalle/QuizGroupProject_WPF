@@ -1,4 +1,4 @@
-﻿namespace Quiz_StudentApp.Enum
+﻿namespace Quiz_StudentApp.Enums
 {
     public enum UserType
     {

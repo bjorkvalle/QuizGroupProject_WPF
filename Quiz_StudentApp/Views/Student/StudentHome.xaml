@@ -10,7 +10,6 @@
       d:DesignHeight="300" d:DesignWidth="400"
       Title="StudentHome">
     
-        <!--<DataTemplate DataType="{x:Type data:Quiz}">-->
     <Grid>
             
         <Grid.ColumnDefinitions>
@@ -25,12 +24,12 @@
         </Grid.RowDefinitions>
         
         <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Vertical">
-            <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="12" Text="Välkommen: "/>
                 <TextBlock x:Name="txtBlockName" Margin="8,0,0,0" FontSize="12" Text="{Binding Name}" />
             </StackPanel>
-            <StackPanel Orientation="Vertical">
-                <TextBlock FontSize="12" Text="Klass:  "/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="12" Text="Klass: "/>
                 <TextBlock x:Name="txtBlockEducation" Margin="8,0,0,0" FontSize="12" Text="{Binding Education}" />
             </StackPanel>
         </StackPanel>
@@ -46,6 +45,7 @@
                     <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate}" />
                     <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate}" />
                     <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
+                    <GridViewColumn Header="Antal Frågor" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
                 </GridView>
             </ListView.View>
         </ListView>
@@ -56,8 +56,6 @@
                     <GridViewColumn Header="Beskrivning" Width="Auto" DisplayMemberBinding="{Binding Description}" />
                     <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate}" />
                     <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate}" />
-                    <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
-                    <GridViewColumn Header="Antal Frågor" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
                 </GridView>
             </ListView.View>
         </ListView>
