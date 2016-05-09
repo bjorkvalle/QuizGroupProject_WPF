@@ -17,7 +17,7 @@ namespace Quiz_StudentApp.Views._Shared
             User currentUser = new User() {
                 Name = "bengt",
                 Password = "123",
-                Type = 1
+                Type = Enums.UserType.Student
             };
 
             currentUser.Quizs.Add(new Quiz()
@@ -28,9 +28,6 @@ namespace Quiz_StudentApp.Views._Shared
             Repository<User>.GetInstance().AddData(currentUser);
 
             MainFrame.Content = new StudentHome(currentUser);
-
-            
-
         }
     }
 }
