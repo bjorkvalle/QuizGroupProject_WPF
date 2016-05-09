@@ -8,6 +8,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace Quiz_WPFVersion.ViewModels
 {
@@ -33,10 +34,10 @@ namespace Quiz_WPFVersion.ViewModels
                 {
                     Title = "Prov1",
                     AverageTime = GetAverageTime(CreateQuizzes()),
-                    QuizTaken = 14,
-                    QuizNotTaken = 2,
-                    GradeG = 13,
-                    GradeF = 1
+                    QuizTaken = 14,  //Metod för att se hur många som är klara
+                    QuizNotTaken = 2, //Metod för att se hur många som INTE är klara
+                    GradeG = 13,  //Metod för att hämta alla godkända
+                    GradeF = 1   //Metod för att hämta alla underkända
                 },
                 new Statistics_Quiz
                 {
@@ -239,6 +240,42 @@ namespace Quiz_WPFVersion.ViewModels
         public void GetInstanceOfView(Statistics viewStatistics)
         {
             this.viewStatistics = viewStatistics;
+        }
+
+
+        private Education selEducation;
+        private Course selCourse;
+        private User selUser;
+        public void SetSelEducation(object selEducation)
+        {
+            this.selEducation = selEducation as Education;
+            Search();
+        }
+
+        private void Search()
+        {
+            if (selEducation != null)
+            {
+
+            }else if (selCourse != null)
+            {
+
+            } else if(selUser != null)
+            {
+
+            }
+
+            //sök med tre värden
+        }
+
+        public void SetSelCourse(object selCourse)
+        {
+            this.selCourse = selCourse as Course;
+        }
+
+        public void SetSelUser(object selUser)
+        {
+            this.selUser = selUser as User;
         }
     }
 }

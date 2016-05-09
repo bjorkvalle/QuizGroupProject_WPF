@@ -28,15 +28,21 @@ namespace Quiz_WPFVersion.View._Shared
 
         }
 
-        private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void comboBox_SelectionChanged_Education(object sender, SelectionChangedEventArgs e)
         {
-            
-            var temp = sender as ComboBox;
-            var sel = temp.SelectedItem;
+            ((Statistics_ViewModel)this.DataContext).SetSelEducation((sender as ComboBox).SelectedItem);
         }
 
+        private void comboBox_SelectionChanged_Course(object sender, SelectionChangedEventArgs e)
+        {
+            ((Statistics_ViewModel)this.DataContext).SetSelCourse((sender as ComboBox).SelectedItem);
 
+        }
 
-      
+        private void comboBox_SelectionChanged_User(object sender, SelectionChangedEventArgs e)
+        {
+            ((Statistics_ViewModel)this.DataContext).SetSelUser((sender as ComboBox).SelectedItem);
+        }
     }
 }

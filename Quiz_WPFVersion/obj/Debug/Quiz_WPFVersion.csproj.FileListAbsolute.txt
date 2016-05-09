@@ -171,3 +171,4 @@ C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Share
 C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.g.resources
 C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Properties.Resources.resources
 C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
+C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.InitialCreate.resources
