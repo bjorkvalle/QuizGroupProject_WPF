@@ -21,9 +21,22 @@ namespace Quiz_WPFVersion.ViewModels
 
         public List<Quiz> GetQuizzes()
         {
-            var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(ActiveUser.Id).Id);
+            var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == ActiveUser.Id);
             return quizzes.ToList();
         }
+
+        public void SendQuizToAdmin(Quiz quiz)
+        {
+            var admins = Repository<User>.GetInstance().GetDataList().Where(user =>  user.Type == Enum.UserType.Admin);
+
+            foreach (var admin in admins)
+            {
+                quiz.UserId = admin.Id;
+                Repository<Quiz>.GetInstance().AddData(quiz);
+            }
+
+        }
+
 
 
     }

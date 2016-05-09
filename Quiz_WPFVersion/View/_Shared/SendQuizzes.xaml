@@ -8,8 +8,44 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Title="SendQuiz">
 
-    <Grid>
-        <Ellipse Fill="#FFFF2C2C" HorizontalAlignment="Left" Height="100" Margin="85,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+    <Grid Background="{StaticResource backgroundOrangeLight}" Margin="0,0,-215,-86">
+        <Grid Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
+
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="blockHeader_Copy" TextWrapping="Wrap" Text="SKICKA PROV" d:LayoutOverrides="LeftPosition, RightPosition" FontFamily="Segoe UI Semibold" FontSize="20"/>
+                <TextBlock x:Name="blockHeader_Copy1" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="13.333" d:LayoutOverrides="LeftPosition, RightPosition" Foreground="{DynamicResource fontColor}"/>
+            </StackPanel>
+
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="60"/>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="*"/>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="skickade prov" Grid.Row="3" Margin="0,14,9,1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+                <ListBox x:Name="quizListBox" HorizontalAlignment="Left" Height="100" Width="89" VerticalAlignment="Top" Grid.Row="5" Margin="-1,0,0,0">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <TextBlock Text="{Binding Title}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+
+
+            </Grid>
+
+        </Grid>
+
 
     </Grid>
 </Page>

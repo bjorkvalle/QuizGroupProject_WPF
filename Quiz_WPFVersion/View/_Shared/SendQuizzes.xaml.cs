@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Quiz_WPFVersion.ViewModels;
+using Quiz_WPFVersion.Models;
 
 namespace Quiz_WPFVersion.View._Shared
 {
@@ -20,9 +22,16 @@ namespace Quiz_WPFVersion.View._Shared
     /// </summary>
     public partial class SendQuiz : Page
     {
+
+        AdminViewModel adminVM;
+
         public SendQuiz()
         {
             InitializeComponent();
+            adminVM = new AdminViewModel(AdminViewModel.activeUser);
+
+
+
         }
     }
 }

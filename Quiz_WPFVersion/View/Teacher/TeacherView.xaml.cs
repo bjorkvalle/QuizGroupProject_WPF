@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Quiz_WPFVersion.ViewModels;
+using Quiz_WPFVersion.Models;
+
 
 namespace Quiz_WPFVersion.View.Teacher
 {
@@ -21,10 +23,34 @@ namespace Quiz_WPFVersion.View.Teacher
     /// </summary>
     public partial class TeacherView : Page
     {
+        User activeUser;
+        TeacherViewModel teacherVM;
+        Quiz selectedQuiz;
+        List<Quiz> Quizzes;
 
-        public TeacherView()
+        public TeacherView(User user)
         {
             InitializeComponent();
+            activeUser = user;
+            teacherVM = new TeacherViewModel(activeUser);
+            txtbName.Text = user.Name;
+            Quizzes = teacherVM.GetQuizzes();
+            quizListBox.ItemsSource = Quizzes;
+            //Console.WriteLine(teacherVM.GetQuizzes().First().Title);
+        }
+
+        private void quizListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedQuiz = Quizzes[quizListBox.SelectedIndex];
+        }
+
+        private void sendBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedQuiz == null)
+                return;
+
+            teacherVM.SendQuizToAdmin(selectedQuiz);
+
         }
     }
 }

@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Quiz_WPFVersion.Models;
+using Quiz_WPFVersion.ViewModels;
+
 
 namespace Quiz_WPFVersion.View.Admin
 {
@@ -20,9 +23,20 @@ namespace Quiz_WPFVersion.View.Admin
     /// </summary>
     public partial class AdminView : Page
     {
-        public AdminView()
+
+        User activeUser;
+        AdminViewModel adminVM;
+
+        public AdminView(User user)
         {
             InitializeComponent();
+            activeUser = user;
+            adminVM = new AdminViewModel(user);
         }
+
+
+
+
+
     }
 }

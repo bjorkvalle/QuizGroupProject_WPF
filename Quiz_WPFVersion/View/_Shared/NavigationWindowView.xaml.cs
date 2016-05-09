@@ -40,7 +40,7 @@ namespace Quiz_WPFVersion.View._Shared
         {
             Button senderButton = sender as Button;
             if (sender == null || viewModel == null) return;
-            viewModel.Navigate(this, senderButton.Name);
+            viewModel.MenuNavigation(this, senderButton.Name);
 
         }
 
@@ -48,7 +48,7 @@ namespace Quiz_WPFVersion.View._Shared
         {
             Image senderImage = sender as Image;
             if (senderImage == null || viewModel == null) return;
-            viewModel.Navigate(this, senderImage.Name);
+            viewModel.MenuNavigation(this, senderImage.Name);
         }
     }
 }

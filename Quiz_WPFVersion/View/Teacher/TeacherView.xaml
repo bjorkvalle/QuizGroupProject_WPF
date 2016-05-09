@@ -4,6 +4,7 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View.Teacher"
+      xmlns:src="clr-namespace:Quiz_WPFVersion.Models"
       mc:Ignorable="d" 
       Title="TeacherView" d:DesignWidth="482" d:DesignHeight="333">
 
@@ -35,11 +36,18 @@
             <TextBlock x:Name="textBlock" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Senast skickade prov" Grid.Row="3" Margin="0,0,9,0" Foreground="{StaticResource fontColor}" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
 
             <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="skickade prov" Grid.Row="3" Margin="0,14,9,1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Width="89" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,0,0" >
-                <ListBox.Background>
-                    <SolidColorBrush Color="White" Opacity="0.565"/>
-                </ListBox.Background>
+            <ListBox x:Name="quizListBox" HorizontalAlignment="Left" Height="100" Width="89" VerticalAlignment="Top" Grid.Row="5" Margin="-1,0,0,0" SelectionChanged="quizListBox_SelectionChanged">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,2">
+                            <TextBlock Text="{Binding Title}" />
+                        </Grid>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
+
+            <Button Content="Send Test" Name="sendBtn" Grid.Row="5" Height="27" Width="75" Margin="0,5,0,0" HorizontalAlignment="Center" Click="sendBtn_Click"></Button>
+            
         </Grid>
     </Grid>
 </Page>
