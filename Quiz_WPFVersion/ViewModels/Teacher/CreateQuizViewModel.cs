@@ -37,6 +37,7 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         public Command_Remove_Alternative commandRemove_Alternative { get; set; }
         public Command_Remove_Question commandRemove_Question { get; set; }
         public Command_Save_Quiz command_SaveQuiz { get; set; }
+        public User activeUser { get; set; }
 
         public CreateQuiz createQuizView { get; set; }
 
@@ -54,32 +55,64 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
         {
             if (questionList.Count == 0)
             {
-                if (createQuizView.btnSaveQuiz.Visibility != System.Windows.Visibility.Hidden)
-                {
-                    createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("Save_animation_hide"));
-                }
+                //if (createQuizView.btnSaveQuiz.Visibility != System.Windows.Visibility.Hidden)
+                //{
+                //    createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("ListBox_hide"));
+                //    createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("Save_animation_hide"));
+                //}
                 createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Hidden;
-                createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("ListBox_hide"));
             }
             else
             {
-                if (createQuizView.btnSaveQuiz.Visibility == System.Windows.Visibility.Hidden)
-                {
-                    if (questionList.Count == 1)
-                    {
-                        createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("ListBox_show"));
+                //if (createQuizView.btnSaveQuiz.Visibility == System.Windows.Visibility.Hidden ||
+                //    createQuizView.listQuestion2.Visibility == System.Windows.Visibility.Hidden
+                //    )
+                //{
+                //    if (questionList.Count == 1)
+                //    {
+                //        createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("ListBox_show"));
+                //        createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("Save_animation_show"));
 
-                    }
+                //    }
+                //    else
+                //    {
 
-                    createQuizView.BeginStoryboard((Storyboard)createQuizView.FindResource("Save_animation_show"));
-                    createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Visible;
-                }
+                //        createQuizView.btnSaveQuiz.Opacity = 1;
+                //        createQuizView.listQuestion2.Opacity = 1;
+                //        StopAllAnimation();
+                //        //createQuizView
+                //        createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Visible;
+                //        createQuizView.listQuestion2.Visibility = System.Windows.Visibility.Visible;
+
+
+                //    }
+
+
+                //}
+                ////createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Visible;
+                ////createQuizView.listQuestion2.Opacity = 1d;
+                ////createQuizView.listQuestion2.Visibility = System.Windows.Visibility.Visible;
 
                 createQuizView.lblMessageBoard.Content = "";
+                createQuizView.btnSaveQuiz.Visibility = System.Windows.Visibility.Visible;
+
 
             }
 
         }
+
+        //private void StopAllAnimation()
+        //{
+        //    Storyboard storyListHide =  (Storyboard)createQuizView.FindResource("ListBox_hide");
+        //    Storyboard storySaveHide = (Storyboard)createQuizView.FindResource("Save_animation_hide");
+        //    Storyboard storyListShow = (Storyboard)createQuizView.FindResource("ListBox_show");
+        //    Storyboard storySaveShow= (Storyboard)createQuizView.FindResource("Save_animation_show");
+
+        //    storyListHide.Remove();
+        //    storySaveHide.Remove();
+        //    storyListShow.Remove();
+        //    storySaveShow.Remove();
+        //}
 
         public void AddSingelChoice_Question()
         {
@@ -125,9 +158,10 @@ namespace Quiz_WPFVersion.ViewModels.Teacher
             });
         }
 
-        public void SendInstanceView(CreateQuiz createQuizView)
+        public void SendInstanceView_ActiveUser(CreateQuiz createQuizView, User activeUser)
         {
             this.createQuizView = createQuizView;
+            this.activeUser = activeUser;
         }
 
     }

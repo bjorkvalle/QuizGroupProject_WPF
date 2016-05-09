@@ -64,12 +64,26 @@ namespace Quiz_WPFVersion.HelperClass.Command
             List<Question> listQuestion = QuestionListConverter(vModel.questionList);
             if (listQuestion == null || listQuestion.Count == 0) return;
 
-            repo.AddData(new Quiz
+            //repo.AddData(new Quiz
+            //{
+            //    Title = vModel.createQuizView.txtbHeader.Text,
+            //    Description = vModel.createQuizView.txtbDescription.Text,
+            //    Questions = listQuestion,
+
+            //});
+
+            //new User().Quizs.Add(new Quiz());
+            //Repository<User>.GetInstance().UpdateData(activeUser)
+
+            vModel.activeUser.Quizs.Add(new Quiz
             {
                 Title = vModel.createQuizView.txtbHeader.Text,
                 Description = vModel.createQuizView.txtbDescription.Text,
                 Questions = listQuestion,
+
             });
+
+            Repository<User>.GetInstance().UpdateData(vModel.activeUser);
 
             vModel.createQuizView.lblMessageBoard.Content = "• Provet är nu sparat.";
 
@@ -116,7 +130,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
                 {
                     if (alternative.ScoreValue == 1)
                     {
-                        alternative.ScoreValue = question.ScoreValue ;
+                        alternative.ScoreValue = question.ScoreValue;
                     }
                 }
                 else if (question.Type == Enum.QuestionType.RankQuestion)
