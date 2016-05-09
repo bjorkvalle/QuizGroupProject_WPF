@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Quiz_StudentApp.ViewModels
 {
-    class QuizViewModel
+    public class QuizViewModel
     {
         public Quiz ActiveQuiz { get; set; }
 

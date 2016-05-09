@@ -14,7 +14,7 @@ namespace Quiz_StudentApp.ViewModels
 
         public HomeViewModel(User user)
         {
-            ActiveUser = Repository<User>.GetInstance().GetDataList().LastOrDefault();//user;
+            ActiveUser = Repository<User>.GetInstance().GetDataList().Last();//user;
             UserQuizs = GetUserQuizs();
             UserResults = GetUserResults();
         }
