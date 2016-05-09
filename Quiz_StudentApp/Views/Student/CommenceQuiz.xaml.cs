@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Quiz_StudentApp.Models;
+using Quiz_StudentApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,17 @@ namespace Quiz_StudentApp.Views.Student
     /// </summary>
     public partial class CommenceQuiz : Page
     {
-        public CommenceQuiz()
+        QuizViewModel vm;
+        public CommenceQuiz(Quiz quiz)
         {
             InitializeComponent();
+            vm = new QuizViewModel(quiz);
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            DataContext = vm.ActiveQuiz;
+            //Console.WriteLine(vm.ActiveQuiz.Questions);
         }
     }
 }
