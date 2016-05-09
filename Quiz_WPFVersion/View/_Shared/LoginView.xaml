@@ -8,7 +8,9 @@
       d:DesignHeight="300" d:DesignWidth="522.407"
       Title="LoginView">
 
-    <Grid Background="{StaticResource backgroundOrangeLight}">
+    <Grid Background="#FFFFBEBE">
+
+
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
             <Image x:Name="image" MinWidth="90" Source="/Quiz_WPFVersion;component/Data/Images/Newton_White.png" HorizontalAlignment="Center" Height="43.011" Width="207.312" d:LayoutOverrides="LeftPosition, RightPosition" Margin="0,0,0,20"/>
             <Label Content="Username" Margin="28,0,0,0"/>
