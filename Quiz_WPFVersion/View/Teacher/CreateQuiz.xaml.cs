@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Quiz_WPFVersion.HelperClass;
+using Quiz_WPFVersion.Models;
+using Quiz_WPFVersion.ViewModels.Teacher;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +23,37 @@ namespace Quiz_WPFVersion.View.Teacher
     /// </summary>
     public partial class CreateQuiz : Page
     {
+
+        CreateQuizViewModel viewModel;
+
+
         public CreateQuiz()
         {
             InitializeComponent();
+            viewModel = this.DataContext as CreateQuizViewModel;
+            viewModel.SendInstanceView(this);
         }
+
+
+
+        private void btnMultiQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.AddMultiChoice_Question();
+        }
+
+        private void btnRankQuestion_Click(object sender, RoutedEventArgs e)
+        {
+            viewModel.AddRankChoice_Question();
+        }
+
+        private void btn_AddSingleQuestion(object sender, RoutedEventArgs e)
+        {
+            viewModel.AddSingelChoice_Question();
+        }
+
+
+
+
+
     }
 }
