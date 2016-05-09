@@ -9,8 +9,6 @@ namespace Quiz_StudentApp.Models
         public int Score { get; set; }
         public Nullable<int> User_Id { get; set; }
         public Nullable<int> Quiz_Id { get; set; }
-        public Nullable<int> Quiz_Id1 { get; set; }
-        public Nullable<int> User_Id1 { get; set; }
         public virtual Quiz Quiz { get; set; }
         public virtual User User { get; set; }
     }

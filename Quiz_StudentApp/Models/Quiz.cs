@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Quiz_StudentApp.Models
 {
@@ -7,8 +8,7 @@ namespace Quiz_StudentApp.Models
     {
         public Quiz()
         {
-            this.Questions = new List<Question>();
-            this.Results = new List<Result>();
+            this.Questions = new Collection<Question>();
         }
 
         public int Id { get; set; }
@@ -25,6 +25,5 @@ namespace Quiz_StudentApp.Models
         public Nullable<int> UserId { get; set; }
         public virtual User User { get; set; }
         public virtual ICollection<Question> Questions { get; set; }
-        public virtual ICollection<Result> Results { get; set; }
     }
 }
