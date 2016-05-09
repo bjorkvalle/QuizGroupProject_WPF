@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Collections.ObjectModel;
+using Quiz_WPFVersion.Data;
 
 namespace Quiz_WPFVersion.HelperClass.Command
 {
@@ -16,7 +17,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
         public event EventHandler CanExecuteChanged;
         CreateQuizViewModel vModel;
 
-        IRepository repo;
+        Repository<Quiz> repo = new Repository<Quiz>();
 
         public Command_Save_Quiz(CreateQuizViewModel vModel)
         {
@@ -63,7 +64,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
             List<Question> listQuestion = QuestionListConverter(vModel.questionList);
             if (listQuestion == null || listQuestion.Count == 0) return;
 
-            repo.AddQuiz(new Quiz
+            repo.AddData(new Quiz
             {
                 Title = vModel.createQuizView.txtbHeader.Text,
                 Description = vModel.createQuizView.txtbDescription.Text,
