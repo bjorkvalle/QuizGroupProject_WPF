@@ -6,23 +6,87 @@
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       xmlns:ViewModels="clr-namespace:Quiz_WPFVersion.ViewModels" x:Class="Quiz_WPFVersion.View._Shared.Statistics"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="600" d:DesignWidth="500"
       Title="Statistics">
+    <Page.Resources>
 
-    <Grid>
+    </Page.Resources>
+    <Page.DataContext>
+        <ViewModels:Statistics_ViewModel/>
+    </Page.DataContext>
+
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="14"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="39"/>
+            <RowDefinition Height="115*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="439*"/>
+
+        </Grid.ColumnDefinitions>
         <Grid.Background>
             <SolidColorBrush Color="{DynamicResource ListBox_GardinentBackground_List}"/>
         </Grid.Background>
-        <Grid.DataContext>
-            <ViewModels:Statistics_ViewModel/>
-        </Grid.DataContext>
-        <ListView x:Name="listView" Margin="39.733,73.2,18.934,126.8" DataContext="{Binding _Courses}">
+        <ListView x:Name="listView" Margin="0.066,10.367,69.257,0" ItemsSource="{Binding _Quiz}" Grid.Row="3" Grid.Column="1" d:LayoutOverrides="LeftMargin, RightMargin" Foreground="{DynamicResource fontColor}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
+            <ListView.Background>
+                <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+            </ListView.Background>
             <ListView.View>
                 <GridView>
-                    <GridViewColumn/>
+                    <!--<GridViewColumn Header="Datum" />-->
+                    <GridViewColumn Header="Prov" Width="129" DisplayMemberBinding="{Binding Title}"/>
+                    <GridViewColumn Header="Godkända" Width="71" DisplayMemberBinding="{Binding GradeG}"/>
+                    <GridViewColumn Header="Underkända" Width="87" DisplayMemberBinding="{Binding GradeF}"/>
+                    <GridViewColumn Header="Tid/Genomsnitt" Width="124" DisplayMemberBinding="{Binding AverageTime}"/>
                 </GridView>
             </ListView.View>
         </ListView>
+        <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" d:LayoutOverrides="LeftMargin, RightMargin" Grid.Column="1" Foreground="{DynamicResource fontColor}" Margin="0,-13.285,0,4.338" Grid.Row="1"><Run Text="STAT"/><Run Text="I"/><Run Text="STIK"/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy" Margin="0.066,-4.053,0,-4" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="Genomförda prov" Grid.Row="2" d:LayoutOverrides="LeftMargin, RightMargin" Grid.Column="1" HorizontalAlignment="Left" Width="103.934" Foreground="{DynamicResource fontColor}"/>
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="4" d:LayoutOverrides="Width" Grid.RowSpan="2" Margin="20,10,0,-10">
+            <StackPanel x:Name="stack_Edu" Margin="0,0.053,0,0" Orientation="Vertical" d:LayoutOverrides="Height" MinWidth="120">
+                <TextBlock x:Name="textBlock_Copy1" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Height="18" Foreground="{DynamicResource fontColor}" d:LayoutOverrides="TopPosition, BottomPosition"/>
+                <ComboBox x:Name="comboBox_Education" Margin="1,0,0,0" ItemsSource="{Binding _Education}" Height="21" MinWidth="120"
+                  >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+
+                </ComboBox>
+
+            </StackPanel>
+            <StackPanel x:Name="stack_Course" Orientation="Vertical" d:LayoutOverrides="Height, TopPosition, BottomPosition" Margin="20,0,0,0" MinWidth="120">
+                <TextBlock x:Name="textBlock_Copy2" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KURSER" Height="18.053" Foreground="{DynamicResource fontColor}"/>
+
+                <ComboBox x:Name="comboBox_Course" ItemsSource="{Binding _Courses}" SelectionChanged="comboBox_SelectionChanged" Height="21" d:LayoutOverrides="LeftPosition, RightPosition" MinWidth="120" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+
+            </StackPanel>
+            <StackPanel x:Name="stacl_User" Margin="20,0,0,0" Orientation="Vertical" d:LayoutOverrides="Height" MinWidth="104">
+                <TextBlock x:Name="textBlock_Copy3" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="ELEV" Height="18" Foreground="{DynamicResource fontColor}" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition"/>
+                <ComboBox x:Name="comboBox_User" ItemsSource="{Binding _Users}" SelectionChanged="comboBox_SelectionChanged" Height="21" MinWidth="60" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" Margin="0,-43.053,69.257,-28" Grid.Row="4" Opacity="0.385" Panel.ZIndex="-3" d:LayoutOverrides="LeftMargin, RightMargin"/>
 
     </Grid>
 </Page>
