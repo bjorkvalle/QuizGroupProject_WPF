@@ -71,6 +71,11 @@
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Enums\Enum_QuestionType.cs" />
     <Compile Include="Enums\Enum_UserType.cs" />
+    <Compile Include="Migrations\201605061120260_Initial.cs" />
+    <Compile Include="Migrations\201605061120260_Initial.Designer.cs">
+      <DependentUpon>201605061120260_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alternative.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Education.cs" />
@@ -86,6 +91,13 @@
     <Compile Include="Models\QuizContext.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="ViewModels\QuizViewModel.cs" />
+    <Compile Include="Views\Student\CommenceQuiz.xaml.cs">
+      <DependentUpon>CommenceQuiz.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Student\DisplayResult.xaml.cs">
+      <DependentUpon>DisplayResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\_Shared\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
     </Compile>
@@ -93,6 +105,14 @@
     <Compile Include="Views\Student\StudentHome.xaml.cs">
       <DependentUpon>StudentHome.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Student\CommenceQuiz.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Student\DisplayResult.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\_Shared\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -121,6 +141,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201605061120260_Initial.resx">
+      <DependentUpon>201605061120260_Initial.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

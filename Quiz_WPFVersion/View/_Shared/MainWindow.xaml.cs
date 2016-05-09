@@ -6,6 +6,7 @@ using Quiz_WPFVersion.View.Teacher;
 using Quiz_WPFVersion.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -42,19 +43,26 @@ namespace Quiz_WPFVersion
             //    db.Database.Delete();
             //}
 
-            //User user = new User();
-            //user.Name = "Timmy";
+            User user = new User();
+            user.Name = "Olof";
+            user.Password = "asd";
 
-            //user.Quizs.Add(new Quiz()
-            //{
-            //    Title = "TimmysQuiz1"
-            //});
-            //user.Quizs.Add(new Quiz()
-            //{
-            //    Title = "TimmysQuiz2"
-            //});
+            user.Quizs.Add(new Quiz()
+            {
+                Title = "Quiz1",
+                Description = "här står det något",
+                GScore = 60,
+                VGScore = 80,
+                StartDate = new DateTime(2015,05,06),
+                EndDate = new DateTime(2015, 05, 10),
+                TimeLimit = new TimeSpan(0,0,20),
+                ShowStudentResult = true,
+                SentToAdmin = false,
+                SentToStudent = false,   
+            });
 
-            //Repository<User>.GetInstance().AddData(user);
+
+            Repository<User>.GetInstance().AddData(user);
 
             //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
 

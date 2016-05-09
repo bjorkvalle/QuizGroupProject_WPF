@@ -1,3 +1,4 @@
+using Quiz_StudentApp.Enums;
 using System;
 using System.Collections.Generic;
 
@@ -15,7 +16,7 @@ namespace Quiz_StudentApp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public string Password { get; set; }
-        public int Type { get; set; }
+        public UserType Type { get; set; }
         public Nullable<int> Education_Id { get; set; }
         public Nullable<int> Education_Id1 { get; set; }
         public virtual Education Education { get; set; }
