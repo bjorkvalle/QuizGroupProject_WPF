@@ -23,6 +23,8 @@ namespace Quiz_StudentApp.Views._Shared
                 Type = Enums.UserType.Student
             };
 
+
+
             //currentUser.Quizs.Add(new Quiz()
             //{
             //    Title = "Quiz1"

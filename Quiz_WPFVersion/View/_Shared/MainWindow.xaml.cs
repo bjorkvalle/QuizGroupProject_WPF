@@ -61,8 +61,9 @@ namespace Quiz_WPFVersion
                 SentToStudent = false,   
             });
 
-
             Repository<User>.GetInstance().AddData(user);
+
+            
 
             //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
 
