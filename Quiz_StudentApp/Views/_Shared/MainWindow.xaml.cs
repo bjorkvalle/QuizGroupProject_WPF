@@ -23,14 +23,14 @@ namespace Quiz_StudentApp.Views._Shared
                 Type = Enums.UserType.Student
             };
 
-            currentUser.Quizs.Add(new Quiz()
-            {
-                Title = "Quiz1"
-            });
+            //currentUser.Quizs.Add(new Quiz()
+            //{
+            //    Title = "Quiz1"
+            //});
 
-            Repository<User>.GetInstance().AddData(currentUser);
+            //Repository<User>.GetInstance().AddData(currentUser);
                  
-            User currentUser = Repository<User>.GetInstance().GetDataList().Where(c => c.Id == 1).First();
+            //User currentUser = Repository<User>.GetInstance().GetDataList().Where(c => c.Id == 1).First();
 
             Console.WriteLine(currentUser.Name);
             MainFrame.Content = new StudentHome(currentUser);

@@ -4,35 +4,17 @@
 exe
 C#
 .cs
-<<<<<<< HEAD
-C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\
-=======
-C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\obj\Debug\
->>>>>>> refs/remotes/origin/master
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\
 Quiz_StudentApp
 none
 false
 DEBUG;TRACE
-<<<<<<< HEAD
-C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\App.xaml
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\App.xaml
 4-1956956224
 
-<<<<<<< HEAD
-30-1328530833
+32-1478374905
 161500826544
-=======
-C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\App.xaml
-2-2098299504
-
-26960601216
-16597108463
->>>>>>> refs/remotes/origin/master
-Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
-=======
-28810757144
-16-1534691873
 Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
->>>>>>> 8c086c4d35a92703b86ce4f62b0af84cb3d54ddb
 
 False
 
