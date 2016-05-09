@@ -1,17 +1,28 @@
-﻿<Page x:Class="Quiz_WPFVersion.View._Shared.Statistics"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
+      xmlns:ViewModels="clr-namespace:Quiz_WPFVersion.ViewModels" x:Class="Quiz_WPFVersion.View._Shared.Statistics"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Title="Statistics">
 
-    <Grid >
+    <Grid>
         <Grid.Background>
             <SolidColorBrush Color="{DynamicResource ListBox_GardinentBackground_List}"/>
         </Grid.Background>
+        <Grid.DataContext>
+            <ViewModels:Statistics_ViewModel/>
+        </Grid.DataContext>
+        <ListView x:Name="listView" Margin="39.733,73.2,18.934,126.8" DataContext="{Binding _Courses}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn/>
+                </GridView>
+            </ListView.View>
+        </ListView>
 
     </Grid>
 </Page>

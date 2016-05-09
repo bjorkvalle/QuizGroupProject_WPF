@@ -89,12 +89,13 @@
     <Compile Include="Enum\Enum_QuestionType.cs" />
     <Compile Include="Enum\Enum_UserType.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="ViewModels\StatisticsViewModel2.cs" />
     <Compile Include="ViewModels\Teacher\CreateQuizViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
     <Compile Include="ViewModels\Teacher\Question_Binding.cs" />
-    <Compile Include="ViewModels\_Shared\Statistics_ViewModel.cs" />
+    <Compile Include="ViewModels\Statistics_ViewModel.cs" />
     <Compile Include="View\Admin\AddRemoveUsers.xaml.cs">
       <DependentUpon>AddRemoveUsers.xaml</DependentUpon>
     </Compile>
@@ -122,8 +123,8 @@
     <Compile Include="View\_Shared\SendQuizzes.xaml.cs">
       <DependentUpon>SendQuizzes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\_Shared\Statistics.xaml.cs">
-      <DependentUpon>Statistics.xaml</DependentUpon>
+    <Compile Include="View\_Shared\Statistics2.xaml.cs">
+      <DependentUpon>Statistics2.xaml</DependentUpon>
     </Compile>
     <Page Include="Data\ResourceDictionary.xaml">
       <SubType>Designer</SubType>
@@ -181,7 +182,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\_Shared\Statistics.xaml">
+    <Page Include="View\_Shared\Statistics2.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -232,6 +233,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Admin\" />
+    <Folder Include="ViewModels\_Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
