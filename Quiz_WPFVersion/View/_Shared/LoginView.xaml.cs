@@ -12,6 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Quiz_WPFVersion.Models;
+using Quiz_WPFVersion.ViewModels;
+using Quiz_WPFVersion.Enum;
+using Quiz_WPFVersion.Data;
+using System.Diagnostics;
 
 namespace Quiz_WPFVersion.View._Shared
 {
@@ -20,15 +25,34 @@ namespace Quiz_WPFVersion.View._Shared
     /// </summary>
     public partial class LoginView : Page
     {
+        LoginViewModel loginVM = new LoginViewModel();
+
         public LoginView()
         {
             InitializeComponent();
+
+            //User user = new User
+            //{
+            //    Name = "Test2",
+            //    Password = "123",
+            //    Type = UserType.Teacher
+            //};
+
+            //Repository<User>.GetInstance().AddData(user);
+
+
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            //If Acess is true!
-            this.NavigationService.Navigate(new NavigationWindowView());
+            User user = loginVM.LoginControll(UsernameBox.Text, PasswordBox.Password);
+
+            if (user != null)
+                this.NavigationService.Navigate(new NavigationWindowView(user));
+            else
+            errormessageBox.Visibility = Visibility.Visible;
+
         }
+
     }
 }

@@ -31,7 +31,7 @@ namespace Quiz_WPFVersion.ViewModels
             switch (command)
             {
                 case "menuLogo":
-                    if (activeUser.Type == UserType.Techer)
+                    if (activeUser.Type == UserType.Teacher)
                     {
                         
                         window.DetailFrame.Content = new TeacherView();
@@ -65,7 +65,7 @@ namespace Quiz_WPFVersion.ViewModels
             activeUser = user;
             switch (user.Type)
             {
-                case UserType.Techer:
+                case UserType.Teacher:
                     window.btnSendQuiz.Visibility = Visibility.Collapsed;
                     window.btnAdministrate.Visibility = Visibility.Collapsed;
                     window.DetailFrame.Content = new TeacherView();

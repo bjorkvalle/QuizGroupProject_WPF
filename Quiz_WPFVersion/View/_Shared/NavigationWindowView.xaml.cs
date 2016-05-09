@@ -27,26 +27,15 @@ namespace Quiz_WPFVersion.View._Shared
     {
 
         internal NavigationWindowViewModel viewModel;
-        public NavigationWindowView()
+        public NavigationWindowView(User user)
         {
             InitializeComponent();
 
-            
-
-            User ActiveUser = new User
-            {
-                Id = 13,
-                Name = "Haroun",
-                Password = "123",
-                Type = Enum.UserType.Techer
-            };
-
-
             viewModel = this.DataContext as NavigationWindowViewModel;
-            viewModel.RenderAccessibility(ActiveUser, this);
-
+            viewModel.RenderAccessibility(user, this);
 
         }
+
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Button senderButton = sender as Button;
