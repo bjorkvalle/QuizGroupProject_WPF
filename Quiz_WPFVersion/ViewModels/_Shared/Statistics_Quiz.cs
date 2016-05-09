@@ -13,6 +13,9 @@ namespace Quiz_WPFVersion.ViewModels._Shared
         public int GradeG { get; set; }
         public int GradeF { get; set; }
 
+        public int QuizTaken { get; set; }
+        public int QuizNotTaken { get; set; }
+
 
     }
 }
