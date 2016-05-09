@@ -23,7 +23,8 @@ namespace Quiz_StudentApp.Views._Shared
                 Type = Enums.UserType.Student
             };
 
-
+            //Repository<User>.GetInstance().AddData(new User());
+            new SeedData();
 
             //currentUser.Quizs.Add(new Quiz()
             //{
@@ -31,7 +32,7 @@ namespace Quiz_StudentApp.Views._Shared
             //});
 
             //Repository<User>.GetInstance().AddData(currentUser);
-                 
+
             //User currentUser = Repository<User>.GetInstance().GetDataList().Where(c => c.Id == 1).First();
 
             Console.WriteLine(currentUser.Name);
