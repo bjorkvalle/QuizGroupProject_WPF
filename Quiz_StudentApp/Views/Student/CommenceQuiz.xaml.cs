@@ -17,12 +17,10 @@ using System.Windows.Shapes;
 
 namespace Quiz_StudentApp.Views.Student
 {
-    /// <summary>
-    /// Interaction logic for CommenceQuiz.xaml
-    /// </summary>
     public partial class CommenceQuiz : Page
     {
         QuizViewModel vm;
+
         public CommenceQuiz(Quiz quiz)
         {
             InitializeComponent();
@@ -33,6 +31,18 @@ namespace Quiz_StudentApp.Views.Student
         {
             DataContext = vm.ActiveQuiz;
             //Console.WriteLine(vm.ActiveQuiz.Questions);
+        }
+
+        private void Btn_HandIn(object sender, RoutedEventArgs e)
+        {
+            if (vm.HandInExam())
+            {
+                NavigationService.GoBack();
+            }
+            else
+            {
+                //Display ErrorMessage property
+            }
         }
     }
 }

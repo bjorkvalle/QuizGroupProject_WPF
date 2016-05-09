@@ -17,6 +17,7 @@ namespace Quiz_StudentApp.Views._Shared
         public MainWindow()
         {
             InitializeComponent();
+            MainFrame.Content = new StudentHome(Repository<User>.GetInstance().GetDataList().Last());
 
             //User currentUser = new User() {
             //    Name = "bengt",
@@ -25,13 +26,17 @@ namespace Quiz_StudentApp.Views._Shared
             //};
 
             //Repository<User>.GetInstance().AddData(new User());
-            new SeedData();
+            //new SeedData();
 
-            Question q = Repository<Question>.GetInstance().GetDataList().First();
-            int i = q.Id;
-            var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(u => u.UserId == 2).ToList();
-            var alts = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == q.Id).ToList();
-            //var q = Repository<Question>.GetInstance().GetDataList().Include(p => p.Alternatives);
+
+            //REFS-->
+            //Question q = Repository<Question>.GetInstance().GetDataList().First();
+            //var alts = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == q.Id).ToList();
+
+            //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(u => u.UserId == 2).ToList();
+            //<--
+
+
 
             //Console.WriteLine(q.Title);
 
@@ -54,7 +59,6 @@ namespace Quiz_StudentApp.Views._Shared
 
             //Console.WriteLine(currentUser.Name);
             //MainFrame.Content = new StudentHome(currentUser);
-
 
         }
     }
