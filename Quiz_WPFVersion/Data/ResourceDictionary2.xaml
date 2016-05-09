@@ -1,0 +1,196 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Quiz_WPFVersion.Data" 
+                    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+                    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+                    xmlns:Models="clr-namespace:Quiz_WPFVersion.Models" 
+                    xmlns:Enum="clr-namespace:Quiz_WPFVersion.Enum"
+                    xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher" 
+                   
+                    mc:Ignorable="d"
+                    >
+    <!--<templateConv:AlternativeTemplateSelector x:Key="AlternativeTemplateSelector"/>-->
+
+    <!--Button wihtout mouseovereffect-->
+    <!--Background Color for all sites--><!--
+    <SolidColorBrush x:Key="background" Color="White"/>
+
+    --><!--Background Gardinent Orange--><!--
+    <LinearGradientBrush x:Key="backgroundGardinentOrange" EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.9,0">
+        <GradientStop Color="#FFFFDDA3"/>
+        <GradientStop Color="#FFFFA200" Offset="0.645"/>
+        <GradientStop Color="#FFFF8000" Offset="0.909"/>
+    </LinearGradientBrush>
+    --><!--Background Gardinent Orange LIGHT --><!--
+    <LinearGradientBrush x:Key="backgroundOrangeLight" EndPoint="0.9,1" MappingMode="RelativeToBoundingBox" StartPoint="0.7,0">
+        <GradientStop Color="#FFFFD68F"/>
+        --><!--<GradientStop Color="#FFFFA200" Offset="0.645"/>-->
+        <!--<GradientStop Color="#FFFF8000" Offset="1"/>--><!--
+    </LinearGradientBrush>
+
+
+    --><!--Menu text & button color--><!--
+    <SolidColorBrush x:Key="NavigationColor" Color="White"/>
+
+    <SolidColorBrush x:Key="fontColor" Color="#FF464646"/>
+
+
+    --><!-- This style is used for buttons, to remove the WPF default 'animated' mouse over effect --><!--
+    <Style x:Key="MyButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="OverridesDefaultStyle" Value="True"/>
+        <Setter Property="Margin" Value="0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="border" 
+						Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="BorderBrush" Value="Transparent" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Color x:Key="TextBox_Background_LightYellow">#FFFFEBC7</Color>
+
+    --><!--<DataTemplate x:Key="ListView_Alternative2">
+        <Grid>
+            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}"/>
+                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
+                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>-->
+
+
+    <!--Alternative-->
+
+    <!--Alternative Type-->
+    <!--Single--><!--
+    <DataTemplate x:Key="SingleChoiceQuestion">
+
+        <Grid>
+            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </TextBox.Background>
+                </TextBox>
+                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
+                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>
+
+    --><!--Multi--><!--
+    <DataTemplate x:Key="MultiChoiceQuestion">
+        --><!--AlternativeMulti_CheckBox"--><!--
+        <Grid>
+            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title}" Margin="0,0,10,0">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </TextBox.Background>
+                </TextBox>
+                <CheckBox x:Name="checkBox" Padding="0" Margin="0,1,0,0">
+                    <CheckBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </CheckBox.Background>
+                </CheckBox>
+                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>
+
+    --><!--Rank--><!--
+    <DataTemplate x:Key="RankQuestion">
+        
+        <Grid>
+            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
+                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="1" Text="{Binding Title}" Margin="0,0,0,0">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </TextBox.Background>
+                </TextBox>
+               
+                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
+            </StackPanel>
+
+
+        </Grid>
+    </DataTemplate>
+
+    --><!--Alternative Type - END --><!--
+
+    <DataTemplate x:Key="listQuestionItemTemplate" >
+        <Grid d:DesignHeight="255.502">
+
+            <StackPanel Margin="0" Orientation="Vertical">
+                <TextBlock x:Name="lblQuestionHeader1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" Width="Auto" HorizontalAlignment="Left" Margin="0" d:LayoutOverrides="TopPosition, BottomPosition" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
+                <StackPanel x:Name="stackQuestion" Orientation="Horizontal" Width="Auto" d:LayoutOverrides="LeftPosition, RightPosition, TopPosition, BottomPosition" Margin="0,3,0,0">
+                    <TextBox x:Name="txtbQuestion" TextWrapping="Wrap" HorizontalContentAlignment="Stretch" VerticalContentAlignment="Stretch" Text="{Binding Title}" MinWidth="200">
+                        <TextBox.Background>
+                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                        </TextBox.Background>
+                    </TextBox>
+                    <Rectangle x:Name="image" Width="50" Height="50" Margin="15,0,0,0" Fill="#FFFFF7C4" VerticalAlignment="Stretch">
+                        --><!--<Image.OpacityMask>
+                            <ImageBrush ImageSource="Images/1.png" Stretch="UniformToFill"/>
+                        </Image.OpacityMask>--><!--
+                    </Rectangle>
+                </StackPanel>
+                <TextBlock x:Name="lblAlternative1" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Left" Margin="0,14,0,0"><Run Text="Alternativ"/></TextBlock>
+                <ListBox x:Name="listAlternative" Height="100" ItemsSource="{Binding Alternatives}" Background="{x:Null}" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListBox_Transparent}"/>
+                <Button x:Name="btnAddAlternative" Content="&#xE710;" Background="{x:Null}" Width="25"  FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Left" Margin="0,16,0,25" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}" FontWeight="Bold"/>
+            </StackPanel>
+        </Grid>
+    </DataTemplate>
+
+
+    --><!--Transparent style--><!--
+    <Style x:Key="ListBox_Transparent" TargetType="{x:Type ListBoxItem}">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="HorizontalContentAlignment" Value="{Binding HorizontalContentAlignment, 
+            RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="VerticalContentAlignment" Value="{Binding VerticalContentAlignment,
+             RelativeSource={RelativeSource AncestorType={x:Type ItemsControl}}}"/>
+        <Setter Property="Padding" Value="0,0,0,0"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ListBoxItem}">
+                    <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" 
+                            BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" 
+                            Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true">
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                            SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsSelected" Value="true">
+                            <Setter Property="Background" TargetName="Bd" Value="Transparent"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>-->
+
+
+
+
+
+
+
+</ResourceDictionary>
