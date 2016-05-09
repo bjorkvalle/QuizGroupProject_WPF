@@ -22,4 +22,30 @@ C:\Users\david\Source\Repos\NGG4_WPF2\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.
 C:\Users\david\Source\Repos\NGG4_WPF2\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.pdb
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\_Shared\MainWindow.g.cs
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\_Shared\MainWindow.baml
+<<<<<<< HEAD
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.Migrations.Initial.resources
+=======
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.exe
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.pdb
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\bin\Debug\Quiz_StudentApp.exe
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\bin\Debug\Quiz_StudentApp.pdb
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\bin\Debug\EntityFramework.dll
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\bin\Debug\EntityFramework.xml
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.csprojResolveAssemblyReference.cache
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\Student\CommenceQuiz.g.cs
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\Student\DisplayResult.g.cs
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\_Shared\MainWindow.g.cs
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\Student\StudentHome.g.cs
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\App.g.cs
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp_MarkupCompile.cache
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp_MarkupCompile.lref
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\Student\CommenceQuiz.baml
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\Student\DisplayResult.baml
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\_Shared\MainWindow.baml
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\Student\StudentHome.baml
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.g.resources
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.Properties.Resources.resources
+C:\Users\david\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.csproj.GenerateResource.Cache
+>>>>>>> 8c086c4d35a92703b86ce4f62b0af84cb3d54ddb
