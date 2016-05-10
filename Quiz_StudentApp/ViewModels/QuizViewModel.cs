@@ -51,6 +51,8 @@ namespace Quiz_StudentApp.ViewModels
             {
                 ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
                                .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
+
+                //ActiveQuiz.User
             }
         }
 
