@@ -47,6 +47,7 @@ namespace Quiz_WPFVersion
             //user.Name = "Olof";
             //user.Password = "asd";
 
+<<<<<<< HEAD
             //user.Quizs.Add(new Quiz()
             //{
             //    Title = "Quiz1",
@@ -67,6 +68,8 @@ namespace Quiz_WPFVersion
 
             ////var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
 =======
+=======
+>>>>>>> refs/remotes/origin/takeQuiz
             Repository<User>.GetInstance().AddData(user);
 
             

@@ -1,0 +1,31 @@
+﻿added retrieval method for quesitons in quizTake
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch takeQuiz
+# Your branch is up-to-date with 'origin/takeQuiz'.
+#
+# Changes to be committed:
+#	new file:   Quiz_StudentApp/Migrations/201605100800097_Third.Designer.cs
+#	new file:   Quiz_StudentApp/Migrations/201605100800097_Third.cs
+#	new file:   Quiz_StudentApp/Migrations/201605100800097_Third.resx
+#	modified:   Quiz_StudentApp/Models/Question.cs
+#	modified:   Quiz_StudentApp/Quiz_StudentApp.csproj
+#	modified:   Quiz_StudentApp/ViewModels/QuizViewModel.cs
+#	modified:   Quiz_StudentApp/bin/Debug/Quiz_StudentApp.exe
+#	modified:   Quiz_StudentApp/bin/Debug/Quiz_StudentApp.pdb
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.Migrations.Third.resources
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.csproj.FileListAbsolute.txt
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.csproj.GenerateResource.Cache
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.exe
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.pdb
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.cache
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.i.cache
+#	modified:   Quiz_WPFVersion/.vs/Quiz_WPFVersion/v14/.suo
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.csproj.FileListAbsolute.txt
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.csproj.GenerateResource.Cache
+#	deleted:    Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.csprojResolveAssemblyReference.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.exe
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.pdb
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.lref
+#
+
