@@ -1,6 +1,7 @@
 using Quiz_StudentApp.Enums;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Quiz_StudentApp.Models
 {
@@ -8,13 +9,13 @@ namespace Quiz_StudentApp.Models
     {
         public Question()
         {
-            this.Alternatives = new List<Alternative>();
+            this.Alternatives = new Collection<Alternative>();
         }
 
         public int Id { get; set; }
         public string Title { get; set; }
         public QuestionType Type { get; set; }
-        public ICollection<Alternative> Alternatives { get; set; }
+        public virtual ICollection<Alternative> Alternatives { get; set; }
         public Nullable<int> Quiz_Id { get; set; }
         public virtual Quiz Quiz { get; set; }
     }

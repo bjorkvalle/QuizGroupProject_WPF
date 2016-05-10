@@ -25,7 +25,7 @@ namespace Quiz_StudentApp.Models
         public bool SentToStudent { get; set; }
         public int? UserId { get; set; }
         [ForeignKey("User_Id")]
-        public User User { get; set; }
-        public ICollection<Question> Questions { get; set; }
+        public virtual User User { get; set; }
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }

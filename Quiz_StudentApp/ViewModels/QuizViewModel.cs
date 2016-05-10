@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 
 namespace Quiz_StudentApp.ViewModels
 {
@@ -16,46 +17,42 @@ namespace Quiz_StudentApp.ViewModels
         public Quiz ActiveQuiz { get; set; }
         public string ErrorMessage { get; set; }
 
-        private User _student;
+        //private User _student;
 
         public QuizViewModel(Quiz quiz)
         {
             ActiveQuiz = quiz;
-            _student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
+            //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
 
-            SetQuizContent();
+            SetQuizContent2();
             HandInExam();
         }
 
         public void SetQuizContent()
         {
-            var questions = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
+            //var questions = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
 
-            //get alternatives and set correct quiz ref
-            for (int i = 0; i < questions.Count; i++)
-            {
-                questions[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == questions[i].Id).ToList();
-                questions[i].Quiz = ActiveQuiz;
-            }
+            ////get alternatives and set correct quiz ref
+            //for (int i = 0; i < questions.Count; i++)
+            //{
+            //    questions[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList()
+            //                                .Where(a => a.QuestionId == questions[i].Id).ToList();
+            //    questions[i].Quiz = ActiveQuiz;
+            //}
 
-            ActiveQuiz.User = _student;
-            ActiveQuiz.Questions = questions;
+            //ActiveQuiz.User = _student;
+            //ActiveQuiz.Questions = questions;
         }
-
-        //public ObservableCollection<Question> GetQuizLists()
-        //{
-        //    var quizzes = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
-
-        //    for (int i = 0; i < quizzes.Count; i++)
-        //    {
-        //        quizzes[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == quizzes[i].Id).ToList();
-        //    }
-
-        //    ObservableCollection<Question> oList = new ObservableCollection<Question>();
-        //    quizzes.ForEach(u => oList.Add(u));
-
-        //    return oList;
-        //}
+        
+        public void SetQuizContent2()
+        {
+            //inkluderar även questions
+            using (var db = new QuizContext())
+            {
+                ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
+                               .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
+            }
+        }
 
         //save/hand in
         public bool HandInExam()
@@ -120,11 +117,11 @@ namespace Quiz_StudentApp.ViewModels
             {
                 Score = CalculateScore(),
                 Quiz = ActiveQuiz,
-                User = _student //not needed?
+                User = ActiveQuiz.User //not needed?
             };
 
-            _student.Results.Add(res);
-            Repository<User>.GetInstance().UpdateData(_student); //saves quiz too?
+            ActiveQuiz.User.Results.Add(res);
+            Repository<User>.GetInstance().UpdateData(ActiveQuiz.User); //saves quiz too?
         }
 
         private int CalculateScore()
