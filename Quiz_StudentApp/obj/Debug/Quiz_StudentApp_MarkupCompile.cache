@@ -4,17 +4,26 @@
 exe
 C#
 .cs
-C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\obj\Debug\
+C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\
 Quiz_StudentApp
 none
 false
 DEBUG;TRACE
-C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\App.xaml
+C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\App.xaml
 4-1956956224
 
-34-756496646
-16597108463
+<<<<<<< HEAD
+<<<<<<< HEAD
+32-1478374905
+16984577974
+=======
+35-2143204317
+=======
+371944682174
+>>>>>>> refs/remotes/origin/takeQuiz
+161500826544
+>>>>>>> refs/remotes/origin/takeQuiz
 Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
 
-True
+False
 
