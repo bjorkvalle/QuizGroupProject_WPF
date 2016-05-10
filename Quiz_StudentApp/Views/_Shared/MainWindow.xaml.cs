@@ -17,6 +17,7 @@ namespace Quiz_StudentApp.Views._Shared
         public MainWindow()
         {
             InitializeComponent();
+            //new SeedData();
             MainFrame.Content = new StudentHome(Repository<User>.GetInstance().GetDataList().Last());
 
             //User currentUser = new User() {
@@ -26,7 +27,7 @@ namespace Quiz_StudentApp.Views._Shared
             //};
 
             //Repository<User>.GetInstance().AddData(new User());
-            //new SeedData();
+
 
 
             //REFS-->
