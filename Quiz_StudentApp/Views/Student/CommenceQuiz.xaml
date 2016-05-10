@@ -9,11 +9,11 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Loaded="Page_Loaded"
       Title="CommenceQuiz">
-<<<<<<< HEAD
+<!--<<<<<<< HEAD
     <Grid Background="White">
-=======
+=======-->
     <Grid Background="Orange">
->>>>>>> refs/remotes/origin/takeQuiz
+<!-->>>>>>> refs/remotes/origin/takeQuiz-->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
