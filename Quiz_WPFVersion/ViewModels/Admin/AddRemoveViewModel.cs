@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.Data;
+using Quiz_WPFVersion.View.Admin;
 
 namespace Quiz_WPFVersion.ViewModels.Admin
 {
@@ -15,6 +16,9 @@ namespace Quiz_WPFVersion.ViewModels.Admin
         public User userBinding { get; set; }
         public ObservableCollection<Education> educationList { get; set; }
         public ObservableCollection<Course> courseList { get; set; }
+        public ObservableCollection<User> userList { get; set; }
+        AddRemoveUsers view;
+
 
         public AddRemoveViewModel()
         {
@@ -23,6 +27,21 @@ namespace Quiz_WPFVersion.ViewModels.Admin
             #region declaration
             //educationList = new ObservableCollection<Education>( Repository<Education>.GetInstance().GetDataList());
             //courseList = new ObservableCollection<Course>( Repository<Course>.GetInstance().GetDataList());
+            userList = new ObservableCollection<User>
+            {
+                new User
+                {
+                    Name = "Haron",
+                },
+                new User
+                {
+                    Name = "Fredrik",
+                },
+                new User
+                {
+                    Name = "Morsid",
+                },
+            }; 
             educationList = new ObservableCollection<Education>
             {
                 new Education
@@ -52,6 +71,42 @@ namespace Quiz_WPFVersion.ViewModels.Admin
             };
 
             #endregion
+        }
+
+        public void SearchUsers(String searchTerm)
+        {
+
+        }
+
+        public void RemoveUser(User removeUser)
+        {
+            var x = removeUser;
+        }
+
+        public void AddUser()
+        {
+            view.lblMessageSave.Content = null;
+            var x = userBinding;
+
+            //Måste kontrollera Enum
+
+            if (userBinding.Name == "" || userBinding.Password == ""){view.lblMessageSave.Content = "• Vänligen fyll i namn och lösenord";}
+            var selAcess = view?.cmbAcess?.SelectedItem;
+            if (selAcess == null) { view.lblMessageSave.Content = "• Behörighet måste anges"; return; } 
+            var selCourse = view?.cmbCourse?.SelectedItem;
+            var selEdu = view?.cmbEdu?.SelectedItem;
+
+            var us=  new User
+            {
+                Name = userBinding.Name,
+                
+            };
+
+        }
+
+        public void GetInstanceView(AddRemoveUsers view)
+        {
+            this.view = view;
         }
     }
 }

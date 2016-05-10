@@ -4,14 +4,122 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View.Admin"
-      xmlns:Admin="clr-namespace:Quiz_WPFVersion.ViewModels.Admin" x:Class="Quiz_WPFVersion.View.Admin.AddRemoveUsers"
+      xmlns:Admin="clr-namespace:Quiz_WPFVersion.ViewModels.Admin" xmlns:Enum="clr-namespace:Quiz_WPFVersion.Enum" x:Class="Quiz_WPFVersion.View.Admin.AddRemoveUsers"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
-      Title="AddRemoveUsers">
+      d:DesignHeight="561.601" d:DesignWidth="468.883"
+      Title="AddRemoveUsers" Background="Black">
+    <Page.Resources>
+        <Color x:Key="Blue">#FF93EBFF</Color>
+        <Color x:Key="Background">#FFFFE1AE</Color>
+    </Page.Resources>
 
     <Page.DataContext>
         <Admin:AddRemoveViewModel/>
     </Page.DataContext>
 
-    <Grid Background="{DynamicResource backgroundOrangeLight}"/>
+    <Grid Background="{DynamicResource backgroundOrangeLight}">
+        <Grid x:Name="Rubrik" HorizontalAlignment="Left" Height="37" Margin="23.549,18,0,0" VerticalAlignment="Top" Width="184.105">
+            <TextBlock x:Name="textBlock_Copy" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" Foreground="{DynamicResource fontColor}" Margin="0,0,-27,14"><Run Text="LÄGG TILL"/><Run Text=" &amp;"/><Run Text=" TA BORT"/></TextBlock>
+            <TextBlock x:Name="textBlock_Copy1" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="Administrera användare" Foreground="{DynamicResource fontColor}" Height="14" VerticalAlignment="Bottom"/>
+        </Grid>
+        <Grid x:Name="Add" Margin="23.549,84.001,102.334,0" Height="145.999" VerticalAlignment="Top">
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30" Opacity="0.03"/>
+            </Grid.Effect>
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource Background}"/>
+            </Grid.Background>
+            <Grid Margin="15,10,15,15">
+                <TextBlock x:Name="lblNamn" HorizontalAlignment="Left" Height="15.275" Margin="3,28,0,0" TextWrapping="Wrap" Text="Namn" VerticalAlignment="Top" Width="57.284" Foreground="{DynamicResource fontColor}" />
+                <TextBox x:Name="txtbNamn" HorizontalAlignment="Left" Height="22.006" Margin="0,46.275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101.821" Text="{Binding userBinding.Name, Mode=TwoWay}">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock x:Name="textBlock_Copy2" TextWrapping="Wrap" FontSize="13.333" Foreground="{DynamicResource fontColor}" Margin="3,5,96.659,0" Height="23" VerticalAlignment="Top" Text="LÄGG TILL" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
+                <TextBox x:Name="txtbNamn_Copy" Height="22.006" Margin="110.488,46.275,79.874,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding userBinding.Password, Mode=TwoWay}">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock x:Name="lblNamn_Copy" Height="15.275" Margin="113.488,28,139.992,0" TextWrapping="Wrap" Text="Lösenord" VerticalAlignment="Top" Foreground="{DynamicResource fontColor}"/>
+                <Button x:Name="btnAdd" Style="{StaticResource MyButtonStyle}"  Margin="0,94.239,22.284,0" Click="btn_AddUser" VerticalAlignment="Top" HorizontalAlignment="Right" RenderTransformOrigin="1.537,0.538">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE74E;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+                <TextBlock x:Name="lblEdu" HorizontalAlignment="Left" Height="15.275" Margin="3,73.958,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57.284" Foreground="{DynamicResource fontColor}"><Run Text="Klass"/><LineBreak/><Run/></TextBlock>
+                <ComboBox x:Name="cmbEdu" Margin="0,92.233,0,0" VerticalAlignment="Top" Height="22.006" HorizontalAlignment="Left" Width="98" ItemsSource="{Binding educationList}" SelectedItem="{Binding userBinding/Education}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock x:Name="lblCourse" Height="15.275" Margin="113.488,73.958,139.992,0" TextWrapping="Wrap" Text="Kurs" VerticalAlignment="Top" Foreground="{DynamicResource fontColor}"/>
+                <ComboBox x:Name="cmbCourse" Margin="110.89,92.233,79.874,0" VerticalAlignment="Top" Height="22.006" ItemsSource="{Binding courseList}" SelectedItem="{Binding userBinding/Courses}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <TextBlock x:Name="lblAcess" Height="15.275" Margin="0,28,0,0" TextWrapping="Wrap" Text="Behörighet" VerticalAlignment="Top" HorizontalAlignment="Right" Width="66.284" Foreground="{DynamicResource fontColor}"/>
+                <ComboBox x:Name="cmbAcess" Margin="0,46.275,7.313,0" VerticalAlignment="Top" Height="22.006" HorizontalAlignment="Right" Width="60.284" ItemsSource="{Binding Mode=OneWay}" SelectedItem="{Binding userBinding/Type, ElementName=cmbCourse}">
+                    <ComboBox.DataContext>
+                        <Enum:UserType>Teacher</Enum:UserType>
+                    </ComboBox.DataContext>
+                    
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </Grid>
+        </Grid>
+        <Grid x:Name="Remove" Margin="23.549,0,102.334,45.578" Height="230.022" VerticalAlignment="Bottom">
+            <Grid.Background>
+                <SolidColorBrush Color="{DynamicResource Background}"/>
+            </Grid.Background>
+            <Grid.Effect>
+                <DropShadowEffect BlurRadius="30" Opacity="0.03"/>
+            </Grid.Effect>
+            <Grid Margin="15,15,15,20">
+                <ListView x:Name="listUsers" Margin="0,28.666,0,31.689" ItemsSource="{Binding userList}">
+                    <ListView.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </ListView.Background>
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Användare" Width="303" DisplayMemberBinding="{Binding Name}"/>
+                        </GridView>
+                    </ListView.View>
+                 
+                </ListView>
+                <Label x:Name="lblSearch" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="10                " HorizontalAlignment="Right" VerticalAlignment="Bottom"  Background="{x:Null}" Foreground="{DynamicResource fontColor}" Margin="0,0,63.584,0.671" Panel.ZIndex="3"/>
+                <TextBox x:Name="txtbSearch" Height="22.006" Margin="0,0,59.254,0" TextWrapping="Wrap" VerticalAlignment="Bottom" KeyUp="txtbSearch_KeyUp">
+                    <TextBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </TextBox.Background>
+                </TextBox>
+                <TextBlock x:Name="textBlock_Copy3" TextWrapping="Wrap" FontSize="13.333" Foreground="{DynamicResource fontColor}" Margin="3,0,90.63,0" Text="TA BORT" FontFamily="Segoe UI Semibold" FontWeight="Bold" Height="23" VerticalAlignment="Top"/>
+                <Button x:Name="btnRemove" Style="{StaticResource MyButtonStyle}"  Margin="0,0,21.019,1.5" Click="btn_RemoveUser" VerticalAlignment="Bottom" HorizontalAlignment="Right" RenderTransformOrigin="-1.4,0.449">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <StackPanel>
+                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE74D;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
+                            </StackPanel>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+            </Grid>
+        </Grid>
+        <Label x:Name="lblMessageSave" Height="31" Margin="40,235,102.334,0" VerticalAlignment="Top" Foreground="#FF8B8B8B"/>
+        <Label x:Name="lblMessageRemove" Height="31" Margin="40,0,102.334,9.578" VerticalAlignment="Bottom" Foreground="#FF8B8B8B"/>
+    </Grid>
 </Page>
