@@ -46,10 +46,8 @@ namespace Quiz_StudentApp.Data
         {
             using (var db = new QuizContext())
             {
-                DeleteData(data);
-                AddData(data);
+                db.Entry(data).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
-
                 return true;
             }
         }
@@ -59,7 +57,6 @@ namespace Quiz_StudentApp.Data
             {
                 db.Set<T>().Attach(data);
                 db.Set<T>().Remove(data);
-
                 db.SaveChanges();
                 return true;
             }             

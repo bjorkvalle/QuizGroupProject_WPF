@@ -5,6 +5,7 @@ using Quiz_StudentApp.Models;
 using Quiz_StudentApp.Views.Student;
 using Quiz_StudentApp.Data;
 using System.Linq;
+using System.Data.Entity;
 
 namespace Quiz_StudentApp.Views._Shared
 {
@@ -16,24 +17,50 @@ namespace Quiz_StudentApp.Views._Shared
         public MainWindow()
         {
             InitializeComponent();
+            //new SeedData();
+            MainFrame.Content = new StudentHome(Repository<User>.GetInstance().GetDataList().Last());
 
-            User currentUser = new User() {
-                Name = "bengt",
-                Password = "123",
-                Type = Enums.UserType.Student
-            };
+            //User currentUser = new User() {
+            //    Name = "bengt",
+            //    Password = "123",
+            //    Type = Enums.UserType.Student
+            //};
 
-            //currentUser.Quizs.Add(new Quiz()
-            //{
-            //    Title = "Quiz1"
-            //});
+            //Repository<User>.GetInstance().AddData(new User());
 
-            //Repository<User>.GetInstance().AddData(currentUser);
-                 
-            //User currentUser = Repository<User>.GetInstance().GetDataList().Where(c => c.Id == 1).First();
 
-            Console.WriteLine(currentUser.Name);
-            MainFrame.Content = new StudentHome(currentUser);
+
+            //REFS-->
+            //Question q = Repository<Question>.GetInstance().GetDataList().First();
+            //var alts = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == q.Id).ToList();
+
+            //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(u => u.UserId == 2).ToList();
+            //<--
+
+
+
+            //Console.WriteLine(q.Title);
+
+            //q.Title = q.Title + "Updated";
+
+            //Repository<Question>.GetInstance().UpdateData(q);
+
+            //Console.WriteLine(q.Title);
+            //Console.WriteLine(Repository<Question>.GetInstance().GetDataList().First().Title);
+
+            //var t = Repository<Question>.GetInstance().GetDataList().Include(p => p.Alternatives).ToList();
+
+            //var r = Repository<Alternative>.GetInstance().GetDataList();//.Where(alt => alt.Question.Id == q.Id).ToList();//.ForEach(w => Repository<Alternative>.GetInstance().DeleteData(w));
+
+
+
+            //r = r.Where(alt => alt.Question.Id == q.Id).ToList();
+
+            //Repository<Question>.GetInstance().DeleteData(q);
+
+            //Console.WriteLine(currentUser.Name);
+            //MainFrame.Content = new StudentHome(currentUser);
+
         }
     }
 }

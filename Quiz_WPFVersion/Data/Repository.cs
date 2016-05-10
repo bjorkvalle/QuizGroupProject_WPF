@@ -46,8 +46,7 @@ namespace Quiz_WPFVersion.Data
         {
             using (var db = new QuizContext())
             {
-                DeleteData(data);
-                AddData(data);
+                db.Entry(data).State = System.Data.Entity.EntityState.Modified;
                 db.SaveChanges();
 
                 return true;

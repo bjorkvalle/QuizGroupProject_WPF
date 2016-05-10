@@ -69,11 +69,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\Repository.cs" />
+    <Compile Include="Data\SeedData.cs" />
     <Compile Include="Enums\Enum_QuestionType.cs" />
     <Compile Include="Enums\Enum_UserType.cs" />
-    <Compile Include="Migrations\201605061120260_Initial.cs" />
-    <Compile Include="Migrations\201605061120260_Initial.Designer.cs">
-      <DependentUpon>201605061120260_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201605091214561_Initial.cs" />
+    <Compile Include="Migrations\201605091214561_Initial.Designer.cs">
+      <DependentUpon>201605091214561_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605100738412_Second.cs" />
+    <Compile Include="Migrations\201605100738412_Second.Designer.cs">
+      <DependentUpon>201605100738412_Second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alternative.cs" />
@@ -141,8 +146,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201605061120260_Initial.resx">
-      <DependentUpon>201605061120260_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605091214561_Initial.resx">
+      <DependentUpon>201605091214561_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605100738412_Second.resx">
+      <DependentUpon>201605100738412_Second.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -27,7 +27,7 @@ namespace Quiz_StudentApp.Views.Student
 
         public StudentHome(User user)
         {
-            
+
             InitializeComponent();
             vm = new HomeViewModel(user);
         }
@@ -47,8 +47,17 @@ namespace Quiz_StudentApp.Views.Student
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             userInfoTemplate.DataContext = vm.ActiveUser; ;
-            quizListTemplate.ItemsSource = vm.UserQuizs;
-            resultListTemplate.ItemsSource = vm.UserResults;
+            quizListTemplate.ItemsSource = vm.GetUserQuizs();
+            resultListTemplate.ItemsSource = vm.GetUserResults();
+        }
+        private void quizListTemplate_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+
+            Quiz quiz = (Quiz)quizListTemplate.SelectedItem;
+            this.NavigationService.Navigate(new CommenceQuiz(quiz));
+
+            Console.WriteLine(quiz.Title);
+            Console.WriteLine(quiz.Description);
         }
     }
 }
