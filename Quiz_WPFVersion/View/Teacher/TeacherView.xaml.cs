@@ -26,7 +26,7 @@ namespace Quiz_WPFVersion.View.Teacher
         User activeUser;
         TeacherViewModel teacherVM;
         Quiz selectedQuiz;
-        List<Quiz> Quizzes;
+        List<Quiz> quizzes;
 
         public TeacherView(User user)
         {
@@ -34,14 +34,14 @@ namespace Quiz_WPFVersion.View.Teacher
             activeUser = user;
             teacherVM = new TeacherViewModel(activeUser);
             txtbName.Text = user.Name;
-            Quizzes = teacherVM.GetQuizzes();
-            quizListBox.ItemsSource = Quizzes;
+            quizzes = teacherVM.GetQuizzes();
+            quizListBox.ItemsSource = quizzes;
             //Console.WriteLine(teacherVM.GetQuizzes().First().Title);
         }
 
         private void quizListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedQuiz = Quizzes[quizListBox.SelectedIndex];
+            selectedQuiz = quizzes[quizListBox.SelectedIndex];
         }
 
         private void sendBtn_Click(object sender, RoutedEventArgs e)

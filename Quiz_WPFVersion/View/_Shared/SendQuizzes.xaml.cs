@@ -24,14 +24,71 @@ namespace Quiz_WPFVersion.View._Shared
     {
 
         AdminViewModel adminVM;
+        User activeUser;
+        List<User> students;
+        List<User> selectedStudents;
+        List<Quiz> quizzes;
+        Quiz selectedQuiz;
 
-        public SendQuiz()
+
+        public SendQuiz(User user)
         {
             InitializeComponent();
-            adminVM = new AdminViewModel(AdminViewModel.activeUser);
+            activeUser = user;
+            adminVM = new AdminViewModel(activeUser);
+
+            quizzes = adminVM.GetQuizzes();
+            quizListBox.ItemsSource = quizzes;
+
+            students = adminVM.GetAllStudents();
+            userListBox.ItemsSource = students;
+
+            selectedStudents = new List<User>();
+
+        }
 
 
+        private void Button_Click_DotNet(object sender, RoutedEventArgs e)
+        {
+            students = adminVM.GetStudentByEducation(1);
+            userListBox.ItemsSource = adminVM.GetStudentByEducation(1);
+        }
 
+        private void Button_Click_Java(object sender, RoutedEventArgs e)
+        {
+            students = adminVM.GetStudentByEducation(2);
+            userListBox.ItemsSource = adminVM.GetStudentByEducation(2);
+        }
+
+        private void Button_Click_All(object sender, RoutedEventArgs e)
+        {
+            students = adminVM.GetAllStudents();
+            userListBox.ItemsSource = adminVM.GetAllStudents();
+        }
+
+        private void Button_Click_SendQuiz(object sender, RoutedEventArgs e)
+        {
+            if (selectedStudents != null && selectedQuiz != null)
+            {
+                adminVM.SendQuizToStudents(selectedQuiz, selectedStudents);
+            }
+        }
+
+        private void userListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            //Listbox.selectedItems act weird o.O
+            selectedStudents.Clear();
+
+            foreach (User user in userListBox.SelectedItems)
+            {
+                selectedStudents.Add(user);
+            }
+
+        }
+
+        private void quizListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedQuiz = quizListBox.SelectedItem as Quiz;
         }
     }
 }

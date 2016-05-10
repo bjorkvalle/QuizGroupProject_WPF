@@ -22,6 +22,7 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="20"/>
                     <RowDefinition Height="*"/>
+                    <RowDefinition Height="20"/>
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -30,7 +31,7 @@
                 </Grid.ColumnDefinitions>
 
                 <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="skickade prov" Grid.Row="3" Margin="0,14,9,1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-                <ListBox x:Name="quizListBox" HorizontalAlignment="Left" Height="100" Width="89" VerticalAlignment="Top" Grid.Row="5" Margin="-1,0,0,0">
+                <ListBox x:Name="quizListBox" HorizontalAlignment="Left" Height="200" Width="150" VerticalAlignment="Top" Grid.Row="2" Grid.Column="0" Margin="-1,0,0,0" SelectionChanged="quizListBox_SelectionChanged">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <Grid Margin="0,2">
@@ -40,6 +41,23 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
+                <ListBox x:Name="userListBox" HorizontalAlignment="Left" Height="200" Width="150" VerticalAlignment="Top" Grid.Row="2" Grid.Column="1" SelectionMode="Multiple" SelectionChanged="userListBox_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <TextBlock Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                    <Button Width="50" Content=".Net" Click="Button_Click_DotNet"></Button>
+                    <Button Width="50" Content="Java" Click="Button_Click_Java"></Button>
+                    <Button Width="50" Content="All" Click="Button_Click_All" ></Button>
+                </StackPanel>
+
+                <Button Content="Send" Grid.Row="3" Click="Button_Click_SendQuiz"></Button>
 
 
             </Grid>

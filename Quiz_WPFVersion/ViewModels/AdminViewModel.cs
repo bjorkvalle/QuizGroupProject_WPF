@@ -12,7 +12,7 @@ namespace Quiz_WPFVersion.ViewModels
 {
     class AdminViewModel
     {
-        public static User activeUser;
+        User activeUser;
 
         public AdminViewModel(User user)
         {
@@ -21,8 +21,33 @@ namespace Quiz_WPFVersion.ViewModels
 
         public List<Quiz> GetQuizzes()
         {
-            var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == activeUser.Id);
+            var quizzes = Repository<Quiz>.GetInstance().GetDataList().
+                Where(quiz => quiz.UserId == activeUser.Id);
             return quizzes.ToList();
+        }
+
+        public List<User> GetAllStudents()
+        {
+            var students = Repository<User>.GetInstance().GetDataList().
+                Where(user => user.Type == Enum.UserType.Student);
+            return students.ToList();
+        }
+
+        public List<User> GetStudentByEducation(int edId)
+        {
+            var students = Repository<User>.GetInstance().GetDataList().
+                Where(user => user.Education_Id == edId);
+            return students.ToList();
+        }
+
+        public void SendQuizToStudents(Quiz quiz, List<User> students)
+        {
+            foreach (var student in students)
+            {
+                quiz.UserId = student.Id;
+                Repository<Quiz>.GetInstance().AddData(quiz);
+            }
+
         }
 
 
