@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
+using System.Collections.ObjectModel;
 
 namespace Quiz_StudentApp.ViewModels
 {
@@ -21,6 +22,23 @@ namespace Quiz_StudentApp.ViewModels
         {
             ActiveQuiz = quiz;
             _student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId) as User;
+
+            GetUserQuizs();
+        }
+
+        public ObservableCollection<Question> GetUserQuizs()
+        {
+            var quizzes = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
+            
+            for (int i = 0; i < quizzes.Count; i++)
+            {
+                quizzes[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == quizzes[i].Id).ToList();
+            }
+            
+            ObservableCollection<Question> oList = new ObservableCollection<Question>();
+            quizzes.ForEach(u => oList.Add(u));
+
+            return oList;
         }
 
         //save/hand in
