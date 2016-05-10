@@ -21,25 +21,41 @@ namespace Quiz_StudentApp.ViewModels
         public QuizViewModel(Quiz quiz)
         {
             ActiveQuiz = quiz;
-            _student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId) as User;
+            _student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
 
-            GetUserQuizs();
+            SetQuizContent();
+            HandInExam();
         }
 
-        public ObservableCollection<Question> GetUserQuizs()
+        public void SetQuizContent()
         {
-            var quizzes = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
-            
-            for (int i = 0; i < quizzes.Count; i++)
-            {
-                quizzes[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == quizzes[i].Id).ToList();
-            }
-            
-            ObservableCollection<Question> oList = new ObservableCollection<Question>();
-            quizzes.ForEach(u => oList.Add(u));
+            var questions = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
 
-            return oList;
+            //get alternatives and set correct quiz ref
+            for (int i = 0; i < questions.Count; i++)
+            {
+                questions[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == questions[i].Id).ToList();
+                questions[i].Quiz = ActiveQuiz;
+            }
+
+            ActiveQuiz.User = _student;
+            ActiveQuiz.Questions = questions;
         }
+
+        //public ObservableCollection<Question> GetQuizLists()
+        //{
+        //    var quizzes = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
+
+        //    for (int i = 0; i < quizzes.Count; i++)
+        //    {
+        //        quizzes[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == quizzes[i].Id).ToList();
+        //    }
+
+        //    ObservableCollection<Question> oList = new ObservableCollection<Question>();
+        //    quizzes.ForEach(u => oList.Add(u));
+
+        //    return oList;
+        //}
 
         //save/hand in
         public bool HandInExam()
@@ -145,12 +161,12 @@ namespace Quiz_StudentApp.ViewModels
 
         private void ScoreMultiChoice(Question question, ref int score)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void ScoreRanked(Question question, ref int score)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
