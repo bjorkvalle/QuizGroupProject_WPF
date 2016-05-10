@@ -112,6 +112,8 @@ namespace Quiz_WPFVersion.ViewModels.Admin
             Repository<User>.GetInstance().DeleteData(removeUser);
             UpdateListViewUser(new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList()));
             view.lblMessageRemove.Content = "• Användaren är nu borttagen.";
+            view.lblMessageSave.Content = "";
+
         }
 
         public void AddUser()
@@ -160,7 +162,7 @@ namespace Quiz_WPFVersion.ViewModels.Admin
         private void ClearAllTextBox()
         {
             view.txtbNamn.Text = "";
-            view.txtbNamn_Copy.Text = "";
+            view.txtbPassword.Text = "";
             view.cmbAcess.SelectedIndex = -1;
             view.cmbCourse.SelectedIndex = -1;
             view.cmbEdu.SelectedIndex = -1;
