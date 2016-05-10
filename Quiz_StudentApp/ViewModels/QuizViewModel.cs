@@ -52,7 +52,8 @@ namespace Quiz_StudentApp.ViewModels
                 ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
                                .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
 
-                //ActiveQuiz.User
+                ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Courses").Include("Education")
+                               .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
             }
         }
 
@@ -118,10 +119,11 @@ namespace Quiz_StudentApp.ViewModels
             Result res = new Result
             {
                 Score = CalculateScore(),
-                Quiz = ActiveQuiz,
-                User = ActiveQuiz.User //not needed?
+                Quiz_Id = ActiveQuiz.Id,
+                User_Id = ActiveQuiz.User.Id //not needed?
             };
 
+            Repository<Result>.GetInstance().AddData(res);
             ActiveQuiz.User.Results.Add(res);
             Repository<User>.GetInstance().UpdateData(ActiveQuiz.User); //saves quiz too?
         }
@@ -154,18 +156,39 @@ namespace Quiz_StudentApp.ViewModels
         {
             foreach (var item in question.Alternatives)
             {
-                //if(item.ScoreValue >0 && )
+                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
+                    score++;
             }
         }
 
         private void ScoreMultiChoice(Question question, ref int score)
         {
-            //throw new NotImplementedException();
+            int tempScore = 0;
+
+            foreach (var item in question.Alternatives)
+            {
+                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
+                    tempScore++;
+                else //add more cases
+                    tempScore--;
+            }
+
+            score += tempScore > 0 ? tempScore : 0;
         }
 
         private void ScoreRanked(Question question, ref int score)
         {
-            //throw new NotImplementedException();
+            int tempScore = 0;
+
+            foreach (var item in question.Alternatives)
+            {
+                if (item.ScoreValue == item.AnsweredValue)
+                    tempScore++;
+                else //add more cases
+                    tempScore--;
+            }
+
+            score += tempScore > 0 ? tempScore : 0;
         }
     }
 }
