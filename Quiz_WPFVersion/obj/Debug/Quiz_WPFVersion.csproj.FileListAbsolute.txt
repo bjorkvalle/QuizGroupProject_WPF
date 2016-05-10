@@ -128,3 +128,6 @@ C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Sta
 C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.g.resources
 C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Properties.Resources.resources
 C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Quiz_WPFVersion.exe.config
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
