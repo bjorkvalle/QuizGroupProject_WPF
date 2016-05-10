@@ -52,7 +52,7 @@ namespace Quiz_StudentApp.ViewModels
 
                 ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Education")
                                .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
-	}
+            }
 
             foreach (var item in x)
             {
