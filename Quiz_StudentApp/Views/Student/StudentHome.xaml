@@ -9,9 +9,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="400"
       Title="StudentHome">
-    
+
     <Grid>
-            
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
@@ -22,7 +22,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
-        
+
         <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
                 <TextBlock FontSize="12" Text="Välkommen: "/>
@@ -37,7 +37,7 @@
         <Button Margin="4" Name="btnNewQuiz" Content="Nya" Grid.Row="1" Grid.Column="0" Height="30" Width="60" Click="btnNewQuiz_Click"/>
         <Button Margin="4" Name="btnOldQuiz" Content="Avklarade" Grid.Row="1" Grid.Column="1" Height="30" Width="60" Click="btnOldQuiz_Click" />
 
-        <ListView ItemsSource="{Binding}"  Name="quizListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
+        <ListView ItemsSource="{Binding}" MouseDoubleClick="quizListTemplate_MouseDoubleClick" Name="quizListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Titel" Width="Auto"  DisplayMemberBinding="{Binding Title}" />
@@ -59,9 +59,5 @@
                 </GridView>
             </ListView.View>
         </ListView>
-
-
-
     </Grid>
-        <!--</DataTemplate>-->
 </Page>

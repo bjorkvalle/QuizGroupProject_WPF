@@ -17,8 +17,7 @@ namespace Quiz_StudentApp.Models
         public string Name { get; set; }
         public string Password { get; set; }
         public UserType Type { get; set; }
-        public Nullable<int> Education_Id { get; set; }
-        public Nullable<int> Education_Id1 { get; set; }
+        public int? Education_Id { get; set; }
         public virtual Education Education { get; set; }
         public virtual ICollection<Quiz> Quizs { get; set; }
         public virtual ICollection<Result> Results { get; set; }

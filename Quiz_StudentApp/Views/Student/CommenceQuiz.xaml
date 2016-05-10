@@ -4,11 +4,36 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_StudentApp.Views.Student"
+      xmlns:data="clr-namespace:Quiz_StudentApp.Models"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
+      Loaded="Page_Loaded"
       Title="CommenceQuiz">
+    <Grid Background="White">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
 
-    <Grid>
-        
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel x:Name="QuizTitle" Grid.Column="0" Grid.Row="0" Orientation="Vertical">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="12" Text="Test: "/>
+                <TextBlock x:Name="txtblockQuizTitle" Margin="8,0,0,0" FontSize="12" Text="{Binding Title}" />
+            </StackPanel>
+        </StackPanel>
+        <ListBox ItemsSource="{Binding Quiz}" x:Name="listBoxQuestions" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate DataType="data:Question">
+                    <Grid>
+                        <TextBlock x:Name="txtblockQuestionTitle" Text="{Binding Question.Title}" />
+                        <TextBlock x:Name="txtblockQuestionDescript" Text="{Binding Question.Id}" />
+                    </Grid>
+
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
     </Grid>
 </Page>
