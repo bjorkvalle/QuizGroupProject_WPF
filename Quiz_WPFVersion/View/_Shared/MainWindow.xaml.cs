@@ -46,8 +46,7 @@ namespace Quiz_WPFVersion
             //User user = new User();
             //user.Name = "Olof";
             //user.Password = "asd";
-
-<<<<<<< HEAD
+            
             //user.Quizs.Add(new Quiz()
             //{
             //    Title = "Quiz1",
