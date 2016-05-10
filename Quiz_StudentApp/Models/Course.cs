@@ -12,7 +12,7 @@ namespace Quiz_StudentApp.Models
 
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<int> EducationId_Id { get; set; }
+        public Nullable<int> EducationId { get; set; }
         public virtual Education Education { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }

@@ -26,8 +26,6 @@ namespace Quiz_WPFVersion.View._Shared
     public partial class LoginView : Page
     {
         LoginViewModel loginVM = new LoginViewModel();
-        TeacherViewModel teacherVM = new TeacherViewModel();
-        AdminViewModel adminVM = new AdminViewModel();
 
         public LoginView()
         {

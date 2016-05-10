@@ -1,4 +1,5 @@
 ﻿using Quiz_WPFVersion.Enum;
+using Quiz_WPFVersion.HelperClass;
 using Quiz_WPFVersion.Interfaces;
 using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.View._Shared;
@@ -23,7 +24,7 @@ namespace Quiz_WPFVersion.ViewModels
 
         public NavigationWindowViewModel()
         {
-
+            
         }
 
         public void Navigate(NavigationWindowView frame, string command)
@@ -45,7 +46,7 @@ namespace Quiz_WPFVersion.ViewModels
                     window.DetailFrame.Content = new SeeQuiz();
                     break;
                 case "btnCreateQuiz":
-                    window.DetailFrame.Content = new CreateQuiz();
+                    window.DetailFrame.Content = new CreateQuiz(activeUser);
                     break;
                 case "btnSendQuiz":
                     window.DetailFrame.Content = new SendQuiz();

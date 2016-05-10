@@ -46,6 +46,7 @@
       <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
@@ -68,6 +69,18 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Data\QuizContext.cs" />
+    <Compile Include="Data\ResourceDictionary.xaml.cs">
+      <DependentUpon>ResourceDictionary.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="HelperClass\CheckBoxConverter.cs" />
+    <Compile Include="HelperClass\Command\Command_Add_Alternative.cs" />
+    <Compile Include="HelperClass\Command\Command_Remove_Alternative.cs" />
+    <Compile Include="HelperClass\Command\Command_Remove_Question.cs" />
+    <Compile Include="HelperClass\Command\Command_Save_Quiz.cs" />
+    <Compile Include="HelperClass\CreateQuestionHelper.cs" />
+    <Compile Include="HelperClass\QuestionTemplateSelector.cs" />
+    <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />
+    <Compile Include="HelperClass\TemplateQuiz\tempVisualQuestionSingle.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
     <Compile Include="Models\LoginHandler.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
@@ -76,10 +89,11 @@
     <Compile Include="Enum\Enum_QuestionType.cs" />
     <Compile Include="Enum\Enum_UserType.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="ViewModels\Teacher\CreateQuizViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
-    <Compile Include="ViewModels\TeacherViewModel.cs" />
+    <Compile Include="ViewModels\Teacher\Question_Binding.cs" />
     <Compile Include="View\Admin\AddRemoveUsers.xaml.cs">
       <DependentUpon>AddRemoveUsers.xaml</DependentUpon>
     </Compile>
@@ -113,6 +127,10 @@
     <Page Include="Data\ResourceDictionary.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Simple Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Admin\AddRemoveUsers.xaml">
       <SubType>Designer</SubType>
@@ -173,10 +191,8 @@
     <Compile Include="Models\Education.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Quiz.cs" />
-    <Compile Include="Models\QuizPayload.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\User.cs" />
-    <Compile Include="Models\UserCourse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -194,6 +210,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="Design\projectGuides.guides" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -204,11 +221,17 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\Images\1.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\Images\Newton_Black.png" />
     <Resource Include="Data\Images\Newton_Gray.tif" />
     <Resource Include="Data\Images\Newton_White.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ViewModels\Admin\" />
+    <Folder Include="ViewModels\_Shared\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
