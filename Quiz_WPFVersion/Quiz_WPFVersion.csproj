@@ -94,6 +94,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginHandler.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
+    <Compile Include="ViewModels\Admin\AddRemoveViewModel.cs" />
     <Compile Include="ViewModels\Command\TestCommand.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Enum\Enum_QuestionType.cs" />
@@ -247,7 +248,6 @@
     <Resource Include="Data\Images\Newton_White.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="ViewModels\Admin\" />
     <Folder Include="ViewModels\_Shared\" />
   </ItemGroup>
   <ItemGroup>
