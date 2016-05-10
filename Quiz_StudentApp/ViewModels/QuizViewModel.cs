@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
 using System.Collections.ObjectModel;
+using System.Data.Entity;
 
 namespace Quiz_StudentApp.ViewModels
 {
@@ -16,29 +17,41 @@ namespace Quiz_StudentApp.ViewModels
         public Quiz ActiveQuiz { get; set; }
         public string ErrorMessage { get; set; }
 
-        private User _student;
+        //private User _student;
 
         public QuizViewModel(Quiz quiz)
         {
             ActiveQuiz = quiz;
-            _student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId) as User;
+            //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
 
-            GetUserQuizs();
+            SetQuizContent2();
+            HandInExam();
         }
 
-        public ObservableCollection<Question> GetUserQuizs()
+        public void SetQuizContent()
         {
-            var quizzes = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
-            
-            for (int i = 0; i < quizzes.Count; i++)
-            {
-                quizzes[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList().Where(a => a.QuestionId == quizzes[i].Id).ToList();
-            }
-            
-            ObservableCollection<Question> oList = new ObservableCollection<Question>();
-            quizzes.ForEach(u => oList.Add(u));
+            //var questions = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
 
-            return oList;
+            ////get alternatives and set correct quiz ref
+            //for (int i = 0; i < questions.Count; i++)
+            //{
+            //    questions[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList()
+            //                                .Where(a => a.QuestionId == questions[i].Id).ToList();
+            //    questions[i].Quiz = ActiveQuiz;
+            //}
+
+            //ActiveQuiz.User = _student;
+            //ActiveQuiz.Questions = questions;
+        }
+        
+        public void SetQuizContent2()
+        {
+            //inkluderar även questions
+            using (var db = new QuizContext())
+            {
+                ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
+                               .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
+            }
         }
 
         //save/hand in
@@ -104,11 +117,11 @@ namespace Quiz_StudentApp.ViewModels
             {
                 Score = CalculateScore(),
                 Quiz = ActiveQuiz,
-                User = _student //not needed?
+                User = ActiveQuiz.User //not needed?
             };
 
-            _student.Results.Add(res);
-            Repository<User>.GetInstance().UpdateData(_student); //saves quiz too?
+            ActiveQuiz.User.Results.Add(res);
+            Repository<User>.GetInstance().UpdateData(ActiveQuiz.User); //saves quiz too?
         }
 
         private int CalculateScore()
@@ -145,12 +158,12 @@ namespace Quiz_StudentApp.ViewModels
 
         private void ScoreMultiChoice(Question question, ref int score)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void ScoreRanked(Question question, ref int score)
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
     }
 }
