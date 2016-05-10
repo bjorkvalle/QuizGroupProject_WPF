@@ -37,7 +37,7 @@
                     </TextBox.Background>
                 </TextBox>
                 <TextBlock x:Name="textBlock_Copy2" TextWrapping="Wrap" FontSize="13.333" Foreground="{DynamicResource fontColor}" Margin="3,5,96.659,0" Height="23" VerticalAlignment="Top" Text="LÄGG TILL" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-                <TextBox x:Name="txtbNamn_Copy" Height="22.006" Margin="110.488,46.275,79.874,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding userBinding.Password, Mode=TwoWay}">
+                <TextBox x:Name="txtbNamn_Copy" Height="22" Margin="110,46,96,0" TextWrapping="Wrap" VerticalAlignment="Top" Text="{Binding userBinding.Password, Mode=TwoWay}">
                     <TextBox.Background>
                         <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                     </TextBox.Background>
@@ -61,24 +61,23 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <TextBlock x:Name="lblCourse" Height="15.275" Margin="113.488,73.958,139.992,0" TextWrapping="Wrap" Text="Kurs" VerticalAlignment="Top" Foreground="{DynamicResource fontColor}"/>
-                <ComboBox x:Name="cmbCourse" Margin="110.89,92.233,79.874,0" VerticalAlignment="Top" Height="22.006" ItemsSource="{Binding courseList}" SelectedItem="{Binding userBinding/Courses}">
+                <ComboBox x:Name="cmbCourse" Margin="110.89,92.233,79.874,0" VerticalAlignment="Top" Height="22.006" ItemsSource="{Binding courseList}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
                 </ComboBox>
-                <TextBlock x:Name="lblAcess" Height="15.275" Margin="0,28,0,0" TextWrapping="Wrap" Text="Behörighet" VerticalAlignment="Top" HorizontalAlignment="Right" Width="66.284" Foreground="{DynamicResource fontColor}"/>
-                <ComboBox x:Name="cmbAcess" Margin="0,46.275,7.313,0" VerticalAlignment="Top" Height="22.006" HorizontalAlignment="Right" Width="60.284" ItemsSource="{Binding Mode=OneWay}" SelectedItem="{Binding userBinding/Type, ElementName=cmbCourse}">
+                <TextBlock x:Name="lblAcess" Height="16" Margin="0,28,12,0" TextWrapping="Wrap" Text="Behörighet" VerticalAlignment="Top" HorizontalAlignment="Right" Width="67" Foreground="{DynamicResource fontColor}"/>
+                <ComboBox x:Name="cmbAcess" Margin="0,46,7,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Right" Width="76">
                     <ComboBox.DataContext>
                         <Enum:UserType>Teacher</Enum:UserType>
                     </ComboBox.DataContext>
-                    
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
+                    <ComboBoxItem Content="Lärare"/>
+                    <ComboBoxItem Content="Admin"/>
+                    <ComboBoxItem Content="Student"/>
+
+
                 </ComboBox>
             </Grid>
         </Grid>
@@ -99,7 +98,7 @@
                             <GridViewColumn Header="Användare" Width="303" DisplayMemberBinding="{Binding Name}"/>
                         </GridView>
                     </ListView.View>
-                 
+
                 </ListView>
                 <Label x:Name="lblSearch" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="10                " HorizontalAlignment="Right" VerticalAlignment="Bottom"  Background="{x:Null}" Foreground="{DynamicResource fontColor}" Margin="0,0,63.584,0.671" Panel.ZIndex="3"/>
                 <TextBox x:Name="txtbSearch" Height="22.006" Margin="0,0,59.254,0" TextWrapping="Wrap" VerticalAlignment="Bottom" KeyUp="txtbSearch_KeyUp">

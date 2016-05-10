@@ -7,6 +7,8 @@ using System.Collections.ObjectModel;
 using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.Data;
 using Quiz_WPFVersion.View.Admin;
+using Quiz_WPFVersion.Enum;
+using System.Windows.Controls;
 
 namespace Quiz_WPFVersion.ViewModels.Admin
 {
@@ -41,7 +43,7 @@ namespace Quiz_WPFVersion.ViewModels.Admin
                 {
                     Name = "Morsid",
                 },
-            }; 
+            };
             educationList = new ObservableCollection<Education>
             {
                 new Education
@@ -75,6 +77,21 @@ namespace Quiz_WPFVersion.ViewModels.Admin
 
         public void SearchUsers(String searchTerm)
         {
+            var x = userList.Where(u => u.Name.ToLower().Contains(searchTerm.ToLower()));
+
+            //userList = new ObservableCollection<User>(
+
+
+            //ItemCollection x = view.listUsers.Items;
+
+
+            //    ListViewItem foundItem =
+            //view.listUsers.FindItemWithText(searchTerm, false, 0, true);
+            //    if (foundItem != null)
+            //    {
+            //        view.listUsers.TopItem = foundItem;
+
+            //    }
 
         }
 
@@ -90,18 +107,51 @@ namespace Quiz_WPFVersion.ViewModels.Admin
 
             //Måste kontrollera Enum
 
-            if (userBinding.Name == "" || userBinding.Password == ""){view.lblMessageSave.Content = "• Vänligen fyll i namn och lösenord";}
-            var selAcess = view?.cmbAcess?.SelectedItem;
-            if (selAcess == null) { view.lblMessageSave.Content = "• Behörighet måste anges"; return; } 
-            var selCourse = view?.cmbCourse?.SelectedItem;
-            var selEdu = view?.cmbEdu?.SelectedItem;
+            if (String.IsNullOrEmpty(userBinding.Name) || String.IsNullOrEmpty(userBinding.Password)) { view.lblMessageSave.Content = "• Vänligen fyll i namn och lösenord"; return; }
+            if (view?.cmbAcess?.SelectedItem == null) { view.lblMessageSave.Content = "• Behörighet måste anges"; return; }
 
-            var us=  new User
+
+            UserType selAcess = ConverterEnumType(((ComboBoxItem)view.cmbAcess.SelectedItem).Content.ToString());
+
+            //var selCourse = view?.cmbCourse?.SelectedItem;
+            //var selEdu = view?.cmbEdu?.SelectedItem;
+
+            //var us = new User
+            //{
+            //    Name = userBinding.Name,
+            //    Type = selAcess,
+            //    Courses = new List<Course> { (Course)view?.cmbCourse?.SelectedItem },
+            //    Education = (Education)view?.cmbEdu?.SelectedItem,
+            //    Password = userBinding.Password,
+            //};
+            Repository<User>.GetInstance().AddData
+                (
+                new User
+                {
+                    Name = userBinding.Name,
+                    Type = selAcess,
+                    Courses = new List<Course> { (Course)view?.cmbCourse?.SelectedItem },
+                    Education = (Education)view?.cmbEdu?.SelectedItem,
+                    Password = userBinding.Password,
+                }
+                );
+            view.lblMessageSave.Content = "• Användaren är nu tillagd";
+
+            //resetta alla boxes och uppdatera lisViewn
+        }
+
+        private UserType ConverterEnumType(String selectedItem)
+        {
+            switch (selectedItem)
             {
-                Name = userBinding.Name,
-                
-            };
-
+                case "Lärare":
+                    return UserType.Teacher;
+                case "Admin":
+                    return UserType.Admin;
+                default:
+                    //Student
+                    return UserType.Student;
+            }
         }
 
         public void GetInstanceView(AddRemoveUsers view)

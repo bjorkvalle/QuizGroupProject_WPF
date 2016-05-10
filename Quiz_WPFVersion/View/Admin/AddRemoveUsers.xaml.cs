@@ -26,16 +26,15 @@ namespace Quiz_WPFVersion.View.Admin
         {
             InitializeComponent();
             ((AddRemoveViewModel)DataContext).GetInstanceView(this);
+           
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
 
         private void btn_RemoveUser(object sender, RoutedEventArgs e)
         {
-            ((AddRemoveViewModel)DataContext).RemoveUser((User)listUsers.SelectedItem);
+
+            User temp = listUsers.SelectedItem as User;
+            ((AddRemoveViewModel)DataContext).RemoveUser(temp);
 
         }
 
@@ -50,5 +49,7 @@ namespace Quiz_WPFVersion.View.Admin
         {
             ((AddRemoveViewModel)DataContext).SearchUsers(((TextBox)sender).Text);
         }
+
+
     }
 }
