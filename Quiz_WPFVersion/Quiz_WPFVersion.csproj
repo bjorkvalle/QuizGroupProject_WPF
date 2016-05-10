@@ -86,6 +86,9 @@
     <Compile Include="Migrations\201605101211153_Initial.cs" />
     <Compile Include="Migrations\201605101211153_Initial.Designer.cs">
       <DependentUpon>201605101211153_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201605091824373_InitialCreate.cs" />
+    <Compile Include="Migrations\201605091824373_InitialCreate.Designer.cs">
+      <DependentUpon>201605091824373_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginHandler.cs" />
@@ -95,11 +98,14 @@
     <Compile Include="Enum\Enum_QuestionType.cs" />
     <Compile Include="Enum\Enum_UserType.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="ViewModels\StatisticsViewModel2.cs" />
     <Compile Include="ViewModels\Teacher\CreateQuizViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
     <Compile Include="ViewModels\Teacher\Question_Binding.cs" />
+    <Compile Include="ViewModels\Statistics_ViewModel.cs" />
+    <Compile Include="ViewModels\_Shared\Statistics_Quiz.cs" />
     <Compile Include="View\Admin\AddRemoveUsers.xaml.cs">
       <DependentUpon>AddRemoveUsers.xaml</DependentUpon>
     </Compile>
@@ -187,8 +193,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\_Shared\Statistics.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +220,8 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201605101211153_Initial.resx">
       <DependentUpon>201605101211153_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605091824373_InitialCreate.resx">
+      <DependentUpon>201605091824373_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -240,7 +248,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Admin\" />
-    <Folder Include="ViewModels\_Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Images\img5.jpg" />
+    <Resource Include="Data\Images\img6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

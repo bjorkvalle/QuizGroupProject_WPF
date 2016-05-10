@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
+
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 
@@ -16,6 +17,7 @@ namespace Quiz_StudentApp.ViewModels
     {
         public Quiz ActiveQuiz { get; set; }
         public string ErrorMessage { get; set; }
+
 
         //private User _student;
 
@@ -40,7 +42,7 @@ namespace Quiz_StudentApp.ViewModels
                                .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
             }
         }
-
+        
         //save/hand in
         public bool HandInExam()
         {
@@ -97,7 +99,7 @@ namespace Quiz_StudentApp.ViewModels
                 return false;
             }
         }
-
+        
         private void SaveResult()
         {
             Result res = new Result

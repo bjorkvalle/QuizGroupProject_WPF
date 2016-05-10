@@ -69,15 +69,6 @@ namespace Quiz_WPFVersion
             ////var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
 
 
-
-            //Question q = new Question();
-            //q.Alternatives = new List<Alternative>()
-            //{
-            //    new Alternative(),
-            //    new Alternative(),
-            //    new Alternative()
-            //};
-
             //Repository<Question>.GetInstance().AddData(q);
 
             //Console.WriteLine(q.Alternatives.First().Id + ", " + q.Alternatives.First().QuestionId.ToString());

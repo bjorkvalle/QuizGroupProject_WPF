@@ -43,10 +43,10 @@ namespace Quiz_WPFVersion.ViewModels
                     }
                     break;
                 case "btnSeeQuizzes":
-                    window.DetailFrame.Content = new SeeQuiz();
+                    window.DetailFrame.Content = new Statistics();
                     break;
                 case "btnCreateQuiz":
-                    window.DetailFrame.Content = new CreateQuiz();
+                    window.DetailFrame.Content = new CreateQuiz(activeUser);
                     break;
                 case "btnSendQuiz":
                     window.DetailFrame.Content = new SendQuiz();
