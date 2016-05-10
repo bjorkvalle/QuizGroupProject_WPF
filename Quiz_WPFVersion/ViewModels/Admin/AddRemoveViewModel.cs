@@ -26,7 +26,8 @@ namespace Quiz_WPFVersion.ViewModels.Admin
         {
             userBinding = new User();
 
-            #region declaration
+            #region Declarations
+            //userList = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList());
             //educationList = new ObservableCollection<Education>( Repository<Education>.GetInstance().GetDataList());
             //courseList = new ObservableCollection<Course>( Repository<Course>.GetInstance().GetDataList());
             userList = new ObservableCollection<User>
@@ -77,32 +78,45 @@ namespace Quiz_WPFVersion.ViewModels.Admin
 
         public void SearchUsers(String searchTerm)
         {
-            var x = userList.Where(u => u.Name.ToLower().Contains(searchTerm.ToLower()));
+            ResetLabelMessages();
+            if (String.IsNullOrEmpty(searchTerm))
+            {
+                UpdateListViewUser(new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList()));
+            }
+            else
+            {
+                UpdateListViewUser(new ObservableCollection<User>(userList.Where(u => u.Name.ToLower().Contains(searchTerm.ToLower())).ToList()));
 
-            //userList = new ObservableCollection<User>(
+            }
+        }
 
+        private void ResetLabelMessages()
+        {
+            view.lblMessageSave.Content = "";
+            view.lblMessageRemove.Content = "";
+        }
 
-            //ItemCollection x = view.listUsers.Items;
-
-
-            //    ListViewItem foundItem =
-            //view.listUsers.FindItemWithText(searchTerm, false, 0, true);
-            //    if (foundItem != null)
-            //    {
-            //        view.listUsers.TopItem = foundItem;
-
-            //    }
-
+        private void UpdateListViewUser(ObservableCollection<User> tempList)
+        {
+            userList.Clear();
+            foreach (var item in tempList)
+            {
+                userList.Add(item);
+            }
         }
 
         public void RemoveUser(User removeUser)
         {
             var x = removeUser;
+            if (removeUser == null) return;
+            Repository<User>.GetInstance().DeleteData(removeUser);
+            UpdateListViewUser(new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList()));
+            view.lblMessageRemove.Content = "• Användaren är nu borttagen.";
         }
 
         public void AddUser()
         {
-            view.lblMessageSave.Content = null;
+            ResetLabelMessages();
             var x = userBinding;
 
             //Måste kontrollera Enum
@@ -138,6 +152,18 @@ namespace Quiz_WPFVersion.ViewModels.Admin
             view.lblMessageSave.Content = "• Användaren är nu tillagd";
 
             //resetta alla boxes och uppdatera lisViewn
+            ClearAllTextBox();
+            UpdateListViewUser(new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList()));
+
+        }
+
+        private void ClearAllTextBox()
+        {
+            view.txtbNamn.Text = "";
+            view.txtbNamn_Copy.Text = "";
+            view.cmbAcess.SelectedIndex = -1;
+            view.cmbCourse.SelectedIndex = -1;
+            view.cmbEdu.SelectedIndex = -1;
         }
 
         private UserType ConverterEnumType(String selectedItem)
