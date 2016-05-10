@@ -244,7 +244,8 @@
     <Folder Include="ViewModels\Admin\" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\Images\img22.jpg" />
+    <Resource Include="Data\Images\img5.jpg" />
+    <Resource Include="Data\Images\img6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

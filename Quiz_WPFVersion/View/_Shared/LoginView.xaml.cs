@@ -31,14 +31,14 @@ namespace Quiz_WPFVersion.View._Shared
         {
             InitializeComponent();
 
-            //User user = new User
-            //{
-            //    Name = "Test2",
-            //    Password = "123",
-            //    Type = UserType.Teacher
-            //};
+            User user = new User
+            {
+                Name = "Test2",
+                Password = "123",
+                Type = UserType.Admin
+            };
 
-            //Repository<User>.GetInstance().AddData(user);
+            Repository<User>.GetInstance().AddData(user);
 
 
         }
