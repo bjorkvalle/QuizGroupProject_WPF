@@ -24,27 +24,10 @@ namespace Quiz_StudentApp.ViewModels
             ActiveQuiz = quiz;
             //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
 
-            SetQuizContent2();
-            HandInExam();
-        }
-
-        public void SetQuizContent()
-        {
-            //var questions = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
-
-            ////get alternatives and set correct quiz ref
-            //for (int i = 0; i < questions.Count; i++)
-            //{
-            //    questions[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList()
-            //                                .Where(a => a.QuestionId == questions[i].Id).ToList();
-            //    questions[i].Quiz = ActiveQuiz;
-            //}
-
-            //ActiveQuiz.User = _student;
-            //ActiveQuiz.Questions = questions;
+            SetQuizContent();
         }
         
-        public void SetQuizContent2()
+        public void SetQuizContent()
         {
             //inkluderar även questions
             using (var db = new QuizContext())
