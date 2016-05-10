@@ -25,6 +25,7 @@ namespace Quiz_StudentApp.ViewModels
             //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
 
             SetQuizContent();
+            HandInExam();
         }
         
         public void SetQuizContent()
@@ -35,7 +36,7 @@ namespace Quiz_StudentApp.ViewModels
                 ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
                                .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
 
-                ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Courses").Include("Education")
+                ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Education")
                                .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
             }
         }
