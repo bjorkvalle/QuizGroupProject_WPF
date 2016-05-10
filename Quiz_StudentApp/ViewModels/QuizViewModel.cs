@@ -69,14 +69,9 @@ namespace Quiz_StudentApp.ViewModels
                 //ActiveQuiz.User
             }
 
-<<<<<<< HEAD
             foreach (var item in x)
             {
                 Questions.Add(item);
-=======
-                ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Education")
-                               .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
->>>>>>> refs/remotes/origin/master
             }
             //Questions = x;
         }
