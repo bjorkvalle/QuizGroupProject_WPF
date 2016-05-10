@@ -19,23 +19,23 @@ namespace Quiz_StudentApp.Views.Student
 {
     public partial class CommenceQuiz : Page
     {
-        QuizViewModel vm;
+        //QuizViewModel vm;
 
         public CommenceQuiz(Quiz quiz)
         {
             InitializeComponent();
-            vm = new QuizViewModel(quiz);
+            ((QuizViewModel)DataContext).SetActiveQuiz(quiz);
+            ((QuizViewModel)DataContext).SetQuizContent2();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            DataContext = vm.ActiveQuiz;
-            //Console.WriteLine(vm.ActiveQuiz.Questions);
+            txtblockQuizTitle.Text = ((QuizViewModel)DataContext).ActiveQuiz.Title;
         }
 
         private void Btn_HandIn(object sender, RoutedEventArgs e)
         {
-            if (vm.HandInExam())
+            if (((QuizViewModel)DataContext).HandInExam())
             {
                 NavigationService.GoBack();
             }

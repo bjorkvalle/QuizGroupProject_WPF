@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Quiz_StudentApp.ViewModels
 {
-    class HomeViewModel
+    public class HomeViewModel
     {
         public User ActiveUser { get; set; }
         public ObservableCollection<Quiz> UserQuizs { get; set; }

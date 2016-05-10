@@ -14,19 +14,27 @@ namespace Quiz_StudentApp.ViewModels
 {
     public class QuizViewModel
     {
+        public ObservableCollection<Question> Questions { get; set; }
         public Quiz ActiveQuiz { get; set; }
         public string ErrorMessage { get; set; }
 
         //private User _student;
 
-        public QuizViewModel(Quiz quiz)
-        {
-            ActiveQuiz = quiz;
-            //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
+        public void SetActiveQuiz(Quiz quiz) { this.ActiveQuiz = quiz; }
 
-            SetQuizContent2();
-            HandInExam();
+        public QuizViewModel()
+        {
+            Questions = new ObservableCollection<Question>();
+            //SetQuizContent2();
         }
+
+        //public QuizViewModel(Quiz quiz)
+        //{
+        //    ActiveQuiz = quiz;
+        //    //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
+
+        //    //HandInExam();
+        //}
 
         public void SetQuizContent()
         {
@@ -46,14 +54,21 @@ namespace Quiz_StudentApp.ViewModels
         
         public void SetQuizContent2()
         {
+            ObservableCollection<Question> x;
             //inkluderar även questions
             using (var db = new QuizContext())
             {
                 ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
                                .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
-
+                x = new ObservableCollection<Question>(ActiveQuiz.Questions);
                 //ActiveQuiz.User
             }
+
+            foreach (var item in x)
+            {
+                Questions.Add(item);
+            }
+            //Questions = x;
         }
 
         //save/hand in
