@@ -147,6 +147,9 @@ namespace Quiz_WPFVersion.ViewModels
             //#endregion
 
             _Education = new ObservableCollection<Education>(Repository<Education>.GetInstance().GetDataList());
+            _Courses = new ObservableCollection<Course>(Repository<Course>.GetInstance().GetDataList());
+            _Users = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList());
+            // _Quiz = new ObservableCollection<Quiz>(Repository<Quiz>.GetInstance().GetDataList());
 
         }
 
@@ -256,43 +259,81 @@ namespace Quiz_WPFVersion.ViewModels
 
         private void Search()
         {
-            if (selEducation != null)
+            //if (selEducation != null)
+            //{
+            //    _Users = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList().
+            //         Where(user => user.Education_Id == selEducation.Id));
+
+            //    //    _Quiz = new ObservableCollection<Quiz>(Repository<Quiz>.GetInstance().GetDataList().
+            //    //         Where(quiz => quiz.UserId ==));
+
+
+            //    IList<Quiz> quizzes = Repository<Quiz>.GetInstance().GetDataList();
+
+            //    List<Quiz> tmpQuizzes = new List<Quiz>();
+
+            //    foreach (var quiz in quizzes)
+            //    {
+            //        foreach (var user in _Users)
+            //        {
+            //            if (quiz.UserId == user.Id)
+            //                tmpQuizzes.Add(quiz);
+            //        }
+            //    }
+
+
+            //}
+            //else if (selCourse != null)
+            //{
+
+            //}
+            //else if (selUser != null)
+            //{
+
+            //}
+
+
+            //List<User> users = Repository<User>.GetInstance().GetDataList()
+            //    .Where(user => user.Education_Id == selEducation.Id).ToList();
+
+            //List<Quiz> quizzes = new List<Quiz>();
+
+            //foreach (var user in users)
+            //{
+            //    foreach (var quiz in user.Quizs)
+            //    {
+
+            //        bool quizAlreadyExist = false;
+
+            //        foreach (var savedQuiz in quizzes)
+            //        {
+            //            if(savedQuiz.Id == quiz.Id)
+            //            {
+            //                quizAlreadyExist = true;
+            //            }
+            //        }
+
+            //        if (!quizAlreadyExist)
+            //            quizzes.Add(quiz);
+            //    }
+            //}
+
+
+
+            var joined = from quiz in Repository<Quiz>.GetInstance().GetDataList()
+                         join user in Repository<User>.GetInstance().GetDataList()
+                                      on quiz.UserId equals user.Id // join on some property
+                         where(user.Education_Id == selEducation.Id)
+                         select new {quiz};
+
+
+            foreach (var item in joined)
             {
-                _Users = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList().
-                     Where(user => user.Education_Id == selEducation.Id));
-
-                //_Quiz = new ObservableCollection<Quiz>(Repository<Quiz>.GetInstance().GetDataList().
-                //     Where(quiz => quiz.UserId ==));
-
-
-                //IList<Quiz> quizzes = Repository<Quiz>.GetInstance().GetDataList();
-
-                //List<Quiz> tmpQuizzes = new List<Quiz>();
-
-                //foreach (var quiz in quizzes)
-                //{
-                //    foreach (var user in _Users)
-                //    {
-                //        if (quiz.UserId == user.Id)
-                //            tmpQuizzes.Add(quiz);
-                //    }
-                //}
-
-
+                Console.WriteLine(item.quiz.Title);
             }
-            else if (selCourse != null)
-            {
 
-            }
-            else if (selUser != null)
-            {
-
-            }
 
             //sök med tre värden
-
-
-
 
         }
 

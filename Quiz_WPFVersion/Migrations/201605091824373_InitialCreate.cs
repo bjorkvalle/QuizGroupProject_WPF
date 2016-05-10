@@ -90,6 +90,8 @@ namespace Quiz_WPFVersion.Migrations
                         AverageTime = c.DateTime(),
                         GradeG = c.Int(),
                         GradeF = c.Int(),
+                        QuizTaken = c.Int(),
+                        QuizNotTaken = c.Int(),
                         Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
