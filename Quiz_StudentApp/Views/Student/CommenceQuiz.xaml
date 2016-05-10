@@ -5,13 +5,59 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_StudentApp.Views.Student"
       xmlns:ViewModels="clr-namespace:Quiz_StudentApp.ViewModels"
+      xmlns:helperClass="clr-namespace:Quiz_StudentApp.HelperClass"
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="300"
       Loaded="Page_Loaded"
       Title="CommenceQuiz">
+    
     <Page.DataContext>
         <ViewModels:QuizViewModel />
     </Page.DataContext>
+    <Page.Resources>
+        <DataTemplate x:Key="SingleChoiceQuestionTemplate">
+            <StackPanel Width="500" Orientation="Vertical">
+                <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
+                <ListBox ItemsSource="{Binding Alternatives}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Yellow" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="MultiChoiceQuestionTemplate">
+            <StackPanel Width="500" Orientation="Vertical">
+                <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
+                <ListBox ItemsSource="{Binding Alternatives}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Red" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </DataTemplate>
+        <DataTemplate x:Key="RankQuestionTemplate">
+            <StackPanel Width="500" Orientation="Vertical">
+                <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
+                <ListBox ItemsSource="{Binding Alternatives}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Green" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </StackPanel>
+        </DataTemplate>
+        <helperClass:QuestionTemplateSelector
+            SingleChoiceQuestionTemplate="{StaticResource SingleChoiceQuestionTemplate}"
+            MultiChoiceQuestionTemplate="{StaticResource MultiChoiceQuestionTemplate}"
+            RankQuestionTemplate="{StaticResource RankQuestionTemplate}"
+            x:Key="myDTS"/>
+    </Page.Resources>
+    
     <Grid Background="Orange">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
@@ -21,35 +67,20 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel x:Name="QuizTitle" Grid.Column="0" Grid.Row="0" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="12" Text="Test: "/>
-                <TextBlock x:Name="txtblockQuizTitle" Margin="8,0,0,0" FontSize="12" />
-            </StackPanel>
-        </StackPanel>
-        <ScrollViewer VerticalScrollBarVisibility="Auto">
-            <ListBox Grid.Column="0" Grid.Row="1" ItemsSource="{Binding Questions}" Width="300" x:Name="listBoxQuestions">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel Orientation="Vertical">
-                            <TextBlock Width="200" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
-                            <ListBox ItemsSource="{Binding Alternatives}">
-                                <ListBox.ItemTemplate>
-                                    <DataTemplate>
-                                        <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" />
-                                    </DataTemplate>
-                                </ListBox.ItemTemplate>
-                            </ListBox>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            <ListBox.ItemContainerStyle>
-                <Style TargetType="ListBoxItem">
-                    <Setter Property="HorizontalContentAlignment" Value="Stretch"></Setter>
-                </Style>
-            </ListBox.ItemContainerStyle>
+        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="txtblockQuizTitle" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" />
+
+        <ScrollViewer Grid.Column="0" Grid.Row="1"  VerticalScrollBarVisibility="Auto">
+
+            <ListBox  ItemsSource="{Binding Questions, Mode=TwoWay}" x:Name="listBoxQuestions" ItemTemplateSelector="{StaticResource myDTS}">
+
+                <ListBox.ItemContainerStyle>
+                    <Style TargetType="ListBoxItem">
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Width" Value="Auto" />
+                    </Style>
+                </ListBox.ItemContainerStyle>
             </ListBox>
-            
         </ScrollViewer>
+        <Button Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,12" FontSize="20" Content="Avsluta" Click="Btn_HandIn"/>
     </Grid>
 </Page>

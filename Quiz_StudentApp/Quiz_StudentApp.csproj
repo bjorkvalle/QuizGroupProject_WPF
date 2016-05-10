@@ -72,17 +72,10 @@
     <Compile Include="Data\SeedData.cs" />
     <Compile Include="Enums\Enum_QuestionType.cs" />
     <Compile Include="Enums\Enum_UserType.cs" />
+    <Compile Include="HelperClass\QuestionTemplateSelector.cs" />
     <Compile Include="Migrations\201605091214561_Initial.cs" />
     <Compile Include="Migrations\201605091214561_Initial.Designer.cs">
       <DependentUpon>201605091214561_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605100738412_Second.cs" />
-    <Compile Include="Migrations\201605100738412_Second.Designer.cs">
-      <DependentUpon>201605100738412_Second.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605100800097_Third.cs" />
-    <Compile Include="Migrations\201605100800097_Third.Designer.cs">
-      <DependentUpon>201605100800097_Third.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alternative.cs" />
@@ -152,12 +145,6 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201605091214561_Initial.resx">
       <DependentUpon>201605091214561_Initial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605100738412_Second.resx">
-      <DependentUpon>201605100738412_Second.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605100800097_Third.resx">
-      <DependentUpon>201605100800097_Third.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

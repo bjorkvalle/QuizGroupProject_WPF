@@ -36,8 +36,8 @@ namespace Quiz_StudentApp.ViewModels
         //    //HandInExam();
         //}
 
-            SetQuizContent();
-        }
+           // SetQuizContent();
+        //}
         
         public void SetQuizContent()
         {

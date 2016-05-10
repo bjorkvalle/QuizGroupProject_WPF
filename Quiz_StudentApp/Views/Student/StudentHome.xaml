@@ -45,17 +45,15 @@
                     <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate}" />
                     <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate}" />
                     <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
-                    <GridViewColumn Header="Antal Frågor" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
                 </GridView>
             </ListView.View>
         </ListView>
         <ListView Visibility="Collapsed"  Name="resultListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Titel" Width="Auto"  DisplayMemberBinding="{Binding Title}" />
-                    <GridViewColumn Header="Beskrivning" Width="Auto" DisplayMemberBinding="{Binding Description}" />
-                    <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate}" />
-                    <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate}" />
+                    <GridViewColumn Header="Poäng" Width="Auto"  DisplayMemberBinding="{Binding Score}" />
+                    <GridViewColumn Header="Id" Width="Auto" DisplayMemberBinding="{Binding Id}" />
+
                 </GridView>
             </ListView.View>
         </ListView>

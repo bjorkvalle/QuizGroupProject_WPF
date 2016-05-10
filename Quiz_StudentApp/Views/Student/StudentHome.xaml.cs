@@ -46,7 +46,7 @@ namespace Quiz_StudentApp.Views.Student
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            userInfoTemplate.DataContext = vm.ActiveUser; ;
+            userInfoTemplate.DataContext = vm.ActiveUser;
             quizListTemplate.ItemsSource = vm.GetUserQuizs();
             resultListTemplate.ItemsSource = vm.GetUserResults();
         }
