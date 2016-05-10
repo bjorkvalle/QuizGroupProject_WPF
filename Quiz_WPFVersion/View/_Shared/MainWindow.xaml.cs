@@ -35,7 +35,7 @@ namespace Quiz_WPFVersion
             InitializeComponent();
             MainFrame.Content = new LoginView();
 
-            Repository<User>.GetInstance().AddData(new User() { Name = "Timmy!" });
+            //Repository<User>.GetInstance().AddData(new User() { Name = "Timmy!" });
 
             //using (var db = new QuizContext())
             //{
@@ -60,19 +60,19 @@ namespace Quiz_WPFVersion
 
 
 
-            Question q = new Question();
-            q.Alternatives = new List<Alternative>()
-            {
-                new Alternative(),
-                new Alternative(),
-                new Alternative()
-            };
+            //Question q = new Question();
+            //q.Alternatives = new List<Alternative>()
+            //{
+            //    new Alternative(),
+            //    new Alternative(),
+            //    new Alternative()
+            //};
 
-            Repository<Question>.GetInstance().AddData(q);
+            //Repository<Question>.GetInstance().AddData(q);
 
-            Console.WriteLine(q.Alternatives.First().Id + ", " + q.Alternatives.First().QuestionId.ToString());
-            Console.WriteLine(q.Alternatives.ToList()[1].Id + ", " + q.Alternatives.ToList()[1].QuestionId.ToString());
-            Console.WriteLine(q.Alternatives.Last().Id + ", " + q.Alternatives.Last().QuestionId.ToString());
+            //Console.WriteLine(q.Alternatives.First().Id + ", " + q.Alternatives.First().QuestionId.ToString());
+            //Console.WriteLine(q.Alternatives.ToList()[1].Id + ", " + q.Alternatives.ToList()[1].QuestionId.ToString());
+            //Console.WriteLine(q.Alternatives.Last().Id + ", " + q.Alternatives.Last().QuestionId.ToString());
         }
     }
 }
