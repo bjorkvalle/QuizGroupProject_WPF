@@ -18,11 +18,12 @@ namespace Quiz_StudentApp.Models
         public int GScore { get; set; }
         public int VGScore { get; set; }
         public DateTime? StartDate { get; set; }
-        public Nullable<System.DateTime> EndDate { get; set; }
-        public System.TimeSpan TimeLimit { get; set; }
+        public DateTime? EndDate { get; set; }
+        public System.TimeSpan? TimeLimit { get; set; }
         public bool ShowStudentResult { get; set; }
         public bool SentToAdmin { get; set; }
         public bool SentToStudent { get; set; }
+
         public int? UserId { get; set; }
         [ForeignKey("User_Id")]
         public virtual User User { get; set; }

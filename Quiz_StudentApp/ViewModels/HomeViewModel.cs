@@ -30,7 +30,7 @@ namespace Quiz_StudentApp.ViewModels
 
         public ObservableCollection<Result> GetUserResults()
         {
-            var quizzes = Repository<Result>.GetInstance().GetDataList().Where(u => u.User_Id == ActiveUser.Id).ToList();
+            var quizzes = Repository<Result>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList();
             ObservableCollection<Result> oList = new ObservableCollection<Result>();
             quizzes.ForEach(u => oList.Add(u));
 

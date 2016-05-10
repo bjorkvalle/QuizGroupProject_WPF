@@ -1,7 +1,6 @@
 ﻿using Quiz_WPFVersion.Data;
 using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.View._Shared;
-using Quiz_WPFVersion.ViewModels._Shared;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -259,7 +258,7 @@ namespace Quiz_WPFVersion.ViewModels
             if (selEducation != null)
             {
                 _Users = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList().
-                     Where(user => user.Education_Id == selEducation.Id));
+                     Where(user => user.EducationId == selEducation.Id));
 
                 //_Quiz = new ObservableCollection<Quiz>(Repository<Quiz>.GetInstance().GetDataList().
                 //     Where(quiz => quiz.UserId ==));

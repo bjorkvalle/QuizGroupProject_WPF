@@ -34,19 +34,20 @@ namespace Quiz_WPFVersion
         public MainWindow()
         {
             InitializeComponent();
+            new SeedData();
             MainFrame.Content = new LoginView();
 
             //Repository<User>.GetInstance().AddData(new User() { Name = "Timmy!" });
 
-            //using (var db = new QuizContext())
-            //{
-            //    db.Database.Delete();
-            //}
+            ////using (var db = new QuizContext())
+            ////{
+            ////    db.Database.Delete();
+            ////}
 
             //User user = new User();
             //user.Name = "Olof";
             //user.Password = "asd";
-            
+
             //user.Quizs.Add(new Quiz()
             //{
             //    Title = "Quiz1",
@@ -61,28 +62,12 @@ namespace Quiz_WPFVersion
             //    SentToStudent = false,   
             //});
 
-
-
-            //Repository<User>.GetInstance().AddData(user);
-
-            ////var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
-
             //Repository<User>.GetInstance().AddData(user);
 
             
 
-            //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
+            ////var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
 
-
-
-
-            //Question q = new Question();
-            //q.Alternatives = new List<Alternative>()
-            //{
-            //    new Alternative(),
-            //    new Alternative(),
-            //    new Alternative()
-            //};
 
             //Repository<Question>.GetInstance().AddData(q);
 

@@ -26,33 +26,20 @@ namespace Quiz_StudentApp.ViewModels
             ActiveQuiz = quiz;
             //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
 
-            SetQuizContent2();
+            SetQuizContent();
             HandInExam();
         }
-
-        public void SetQuizContent()
-        {
-            //var questions = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
-
-            ////get alternatives and set correct quiz ref
-            //for (int i = 0; i < questions.Count; i++)
-            //{
-            //    questions[i].Alternatives = Repository<Alternative>.GetInstance().GetDataList()
-            //                                .Where(a => a.QuestionId == questions[i].Id).ToList();
-            //    questions[i].Quiz = ActiveQuiz;
-            //}
-
-            //ActiveQuiz.User = _student;
-            //ActiveQuiz.Questions = questions;
-        }
         
-        public void SetQuizContent2()
+        public void SetQuizContent()
         {
             //inkluderar även questions
             using (var db = new QuizContext())
             {
                 ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
                                .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
+
+                ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Education")
+                               .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
             }
         }
         
@@ -118,10 +105,11 @@ namespace Quiz_StudentApp.ViewModels
             Result res = new Result
             {
                 Score = CalculateScore(),
-                Quiz = ActiveQuiz,
-                User = ActiveQuiz.User //not needed?
+                QuizId = ActiveQuiz.Id,
+                UserId = ActiveQuiz.User.Id //not needed?
             };
 
+            Repository<Result>.GetInstance().AddData(res);
             ActiveQuiz.User.Results.Add(res);
             Repository<User>.GetInstance().UpdateData(ActiveQuiz.User); //saves quiz too?
         }
@@ -154,18 +142,39 @@ namespace Quiz_StudentApp.ViewModels
         {
             foreach (var item in question.Alternatives)
             {
-                //if(item.ScoreValue >0 && )
+                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
+                    score++;
             }
         }
 
         private void ScoreMultiChoice(Question question, ref int score)
         {
-            //throw new NotImplementedException();
+            int tempScore = 0;
+
+            foreach (var item in question.Alternatives)
+            {
+                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
+                    tempScore++;
+                else //add more cases
+                    tempScore--;
+            }
+
+            score += tempScore > 0 ? tempScore : 0;
         }
 
         private void ScoreRanked(Question question, ref int score)
         {
-            //throw new NotImplementedException();
+            int tempScore = 0;
+
+            foreach (var item in question.Alternatives)
+            {
+                if (item.ScoreValue == item.AnsweredValue)
+                    tempScore++;
+                else //add more cases
+                    tempScore--;
+            }
+
+            score += tempScore > 0 ? tempScore : 0;
         }
     }
 }
