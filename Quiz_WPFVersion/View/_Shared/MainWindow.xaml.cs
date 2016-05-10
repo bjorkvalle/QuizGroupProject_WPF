@@ -47,6 +47,7 @@ namespace Quiz_WPFVersion
             //user.Name = "Olof";
             //user.Password = "asd";
 
+<<<<<<< HEAD
             //user.Quizs.Add(new Quiz()
             //{
             //    Title = "Quiz1",
@@ -61,18 +62,18 @@ namespace Quiz_WPFVersion
             //    SentToStudent = false,   
             //});
 
-<<<<<<< HEAD
+
 
             //Repository<User>.GetInstance().AddData(user);
 
             ////var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
-=======
-            Repository<User>.GetInstance().AddData(user);
+
+            //Repository<User>.GetInstance().AddData(user);
 
             
 
             //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == Repository<User>.GetInstance().GetData(1).Id);
->>>>>>> refs/remotes/origin/takeQuiz
+
 
 
 

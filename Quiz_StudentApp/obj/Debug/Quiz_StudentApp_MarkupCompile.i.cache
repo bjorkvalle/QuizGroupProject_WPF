@@ -4,17 +4,46 @@
 exe
 C#
 .cs
-C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\
+<<<<<<< HEAD
+<<<<<<< HEAD
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\obj\Debug\
+=======
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\
+>>>>>>> refs/remotes/origin/takeQuiz
+=======
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\
+>>>>>>> refs/remotes/origin/takeQuiz
 Quiz_StudentApp
 none
 false
 DEBUG;TRACE
-C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\App.xaml
+<<<<<<< HEAD
+<<<<<<< HEAD
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\App.xaml
 4-1956956224
 
-391036144043
-16984577974
+361877694888
+16597108463
 Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
 
 True
+=======
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\App.xaml
+4-1956956224
+
+391955330588
+=======
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\App.xaml
+4-1956956224
+
+411748249783
+>>>>>>> refs/remotes/origin/takeQuiz
+161500826544
+Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
+
+False
+<<<<<<< HEAD
+>>>>>>> refs/remotes/origin/takeQuiz
+=======
+>>>>>>> refs/remotes/origin/takeQuiz
 
