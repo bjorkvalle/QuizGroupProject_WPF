@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Quiz_StudentApp.Models
 {
@@ -9,7 +10,9 @@ namespace Quiz_StudentApp.Models
         public string Title { get; set; }
         public int ScoreValue { get; set; }
         public int AnsweredValue { get; set; }
-        public Nullable<int> QuestionId { get; set; }
+
+        public int? QuestionId { get; set; }
+        [ForeignKey("QuestionId")]
         public virtual Question Question { get; set; }
     }
 }

@@ -9,9 +9,11 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Loaded="Page_Loaded"
       Title="CommenceQuiz">
+	  
     <Page.DataContext>
         <ViewModels:QuizViewModel />
     </Page.DataContext>
+	
     <Grid Background="Orange">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>

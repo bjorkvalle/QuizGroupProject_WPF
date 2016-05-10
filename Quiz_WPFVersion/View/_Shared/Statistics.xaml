@@ -1,15 +1,97 @@
-﻿<Page x:Class="Quiz_WPFVersion.View._Shared.Statistics"
+﻿<Page
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
+      xmlns:ViewModels="clr-namespace:Quiz_WPFVersion.ViewModels" x:Class="Quiz_WPFVersion.View._Shared.Statistics"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="600" d:DesignWidth="676.987"
       Title="Statistics">
+    <Page.Resources>
 
-    <Grid>
-        <Ellipse Fill="#FF2CFF52" HorizontalAlignment="Left" Height="315" Margin="-96,2,-89,-17" Stroke="Black" VerticalAlignment="Top" Width="485"/>
+    </Page.Resources>
+    <Page.DataContext>
+        <ViewModels:Statistics_ViewModel/>
+    </Page.DataContext>
+
+    <Grid Margin="0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="28"/>
+            <RowDefinition Height="14"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="39"/>
+            <RowDefinition Height="115*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+
+            <ColumnDefinition Width="11*"/>
+            <ColumnDefinition Width="439*"/>
+
+        </Grid.ColumnDefinitions>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource ListBox_GardinentBackground_List}"/>
+        </Grid.Background>
+        <ListView x:Name="listView" Margin="7,13,62,36" ItemsSource="{Binding _Quiz}" Grid.Row="3" Grid.Column="1" Foreground="{DynamicResource fontColor}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.RowSpan="2" >
+            <ListView.Background>
+                <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+            </ListView.Background>
+            <ListView.View>
+                <GridView>
+                    <!--<GridViewColumn Header="Datum" />-->
+                    <GridViewColumn Header="Prov" Width="129" DisplayMemberBinding="{Binding Title}"/>
+                    <GridViewColumn Header="Genomförd" Width="90" DisplayMemberBinding="{Binding QuizTaken}"/>
+                    <GridViewColumn Header="Ej genomförd" Width="87" DisplayMemberBinding="{Binding QuizNotTaken}"/>
+                    <GridViewColumn Header="Godkända" Width="71" DisplayMemberBinding="{Binding GradeG}"/>
+                    <GridViewColumn Header="Underkända" Width="87" DisplayMemberBinding="{Binding GradeF}"/>
+                    <GridViewColumn Header="Genomsnitt" Width="124" DisplayMemberBinding="{Binding AverageTime, StringFormat='HH:mm:ss'}"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" Grid.Column="1" Foreground="{DynamicResource fontColor}" Margin="7,18,-7,1" Grid.RowSpan="2"><Run Text="STAT"/><Run Text="I"/><Run Text="STIK"/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy" Margin="7,13,0,161" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="Genomförda prov" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="104" Foreground="{DynamicResource fontColor}" Grid.RowSpan="3"/>
+
+        
+        
+        <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="4" Grid.RowSpan="2" Margin="27,13,-7,-13">
+            <StackPanel x:Name="stack_Edu" Margin="0,0.053,0,0" Orientation="Vertical" d:LayoutOverrides="Height" MinWidth="120">
+                <TextBlock x:Name="textBlock_Copy1" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Height="18" Foreground="{DynamicResource fontColor}" />
+                <ComboBox x:Name="comboBox_Education" Margin="1,0,0,0" ItemsSource="{Binding _Education}" SelectionChanged="comboBox_SelectionChanged_Education"  Height="21" MinWidth="120" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+
+            <StackPanel x:Name="stack_Course" Orientation="Vertical" d:LayoutOverrides="Height, TopPosition, BottomPosition" Margin="20,0,0,0" MinWidth="120">
+                <TextBlock x:Name="textBlock_Copy2" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KURSER" Height="18.053" Foreground="{DynamicResource fontColor}"/>
+                <ComboBox x:Name="comboBox_Course" ItemsSource="{Binding _Courses}" SelectionChanged="comboBox_SelectionChanged_Course" Height="21"  MinWidth="120" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+            
+            <StackPanel x:Name="stacl_User" Margin="20,0,0,0" Orientation="Vertical" d:LayoutOverrides="Height" MinWidth="104">
+                <TextBlock x:Name="textBlock_Copy3" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="ELEV" Height="18" Foreground="{DynamicResource fontColor}" />
+                <ComboBox x:Name="comboBox_User" ItemsSource="{Binding _Users}" SelectionChanged="comboBox_SelectionChanged_User" Height="21" MinWidth="60" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+        </StackPanel>
+        
+        
+        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" Margin="7,128,62,314" Grid.Row="3" Opacity="0.385" Panel.ZIndex="-3" Grid.RowSpan="3"/>
 
     </Grid>
 </Page>

@@ -5,11 +5,42 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View.Admin"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="300" d:DesignWidth="396.653"
       Title="AdminView">
 
-    <Grid>
-        <Ellipse Fill="#FF88FF12" HorizontalAlignment="Left" Height="100" Margin="137,124,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+    <Grid Background="{StaticResource backgroundOrangeLight}" Margin="0,0,0,0">
+        <Grid   Margin="20,20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="24"/>
+                <RowDefinition Height="18"/>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="17"/>
+                <RowDefinition Height="17"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="90"/>
+                <ColumnDefinition Width="12"/>
+                <ColumnDefinition Width="197"/>
+            </Grid.ColumnDefinitions>
 
+
+            <TextBlock x:Name="txtb_labelWelcome" TextWrapping="Wrap" Text="Välkommen" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Bottom" FontSize="16" Foreground="Black" FontWeight="Bold" Width="90"/>
+
+            <TextBlock x:Name="txtbName" Margin="0,5,-3,16" TextWrapping="Wrap" Text="Arnold Schwarzenegger"  HorizontalAlignment="Left" Foreground="Black" FontSize="16" FontFamily="Microsoft JhengHei UI Light" FontWeight="Light" Grid.Column="2" Grid.RowSpan="2" Width="200" />
+
+            <TextBlock x:Name="txtb_labelAcess" TextWrapping="Wrap" Text="Behörighet:"  FontSize="14" FontFamily="Segoe WP Light" FontStyle="Italic" Foreground="{StaticResource fontColor}" FontWeight="Thin" Grid.Row="1" Grid.RowSpan="2"/>
+
+            <TextBlock x:Name="txtbAcess"   Text="Admin" FontSize="14" FontFamily="Segoe WP Light" Foreground="{StaticResource fontColor}"  FontWeight="Thin" Grid.Row="1" Grid.Column="2"/>
+
+            <TextBlock x:Name="textBlock" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Nya prov att" Grid.Row="3" Margin="0,0,9,0" Foreground="{StaticResource fontColor}" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
+
+            <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="skicka" Grid.Row="3" Margin="0,14,9,1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Width="89" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,0,0" >
+                <ListBox.Background>
+                    <SolidColorBrush Color="White" Opacity="0.565"/>
+                </ListBox.Background>
+            </ListBox>
+        </Grid>
     </Grid>
 </Page>
