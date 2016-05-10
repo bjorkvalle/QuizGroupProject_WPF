@@ -73,11 +73,6 @@
     <Compile Include="Enums\Enum_QuestionType.cs" />
     <Compile Include="Enums\Enum_UserType.cs" />
     <Compile Include="HelperClass\QuestionTemplateSelector.cs" />
-    <Compile Include="Migrations\201605091214561_Initial.cs" />
-    <Compile Include="Migrations\201605091214561_Initial.Designer.cs">
-      <DependentUpon>201605091214561_Initial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alternative.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Education.cs" />
@@ -91,6 +86,8 @@
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\Quiz.cs" />
     <Compile Include="Models\QuizContext.cs" />
+    <Compile Include="Models\QuizCorrector.cs" />
+    <Compile Include="Models\QuizTimer.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="ViewModels\QuizViewModel.cs" />
@@ -143,9 +140,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201605091214561_Initial.resx">
-      <DependentUpon>201605091214561_Initial.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

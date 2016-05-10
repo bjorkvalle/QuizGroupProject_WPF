@@ -92,6 +92,7 @@ C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\bin\Debug\EntityFramework.xml
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csprojResolveAssemblyReference.cache
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Simple Styles.baml
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Data\ResourceDictionary.g.cs
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\Admin\AddRemoveUsers.g.cs
@@ -123,10 +124,9 @@ C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\SendQuizzes.baml
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Statistics.baml
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.g.resources
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.Init.resources
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.Second.resources
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Properties.Resources.resources
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
-C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csprojResolveAssemblyReference.cache
-C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.Init.resources
-C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.Second.resources

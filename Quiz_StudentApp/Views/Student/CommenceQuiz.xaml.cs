@@ -42,6 +42,7 @@ namespace Quiz_StudentApp.Views.Student
             else
             {
                 //Display ErrorMessage property
+                //TEXTBLOCK = ((QuizViewModel)DataContext).DisplayExamHandInError();
             }
         }
     }
