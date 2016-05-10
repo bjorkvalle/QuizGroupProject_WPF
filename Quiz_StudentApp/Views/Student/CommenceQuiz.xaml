@@ -60,10 +60,9 @@
     
     <Grid Background="Orange">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
@@ -71,14 +70,12 @@
 
         <ScrollViewer Grid.Column="0" Grid.Row="1"  VerticalScrollBarVisibility="Auto">
 
-            <ListBox  ItemsSource="{Binding Questions, Mode=TwoWay}" x:Name="listBoxQuestions" ItemTemplateSelector="{StaticResource myDTS}">
-
-                <ListBox.ItemContainerStyle>
-                    <Style TargetType="ListBoxItem">
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        <Setter Property="Width" Value="Auto" />
-                    </Style>
-                </ListBox.ItemContainerStyle>
+            <ListBox  Background="Orange"
+                      ItemsSource="{Binding Questions, Mode=TwoWay}" 
+                      x:Name="listBoxQuestions" 
+                      ItemTemplateSelector="{StaticResource myDTS}"
+                      HorizontalContentAlignment="Stretch"
+                      >
             </ListBox>
         </ScrollViewer>
         <Button Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,12" FontSize="20" Content="Avsluta" Click="Btn_HandIn"/>
