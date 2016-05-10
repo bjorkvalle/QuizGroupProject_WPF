@@ -27,7 +27,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="/Quiz_WPFVersion;component/Data/Images/img5.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="/Quiz_WPFVersion;component/Data/Images/img6.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
 
