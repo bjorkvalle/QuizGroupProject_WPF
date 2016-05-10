@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Quiz_WPFVersion.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,25 @@ namespace Quiz_WPFVersion.View._Shared
         public Statistics()
         {
             InitializeComponent();
+            ((Statistics_ViewModel)this.DataContext).GetInstanceOfView(this);
+
+        }
+
+
+        private void comboBox_SelectionChanged_Education(object sender, SelectionChangedEventArgs e)
+        {
+            ((Statistics_ViewModel)this.DataContext).SetSelEducation((sender as ComboBox).SelectedItem);
+        }
+
+        private void comboBox_SelectionChanged_Course(object sender, SelectionChangedEventArgs e)
+        {
+            ((Statistics_ViewModel)this.DataContext).SetSelCourse((sender as ComboBox).SelectedItem);
+
+        }
+
+        private void comboBox_SelectionChanged_User(object sender, SelectionChangedEventArgs e)
+        {
+            ((Statistics_ViewModel)this.DataContext).SetSelUser((sender as ComboBox).SelectedItem);
         }
     }
 }

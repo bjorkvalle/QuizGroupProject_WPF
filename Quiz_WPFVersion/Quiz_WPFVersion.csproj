@@ -82,6 +82,11 @@
     <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisualQuestionSingle.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
+    <Compile Include="Migrations\201605091824373_InitialCreate.cs" />
+    <Compile Include="Migrations\201605091824373_InitialCreate.Designer.cs">
+      <DependentUpon>201605091824373_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginHandler.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\Command\TestCommand.cs" />
@@ -96,6 +101,7 @@
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
     <Compile Include="ViewModels\Teacher\Question_Binding.cs" />
     <Compile Include="ViewModels\Statistics_ViewModel.cs" />
+    <Compile Include="ViewModels\_Shared\Statistics_Quiz.cs" />
     <Compile Include="View\Admin\AddRemoveUsers.xaml.cs">
       <DependentUpon>AddRemoveUsers.xaml</DependentUpon>
     </Compile>
@@ -123,8 +129,8 @@
     <Compile Include="View\_Shared\SendQuizzes.xaml.cs">
       <DependentUpon>SendQuizzes.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\_Shared\Statistics2.xaml.cs">
-      <DependentUpon>Statistics2.xaml</DependentUpon>
+    <Compile Include="View\_Shared\Statistics.xaml.cs">
+      <DependentUpon>Statistics.xaml</DependentUpon>
     </Compile>
     <Page Include="Data\ResourceDictionary.xaml">
       <SubType>Designer</SubType>
@@ -182,9 +188,9 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\_Shared\Statistics2.xaml">
-      <SubType>Designer</SubType>
+    <Page Include="View\_Shared\Statistics.xaml">
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -208,6 +214,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201605091824373_InitialCreate.resx">
+      <DependentUpon>201605091824373_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -233,7 +242,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ViewModels\Admin\" />
-    <Folder Include="ViewModels\_Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Images\img22.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

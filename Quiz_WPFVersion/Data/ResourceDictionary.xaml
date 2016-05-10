@@ -11,41 +11,9 @@
                     mc:Ignorable="d">
 
 
-    <!--Button wihtout mouseovereffect-->
+    <HelperClass:CheckBoxConverter x:Key="CheckBoxConverter"/>
+  
 
-    <!--<DataTemplate x:Key="ListView_Alternative2">
-        <Grid>
-            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}"/>
-                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
-                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
-            </StackPanel>
-
-
-        </Grid>
-    </DataTemplate>-->
-
-    <!--<DataTemplate x:Key="ListView_Alternative">
-
-        <Grid>
-            <StackPanel x:Name="Alternative" HorizontalAlignment="Left" Orientation="Horizontal" Margin="0,5,0,0">
-                <TextBox x:Name="txtbAlternative1" TextWrapping="Wrap" Height="17.96" MinWidth="134" Width="300" Opacity="0.5" Text="{Binding Title}">
-                    <TextBox.Background>
-                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
-                    </TextBox.Background>
-                </TextBox>
-                <RadioButton x:Name="rbtAlt" IsChecked="{Binding ScoreValue}" Margin="10,2,0,0" GroupName="Correct"/>
-                <Button x:Name="btnRemoveAlternative" Content="&#xE74D;" Background="{x:Null}" Width="25" Margin="9,0,0,0" FontFamily="Segoe MDL2 Assets" BorderBrush="{x:Null}" Style="{DynamicResource MyButtonStyle}"/>
-            </StackPanel>
-
-
-        </Grid>
-    </DataTemplate>-->
-
-    <!--ListQuestion Template-->
-    <!--<<<< END  >>>>>-->
-
-    <!--<HelperClass:CheckBoxConverter x:Key="CheckBoxConverter"/>-->
     <!--Background Color for all sites-->
     <SolidColorBrush x:Key="background" Color="White"/>
 
@@ -90,12 +58,9 @@
             </Setter.Value>
         </Setter>
     </Style>
+    
     <Color x:Key="TextBox_Background_LightYellow">#FFFFEBC7</Color>
 
-    <!--EventHandler-->
-    <!--<Style x:Key="txtbScoreValue_Style" TargetType="TextBox">
-        <EventSetter Event="FrameworkElement.KeyDown" Handler="txtbScoreValue_CheckValue" />
-    </Style>-->
 
 
     <!-- Single-->
