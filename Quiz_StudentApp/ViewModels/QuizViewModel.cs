@@ -36,6 +36,9 @@ namespace Quiz_StudentApp.ViewModels
         //    //HandInExam();
         //}
 
+            SetQuizContent();
+        }
+        
         public void SetQuizContent()
         {
             //var questions = Repository<Question>.GetInstance().GetDataList().Where(u => u.Quiz_Id == ActiveQuiz.Id).ToList();
@@ -133,10 +136,11 @@ namespace Quiz_StudentApp.ViewModels
             Result res = new Result
             {
                 Score = CalculateScore(),
-                Quiz = ActiveQuiz,
-                User = ActiveQuiz.User //not needed?
+                Quiz_Id = ActiveQuiz.Id,
+                User_Id = ActiveQuiz.User.Id //not needed?
             };
 
+            Repository<Result>.GetInstance().AddData(res);
             ActiveQuiz.User.Results.Add(res);
             Repository<User>.GetInstance().UpdateData(ActiveQuiz.User); //saves quiz too?
         }
@@ -169,18 +173,39 @@ namespace Quiz_StudentApp.ViewModels
         {
             foreach (var item in question.Alternatives)
             {
-                //if(item.ScoreValue >0 && )
+                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
+                    score++;
             }
         }
 
         private void ScoreMultiChoice(Question question, ref int score)
         {
-            //throw new NotImplementedException();
+            int tempScore = 0;
+
+            foreach (var item in question.Alternatives)
+            {
+                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
+                    tempScore++;
+                else //add more cases
+                    tempScore--;
+            }
+
+            score += tempScore > 0 ? tempScore : 0;
         }
 
         private void ScoreRanked(Question question, ref int score)
         {
-            //throw new NotImplementedException();
+            int tempScore = 0;
+
+            foreach (var item in question.Alternatives)
+            {
+                if (item.ScoreValue == item.AnsweredValue)
+                    tempScore++;
+                else //add more cases
+                    tempScore--;
+            }
+
+            score += tempScore > 0 ? tempScore : 0;
         }
     }
 }
