@@ -44,4 +44,3 @@ C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\ob
 C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
 C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.InitialCreate.resources
 C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.Initial.resources
-C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csprojResolveAssemblyReference.cache
