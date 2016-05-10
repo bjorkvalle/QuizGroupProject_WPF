@@ -82,3 +82,5 @@ C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.pdb
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csprojResolveAssemblyReference.cache
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.Initial.resources

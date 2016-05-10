@@ -102,8 +102,8 @@ namespace Quiz_StudentApp.ViewModels
             Result res = new Result
             {
                 Score = CalculateScore(),
-                Quiz_Id = ActiveQuiz.Id,
-                User_Id = ActiveQuiz.User.Id //not needed?
+                QuizId = ActiveQuiz.Id,
+                UserId = ActiveQuiz.User.Id //not needed?
             };
 
             Repository<Result>.GetInstance().AddData(res);

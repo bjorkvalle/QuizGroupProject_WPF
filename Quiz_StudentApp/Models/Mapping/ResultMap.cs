@@ -15,13 +15,13 @@ namespace Quiz_StudentApp.Models.Mapping
             this.ToTable("Results");
             this.Property(t => t.Id).HasColumnName("Id");
             this.Property(t => t.Score).HasColumnName("Score");
-            this.Property(t => t.Quiz_Id).HasColumnName("Quiz_Id");
-            this.Property(t => t.User_Id).HasColumnName("User_Id");
+            this.Property(t => t.QuizId).HasColumnName("QuizId");
+            this.Property(t => t.UserId).HasColumnName("UserId");
 
             // Relationships
             this.HasOptional(t => t.User)
                 .WithMany(t => t.Results)
-                .HasForeignKey(d => d.User_Id);
+                .HasForeignKey(d => d.UserId);
 
         }
     }

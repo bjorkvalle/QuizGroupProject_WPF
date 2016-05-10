@@ -1,4 +1,4 @@
-namespace Quiz_StudentApp.Migrations
+namespace Quiz_WPFVersion.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -14,6 +14,7 @@ namespace Quiz_StudentApp.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         ScoreValue = c.Int(nullable: false),
+                        AnsweredValue = c.Int(nullable: false),
                         QuestionId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
@@ -27,11 +28,13 @@ namespace Quiz_StudentApp.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
                         Type = c.Int(nullable: false),
-                        Quiz_Id = c.Int(),
+                        QuizId = c.Int(),
+                        ScoreValue = c.Int(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Quizs", t => t.Quiz_Id)
-                .Index(t => t.Quiz_Id);
+                .ForeignKey("dbo.Quizs", t => t.QuizId)
+                .Index(t => t.QuizId);
             
             CreateTable(
                 "dbo.Quizs",
@@ -44,7 +47,7 @@ namespace Quiz_StudentApp.Migrations
                         VGScore = c.Int(nullable: false),
                         StartDate = c.DateTime(),
                         EndDate = c.DateTime(),
-                        TimeLimit = c.Time(nullable: false, precision: 7),
+                        TimeLimit = c.Time(precision: 7),
                         ShowStudentResult = c.Boolean(nullable: false),
                         SentToAdmin = c.Boolean(nullable: false),
                         SentToStudent = c.Boolean(nullable: false),
@@ -62,11 +65,11 @@ namespace Quiz_StudentApp.Migrations
                         Name = c.String(),
                         Password = c.String(),
                         Type = c.Int(nullable: false),
-                        Education_Id = c.Int(),
+                        EducationId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Educations", t => t.Education_Id)
-                .Index(t => t.Education_Id);
+                .ForeignKey("dbo.Educations", t => t.EducationId)
+                .Index(t => t.EducationId);
             
             CreateTable(
                 "dbo.Courses",
@@ -95,17 +98,17 @@ namespace Quiz_StudentApp.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Score = c.Int(nullable: false),
-                        User_Id = c.Int(),
-                        Quiz_Id = c.Int(),
+                        UserId = c.Int(),
+                        QuizId = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Quizs", t => t.Quiz_Id)
-                .ForeignKey("dbo.Users", t => t.User_Id)
-                .Index(t => t.User_Id)
-                .Index(t => t.Quiz_Id);
+                .ForeignKey("dbo.Quizs", t => t.QuizId)
+                .ForeignKey("dbo.Users", t => t.UserId)
+                .Index(t => t.UserId)
+                .Index(t => t.QuizId);
             
             CreateTable(
-                "dbo.UserCourses",
+                "dbo.CourseUsers",
                 c => new
                     {
                         Course_Id = c.Int(nullable: false),
@@ -121,25 +124,25 @@ namespace Quiz_StudentApp.Migrations
         
         public override void Down()
         {
-            DropForeignKey("dbo.Alternatives", "QuestionId", "dbo.Questions");
-            DropForeignKey("dbo.Questions", "Quiz_Id", "dbo.Quizs");
+            DropForeignKey("dbo.Results", "UserId", "dbo.Users");
+            DropForeignKey("dbo.Results", "QuizId", "dbo.Quizs");
             DropForeignKey("dbo.Quizs", "UserId", "dbo.Users");
-            DropForeignKey("dbo.Results", "User_Id", "dbo.Users");
-            DropForeignKey("dbo.Results", "Quiz_Id", "dbo.Quizs");
-            DropForeignKey("dbo.Users", "Education_Id", "dbo.Educations");
-            DropForeignKey("dbo.UserCourses", "User_Id", "dbo.Users");
-            DropForeignKey("dbo.UserCourses", "Course_Id", "dbo.Courses");
+            DropForeignKey("dbo.CourseUsers", "User_Id", "dbo.Users");
+            DropForeignKey("dbo.CourseUsers", "Course_Id", "dbo.Courses");
+            DropForeignKey("dbo.Users", "EducationId", "dbo.Educations");
             DropForeignKey("dbo.Courses", "EducationId", "dbo.Educations");
-            DropIndex("dbo.UserCourses", new[] { "User_Id" });
-            DropIndex("dbo.UserCourses", new[] { "Course_Id" });
-            DropIndex("dbo.Results", new[] { "Quiz_Id" });
-            DropIndex("dbo.Results", new[] { "User_Id" });
+            DropForeignKey("dbo.Questions", "QuizId", "dbo.Quizs");
+            DropForeignKey("dbo.Alternatives", "QuestionId", "dbo.Questions");
+            DropIndex("dbo.CourseUsers", new[] { "User_Id" });
+            DropIndex("dbo.CourseUsers", new[] { "Course_Id" });
+            DropIndex("dbo.Results", new[] { "QuizId" });
+            DropIndex("dbo.Results", new[] { "UserId" });
             DropIndex("dbo.Courses", new[] { "EducationId" });
-            DropIndex("dbo.Users", new[] { "Education_Id" });
+            DropIndex("dbo.Users", new[] { "EducationId" });
             DropIndex("dbo.Quizs", new[] { "UserId" });
-            DropIndex("dbo.Questions", new[] { "Quiz_Id" });
+            DropIndex("dbo.Questions", new[] { "QuizId" });
             DropIndex("dbo.Alternatives", new[] { "QuestionId" });
-            DropTable("dbo.UserCourses");
+            DropTable("dbo.CourseUsers");
             DropTable("dbo.Results");
             DropTable("dbo.Educations");
             DropTable("dbo.Courses");
