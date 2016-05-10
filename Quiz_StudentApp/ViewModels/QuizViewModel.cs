@@ -29,7 +29,7 @@ namespace Quiz_StudentApp.ViewModels
             //validate quiz data
             if (!ValidateQuizData())
                 return false;
-
+             
             //correct the quiz
             if (!CorrectQuiz())
                 return false;

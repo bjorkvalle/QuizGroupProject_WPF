@@ -76,6 +76,10 @@
     <Compile Include="Migrations\201605091214561_Initial.Designer.cs">
       <DependentUpon>201605091214561_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201605100738412_Second.cs" />
+    <Compile Include="Migrations\201605100738412_Second.Designer.cs">
+      <DependentUpon>201605100738412_Second.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Alternative.cs" />
     <Compile Include="Models\Course.cs" />
@@ -144,6 +148,9 @@
     </Compile>
     <EmbeddedResource Include="Migrations\201605091214561_Initial.resx">
       <DependentUpon>201605091214561_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605100738412_Second.resx">
+      <DependentUpon>201605100738412_Second.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
