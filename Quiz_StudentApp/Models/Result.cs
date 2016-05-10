@@ -8,11 +8,12 @@ namespace Quiz_StudentApp.Models
     {
         public int Id { get; set; }
         public int Score { get; set; }
-        public Nullable<int> User_Id { get; set; }
-        public Nullable<int> Quiz_Id { get; set; }
-        [ForeignKey("Quiz_Id")]
+        public int? UserId { get; set; }
+        public int? QuizId { get; set; }
+
+        [ForeignKey("QuizId")]
         public virtual Quiz Quiz { get; set; }
-        [ForeignKey("User_Id")]
+        [ForeignKey("UserId")]
         public virtual User User { get; set; }
     }
 }

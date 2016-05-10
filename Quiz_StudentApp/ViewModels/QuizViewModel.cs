@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
+
 using System.Collections.ObjectModel;
 using System.Data.Entity;
 
@@ -17,6 +18,7 @@ namespace Quiz_StudentApp.ViewModels
         public ObservableCollection<Question> Questions { get; set; }
         public Quiz ActiveQuiz { get; set; }
         public string ErrorMessage { get; set; }
+
 
         //private User _student;
 
@@ -67,13 +69,18 @@ namespace Quiz_StudentApp.ViewModels
                 //ActiveQuiz.User
             }
 
+<<<<<<< HEAD
             foreach (var item in x)
             {
                 Questions.Add(item);
+=======
+                ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Education")
+                               .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
+>>>>>>> refs/remotes/origin/master
             }
             //Questions = x;
         }
-
+        
         //save/hand in
         public bool HandInExam()
         {
@@ -130,14 +137,14 @@ namespace Quiz_StudentApp.ViewModels
                 return false;
             }
         }
-
+        
         private void SaveResult()
         {
             Result res = new Result
             {
                 Score = CalculateScore(),
-                Quiz_Id = ActiveQuiz.Id,
-                User_Id = ActiveQuiz.User.Id //not needed?
+                QuizId = ActiveQuiz.Id,
+                UserId = ActiveQuiz.User.Id //not needed?
             };
 
             Repository<Result>.GetInstance().AddData(res);

@@ -72,6 +72,7 @@
     <Compile Include="Data\ResourceDictionary.xaml.cs">
       <DependentUpon>ResourceDictionary.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\SeedData.cs" />
     <Compile Include="HelperClass\CheckBoxConverter.cs" />
     <Compile Include="HelperClass\Command\Command_Add_Alternative.cs" />
     <Compile Include="HelperClass\Command\Command_Remove_Alternative.cs" />
@@ -82,6 +83,15 @@
     <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisualQuestionSingle.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
+    <Compile Include="Migrations\201605101440437_Init.cs" />
+    <Compile Include="Migrations\201605101440437_Init.Designer.cs">
+      <DependentUpon>201605101440437_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605101447443_Second.cs" />
+    <Compile Include="Migrations\201605101447443_Second.Designer.cs">
+      <DependentUpon>201605101447443_Second.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginHandler.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
     <Compile Include="ViewModels\Command\TestCommand.cs" />
@@ -89,6 +99,7 @@
     <Compile Include="Enum\Enum_QuestionType.cs" />
     <Compile Include="Enum\Enum_UserType.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="ViewModels\Statistics_ViewModel.cs" />
     <Compile Include="ViewModels\Teacher\CreateQuizViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
@@ -206,6 +217,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EmbeddedResource Include="Migrations\201605101440437_Init.resx">
+      <DependentUpon>201605101440437_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605101447443_Second.resx">
+      <DependentUpon>201605101447443_Second.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -232,6 +249,10 @@
   <ItemGroup>
     <Folder Include="ViewModels\Admin\" />
     <Folder Include="ViewModels\_Shared\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Images\img5.jpg" />
+    <Resource Include="Data\Images\img6.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

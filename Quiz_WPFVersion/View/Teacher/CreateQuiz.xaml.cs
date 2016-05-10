@@ -27,11 +27,11 @@ namespace Quiz_WPFVersion.View.Teacher
         CreateQuizViewModel viewModel;
 
 
-        public CreateQuiz()
+        public CreateQuiz(User activeUser)
         {
             InitializeComponent();
             viewModel = this.DataContext as CreateQuizViewModel;
-            viewModel.SendInstanceView(this);
+            viewModel.SendInstanceView_ActiveUser(this, activeUser);
         }
 
 

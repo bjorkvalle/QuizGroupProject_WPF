@@ -23,8 +23,8 @@ namespace Quiz_StudentApp.Models.Mapping
                 .Map(m =>
                     {
                         m.ToTable("UserCourses");
-                        m.MapLeftKey("Course_Id");
-                        m.MapRightKey("User_Id");
+                        m.MapLeftKey("CourseId");
+                        m.MapRightKey("UserId");
                     });
 
             this.HasOptional(t => t.Education)

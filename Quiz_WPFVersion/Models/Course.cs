@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Quiz_WPFVersion.Models
 {
@@ -12,13 +9,16 @@ namespace Quiz_WPFVersion.Models
     {
         public Course()
         {
-            Users = new Collection<User>();
+            this.Users = new Collection<User>();
         }
 
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
+
         public int? EducationId { get; set; }
-        public Education Education { get; set; }
+        [ForeignKey("EducationId")]
+        public virtual Education Education { get; set; }
         public virtual ICollection<User> Users { get; set; }
     }
 }

@@ -17,12 +17,12 @@ namespace Quiz_StudentApp.Models.Mapping
             this.Property(t => t.Name).HasColumnName("Name");
             this.Property(t => t.Password).HasColumnName("Password");
             this.Property(t => t.Type).HasColumnName("Type");
-            this.Property(t => t.Education_Id).HasColumnName("Education_Id");
+            this.Property(t => t.EducationId).HasColumnName("EducationId");
 
             // Relationships
             this.HasOptional(t => t.Education)
                 .WithMany(t => t.Users)
-                .HasForeignKey(d => d.Education_Id);
+                .HasForeignKey(d => d.EducationId);
 
         }
     }
