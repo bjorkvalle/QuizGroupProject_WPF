@@ -35,9 +35,6 @@ namespace Quiz_StudentApp.ViewModels
             quizzes.ForEach(u => oList.Add(u));
 
             return oList;
-
-            //var results = Repository<Result>.GetInstance().GetDataList().Where(result => result.User_Id == Repository<User>.GetInstance().GetData(ActiveUser.Id).Id);
-            //return results as ObservableCollection<Result>;
         }
     }
 }

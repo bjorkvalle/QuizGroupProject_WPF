@@ -29,9 +29,17 @@ namespace Quiz_StudentApp.Models
 
             //prevent from being able to retake same quiz
             //check if quizId already in result table
+            RemoveQuizFromUserList();
 
             return true;
         }
+
+        private void RemoveQuizFromUserList()
+        {
+            User user = _quiz.User;
+            user.Quizs.Remove(_quiz);
+            Repository<User>.GetInstance().UpdateData(user);
+        }//fix
 
         private bool ValidateQuizData()
         {

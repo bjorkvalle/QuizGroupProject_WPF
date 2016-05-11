@@ -21,11 +21,26 @@ namespace Quiz_StudentApp.ViewModels
         private QuizCorrector _quizCorrector;
         private QuizTimer _quizTimer;
 
+        //public QuizViewModel()
+        //{
+        //    Questions = new ObservableCollection<Question>();
+
+        //    //SetQuizContent2();
+        //}
+
+        //körs i view xaml
         public QuizViewModel()
         {
+
+        }
+
+        //körs i view cs
+        public QuizViewModel(Quiz quiz)
+        {
             Questions = new ObservableCollection<Question>();
-            
-            //SetQuizContent2();
+            ActiveQuiz = quiz;
+            SetQuizContent2();
+            SetupTimer();//temp position
         }
 
         //public QuizViewModel(Quiz quiz)
@@ -61,7 +76,7 @@ namespace Quiz_StudentApp.ViewModels
 
 
 
-            SetupTimer();//temp position
+            
         }
 
         public void SetActiveQuiz(Quiz quiz)
