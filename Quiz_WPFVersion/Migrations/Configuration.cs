@@ -10,7 +10,6 @@ namespace Quiz_WPFVersion.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "Quiz_WPFVersion.Data.QuizContext";
         }
 
         protected override void Seed(Quiz_WPFVersion.Data.QuizContext context)

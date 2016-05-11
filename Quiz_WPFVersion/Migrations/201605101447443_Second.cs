@@ -1,4 +1,4 @@
-namespace Quiz_StudentApp.Migrations
+namespace Quiz_WPFVersion.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -7,12 +7,12 @@ namespace Quiz_StudentApp.Migrations
     {
         public override void Up()
         {
-            AddColumn("dbo.Alternatives", "AnsweredValue", c => c.Int(nullable: false));
+            DropColumn("dbo.Questions", "Discriminator");
         }
         
         public override void Down()
         {
-            DropColumn("dbo.Alternatives", "AnsweredValue");
+            AddColumn("dbo.Questions", "Discriminator", c => c.String(nullable: false, maxLength: 128));
         }
     }
 }
