@@ -322,7 +322,7 @@ namespace Quiz_WPFVersion.ViewModels
             var joined = from quiz in Repository<Quiz>.GetInstance().GetDataList()
                          join user in Repository<User>.GetInstance().GetDataList()
                                       on quiz.UserId equals user.Id // join on some property
-                         where(user.Education_Id == selEducation.Id)
+                         where(user.EducationId == selEducation.Id)
                          select new {quiz};
 
 
