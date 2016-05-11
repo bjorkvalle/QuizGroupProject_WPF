@@ -4,16 +4,16 @@
 exe
 C#
 .cs
-C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\obj\Debug\
 Quiz_StudentApp
 none
 false
 DEBUG;TRACE
-C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\App.xaml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\App.xaml
 4-1956956224
 
 331713101313
-16984577974
+16597108463
 Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
 
 False

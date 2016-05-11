@@ -49,7 +49,7 @@ namespace Quiz_WPFVersion.ViewModels
                     window.DetailFrame.Content = new CreateQuiz(activeUser);
                     break;
                 case "btnSendQuiz":
-                    window.DetailFrame.Content = new SendQuiz();
+                    window.DetailFrame.Content = new SendQuiz(activeUser);
                     break;
                 case "btnAdministrate":
                     window.DetailFrame.Content = new AddRemoveUsers();
