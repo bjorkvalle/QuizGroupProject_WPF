@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Quiz_StudentApp.Models
 {
-    class QuizCorrector
+    public class QuizCorrector
     {
         public string ErrorMessage { get; set; }
         private Quiz _quiz;

@@ -10,6 +10,7 @@ using System.Windows.Controls;
 
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Windows.Threading;
 
 namespace Quiz_StudentApp.ViewModels
 {
@@ -17,9 +18,16 @@ namespace Quiz_StudentApp.ViewModels
     {
         public ObservableCollection<Question> Questions { get; set; }
         public Quiz ActiveQuiz { get; set; }
-
+        
         private QuizCorrector _quizCorrector;
-        private QuizTimer _quizTimer;
+        public QuizCorrector QuizCorrectorProp
+        {
+            get { return _quizCorrector; }
+            set { _quizCorrector = value; }
+        }
+
+        //private QuizTimer _quizTimer;
+
 
         //public QuizViewModel()
         //{
@@ -31,7 +39,6 @@ namespace Quiz_StudentApp.ViewModels
         //körs i view xaml
         public QuizViewModel()
         {
-
         }
 
         //körs i view cs
@@ -40,7 +47,8 @@ namespace Quiz_StudentApp.ViewModels
             Questions = new ObservableCollection<Question>();
             ActiveQuiz = quiz;
             SetQuizContent2();
-            SetupTimer();//temp position
+            _quizCorrector = new QuizCorrector(ActiveQuiz);
+            //SetupTimer();//temp position
         }
 
         //public QuizViewModel(Quiz quiz)
@@ -80,23 +88,22 @@ namespace Quiz_StudentApp.ViewModels
             this.ActiveQuiz = quiz;
         }
 
-        private void SetupTimer()
-        {
-            _quizTimer = new QuizTimer((TimeSpan)ActiveQuiz.TimeLimit);
-        }
+        //private void SetupTimer()
+        //{
+        //    _quizTimer = new QuizTimer((TimeSpan)ActiveQuiz.TimeLimit);
+        //}
 
-        public TimeSpan CheckTimeLeft()
-        {
-            if (_quizTimer.TimeLeft <= new TimeSpan(0, 0, 0))
-                _quizCorrector.SaveResult();
+        //public TimeSpan CheckTimeLeft()
+        //{
+        //    if (_quizTimer.TimeLeft <= new TimeSpan(0, 0, 0))
+        //        _quizCorrector.SaveResult();
 
-            return _quizTimer.TimeLeft;
-        }
+        //    return _quizTimer.TimeLeft;
+        //}
 
         //save/hand in
         public bool HandInExam()
         {
-            _quizCorrector = new QuizCorrector(ActiveQuiz);//i brist på bättre ställe att lägga den på atm
             return _quizCorrector.HandleQuiz();
         }
 
