@@ -45,7 +45,6 @@
                     <GridViewColumn Header="Ej genomförd" Width="87" DisplayMemberBinding="{Binding QuizNotTaken}"/>
                     <GridViewColumn Header="Godkända" Width="71" DisplayMemberBinding="{Binding GradeG}"/>
                     <GridViewColumn Header="Underkända" Width="87" DisplayMemberBinding="{Binding GradeF}"/>
-                    <GridViewColumn Header="Genomsnitt" Width="124" DisplayMemberBinding="{Binding AverageTime, StringFormat='HH:mm:ss'}"/>
                 </GridView>
             </ListView.View>
         </ListView>
@@ -58,18 +57,6 @@
             <StackPanel x:Name="stack_Edu" Margin="0,0.053,0,0" Orientation="Vertical" d:LayoutOverrides="Height" MinWidth="120">
                 <TextBlock x:Name="textBlock_Copy1" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Height="18" Foreground="{DynamicResource fontColor}" />
                 <ComboBox x:Name="comboBox_Education" Margin="1,0,0,0" ItemsSource="{Binding _Education}" SelectionChanged="comboBox_SelectionChanged_Education"  Height="21" MinWidth="120" >
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </StackPanel>
-
-
-            <StackPanel x:Name="stack_Course" Orientation="Vertical" d:LayoutOverrides="Height, TopPosition, BottomPosition" Margin="20,0,0,0" MinWidth="120">
-                <TextBlock x:Name="textBlock_Copy2" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KURSER" Height="18.053" Foreground="{DynamicResource fontColor}"/>
-                <ComboBox x:Name="comboBox_Course" ItemsSource="{Binding _Courses}" SelectionChanged="comboBox_SelectionChanged_Course" Height="21"  MinWidth="120" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />
