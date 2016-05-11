@@ -22,17 +22,26 @@
         <Storyboard x:Key="AddQuestion_Animation">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btnSingelQuestion">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1.4" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btnMultiQuestion">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1.7" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="btnRankQuestion">
                 <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
-                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.2" Value="0"/>
                 <EasingDoubleKeyFrame KeyTime="0:0:1.9" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="QuestionsCreate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="30"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="QuestionsCreate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
         <Storyboard x:Key="Save_animation_show">
@@ -89,63 +98,74 @@
 
                 <TextBlock x:Name="lblHeader" TextWrapping="Wrap" Text="SKAPA ETT PROV"  FontWeight="Bold" FontSize="18" Foreground="{DynamicResource fontColor}"/>
                 <TextBlock x:Name="lblHeader_under" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="10"  Foreground="{DynamicResource fontColor}"/>
-                <Grid x:Name="gridRubrik" Height="38.92" Margin="0,25,0,0">
-                    <TextBlock x:Name="blockHeader" TextWrapping="Wrap" Text="Rubrik" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource fontColor}"/>
-                    <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,16,0,4.92" Background="#FFFFEBC7">
-                        <TextBox.Effect>
-                            <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
-                        </TextBox.Effect>
-                    </TextBox>
-                </Grid>
-                <Grid x:Name="gridBeskrivning" Height="38.92" Margin="0,5,0,0" MinHeight="99">
-                    <TextBlock x:Name="blockHeader1" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
-                    <TextBox x:Name="txtbDescription" TextWrapping="Wrap" BorderBrush="{x:Null}"  Margin="0,15.96,0,5">
-                        <TextBox.Effect>
-                            <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
-                        </TextBox.Effect>
-                        <TextBox.Background>
-                            <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
-                        </TextBox.Background>
-                    </TextBox>
-                </Grid>
+                <Grid x:Name="QuestionsCreate" Height="209.09" Margin="0,25,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Grid x:Name="gridRubrik" Height="38.92" VerticalAlignment="Top">
+                        <TextBlock x:Name="blockHeader" TextWrapping="Wrap" Text="Rubrik" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource fontColor}"/>
+                        <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,16,0,4.92" Background="#FFFFEBC7">
+                            <TextBox.Effect>
+                                <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
+                            </TextBox.Effect>
+                        </TextBox>
+                    </Grid>
+                    <Grid x:Name="gridBeskrivning" Height="38.92" Margin="0,43.92,0,66.17" MinHeight="99">
+                        <TextBlock x:Name="blockHeader1" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
+                        <TextBox x:Name="txtbDescription" TextWrapping="Wrap" BorderBrush="{x:Null}"  Margin="0,15.96,0,5">
+                            <TextBox.Effect>
+                                <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
+                            </TextBox.Effect>
+                            <TextBox.Background>
+                                <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                            </TextBox.Background>
+                        </TextBox>
+                    </Grid>
 
-                <Grid x:Name="gridAddQuestionType" Height="66.17">
-                    <StackPanel x:Name="menuAddQuestionType" d:LayoutOverrides="Width" Margin="0,4,0,0">
-                        <TextBlock x:Name="lblAddQuestion" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" d:LayoutOverrides="TopPosition, BottomPosition"/>
-                        <StackPanel x:Name="stackpanelAddCommand" Orientation="Horizontal"  Margin="0,9,0,0">
-                            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}"  Margin="0,0,0,0" Click="btn_AddSingleQuestion">
-                                <Button.Template>
-                                    <ControlTemplate>
-                                        <StackPanel>
-                                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE73A;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
-                                            <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Alternativ"/>
-                                        </StackPanel>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                            <Button x:Name="btnMultiQuestion" Style="{StaticResource MyButtonStyle}"  Margin="16,0,0,0" Click="btnMultiQuestion_Click">
-                                <Button.Template>
-                                    <ControlTemplate>
-                                        <StackPanel>
-                                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE133;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}" Margin="0,-2,0,0"/>
-                                            <TextBlock Margin="0,-2,0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Flerval"/>
-                                        </StackPanel>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                            <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0" Click="btnRankQuestion_Click">
-                                <Button.Template>
-                                    <ControlTemplate>
-                                        <StackPanel>
-                                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE71D;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
-                                            <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Rank"/>
-                                        </StackPanel>
-                                    </ControlTemplate>
-                                </Button.Template>
-                            </Button>
-                            <ComboBox x:Name="comboBox" Width="120" Visibility="Collapsed"/>
+                    <Grid x:Name="gridAddQuestionType" Height="66.17" VerticalAlignment="Bottom">
+                        <StackPanel x:Name="menuAddQuestionType" d:LayoutOverrides="Width" Margin="0,4,0,0">
+                            <TextBlock x:Name="lblAddQuestion" TextWrapping="Wrap" Text="Lägg till en fråga" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" VerticalAlignment="Top" d:LayoutOverrides="TopPosition, BottomPosition"/>
+                            <StackPanel x:Name="stackpanelAddCommand" Orientation="Horizontal"  Margin="0,9,0,0">
+                                <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}"  Margin="0,0,0,0" Click="btn_AddSingleQuestion">
+                                    <Button.Template>
+                                        <ControlTemplate>
+                                            <StackPanel>
+                                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE73A;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
+                                                <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Alternativ"/>
+                                            </StackPanel>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Button x:Name="btnMultiQuestion" Style="{StaticResource MyButtonStyle}"  Margin="16,0,0,0" Click="btnMultiQuestion_Click">
+                                    <Button.Template>
+                                        <ControlTemplate>
+                                            <StackPanel>
+                                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE133;" FontSize="24" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}" Margin="0,-2,0,0"/>
+                                                <TextBlock Margin="0,-2,0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Flerval"/>
+                                            </StackPanel>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <Button x:Name="btnRankQuestion" Style="{StaticResource MyButtonStyle}"  Margin="24,0,0,0" Click="btnRankQuestion_Click">
+                                    <Button.Template>
+                                        <ControlTemplate>
+                                            <StackPanel>
+                                                <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE71D;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
+                                                <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Rank"/>
+                                            </StackPanel>
+                                        </ControlTemplate>
+                                    </Button.Template>
+                                </Button>
+                                <ComboBox x:Name="comboBox" Width="120" Visibility="Collapsed"/>
+                            </StackPanel>
                         </StackPanel>
-                    </StackPanel>
+                    </Grid>
+
                 </Grid>
 
                 <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
