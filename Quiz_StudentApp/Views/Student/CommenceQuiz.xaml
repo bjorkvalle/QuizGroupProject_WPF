@@ -15,25 +15,35 @@
         <ViewModels:QuizViewModel />
     </Page.DataContext>
     <Page.Resources>
+        <helperClass:CheckBoxConverter x:Key="CheckBoxConverter"/>
         <DataTemplate x:Key="SingleChoiceQuestionTemplate">
             <StackPanel Width="500" Orientation="Vertical">
                 <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
-                <ListBox ItemsSource="{Binding Alternatives}">
+                <ListBox x:Name="SelectedAnswer" ItemsSource="{Binding Alternatives}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Yellow" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Yellow" />
+                                <RadioButton x:Name="rbSingleAnswer" 
+                                             GroupName="{Binding Title, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" IsChecked='{Binding AnsweredValue,Mode=TwoWay, Converter={StaticResource CheckBoxConverter}}'/>
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
             </StackPanel>
         </DataTemplate>
+
         <DataTemplate x:Key="MultiChoiceQuestionTemplate">
             <StackPanel Width="500" Orientation="Vertical">
                 <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
                 <ListBox ItemsSource="{Binding Alternatives}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Red" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Red" />
+                                <CheckBox x:Name="checkBoxMultiChoiceAnswer" 
+                                          IsChecked="{Binding AnsweredValue,Mode=TwoWay, Converter={StaticResource CheckBoxConverter}}" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -45,7 +55,10 @@
                 <ListBox ItemsSource="{Binding Alternatives}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Green" />
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Green" />
+                                <TextBox x:Name="txtBoxRankedAnswer" Text="{Binding AnsweredValue, Mode=TwoWay}" Width="20" Height="20" />
+                            </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
@@ -57,7 +70,7 @@
             RankQuestionTemplate="{StaticResource RankQuestionTemplate}"
             x:Key="myDTS"/>
     </Page.Resources>
-    
+
     <Grid Background="Orange">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -78,6 +91,7 @@
                       >
             </ListBox>
         </ScrollViewer>
+        <TextBlock Text="{Binding TimeLeft}"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="20"/>
         <Button Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,12" FontSize="20" Content="Avsluta" Click="Btn_HandIn"/>
     </Grid>
 </Page>

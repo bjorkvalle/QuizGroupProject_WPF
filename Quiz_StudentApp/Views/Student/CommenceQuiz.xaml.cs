@@ -45,5 +45,7 @@ namespace Quiz_StudentApp.Views.Student
                 //TEXTBLOCK = ((QuizViewModel)DataContext).DisplayExamHandInError();
             }
         }
+
+
     }
 }

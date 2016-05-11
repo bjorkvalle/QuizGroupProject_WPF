@@ -10,13 +10,16 @@ using System.Windows.Controls;
 
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using Quiz_StudentApp.HelperClass;
 
 namespace Quiz_StudentApp.ViewModels
 {
     public class QuizViewModel
     {
+        public SingleChoiceCommand SingleChoiceCommand { get; set; }
         public ObservableCollection<Question> Questions { get; set; }
         public Quiz ActiveQuiz { get; set; }
+        public TimeSpan TimeLeft { get; set; }
 
         private QuizCorrector _quizCorrector;
         private QuizTimer _quizTimer;
@@ -24,6 +27,7 @@ namespace Quiz_StudentApp.ViewModels
         public QuizViewModel()
         {
             Questions = new ObservableCollection<Question>();
+            SingleChoiceCommand = new SingleChoiceCommand();
             
             //SetQuizContent2();
         }
