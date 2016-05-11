@@ -19,13 +19,14 @@ namespace Quiz_StudentApp.Views.Student
 {
     public partial class CommenceQuiz : Page
     {
-        //QuizViewModel vm;
-
         public CommenceQuiz(Quiz quiz)
         {
             InitializeComponent();
-            ((QuizViewModel)DataContext).SetActiveQuiz(quiz);
-            ((QuizViewModel)DataContext).SetQuizContent2();
+            
+            DataContext = new QuizViewModel(quiz);
+
+            //((QuizViewModel)DataContext).SetActiveQuiz(quiz);
+            //((QuizViewModel)DataContext).SetQuizContent2();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
