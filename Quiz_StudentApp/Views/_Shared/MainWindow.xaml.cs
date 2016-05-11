@@ -20,14 +20,6 @@ namespace Quiz_StudentApp.Views._Shared
             //new SeedData();
             MainFrame.Content = new StudentHome(Repository<User>.GetInstance().GetDataList().First());
 
-            //User currentUser = new User() {
-            //    Name = "bengt",
-            //    Password = "123",
-            //    Type = Enums.UserType.Student
-            //};
-
-            //Repository<User>.GetInstance().AddData(new User());
-
 
 
             //REFS-->

@@ -71,8 +71,7 @@ namespace Quiz_StudentApp.Views.Student
         public void timer_Tick(object sender, EventArgs e)
         {
             TimeLeft = (_endTime - DateTime.Now.TimeOfDay).Duration();
-
-            Timer.Text = TimeLeft.ToString();
+            Timer.Text = new DateTime(TimeLeft.Ticks).ToString("HH:mm:ss");
 
             ((QuizViewModel)DataContext).TimeLeft = TimeLeft.ToString(); //needs INotify
 

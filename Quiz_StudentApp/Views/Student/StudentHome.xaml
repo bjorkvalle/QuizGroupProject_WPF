@@ -7,11 +7,11 @@
       xmlns:data="clr-namespace:Quiz_StudentApp.Models"
       Loaded="Page_Loaded"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="400"
+      d:DesignHeight="400" d:DesignWidth="500"
       Title="StudentHome">
 
     <Grid Background="{DynamicResource backgroundOrangeLight}">
-
+        <Grid Margin="20,20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
@@ -23,17 +23,17 @@
 
         <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="24" Text="Välkommen: "/>
-                <TextBlock x:Name="txtBlockName" Margin="8,0,0,0" FontSize="24" Text="{Binding Name}" />
+                    <TextBlock FontSize="16" FontWeight="Bold" Text="Välkommen "/>
+                    <TextBlock x:Name="txtBlockName" Margin="12,0,0,0"  Foreground="Black" FontFamily="Microsoft JhengHei UI Light"  FontSize="16" Text="{Binding Name}" />
             </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="16" Text="Klass: "/>
-                <TextBlock x:Name="txtBlockEducation" Margin="8,0,0,0" FontSize="16" Text="{Binding Education}" />
+            <StackPanel Margin="0,0,0,24" Orientation="Horizontal">
+                <TextBlock FontSize="14"  Text="Klass: "/>
+                    <TextBlock x:Name="txtBlockEducation"  Margin="68,0,0,0" FontWeight="Thin" Foreground="{StaticResource fontColor}" FontFamily="Segoe WP Light" FontSize="14" />
             </StackPanel>
         </StackPanel>
         <StackPanel  Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-            <Button Style="{StaticResource MyButtonStyle}" Margin="4" Name="btnNewQuiz" FontFamily="Segoe MDL2 Assets" FontSize="20" Content="&#59151;" Height="30" Width="60" Click="btnNewQuiz_Click"/>
-            <Button Style="{StaticResource MyButtonStyle}" Margin="4" Name="btnOldQuiz" FontFamily="Segoe MDL2 Assets" FontSize="20" Content="&#59194;" Height="30" Width="60" Click="btnOldQuiz_Click" />
+            <Button Style="{StaticResource MyButtonStyle}" Margin="4" Name="btnNewQuiz" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#59151;" Height="30" Width="60" Click="btnNewQuiz_Click"/>
+                <Button Style="{StaticResource MyButtonStyle}" Margin="4" Name="btnOldQuiz" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#59633;" Height="30" Width="60" Click="btnOldQuiz_Click" />
         </StackPanel>
 
         <ListView ItemsSource="{Binding}" MouseDoubleClick="quizListTemplate_MouseDoubleClick" Name="quizListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
@@ -50,11 +50,13 @@
         <ListView Visibility="Collapsed"  Name="resultListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Poäng" Width="Auto"  DisplayMemberBinding="{Binding Score}" />
-                    <GridViewColumn Header="Id" Width="Auto" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="QuizId" Width="Auto" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="Totala antal rätt" Width="Auto"  DisplayMemberBinding="{Binding Score}" />
 
                 </GridView>
             </ListView.View>
         </ListView>
+    
+</Grid>
     </Grid>
 </Page>

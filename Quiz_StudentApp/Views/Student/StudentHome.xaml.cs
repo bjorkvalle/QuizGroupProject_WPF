@@ -49,6 +49,7 @@ namespace Quiz_StudentApp.Views.Student
             userInfoTemplate.DataContext = vm.ActiveUser;
             quizListTemplate.ItemsSource = vm.GetUserQuizs();
             resultListTemplate.ItemsSource = vm.GetUserResults();
+            txtBlockEducation.Text = vm.Education.Name;
         }
         private void quizListTemplate_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
