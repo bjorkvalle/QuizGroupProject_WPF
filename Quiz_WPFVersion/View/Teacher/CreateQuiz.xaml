@@ -83,15 +83,26 @@
         <Grid Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
 
             <StackPanel Orientation="Vertical">
-                <TextBlock x:Name="lblHeader" TextWrapping="Wrap" Text="SKAPA ETT PROV"  FontFamily="Segoe UI Semibold" FontSize="20"/>
-                <TextBlock x:Name="lblHeader_under" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="13.333"  Foreground="{DynamicResource fontColor}"/>
+                <!--<TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" Grid.Column="1" Foreground="{DynamicResource fontColor}" Margin="7,-10,-7,1" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"><Run Text="STAT"/><Run Text="I"/><Run Text="STIK"/></TextBlock>
+                <TextBlock x:Name="textBlock_Copy" Margin="7,-1,0,0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="Genomförda prov" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="104" Foreground="{DynamicResource fontColor}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>-->
+
+
+                <TextBlock x:Name="lblHeader" TextWrapping="Wrap" Text="SKAPA ETT PROV"  FontWeight="Bold" FontSize="18" Foreground="{DynamicResource fontColor}"/>
+                <TextBlock x:Name="lblHeader_under" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="10"  Foreground="{DynamicResource fontColor}"/>
                 <Grid x:Name="gridRubrik" Height="38.92" Margin="0,25,0,0">
                     <TextBlock x:Name="blockHeader" TextWrapping="Wrap" Text="Rubrik" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource fontColor}"/>
-                    <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,16,0,4.92" Background="#FFFFEBC7"/>
+                    <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,16,0,4.92" Background="#FFFFEBC7">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
+                        </TextBox.Effect>
+                    </TextBox>
                 </Grid>
                 <Grid x:Name="gridBeskrivning" Height="38.92" Margin="0,5,0,0" MinHeight="99">
                     <TextBlock x:Name="blockHeader1" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
                     <TextBox x:Name="txtbDescription" TextWrapping="Wrap" BorderBrush="{x:Null}"  Margin="0,15.96,0,5">
+                        <TextBox.Effect>
+                            <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
+                        </TextBox.Effect>
                         <TextBox.Background>
                             <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                         </TextBox.Background>

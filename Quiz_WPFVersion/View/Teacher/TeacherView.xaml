@@ -6,6 +6,14 @@
       xmlns:local="clr-namespace:Quiz_WPFVersion.View.Teacher"
       mc:Ignorable="d" 
       Title="TeacherView" d:DesignWidth="482" d:DesignHeight="333">
+    <Page.Resources>
+        <DataTemplate x:Key="DataTemplate1">
+            <Grid>
+                <TextBlock Text="{Binding Title}" Background="{x:Null}" Foreground="{DynamicResource fontColor}" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
 
     <Grid Background="{StaticResource backgroundOrangeLight}" Margin="0,0,0,0">
         <Grid   Margin="20,20">
@@ -32,10 +40,10 @@
 
             <TextBlock x:Name="txtbAcess"   Text="Lärare" FontSize="14" FontFamily="Segoe WP Light" Foreground="{StaticResource fontColor}"  FontWeight="Thin" Grid.Row="1" Grid.Column="2"/>
 
-            <TextBlock x:Name="textBlock" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Senast skickade prov" Grid.Row="3" Margin="0,0,9,0" Foreground="{StaticResource fontColor}" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
+            
 
-            <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="skickade prov" Grid.Row="3" Margin="0,14,9,1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
-            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Width="89" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,0,0" >
+            <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Senast skickade prov" Grid.Row="3" Margin="0,10,9,1" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
+            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Width="442" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,-140.2,0" Grid.ColumnSpan="3" ItemTemplate="{DynamicResource DataTemplate1}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                 <ListBox.Background>
                     <SolidColorBrush Color="White" Opacity="0.565"/>
                 </ListBox.Background>
