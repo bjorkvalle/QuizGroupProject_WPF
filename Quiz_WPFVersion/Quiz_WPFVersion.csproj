@@ -83,13 +83,9 @@
     <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisualQuestionSingle.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
-    <Compile Include="Migrations\201605101440437_Init.cs" />
-    <Compile Include="Migrations\201605101440437_Init.Designer.cs">
-      <DependentUpon>201605101440437_Init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201605101447443_Second.cs" />
-    <Compile Include="Migrations\201605101447443_Second.Designer.cs">
-      <DependentUpon>201605101447443_Second.cs</DependentUpon>
+    <Compile Include="Migrations\201605110814306_Init.cs" />
+    <Compile Include="Migrations\201605110814306_Init.Designer.cs">
+      <DependentUpon>201605110814306_Init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginHandler.cs" />
@@ -218,11 +214,8 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201605101440437_Init.resx">
-      <DependentUpon>201605101440437_Init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201605101447443_Second.resx">
-      <DependentUpon>201605101447443_Second.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605110814306_Init.resx">
+      <DependentUpon>201605110814306_Init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
