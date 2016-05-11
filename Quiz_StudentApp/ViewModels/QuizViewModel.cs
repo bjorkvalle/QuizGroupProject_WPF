@@ -86,6 +86,7 @@ namespace Quiz_StudentApp.ViewModels
         private void SetupTimer()
         {
             _quizTimer = new QuizTimer((TimeSpan)ActiveQuiz.TimeLimit);
+            
         }
 
         public TimeSpan CheckTimeLeft()
@@ -93,6 +94,7 @@ namespace Quiz_StudentApp.ViewModels
             if (_quizTimer.TimeLeft <= new TimeSpan(0, 0, 0))
                 _quizCorrector.SaveResult();
 
+            TimeLeft = _quizTimer.TimeLeft;
             return _quizTimer.TimeLeft;
         }
 

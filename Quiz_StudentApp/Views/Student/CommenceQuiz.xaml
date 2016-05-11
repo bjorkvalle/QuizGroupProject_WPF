@@ -10,7 +10,7 @@
       d:DesignHeight="300" d:DesignWidth="300"
       Loaded="Page_Loaded"
       Title="CommenceQuiz">
-    
+
     <Page.DataContext>
         <ViewModels:QuizViewModel />
     </Page.DataContext>
@@ -25,7 +25,7 @@
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Yellow" />
                                 <RadioButton x:Name="rbSingleAnswer" 
-                                             GroupName="{Binding Title, RelativeSource={RelativeSource AncestorType=ListBoxItem}}" IsChecked='{Binding AnsweredValue,Mode=TwoWay, Converter={StaticResource CheckBoxConverter}}'/>
+                                             GroupName="{Binding DataContext.Title, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" IsChecked='{Binding AnsweredValue,Mode=TwoWay, Converter={StaticResource CheckBoxConverter}}'/>
                             </StackPanel>
                         </DataTemplate>
                     </ListBox.ItemTemplate>
@@ -83,12 +83,15 @@
 
         <ScrollViewer Grid.Column="0" Grid.Row="1"  VerticalScrollBarVisibility="Auto">
 
-            <ListBox  Background="Orange"
+            <ListBox  ItemContainerStyle="{DynamicResource ListBox_Transparent}"
                       ItemsSource="{Binding Questions, Mode=TwoWay}" 
                       x:Name="listBoxQuestions" 
                       ItemTemplateSelector="{StaticResource myDTS}"
                       HorizontalContentAlignment="Stretch"
                       >
+                <ListBox.Background>
+                    <SolidColorBrush Color="{DynamicResource ListBox_GardinentBackground_List}"/>
+                </ListBox.Background>
             </ListBox>
         </ScrollViewer>
         <TextBlock Text="{Binding TimeLeft}"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="20"/>
