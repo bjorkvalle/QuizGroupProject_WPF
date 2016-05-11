@@ -58,7 +58,6 @@ namespace Quiz_StudentApp.Views.Student
             }
         }
 
-
         /// <summary>
         /// quick solution to timer
         /// </summary>
