@@ -7,10 +7,9 @@ using System.Windows.Threading;
 
 namespace Quiz_StudentApp.Models
 {
-    class QuizTimer
+    public class QuizTimer
     {
         public TimeSpan TimeLeft { get; set; }
-
         private TimeSpan _endTime;
         private DispatcherTimer timer = new DispatcherTimer();
 
@@ -30,7 +29,7 @@ namespace Quiz_StudentApp.Models
         public void timer_Tick(object sender, EventArgs e)
         {
             TimeLeft = (_endTime - DateTime.Now.TimeOfDay).Duration();
-
+            
             if (TimeLeft <= new TimeSpan(0, 0, 0))
                 timer.Stop();
         }

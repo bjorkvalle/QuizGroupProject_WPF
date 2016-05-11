@@ -14,11 +14,18 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Quiz_StudentApp.Views.Student
 {
     public partial class CommenceQuiz : Page
     {
+        //quick solution to timer
+        public TimeSpan TimeLeft { get; set; }
+        private TimeSpan _endTime;
+        private DispatcherTimer _timer = new DispatcherTimer();
+        
+
         public CommenceQuiz(Quiz quiz)
         {
             InitializeComponent();
@@ -27,6 +34,10 @@ namespace Quiz_StudentApp.Views.Student
 
             //((QuizViewModel)DataContext).SetActiveQuiz(quiz);
             //((QuizViewModel)DataContext).SetQuizContent2();
+
+            //quick solution to timer
+            _endTime = DateTime.Now.TimeOfDay + (TimeSpan)((QuizViewModel)DataContext).ActiveQuiz.TimeLimit;
+            SetTimer();
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
@@ -47,6 +58,26 @@ namespace Quiz_StudentApp.Views.Student
             }
         }
 
+        /// <summary>
+        /// quick solution to timer
+        /// </summary>
+        private void SetTimer()
+        {
+            _timer.Interval = TimeSpan.FromSeconds(1);
+            _timer.Tick += timer_Tick;
+            _timer.Start();
+        }
 
+        public void timer_Tick(object sender, EventArgs e)
+        {
+            TimeLeft = (_endTime - DateTime.Now.TimeOfDay).Duration();
+
+            if (TimeLeft <= new TimeSpan(0, 0, 0))
+            {
+                _timer.Stop();
+                ((QuizViewModel)DataContext).QuizCorrectorProp.SaveResult();
+                NavigationService.GoBack();
+            }
+        }
     }
 }

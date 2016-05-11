@@ -21,22 +21,28 @@ namespace Quiz_StudentApp.ViewModels
 
         public ObservableCollection<Quiz> GetUserQuizs()
         {
+            //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList();
+            ObservableCollection<Quiz> oList = new ObservableCollection<Quiz>();
+            //quizzes.ForEach(u => oList.Add(u));
+
             //prevent from being able to retake same quiz
             //check if quizId already in result table
+            foreach (var q in Repository<Quiz>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList()) 
+            {
+                bool foundMatch = false;
 
-            var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList();
+                foreach (var r in GetUserResults())
+                {
+                    if (r.QuizId == q.Id)
+                    {
+                        foundMatch = true;
+                        break;
+                    }
+                }
 
-            ObservableCollection<Quiz> oList = new ObservableCollection<Quiz>();
-            quizzes.ForEach(u => oList.Add(u));
-
-            //foreach (var r in GetUserResults())
-            //{
-            //    foreach (var q in oList)
-            //    {
-            //        if (r.QuizId == q.Id)
-            //            oList.Remove(q);
-            //    }
-            //}
+                if (!foundMatch)
+                    oList.Add(q);
+            }
 
             return oList;
         }
