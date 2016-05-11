@@ -1,18 +1,18 @@
-namespace Quiz_WPFVersion.Migrations
+namespace Quiz_StudentApp.Migrations
 {
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<Quiz_WPFVersion.Data.QuizContext>
+    internal sealed class Configuration : DbMigrationsConfiguration<Quiz_StudentApp.Models.QuizContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(Quiz_WPFVersion.Data.QuizContext context)
+        protected override void Seed(Quiz_StudentApp.Models.QuizContext context)
         {
             //  This method will be called after migrating to the latest version.
 
