@@ -73,10 +73,6 @@ namespace Quiz_StudentApp.ViewModels
             {
                 Questions.Add(item);
             }
-
-
-
-            
         }
 
         public void SetActiveQuiz(Quiz quiz)

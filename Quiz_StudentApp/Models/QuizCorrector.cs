@@ -27,19 +27,10 @@ namespace Quiz_StudentApp.Models
             if (!CorrectQuiz())
                 return false;
 
-            //prevent from being able to retake same quiz
-            //check if quizId already in result table
-            RemoveQuizFromUserList();
+            
 
             return true;
         }
-
-        private void RemoveQuizFromUserList()
-        {
-            User user = _quiz.User;
-            user.Quizs.Remove(_quiz);
-            Repository<User>.GetInstance().UpdateData(user);
-        }//fix
 
         private bool ValidateQuizData()
         {
@@ -92,8 +83,9 @@ namespace Quiz_StudentApp.Models
             };
 
             Repository<Result>.GetInstance().AddData(res);
-            _quiz.User.Results.Add(res);
-            Repository<User>.GetInstance().UpdateData(_quiz.User); //saves quiz too?
+            //Repository<Result>.GetInstance().AddData(res);
+            //_quiz.User.Results.Add(res);
+            //Repository<User>.GetInstance().UpdateData(_quiz.User); //saves quiz too?
         }
 
         private int CalculateScore()
