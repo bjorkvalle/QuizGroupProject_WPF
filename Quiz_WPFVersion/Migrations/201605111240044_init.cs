@@ -3,7 +3,7 @@ namespace Quiz_WPFVersion.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
