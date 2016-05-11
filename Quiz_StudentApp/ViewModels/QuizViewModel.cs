@@ -19,7 +19,7 @@ namespace Quiz_StudentApp.ViewModels
         public SingleChoiceCommand SingleChoiceCommand { get; set; }
         public ObservableCollection<Question> Questions { get; set; }
         public Quiz ActiveQuiz { get; set; }
-        public TimeSpan TimeLeft { get; set; }
+        public string TimeLeft { get; set; }
 
         private QuizCorrector _quizCorrector;
         public QuizCorrector QuizCorrectorProp

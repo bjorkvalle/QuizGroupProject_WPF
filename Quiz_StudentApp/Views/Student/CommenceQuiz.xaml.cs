@@ -67,10 +67,14 @@ namespace Quiz_StudentApp.Views.Student
             _timer.Tick += timer_Tick;
             _timer.Start();
         }
-
+        
         public void timer_Tick(object sender, EventArgs e)
         {
             TimeLeft = (_endTime - DateTime.Now.TimeOfDay).Duration();
+
+            Timer.Text = TimeLeft.ToString();
+
+            ((QuizViewModel)DataContext).TimeLeft = TimeLeft.ToString(); //needs INotify
 
             if (TimeLeft <= new TimeSpan(0, 0, 0))
             {
