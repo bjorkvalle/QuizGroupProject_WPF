@@ -10,11 +10,9 @@
       d:DesignHeight="300" d:DesignWidth="400"
       Title="StudentHome">
 
-    <Grid>
+    <Grid Background="{DynamicResource backgroundOrangeLight}">
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -25,17 +23,18 @@
 
         <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Vertical">
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="12" Text="Välkommen: "/>
-                <TextBlock x:Name="txtBlockName" Margin="8,0,0,0" FontSize="12" Text="{Binding Name}" />
+                <TextBlock FontSize="24" Text="Välkommen: "/>
+                <TextBlock x:Name="txtBlockName" Margin="8,0,0,0" FontSize="24" Text="{Binding Name}" />
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="12" Text="Klass: "/>
-                <TextBlock x:Name="txtBlockEducation" Margin="8,0,0,0" FontSize="12" Text="{Binding Education}" />
+                <TextBlock FontSize="16" Text="Klass: "/>
+                <TextBlock x:Name="txtBlockEducation" Margin="8,0,0,0" FontSize="16" Text="{Binding Education}" />
             </StackPanel>
         </StackPanel>
-
-        <Button Margin="4" Name="btnNewQuiz" Content="Nya" Grid.Row="1" Grid.Column="0" Height="30" Width="60" Click="btnNewQuiz_Click"/>
-        <Button Margin="4" Name="btnOldQuiz" Content="Avklarade" Grid.Row="1" Grid.Column="1" Height="30" Width="60" Click="btnOldQuiz_Click" />
+        <StackPanel  Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
+            <Button Style="{StaticResource MyButtonStyle}" Margin="4" Name="btnNewQuiz" FontFamily="Segoe MDL2 Assets" FontSize="20" Content="&#59151;" Height="30" Width="60" Click="btnNewQuiz_Click"/>
+            <Button Style="{StaticResource MyButtonStyle}" Margin="4" Name="btnOldQuiz" FontFamily="Segoe MDL2 Assets" FontSize="20" Content="&#59194;" Height="30" Width="60" Click="btnOldQuiz_Click" />
+        </StackPanel>
 
         <ListView ItemsSource="{Binding}" MouseDoubleClick="quizListTemplate_MouseDoubleClick" Name="quizListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
             <ListView.View>
