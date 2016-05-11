@@ -33,8 +33,8 @@ namespace Quiz_WPFVersion.View._Shared
 
             User user = new User
             {
-                Name = "Test2",
-                Password = "123",
+                Name = "1",
+                Password = "1",
                 Type = UserType.Admin
             };
 

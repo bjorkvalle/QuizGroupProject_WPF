@@ -3,7 +3,7 @@ namespace Quiz_WPFVersion.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -29,7 +29,6 @@ namespace Quiz_WPFVersion.Migrations
                         Title = c.String(),
                         Type = c.Int(nullable: false),
                         QuizId = c.Int(),
-                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Quizs", t => t.QuizId)

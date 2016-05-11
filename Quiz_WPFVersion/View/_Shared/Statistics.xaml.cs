@@ -34,11 +34,6 @@ namespace Quiz_WPFVersion.View._Shared
             ((Statistics_ViewModel)this.DataContext).SetSelEducation((sender as ComboBox).SelectedItem);
         }
 
-        private void comboBox_SelectionChanged_Course(object sender, SelectionChangedEventArgs e)
-        {
-            ((Statistics_ViewModel)this.DataContext).SetSelCourse((sender as ComboBox).SelectedItem);
-
-        }
 
         private void comboBox_SelectionChanged_User(object sender, SelectionChangedEventArgs e)
         {
