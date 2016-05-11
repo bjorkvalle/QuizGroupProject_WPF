@@ -10,5 +10,14 @@
         </GuideModel>
       </GuideModels>
     </ProjectItemGuide>
+    <ProjectItemGuide TargetFile="View\Admin\AddRemoveUsers.xaml">
+      <GuideModels>
+        <GuideModel>
+          <Guides>
+            <Guide Alignment="Left" Position="23" />
+          </Guides>
+        </GuideModel>
+      </GuideModels>
+    </ProjectItemGuide>
   </ProjectItemGuides>
 </ProjectGuidesConfiguration>
