@@ -1,9 +1,9 @@
-namespace Quiz_WPFVersion.Migrations
+namespace Quiz_StudentApp.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class Init : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -106,33 +106,33 @@ namespace Quiz_WPFVersion.Migrations
                 .Index(t => t.QuizId);
             
             CreateTable(
-                "dbo.CourseUsers",
+                "dbo.UserCourses",
                 c => new
                     {
-                        Course_Id = c.Int(nullable: false),
-                        User_Id = c.Int(nullable: false),
+                        CourseId = c.Int(nullable: false),
+                        UserId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.Course_Id, t.User_Id })
-                .ForeignKey("dbo.Courses", t => t.Course_Id, cascadeDelete: true)
-                .ForeignKey("dbo.Users", t => t.User_Id, cascadeDelete: true)
-                .Index(t => t.Course_Id)
-                .Index(t => t.User_Id);
+                .PrimaryKey(t => new { t.CourseId, t.UserId })
+                .ForeignKey("dbo.Courses", t => t.CourseId, cascadeDelete: true)
+                .ForeignKey("dbo.Users", t => t.UserId, cascadeDelete: true)
+                .Index(t => t.CourseId)
+                .Index(t => t.UserId);
             
         }
         
         public override void Down()
         {
+            DropForeignKey("dbo.Alternatives", "QuestionId", "dbo.Questions");
+            DropForeignKey("dbo.Questions", "QuizId", "dbo.Quizs");
+            DropForeignKey("dbo.Quizs", "UserId", "dbo.Users");
             DropForeignKey("dbo.Results", "UserId", "dbo.Users");
             DropForeignKey("dbo.Results", "QuizId", "dbo.Quizs");
-            DropForeignKey("dbo.Quizs", "UserId", "dbo.Users");
-            DropForeignKey("dbo.CourseUsers", "User_Id", "dbo.Users");
-            DropForeignKey("dbo.CourseUsers", "Course_Id", "dbo.Courses");
             DropForeignKey("dbo.Users", "EducationId", "dbo.Educations");
+            DropForeignKey("dbo.UserCourses", "UserId", "dbo.Users");
+            DropForeignKey("dbo.UserCourses", "CourseId", "dbo.Courses");
             DropForeignKey("dbo.Courses", "EducationId", "dbo.Educations");
-            DropForeignKey("dbo.Questions", "QuizId", "dbo.Quizs");
-            DropForeignKey("dbo.Alternatives", "QuestionId", "dbo.Questions");
-            DropIndex("dbo.CourseUsers", new[] { "User_Id" });
-            DropIndex("dbo.CourseUsers", new[] { "Course_Id" });
+            DropIndex("dbo.UserCourses", new[] { "UserId" });
+            DropIndex("dbo.UserCourses", new[] { "CourseId" });
             DropIndex("dbo.Results", new[] { "QuizId" });
             DropIndex("dbo.Results", new[] { "UserId" });
             DropIndex("dbo.Courses", new[] { "EducationId" });
@@ -140,7 +140,7 @@ namespace Quiz_WPFVersion.Migrations
             DropIndex("dbo.Quizs", new[] { "UserId" });
             DropIndex("dbo.Questions", new[] { "QuizId" });
             DropIndex("dbo.Alternatives", new[] { "QuestionId" });
-            DropTable("dbo.CourseUsers");
+            DropTable("dbo.UserCourses");
             DropTable("dbo.Results");
             DropTable("dbo.Educations");
             DropTable("dbo.Courses");

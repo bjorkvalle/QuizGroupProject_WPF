@@ -22,3 +22,4 @@ C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\ob
 C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.csproj.GenerateResource.Cache
 C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.exe
 C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.pdb
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_StudentApp\obj\Debug\Quiz_StudentApp.Migrations.init.resources
