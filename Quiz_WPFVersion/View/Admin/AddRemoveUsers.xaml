@@ -6,12 +6,37 @@
       xmlns:local="clr-namespace:Quiz_WPFVersion.View.Admin"
       xmlns:Admin="clr-namespace:Quiz_WPFVersion.ViewModels.Admin" xmlns:Enum="clr-namespace:Quiz_WPFVersion.Enum" x:Class="Quiz_WPFVersion.View.Admin.AddRemoveUsers"
       mc:Ignorable="d" 
-      d:DesignHeight="711.554" d:DesignWidth="517.062"
+      d:DesignHeight="584.054" d:DesignWidth="428.562"
       Title="AddRemoveUsers" Background="Black">
     <Page.Resources>
         <Color x:Key="Blue">#FF93EBFF</Color>
         <Color x:Key="Background">#FFFFE1AE</Color>
+        <Storyboard x:Key="Storyboard1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Add">
+                <EasingDoubleKeyFrame KeyTime="0" Value="23.148"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Remove">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="23.148"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Add">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Remove">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.4" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
     </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Page.Triggers>
 
     <Page.DataContext>
         <Admin:AddRemoveViewModel/>
@@ -27,14 +52,16 @@
             <TextBlock x:Name="textBlock_Copy" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" Foreground="{DynamicResource fontColor}" Margin="0,0,-27,14"><Run Text="LÄGG TILL"/><Run Text=" &amp;"/><Run Text=" TA BORT"/></TextBlock>
             <TextBlock x:Name="textBlock_Copy1" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="Administrera användare" Foreground="{DynamicResource fontColor}" Height="14" VerticalAlignment="Bottom"/>
         </Grid>
-        <Grid x:Name="Add" Margin="23,31,100,0" Grid.Row="1">
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="30" Opacity="0.03"/>
-            </Grid.Effect>
-            <Grid.Background>
-                <SolidColorBrush Color="{DynamicResource Background}"/>
-            </Grid.Background>
-            <Grid Margin="15,10,15,15">
+        <Grid x:Name="Add" Margin="23,6,30,39" Grid.Row="1" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
+            <Grid Margin="15,10,15,15" Panel.ZIndex="1">
                 <TextBlock x:Name="lblNamn" HorizontalAlignment="Left" Height="15.275" Margin="3,28,0,0" TextWrapping="Wrap" Text="Namn" VerticalAlignment="Top" Width="57.284" Foreground="{DynamicResource fontColor}" />
                 <TextBox x:Name="txtbNamn" HorizontalAlignment="Left" Height="22.006" Margin="0,46.275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="101.821" Text="{Binding userBinding.Name, Mode=TwoWay}">
                     <TextBox.Background>
@@ -85,14 +112,29 @@
 
                 </ComboBox>
             </Grid>
+            <Rectangle Panel.ZIndex="-2">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{DynamicResource Background}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle Margin="0,0,0,-35.988" RadiusY="30" RadiusX="30" Panel.ZIndex="-3">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{DynamicResource Background}"/>
+                </Rectangle.Fill>
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="30" Opacity="0.03"/>
+                </Rectangle.Effect>
+            </Rectangle>
         </Grid>
-        <Grid x:Name="Remove" Grid.Row="2" Margin="23,40,100,61">
-            <Grid.Background>
-                <SolidColorBrush Color="{DynamicResource Background}"/>
-            </Grid.Background>
-            <Grid.Effect>
-                <DropShadowEffect BlurRadius="30" Opacity="0.03"/>
-            </Grid.Effect>
+        <Grid x:Name="Remove" Grid.Row="2" Margin="23,30,30,61" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
             <Grid Margin="15,15,15,48.5">
                 <ListView x:Name="listUsers" Margin="0,28.666,0,31.689" ItemsSource="{Binding userList}">
                     <ListView.Background>
@@ -122,6 +164,19 @@
                     </Button.Template>
                 </Button>
             </Grid>
+            <Rectangle Panel.ZIndex="-2" Margin="0,0,0,48.5">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{DynamicResource Background}"/>
+                </Rectangle.Fill>
+            </Rectangle>
+            <Rectangle RadiusY="30" RadiusX="30" Panel.ZIndex="-3">
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{DynamicResource Background}"/>
+                </Rectangle.Fill>
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="30" Opacity="0.03"/>
+                </Rectangle.Effect>
+            </Rectangle>
         </Grid>
         <Label x:Name="lblMessageSave" Height="31" Margin="40,0,102.334,3" VerticalAlignment="Bottom" Foreground="#FF8B8B8B" Grid.Row="1"/>
         <Label x:Name="lblMessageRemove" Height="31" Margin="40,0,102.334,70" VerticalAlignment="Bottom" Foreground="#FF8B8B8B" Grid.Row="2"/>

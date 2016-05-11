@@ -140,7 +140,7 @@
             </StackPanel>
 
 
-            <Rectangle Fill="#FFFFE4B3" Panel.ZIndex="-3" d:LayoutOverrides="TopMargin, BottomMargin">
+            <Rectangle Fill="#FFFFE4B3" Panel.ZIndex="-3" d:LayoutOverrides="TopMargin, BottomMargin" RadiusY="30" RadiusX="30">
                 <Rectangle.Effect>
                     <DropShadowEffect BlurRadius="25" Opacity="0.1"/>
                 </Rectangle.Effect>
