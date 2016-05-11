@@ -25,53 +25,55 @@ namespace Quiz_WPFVersion.ViewModels.Admin
         public AddRemoveViewModel()
         {
             userBinding = new User();
+            userList = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList());
+            educationList = new ObservableCollection<Education>(Repository<Education>.GetInstance().GetDataList());
+            courseList = new ObservableCollection<Course>(Repository<Course>.GetInstance().GetDataList());
 
-            #region Declarations
-            //userList = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList());
-            //educationList = new ObservableCollection<Education>( Repository<Education>.GetInstance().GetDataList());
-            //courseList = new ObservableCollection<Course>( Repository<Course>.GetInstance().GetDataList());
-            userList = new ObservableCollection<User>
-            {
-                new User
-                {
-                    Name = "Haron",
-                },
-                new User
-                {
-                    Name = "Fredrik",
-                },
-                new User
-                {
-                    Name = "Morsid",
-                },
-            };
-            educationList = new ObservableCollection<Education>
-            {
-                new Education
-                {
-                    Name="Java",
-                },
-                new Education
-                {
-                    Name=".Net",
-                },
 
-            };
-            courseList = new ObservableCollection<Course>
-            {
-                new Course
-                {
-                    Name="Logic"
-                },
-                new Course
-                {
-                    Name="Object"
-                },
-                new Course
-                {
-                    Name="String"
-                },
-            };
+            #region Design-time Declarations
+
+            //userList = new ObservableCollection<User>
+            //{
+            //    new User
+            //    {
+            //        Name = "Haron",
+            //    },
+            //    new User
+            //    {
+            //        Name = "Fredrik",
+            //    },
+            //    new User
+            //    {
+            //        Name = "Morsid",
+            //    },
+            //};
+            //educationList = new ObservableCollection<Education>
+            //{
+            //    new Education
+            //    {
+            //        Name="Java",
+            //    },
+            //    new Education
+            //    {
+            //        Name=".Net",
+            //    },
+
+            //};
+            //courseList = new ObservableCollection<Course>
+            //{
+            //    new Course
+            //    {
+            //        Name="Logic"
+            //    },
+            //    new Course
+            //    {
+            //        Name="Object"
+            //    },
+            //    new Course
+            //    {
+            //        Name="String"
+            //    },
+            //};
 
             #endregion
         }
@@ -121,7 +123,7 @@ namespace Quiz_WPFVersion.ViewModels.Admin
             ResetLabelMessages();
             var x = userBinding;
 
-            //Måste kontrollera Enum
+            
 
             if (String.IsNullOrEmpty(userBinding.Name) || String.IsNullOrEmpty(userBinding.Password)) { view.lblMessageSave.Content = "• Vänligen fyll i namn och lösenord"; return; }
             if (view?.cmbAcess?.SelectedItem == null) { view.lblMessageSave.Content = "• Behörighet måste anges"; return; }
@@ -129,17 +131,7 @@ namespace Quiz_WPFVersion.ViewModels.Admin
 
             UserType selAcess = ConverterEnumType(((ComboBoxItem)view.cmbAcess.SelectedItem).Content.ToString());
 
-            //var selCourse = view?.cmbCourse?.SelectedItem;
-            //var selEdu = view?.cmbEdu?.SelectedItem;
-
-            //var us = new User
-            //{
-            //    Name = userBinding.Name,
-            //    Type = selAcess,
-            //    Courses = new List<Course> { (Course)view?.cmbCourse?.SelectedItem },
-            //    Education = (Education)view?.cmbEdu?.SelectedItem,
-            //    Password = userBinding.Password,
-            //};
+            
             Repository<User>.GetInstance().AddData
                 (
                 new User
@@ -153,7 +145,7 @@ namespace Quiz_WPFVersion.ViewModels.Admin
                 );
             view.lblMessageSave.Content = "• Användaren är nu tillagd";
 
-            //resetta alla boxes och uppdatera lisViewn
+            //Reset
             ClearAllTextBox();
             UpdateListViewUser(new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList()));
 

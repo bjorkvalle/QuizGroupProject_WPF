@@ -139,16 +139,13 @@
 
                 <StackPanel x:Name="gridQuestion_V_2" Margin="0,15,0,0" Visibility="Visible">
                     <TextBlock x:Name="lblQuestionHeader" TextWrapping="Wrap" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}" Visibility="Collapsed" ><Run Text="Fråga"/><Run Text=" ( TEMPLATE)"/></TextBlock>
-                    <ListBox x:Name="listQuestion2" Height="263" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1,1,1" ItemTemplateSelector="{Binding Mode=OneWay, Source={StaticResource questionTemplateSelector}}" ItemsSource="{Binding questionList}" ScrollViewer.VerticalScrollBarVisibility="Hidden" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+                    <ListBox x:Name="listQuestion2" Height="263" Background="{x:Null}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" BorderThickness="0,1,1,1" ItemTemplateSelector="{Binding Mode=OneWay, Source={StaticResource questionTemplateSelector}}" ItemsSource="{Binding questionList}" ScrollViewer.VerticalScrollBarVisibility="Auto" BorderBrush="{x:Null}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
 
                         <ListBox.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <VirtualizingStackPanel VerticalAlignment="Bottom"/>
                             </ItemsPanelTemplate>
                         </ListBox.ItemsPanel>
-                        <!--ItemTemplate="{DynamicResource SingleChoiceQuestion}"-->
-                        <!--ItemsSource="{Binding questionList}"   ItemContainerStyle="{DynamicResource ListBox_Transparent}" -->
-                        <!--ItemTemplate="{DynamicResource SingleChoiceQuestion}"-->
                     </ListBox>
                 </StackPanel>
 
