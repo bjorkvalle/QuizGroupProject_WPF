@@ -41,7 +41,7 @@
                 <RowDefinition Height="34"/>
                 <RowDefinition Height="7.174"/>
                 <RowDefinition/>
-                <RowDefinition Height="21"/>
+                <RowDefinition Height="49.666"/>
                 <RowDefinition Height="30.373"/>
 
             </Grid.RowDefinitions>
@@ -56,7 +56,7 @@
                 <TextBlock x:Name="blockHeader_Copy" TextWrapping="Wrap" Text="SKICKA PROV" d:LayoutOverrides="LeftPosition, RightPosition" FontSize="17.333" FontWeight="Bold" Foreground="{DynamicResource fontColor}"/>
                 <TextBlock x:Name="blockHeader_Copy1" TextWrapping="Wrap" Text="För granskning" FontFamily="Segoe UI Light" FontSize="13.333" d:LayoutOverrides="LeftPosition, RightPosition" Foreground="{DynamicResource fontColor}"/>
             </StackPanel>
-            <Grid x:Name="Quiz" Margin="0,-16.16,0,1" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5">
+            <Grid x:Name="Quiz" Margin="0,-16.16,0,1" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -78,14 +78,17 @@
                         </DataTemplate>
                     </ListBox.ItemTemplate>
                 </ListBox>
+                
                 <Button Content="&#xE8CA;" Click="Button_Click_SendQuiz" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" FontFamily="Segoe MDL2 Assets" FontSize="18.667" Margin="0,0,20,4.333" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="43.974" d:LayoutOverrides="LeftMargin, RightMargin" Height="35.373" VerticalAlignment="Bottom"/>
                 <Rectangle Margin="0,23.334,0,0" RadiusX="30" RadiusY="30" Panel.ZIndex="-1" d:LayoutOverrides="LeftMargin, RightMargin" Fill="#FFFFF2DA">
                     <Rectangle.Effect>
                         <DropShadowEffect BlurRadius="30" Opacity="0.11"/>
                     </Rectangle.Effect>
                 </Rectangle>
+                <DatePicker Margin="24.835,0,0,9.997" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.109"/>
+                <DatePicker Margin="73.902,0,91.906,9.996" VerticalAlignment="Bottom" BorderBrush="{x:Null}"/>
             </Grid>
-            <Grid x:Name="Users" Grid.Column="2" Margin="0,-16.16,0,-1.826" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5">
+            <Grid x:Name="Users" Grid.Column="2" Margin="0,-16.16,0,-1.826" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                 <Grid.RenderTransform>
                     <TransformGroup>
                         <ScaleTransform/>
@@ -127,7 +130,7 @@
                     </Rectangle.Effect>
                 </Rectangle>
             </Grid>
-            <TextBlock x:Name="lblMessage" Foreground="{DynamicResource DisabledForegroundBrush}" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Grid.Row="5" TextWrapping="Wrap" Height="19.333" Margin="54.667,0,82.369,-29.333" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
+            <TextBlock x:Name="lblMessage" Foreground="{DynamicResource DisabledForegroundBrush}" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Grid.Row="5" TextWrapping="Wrap" Height="19.333" Margin="54.667,0,82.369,-29.333" VerticalAlignment="Bottom" Grid.ColumnSpan="3" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
 
         </Grid>
