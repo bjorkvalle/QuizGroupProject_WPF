@@ -38,8 +38,10 @@ namespace Quiz_WPFVersion.View.Teacher
 
         private void btnSendQuiz_Click(object sender, RoutedEventArgs e)
         {
-            if (selectedQuiz != null)
+            if (selectedQuiz != null) { 
                 teacherVM.SendQuizToAdmin(selectedQuiz);
+                lblMessage.Content = "• Provet är skickat till administratören.";
+            }
         }
 
         private void quizListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)

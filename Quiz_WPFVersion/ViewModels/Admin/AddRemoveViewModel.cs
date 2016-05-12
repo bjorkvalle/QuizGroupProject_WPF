@@ -134,19 +134,27 @@ namespace Quiz_WPFVersion.ViewModels.Admin
 
             UserType selAcess = ConverterEnumType(((ComboBoxItem)view.cmbAcess.SelectedItem).Content.ToString());
 
-
+            Education tempEdu = (Education)view?.cmbEdu?.SelectedItem;
+            List<Course> tempCourse = new List<Course> { (Course)view?.cmbCourse?.SelectedItem };
+            string messagePlus = "";
+            if (UserType.Admin == selAcess || UserType.Teacher == selAcess)
+            {
+                tempEdu = null;
+                tempCourse = null;
+                messagePlus = "Men utan klass eller kurstillhörighet.";
+            }
             Repository<User>.GetInstance().AddData
                 (
                 new User
                 {
                     Name = userBinding.Name,
                     Type = selAcess,
-                    Courses = new List<Course> { (Course)view?.cmbCourse?.SelectedItem },
-                    Education = (Education)view?.cmbEdu?.SelectedItem,
+                    Courses = tempCourse,
+                    Education = tempEdu,
                     Password = userBinding.Password,
                 }
                 );
-            view.lblMessageSave.Content = "• Användaren är nu tillagd";
+            view.lblMessageSave.Content = "• Användaren är nu tillagd. " + messagePlus;
 
             //Reset
             ClearAllTextBox();

@@ -178,7 +178,7 @@
                 </Rectangle.Effect>
             </Rectangle>
         </Grid>
-        <Label x:Name="lblMessageSave" Height="31" Margin="40,0,102.334,3" VerticalAlignment="Bottom" Foreground="#FF8B8B8B" Grid.Row="1"/>
+        <Label x:Name="lblMessageSave" Height="31" Margin="40,0,102.8,17.4" VerticalAlignment="Bottom" Foreground="#FF8B8B8B" Grid.Row="1"/>
         <Label x:Name="lblMessageRemove" Height="31" Margin="40,0,102.334,70" VerticalAlignment="Bottom" Foreground="#FF8B8B8B" Grid.Row="2"/>
     </Grid>
 </Page>
