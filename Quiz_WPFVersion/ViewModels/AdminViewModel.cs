@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Quiz_WPFVersion.Models;
-using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.Data;
 
 
