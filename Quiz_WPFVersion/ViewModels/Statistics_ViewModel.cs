@@ -121,6 +121,7 @@ namespace Quiz_WPFVersion.ViewModels
 
             CreateStatisticQuizList(joinedQuizList.ToList());
 
+            //Fils the user box with user from the selected Education
             _Users.Clear();
 
             List<User> tmpUsers = Repository<User>.GetInstance().GetDataList().Where(user => user.EducationId == selEducation.Id).ToList();
