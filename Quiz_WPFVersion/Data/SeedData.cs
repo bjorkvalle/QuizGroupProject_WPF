@@ -20,21 +20,21 @@ namespace Quiz_WPFVersion.Data
             User user = new User()
             {
                 Name = "student",
-                Password = "asd",
+                Password = "1",
                 Type = Enum.UserType.Student
             };
 
             User user2 = new User()
             {
                 Name = "teacher",
-                Password = "asd",
+                Password = "1",
                 Type = Enum.UserType.Teacher
             };
 
             User user3 = new User()
             {
                 Name = "admin",
-                Password = "asd",
+                Password = "1",
                 Type = Enum.UserType.Admin
             };
 
