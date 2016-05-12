@@ -27,8 +27,6 @@ namespace Quiz_StudentApp.Models
             if (!CorrectQuiz())
                 return false;
 
-            
-
             return true;
         }
 
@@ -83,9 +81,6 @@ namespace Quiz_StudentApp.Models
             };
 
             Repository<Result>.GetInstance().AddData(res);
-            //Repository<Result>.GetInstance().AddData(res);
-            //_quiz.User.Results.Add(res);
-            //Repository<User>.GetInstance().UpdateData(_quiz.User); //saves quiz too?
         }
 
         private int CalculateScore()
@@ -112,6 +107,7 @@ namespace Quiz_StudentApp.Models
             return score;
         }
 
+        //done
         private void ScoreSingleChoice(Question question, ref int score)
         {
             foreach (var item in question.Alternatives)
@@ -127,12 +123,11 @@ namespace Quiz_StudentApp.Models
 
             foreach (var item in question.Alternatives)
             {
-                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
+                if (item.ScoreValue > 0 && item.AnsweredValue > 0) //rätt svarsalternativ och användaren har svarat att det är är rätt
                     tempScore++;
-                else //add more cases
+                else if (item.ScoreValue <= 0 && item.AnsweredValue > 0) //fel svarsalternativ men användaren har svarat att det är är rätt
                     tempScore--;
             }
-
             score += tempScore > 0 ? tempScore : 0;
         }
 
@@ -144,10 +139,7 @@ namespace Quiz_StudentApp.Models
             {
                 if (item.ScoreValue == item.AnsweredValue)
                     tempScore++;
-                else //add more cases
-                    tempScore--;
             }
-
             score += tempScore > 0 ? tempScore : 0;
         }
     }

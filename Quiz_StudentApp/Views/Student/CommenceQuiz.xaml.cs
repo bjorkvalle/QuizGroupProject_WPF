@@ -1,4 +1,5 @@
-﻿using Quiz_StudentApp.Models;
+﻿using Quiz_StudentApp.Data;
+using Quiz_StudentApp.Models;
 using Quiz_StudentApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,7 @@ namespace Quiz_StudentApp.Views.Student
             InitializeComponent();
             
             DataContext = new QuizViewModel(quiz);
+            TimeLeft = new TimeSpan(99,99,99);
 
             //((QuizViewModel)DataContext).SetActiveQuiz(quiz);
             //((QuizViewModel)DataContext).SetQuizContent2();
@@ -49,6 +51,7 @@ namespace Quiz_StudentApp.Views.Student
         {
             if (((QuizViewModel)DataContext).HandInExam())
             {
+                _timer.Stop();
                 NavigationService.GoBack();
             }
             else
@@ -67,20 +70,25 @@ namespace Quiz_StudentApp.Views.Student
             _timer.Tick += timer_Tick;
             _timer.Start();
         }
-        
         public void timer_Tick(object sender, EventArgs e)
         {
-            TimeLeft = (_endTime - DateTime.Now.TimeOfDay).Duration();
-            Timer.Text = new DateTime(TimeLeft.Ticks).ToString("HH:mm:ss");
+            TimeLeft = (_endTime - DateTime.Now.TimeOfDay);
+            
+            ((QuizViewModel)DataContext).TimeLeft = TimeLeft.ToString();
 
-            ((QuizViewModel)DataContext).TimeLeft = TimeLeft.ToString(); //needs INotify
+            Console.WriteLine(_endTime.ToString());
+            Console.WriteLine(TimeLeft.ToString() + ", " + new TimeSpan(0, 0, 0));
 
             if (TimeLeft <= new TimeSpan(0, 0, 0))
             {
                 _timer.Stop();
                 ((QuizViewModel)DataContext).QuizCorrectorProp.SaveResult();
+
+                //this.NavigationService.Navigate(new StudentHome(((QuizViewModel)DataContext).ActiveQuiz.User));
                 NavigationService.GoBack();
             }
+            else
+                Timer.Text = new DateTime(TimeLeft.Ticks).ToString("HH:mm:ss");
         }
     }
 }
