@@ -61,7 +61,7 @@
                     </ControlTemplate>
                 </Button.Template>
             </Button>
-            <Label x:Name="lblMessage" Content="" HorizontalAlignment="Left" Margin="52,0,0,0" Grid.Row="6" VerticalAlignment="Top" Grid.ColumnSpan="3" Width="195" FontSize="9" Foreground="{DynamicResource fontColor}" Height="20"/>
+            <Label x:Name="lblMessage" HorizontalAlignment="Left" Margin="-38,0,0,0" Grid.Row="6" VerticalAlignment="Top" Grid.ColumnSpan="2" Width="195" Foreground="{DynamicResource fontColor}" Height="28.8" Grid.Column="1"/>
 
 
         </Grid>

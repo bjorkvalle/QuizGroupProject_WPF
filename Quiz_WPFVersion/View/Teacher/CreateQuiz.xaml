@@ -9,7 +9,7 @@
       xmlns:Teacher="clr-namespace:Quiz_WPFVersion.ViewModels.Teacher"
       x:Class="Quiz_WPFVersion.View.Teacher.CreateQuiz"
       mc:Ignorable="d" 
-      Title="CreateQuiz" d:DesignWidth="681.478" d:DesignHeight="688.861">
+      Title="CreateQuiz" d:DesignWidth="617.96" d:DesignHeight="523.261">
     <Page.Resources>
         <ControlTemplate x:Key="ListViewControlTemplate1" TargetType="{x:Type ListView}">
             <Grid Background="White" Height="54" VerticalAlignment="Top" DataContext="{Binding questionList}">
@@ -89,7 +89,7 @@
     </Page.DataContext>
 
     <Grid Background="{StaticResource backgroundOrangeLight}">
-        <Grid Width="450" Margin="-170,20,0,0">
+        <Grid Width="450" Margin="25,20,0,0" HorizontalAlignment="Left">
 
             <StackPanel Orientation="Vertical">
                 <!--<TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" Grid.Column="1" Foreground="{DynamicResource fontColor}" Margin="7,-10,-7,1" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"><Run Text="STAT"/><Run Text="I"/><Run Text="STIK"/></TextBlock>

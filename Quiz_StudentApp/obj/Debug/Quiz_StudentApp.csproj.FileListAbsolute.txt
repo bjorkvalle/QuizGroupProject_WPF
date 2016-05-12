@@ -81,3 +81,5 @@ C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\App.baml
 C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Data\ResourceDictionary.baml
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\_Shared\LoginView.g.cs
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\_Shared\LoginView.baml
+C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\_Shared\LoginView.g.cs
+C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\Views\_Shared\LoginView.baml
