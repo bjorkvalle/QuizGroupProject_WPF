@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\App.xaml
-51972219085
+6809374746
 
-4056758568
+43-1113089552
 16984577974
-Data\ResourceDictionary.xaml;Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
+Data\ResourceDictionary.xaml;Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\LoginView.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
 
 True
 

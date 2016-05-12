@@ -16,10 +16,21 @@ namespace Quiz_StudentApp.ViewModels
 
         public HomeViewModel(User user)
         {
-            ActiveUser = user;//Repository<User>.GetInstance().GetDataList().First();//user;
+            //ActiveUser = user;
+            ActiveUser = GetUserWithIncludes(user);//quick fix
+
             UserQuizs = GetUserQuizs();
             UserResults = GetUserResults();
             Education = GetUserEducation();
+        }
+
+        private User GetUserWithIncludes(User user)
+        {
+            using (var db = new QuizContext())
+            {
+                return db.Users.Include("Results").Include("Quizs").Include("Education")
+                               .Where(s => s.Id == user.Id).FirstOrDefault<User>();
+            }
         }
 
         private Education GetUserEducation()
@@ -49,41 +60,36 @@ namespace Quiz_StudentApp.ViewModels
                     }
                 }
                 if (!foundMatch)
+                {
+                    q.User = ActiveUser;
                     oList.Add(q);
+                }
             }
             return oList;
+            
         }
 
         public ObservableCollection<Result> GetUserResults()
         {
             ObservableCollection<Result> oList = new ObservableCollection<Result>();
 
-            //prevent from being able to retake same quiz
-            //check if quizId already in result table
             foreach (var r in Repository<Result>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList())
             {
                 foreach (var q in Repository<Quiz>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList())
                 {
                     if (r.QuizId == q.Id && q.ShowStudentResult)
                     {
-                        oList.Add(r);
-                        break;
+                        using (var db = new QuizContext())
+                        {
+                            r.Quiz = q;
+                            r.User = ActiveUser;
+                            oList.Add(r);
+                            break;
+                        }
                     }
                 }
             }
-
-            return oList;
+            return oList; 
         }
-
-        //public ObservableCollection<Result> GetUserResults()
-        //{
-        //    ObservableCollection<Result> oList = new ObservableCollection<Result>();
-
-        //    var results = Repository<Result>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList();
-
-        //    results.ForEach(u => oList.Add(u));
-
-        //    return oList;
-        //}
     }
 }

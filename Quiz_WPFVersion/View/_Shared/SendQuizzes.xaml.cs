@@ -107,8 +107,11 @@ namespace Quiz_WPFVersion.View._Shared
             ResetMessage();
             var tempComb = sender as ComboBox;
             var tempEdu = tempComb.SelectedItem as Education;
+            if (tempEdu != null)
+            {
+                userListBox.ItemsSource = adminVM.GetStudentByEducation(tempEdu.Id);
 
-            userListBox.ItemsSource = adminVM.GetStudentByEducation(tempEdu.Id);
+            }
 
         }
         

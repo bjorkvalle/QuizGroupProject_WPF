@@ -74,7 +74,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
                     Questions = listQuestion,
                     UserId = vModel.activeUser.Id,
                     ShowStudentResult = (bool)vModel.createQuizView.checkBoxResultat.IsChecked,
-
+                    
                 });
 
 
@@ -98,6 +98,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
                 {
                     Title = question.Title,
                     Alternatives = AlternativeCorrectScore(question),
+                    Type = question.Type,
                 });
             }
 

@@ -13,16 +13,34 @@ namespace Quiz_WPFVersion.Data
         public SeedData()
         {
             Repository<User>.GetInstance().AddData(CreateUser());
+
+            User user2 = new User()
+            {
+                Name = "teacher",
+                Password = "asd",
+                Type = Enum.UserType.Teacher
+            };
+            Repository<User>.GetInstance().AddData(user2);
+
+            User user3 = new User()
+            {
+                Name = "admin",
+                Password = "asd",
+                Type = Enum.UserType.Admin
+            };
+            Repository<User>.GetInstance().AddData(user3);
         }
 
         private User CreateUser()
         {
             User user = new User()
             {
-                Name = "asd",
+                Name = "student",
                 Password = "asd",
                 Type = Enum.UserType.Student
             };
+
+            
 
             user.Education = CreateEducation(user);
             user.Quizs = CreateQuiz();
@@ -85,11 +103,18 @@ namespace Quiz_WPFVersion.Data
                 Title = "question2",
                 Type = Enum.QuestionType.MultiChoiceQuestion
             };
+            Question qz3 = new Question()
+            {
+                Title = "question3",
+                Type = Enum.QuestionType.RankQuestion
+            };
 
             qz.Alternatives = CreateAlternatives();
             qz2.Alternatives = CreateAlternatives();
+            qz3.Alternatives = CreateAlternatives();
             qlist.Add(qz);
             qlist.Add(qz2);
+            qlist.Add(qz3);
 
             return qlist;
         }

@@ -41,18 +41,17 @@
                 <GridView>
                     <GridViewColumn Header="Titel" Width="Auto"  DisplayMemberBinding="{Binding Title}" />
                     <GridViewColumn Header="Beskrivning" Width="Auto" DisplayMemberBinding="{Binding Description}" />
-                    <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate}" />
-                    <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate}" />
-                    <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit}" />
+                    <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate, StringFormat='yyyy-MM-dd HH:mm'}" />
+                    <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate, StringFormat='yyyy-MM-dd HH:mm'}" />
+                    <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit, StringFormat='HH:mm'}" />
                 </GridView>
             </ListView.View>
         </ListView>
         <ListView Visibility="Collapsed"  Name="resultListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="QuizId" Width="Auto" DisplayMemberBinding="{Binding Id}" />
+                    <GridViewColumn Header="ResultatId" Width="Auto" DisplayMemberBinding="{Binding Id}" />
                     <GridViewColumn Header="Totala antal rätt" Width="Auto"  DisplayMemberBinding="{Binding Score}" />
-
                 </GridView>
             </ListView.View>
         </ListView>
