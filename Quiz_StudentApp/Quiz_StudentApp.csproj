@@ -81,6 +81,7 @@
     <Compile Include="Models\Alternative.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\Education.cs" />
+    <Compile Include="Models\LoginHandler.cs" />
     <Compile Include="Models\Mapping\AlternativeMap.cs" />
     <Compile Include="Models\Mapping\CoursMap.cs" />
     <Compile Include="Models\Mapping\EducationMap.cs" />
@@ -95,12 +96,16 @@
     <Compile Include="Models\QuizTimer.cs" />
     <Compile Include="Models\Result.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\QuizViewModel.cs" />
     <Compile Include="Views\Student\CommenceQuiz.xaml.cs">
       <DependentUpon>CommenceQuiz.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\Student\DisplayResult.xaml.cs">
       <DependentUpon>DisplayResult.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\_Shared\LoginView.xaml.cs">
+      <DependentUpon>LoginView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\_Shared\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -120,6 +125,10 @@
     <Page Include="Views\Student\DisplayResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\_Shared\LoginView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Views\_Shared\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -163,8 +172,24 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Data\Images\1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Images\img5.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Images\img6.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Images\Newton_Black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Images\Newton_Gray.tif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\Images\Newton_White.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
