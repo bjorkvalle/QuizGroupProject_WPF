@@ -7,7 +7,7 @@
       xmlns:ViewModels="clr-namespace:Quiz_StudentApp.ViewModels"
       xmlns:helperClass="clr-namespace:Quiz_StudentApp.HelperClass"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="500" d:DesignWidth="500"
       Loaded="Page_Loaded"
       Title="CommenceQuiz">
 
@@ -17,13 +17,13 @@
     <Page.Resources>
         <helperClass:CheckBoxConverter x:Key="CheckBoxConverter"/>
         <DataTemplate x:Key="SingleChoiceQuestionTemplate">
-            <StackPanel Width="500" Orientation="Vertical">
+            <StackPanel Width="500" Orientation="Vertical" >
                 <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
-                <ListBox x:Name="SelectedAnswer" ItemsSource="{Binding Alternatives}">
+                <ListBox x:Name="SelectedAnswer"  ItemsSource="{Binding Alternatives}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Yellow" />
+                            <StackPanel Background="{StaticResource backgroundOrangeLight}" Orientation="Horizontal">
+                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}"/>
                                 <RadioButton x:Name="rbSingleAnswer" 
                                              GroupName="{Binding DataContext.Title, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" IsChecked='{Binding AnsweredValue,Mode=TwoWay, Converter={StaticResource CheckBoxConverter}}'/>
                             </StackPanel>
@@ -36,11 +36,11 @@
         <DataTemplate x:Key="MultiChoiceQuestionTemplate">
             <StackPanel Width="500" Orientation="Vertical">
                 <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
-                <ListBox ItemsSource="{Binding Alternatives}">
+                <ListBox ItemsSource="{Binding Alternatives}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Red" />
+                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" />
                                 <CheckBox x:Name="checkBoxMultiChoiceAnswer" 
                                           IsChecked="{Binding AnsweredValue,Mode=TwoWay, Converter={StaticResource CheckBoxConverter}}" />
                             </StackPanel>
@@ -52,11 +52,11 @@
         <DataTemplate x:Key="RankQuestionTemplate">
             <StackPanel Width="500" Orientation="Vertical">
                 <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
-                <ListBox ItemsSource="{Binding Alternatives}">
+                <ListBox ItemsSource="{Binding Alternatives}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" Background="Green" />
+                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" />
                                 <TextBox x:Name="txtBoxRankedAnswer" Text="{Binding AnsweredValue, Mode=TwoWay}" Width="20" Height="20" />
                             </StackPanel>
                         </DataTemplate>
@@ -81,7 +81,7 @@
         </Grid.RowDefinitions>
         <TextBlock Grid.Column="0" Grid.Row="0" x:Name="txtblockQuizTitle" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" />
 
-        <ScrollViewer Grid.Column="0" Grid.Row="1"  VerticalScrollBarVisibility="Auto">
+        <ScrollViewer Grid.Column="0" Grid.Row="1"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
             <ListBox  ItemContainerStyle="{DynamicResource ListBox_Transparent}"
                       ItemsSource="{Binding Questions, Mode=TwoWay}" 
@@ -94,7 +94,7 @@
                 </ListBox.Background>
             </ListBox>
         </ScrollViewer>
-        <TextBlock x:Name="Timer" Text="{Binding}"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="20"/>
-        <Button Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,12" FontSize="20" Content="Avsluta" Click="Btn_HandIn"/>
+        <TextBlock x:Name="Timer" Text="{Binding}"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18"/>
+        <Button Style="{StaticResource MyButtonStyle}" Grid.Row="1" FontFamily="Segoe MDL2 Assets"  Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,12" FontSize="24" Content="&#59548;" Click="Btn_HandIn"/>
     </Grid>
 </Page>

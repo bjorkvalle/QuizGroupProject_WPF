@@ -3,12 +3,14 @@ using Quiz_StudentApp.Models;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System;
 
 namespace Quiz_StudentApp.ViewModels
 {
     public class HomeViewModel
     {
         public User ActiveUser { get; set; }
+        public Education Education { get; set; }
         public ObservableCollection<Quiz> UserQuizs { get; set; }
         public ObservableCollection<Result> UserResults { get; set; }
 
@@ -17,6 +19,13 @@ namespace Quiz_StudentApp.ViewModels
             ActiveUser = user;//Repository<User>.GetInstance().GetDataList().First();//user;
             UserQuizs = GetUserQuizs();
             UserResults = GetUserResults();
+            Education = GetUserEducation();
+        }
+
+        private Education GetUserEducation()
+        {
+            Education userEducation = Repository<Education>.GetInstance().GetDataList().Where(e => e.Id == ActiveUser.EducationId).FirstOrDefault();
+            return userEducation;
         }
 
         public ObservableCollection<Quiz> GetUserQuizs()
