@@ -64,7 +64,6 @@ namespace Quiz_WPFVersion.HelperClass.Command
             List<Question> listQuestion = QuestionListConverter(vModel.questionList);
             if (listQuestion == null || listQuestion.Count == 0) return;
 
-            
 
 
             Repository<Quiz>.GetInstance().AddData(
@@ -74,6 +73,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
                     Description = vModel.createQuizView.txtbDescription.Text,
                     Questions = listQuestion,
                     UserId = vModel.activeUser.Id,
+                    ShowStudentResult = (bool)vModel.createQuizView.checkBoxResultat.IsChecked,
 
                 });
 
