@@ -6,6 +6,7 @@ using Quiz_StudentApp.Views.Student;
 using Quiz_StudentApp.Data;
 using System.Linq;
 using System.Data.Entity;
+using Quiz_StudentApp.View._Shared;
 
 namespace Quiz_StudentApp.Views._Shared
 {
@@ -18,9 +19,7 @@ namespace Quiz_StudentApp.Views._Shared
         {
             InitializeComponent();
             //new SeedData();
-            MainFrame.Content = new StudentHome(Repository<User>.GetInstance().GetDataList().First());
-
-
+            MainFrame.Content = new LoginView();
 
             //REFS-->
             //Question q = Repository<Question>.GetInstance().GetDataList().First();

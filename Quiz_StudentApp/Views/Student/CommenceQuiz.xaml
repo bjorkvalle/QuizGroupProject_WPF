@@ -18,12 +18,12 @@
         <helperClass:CheckBoxConverter x:Key="CheckBoxConverter"/>
         <DataTemplate x:Key="SingleChoiceQuestionTemplate">
             <StackPanel Width="500" Orientation="Vertical" >
-                <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
-                <ListBox x:Name="SelectedAnswer"  ItemsSource="{Binding Alternatives}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+                <TextBlock MinWidth="300" Margin="0,12,0,0" FontSize="16"  Foreground="{StaticResource fontColor}" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
+                <ListBox x:Name="SelectedAnswer" ItemsSource="{Binding Alternatives}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
-                            <StackPanel Background="{StaticResource backgroundOrangeLight}" Orientation="Horizontal">
-                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}"/>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="txtblockAnswer" Foreground="{StaticResource fontColor}" FontSize="14" Text="{Binding Title}"/>
                                 <RadioButton x:Name="rbSingleAnswer" 
                                              GroupName="{Binding DataContext.Title, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}" IsChecked='{Binding AnsweredValue,Mode=TwoWay, Converter={StaticResource CheckBoxConverter}}'/>
                             </StackPanel>
@@ -35,12 +35,12 @@
 
         <DataTemplate x:Key="MultiChoiceQuestionTemplate">
             <StackPanel Width="500" Orientation="Vertical">
-                <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
+                <TextBlock MinWidth="300" VerticalAlignment="Center" Foreground="{StaticResource fontColor}" Margin="0,12,0,0" FontSize="16" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
                 <ListBox ItemsSource="{Binding Alternatives}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" />
+                                <TextBlock Foreground="{StaticResource fontColor}" x:Name="txtblockAnswer" FontSize="14"  Text="{Binding Title}" />
                                 <CheckBox x:Name="checkBoxMultiChoiceAnswer" 
                                           IsChecked="{Binding AnsweredValue,Mode=TwoWay, Converter={StaticResource CheckBoxConverter}}" />
                             </StackPanel>
@@ -51,12 +51,12 @@
         </DataTemplate>
         <DataTemplate x:Key="RankQuestionTemplate">
             <StackPanel Width="500" Orientation="Vertical">
-                <TextBlock MinWidth="300" VerticalAlignment="Center" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
+                <TextBlock MinWidth="300" Foreground="{StaticResource fontColor}" VerticalAlignment="Center" Margin="0,12,0,0" FontSize="16" x:Name="txtblockQuestionTitle" Text="{Binding Title}" Height="25" />
                 <ListBox ItemsSource="{Binding Alternatives}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock x:Name="txtblockAnswer" Text="{Binding Title}" />
+                                <TextBlock x:Name="txtblockAnswer" FontSize="14" Foreground="{StaticResource fontColor}" Text="{Binding Title}" />
                                 <TextBox x:Name="txtBoxRankedAnswer" Text="{Binding AnsweredValue, Mode=TwoWay}" Width="20" Height="20" />
                             </StackPanel>
                         </DataTemplate>
@@ -71,15 +71,15 @@
             x:Key="myDTS"/>
     </Page.Resources>
 
-    <Grid Background="Orange">
+    <Grid Background="{StaticResource backgroundGardinentOrange}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="txtblockQuizTitle" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" />
+        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="txtblockQuizTitle" Margin="0,12,0,0" Foreground="{StaticResource fontColor}" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" />
 
         <ScrollViewer Grid.Column="0" Grid.Row="1"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
@@ -94,7 +94,7 @@
                 </ListBox.Background>
             </ListBox>
         </ScrollViewer>
-        <TextBlock x:Name="Timer" Text="{Binding}"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18"/>
-        <Button Style="{StaticResource MyButtonStyle}" Grid.Row="1" FontFamily="Segoe MDL2 Assets"  Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Center" Margin="0,0,0,12" FontSize="24" Content="&#59548;" Click="Btn_HandIn"/>
+        <TextBlock x:Name="Timer"  Foreground="{StaticResource fontColor}" Text="{Binding}" Margin="0,0,30,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18"/>
+        <Button Style="{StaticResource MyButtonStyle}" Grid.Row="0" FontFamily="Segoe MDL2 Assets"  Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,24,5" FontSize="24" Content="&#59548;" Click="Btn_HandIn"/>
     </Grid>
 </Page>
