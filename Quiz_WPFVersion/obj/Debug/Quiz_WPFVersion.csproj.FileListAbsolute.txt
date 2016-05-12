@@ -125,6 +125,7 @@ C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\View\_Shared\Statistics.baml
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.g.resources
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.Init.resources
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Migrations.Second.resources
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.Properties.Resources.resources
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.csproj.GenerateResource.Cache
 C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\Quiz_WPFVersion.exe

@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{BBAC86E8-DAB6-4208-8C53-01501A3441A5}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Quiz_WPFVersion</RootNamespace>
     <AssemblyName>Quiz_WPFVersion</AssemblyName>
@@ -83,14 +83,17 @@
     <Compile Include="HelperClass\TemplateQuiz\tempVisaulAlt.cs" />
     <Compile Include="HelperClass\TemplateQuiz\tempVisualQuestionSingle.cs" />
     <Compile Include="Interfaces\IGenericRepository.cs" />
-    <Compile Include="Migrations\201605111751029_Init.cs" />
-    <Compile Include="Migrations\201605111751029_Init.Designer.cs">
-      <DependentUpon>201605111751029_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201605101440437_Init.cs" />
+    <Compile Include="Migrations\201605101440437_Init.Designer.cs">
+      <DependentUpon>201605101440437_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605101447443_Second.cs" />
+    <Compile Include="Migrations\201605101447443_Second.Designer.cs">
+      <DependentUpon>201605101447443_Second.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\LoginHandler.cs" />
     <Compile Include="ViewModels\AdminViewModel.cs" />
-    <Compile Include="ViewModels\Admin\AddRemoveViewModel.cs" />
     <Compile Include="ViewModels\Command\TestCommand.cs" />
     <Compile Include="Data\Repository.cs" />
     <Compile Include="Enum\Enum_QuestionType.cs" />
@@ -102,7 +105,6 @@
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\NavigationWindowViewModel.cs" />
     <Compile Include="ViewModels\Teacher\Question_Binding.cs" />
-    <Compile Include="ViewModels\_Shared\Statistics_Quiz.cs" />
     <Compile Include="View\Admin\AddRemoveUsers.xaml.cs">
       <DependentUpon>AddRemoveUsers.xaml</DependentUpon>
     </Compile>
@@ -215,8 +217,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201605111751029_Init.resx">
-      <DependentUpon>201605111751029_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605101440437_Init.resx">
+      <DependentUpon>201605101440437_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605101447443_Second.resx">
+      <DependentUpon>201605101447443_Second.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -241,7 +246,10 @@
     <Resource Include="Data\Images\Newton_Gray.tif" />
     <Resource Include="Data\Images\Newton_White.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="ViewModels\Admin\" />
+    <Folder Include="ViewModels\_Shared\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\Images\img5.jpg" />
     <Resource Include="Data\Images\img6.jpg" />

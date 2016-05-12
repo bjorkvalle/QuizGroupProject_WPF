@@ -29,6 +29,7 @@ namespace Quiz_WPFVersion.Migrations
                         Title = c.String(),
                         Type = c.Int(nullable: false),
                         QuizId = c.Int(),
+                        Discriminator = c.String(nullable: false, maxLength: 128),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Quizs", t => t.QuizId)

@@ -7,13 +7,6 @@
       mc:Ignorable="d" 
       d:DesignHeight="300" d:DesignWidth="396.653"
       Title="AdminView">
-    <Page.Resources>
-        <DataTemplate x:Key="DataTemplate1">
-            <Grid>
-                <TextBlock Text="{Binding Title}" Background="{x:Null}" Foreground="{DynamicResource fontColor}" />
-            </Grid>
-        </DataTemplate>
-    </Page.Resources>
 
     <Grid Background="{StaticResource backgroundOrangeLight}" Margin="0,0,0,0">
         <Grid   Margin="20,20">
@@ -38,12 +31,12 @@
 
             <TextBlock x:Name="txtb_labelAcess" TextWrapping="Wrap" Text="Behörighet:"  FontSize="14" FontFamily="Segoe WP Light" FontStyle="Italic" Foreground="{StaticResource fontColor}" FontWeight="Thin" Grid.Row="1" Grid.RowSpan="2"/>
 
-            <TextBlock x:Name="txtbAcess"   Text="Administratör" FontSize="14" FontFamily="Segoe WP Light" Foreground="{StaticResource fontColor}"  FontWeight="Thin" Grid.Row="1" Grid.Column="2"/>
+            <TextBlock x:Name="txtbAcess"   Text="Admin" FontSize="14" FontFamily="Segoe WP Light" Foreground="{StaticResource fontColor}"  FontWeight="Thin" Grid.Row="1" Grid.Column="2"/>
 
-            <TextBlock x:Name="textBlock" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Nya prov att skicka" Grid.Row="4" Margin="0,-5,0,0" Foreground="{StaticResource fontColor}" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.RowSpan="1"/>
+            <TextBlock x:Name="textBlock" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Nya prov att" Grid.Row="3" Margin="0,0,9,0" Foreground="{StaticResource fontColor}" TextWrapping="Wrap" Grid.ColumnSpan="2"/>
 
-
-            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Width="358" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,-56.2,0" Grid.ColumnSpan="3" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Hidden" ItemTemplate="{DynamicResource DataTemplate1}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+            <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="skicka" Grid.Row="3" Margin="0,14,9,1" TextWrapping="Wrap" Grid.ColumnSpan="2" Grid.RowSpan="2"/>
+            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Width="89" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,0,0" >
                 <ListBox.Background>
                     <SolidColorBrush Color="White" Opacity="0.565"/>
                 </ListBox.Background>

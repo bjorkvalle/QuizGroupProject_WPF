@@ -1,6 +1,4 @@
-﻿using Quiz_WPFVersion.Data;
-using Quiz_WPFVersion.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,12 +20,9 @@ namespace Quiz_WPFVersion.View.Admin
     /// </summary>
     public partial class AdminView : Page
     {
-        public AdminView(User user)
+        public AdminView()
         {
             InitializeComponent();
-            txtbName.Text = user.Name;
-            listBox.ItemsSource = Repository<Quiz>.GetInstance().GetDataList().Where(q => q.SentToAdmin && !q.SentToStudent && !String.IsNullOrEmpty(q.Title)).ToList();
-
         }
     }
 }

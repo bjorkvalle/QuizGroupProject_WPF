@@ -1,6 +1,4 @@
-﻿using Quiz_WPFVersion.Models;
-using Quiz_WPFVersion.ViewModels.Admin;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,31 +23,6 @@ namespace Quiz_WPFVersion.View.Admin
         public AddRemoveUsers()
         {
             InitializeComponent();
-            ((AddRemoveViewModel)DataContext).GetInstanceView(this);
-           
         }
-
-
-        private void btn_RemoveUser(object sender, RoutedEventArgs e)
-        {
-
-            User temp = listUsers.SelectedItem as User;
-            ((AddRemoveViewModel)DataContext).RemoveUser(temp);
-
-        }
-
-        private void btn_AddUser(object sender, RoutedEventArgs e)
-        {
-
-
-            ((AddRemoveViewModel)DataContext).AddUser();
-        }
-
-        private void txtbSearch_KeyUp(object sender, KeyEventArgs e)
-        {
-            ((AddRemoveViewModel)DataContext).SearchUsers(((TextBox)sender).Text);
-        }
-
-
     }
 }
