@@ -86,12 +86,21 @@
                         <DropShadowEffect BlurRadius="30" Opacity="0.11"/>
                     </Rectangle.Effect>
                 </Rectangle>
-                <DatePicker x:Name="DateEnd" Margin="6.125,0,0,33.693" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.109"/>
-                <DatePicker x:Name="DateBegin" Margin="6.125,0,0,57.692" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.642"/>
-                <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,10,57.691" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="70.869"/>
+                <DatePicker x:Name="DateEnd" Margin="6.125,0,0,33.693" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.109" CalendarClosed="DateEnd_CalendarClosed"/>
+                <DatePicker x:Name="DateBegin" Margin="6.125,0,0,57.692" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.642" CalendarClosed="DateBegin_CalendarClosed"/>
+                <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,15.2,35.96" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="59" RenderTransformOrigin="0.5,0.5" AllowTextInput="False" ClipValueToMinMax="True" Minimum="0" ValueChanged="TimeSpanQuiz_ValueChanged"> 
+                    <xctk:TimeSpanUpDown.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform AngleX="-0.721"/>
+                            <RotateTransform/>
+                            <TranslateTransform X="0.121"/>
+                        </TransformGroup>
+                    </xctk:TimeSpanUpDown.RenderTransform>
+                </xctk:TimeSpanUpDown>
                 <Label x:Name="label" Content="Slutdatum" Margin="35.234,0,92.156,33.69" VerticalAlignment="Bottom" FontFamily="Segoe UI Light"/>
                 <Label x:Name="label_Copy" Content="Startdatum" Margin="35.234,0,92.156,55.731" VerticalAlignment="Bottom" FontFamily="Segoe UI Light"/>
-                <Label x:Name="label_Copy1" Content="Provtid" Margin="0,0,20,33.692" VerticalAlignment="Bottom" FontFamily="Segoe UI Light" HorizontalAlignment="Right" Width="61.867"/>
+                <Label x:Name="label_Copy1" Content="Provtid" Margin="0,0,-7.8,54.96" VerticalAlignment="Bottom" FontFamily="Segoe UI Light" HorizontalAlignment="Right" Width="62" RenderTransformOrigin="0.5,0.402"/>
             </Grid>
             <Grid x:Name="Users" Grid.Column="2" Margin="0,-16.16,0,-1.826" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                 <Grid.RenderTransform>
