@@ -46,7 +46,6 @@ namespace Quiz_WPFVersion.ViewModels
                 quiz.UserId = student.Id;
                 Repository<Quiz>.GetInstance().AddData(quiz);
             }
-
         }
 
         public void AddQuizTime(DateTime datetime, Quiz quiz)
