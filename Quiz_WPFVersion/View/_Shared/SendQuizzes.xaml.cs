@@ -26,9 +26,7 @@ namespace Quiz_WPFVersion.View._Shared
 
         AdminViewModel adminVM;
         User activeUser;
-        List<User> students;
         List<User> selectedStudents;
-        //List<Quiz> quizzes;
         Quiz selectedQuiz;
 
 
@@ -37,46 +35,30 @@ namespace Quiz_WPFVersion.View._Shared
             InitializeComponent();
             activeUser = user;
             adminVM = new AdminViewModel(activeUser);
-            quizListBox.ItemsSource = Repository<Quiz>.GetInstance().GetDataList().ToList();
-            userListBox.ItemsSource = Repository<User>.GetInstance().GetDataList().ToList();
+            quizListBox.ItemsSource = adminVM.GetQuizzes();
+            userListBox.ItemsSource = adminVM.GetAllStudents();
             selectedStudents = new List<User>();
             comboBox_Education.ItemsSource = Repository<Education>.GetInstance().GetDataList().ToList();
 
         }
 
-
-        //private void Button_Click_DotNet(object sender, RoutedEventArgs e)
-        //{
-        //    students = adminVM.GetStudentByEducation(1);
-        //    userListBox.ItemsSource = adminVM.GetStudentByEducation(1);
-        //}
-
-        //private void Button_Click_Java(object sender, RoutedEventArgs e)
-        //{
-        //    students = adminVM.GetStudentByEducation(2);
-        //    userListBox.ItemsSource = adminVM.GetStudentByEducation(2);
-        //}
-
         private void Button_Click_All(object sender, RoutedEventArgs e)
         {
-            students = adminVM.GetAllStudents();
-            userListBox.ItemsSource = adminVM.GetAllStudents();
-            quizListBox.ItemsSource = Repository<Quiz>.GetInstance().GetDataList().ToList();
             comboBox_Education.SelectedIndex = -1;
+            userListBox.ItemsSource = adminVM.GetAllStudents();
             ResetMessage();
         }
 
         private void Button_Click_SendQuiz(object sender, RoutedEventArgs e)
         {
-            if (selectedStudents != null && selectedQuiz != null)
+            if (selectedStudents.Count != 0 && selectedQuiz != null)
             {
                 adminVM.SendQuizToStudents(selectedQuiz, selectedStudents);
                 lblMessage.Text = "• Provet är nu skickat";
-                quizListBox.ItemsSource = Repository<Quiz>.GetInstance().GetDataList().ToList();
-                userListBox.ItemsSource = Repository<User>.GetInstance().GetDataList().ToList();
 
                 comboBox_Education.SelectedIndex = -1;
                 selectedStudents.Clear();
+                e.Handled = true;
             }
         }
 
@@ -87,9 +69,9 @@ namespace Quiz_WPFVersion.View._Shared
 
         private void userListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            //Listbox.selectedItems act weird o.O
             selectedStudents.Clear();
             ResetMessage();
+
             foreach (User user in userListBox.SelectedItems)
             {
                 selectedStudents.Add(user);
@@ -108,23 +90,9 @@ namespace Quiz_WPFVersion.View._Shared
             ResetMessage();
             var tempComb = sender as ComboBox;
             var tempEdu = tempComb.SelectedItem as Education;
-            if (tempEdu == null){return;}
 
-            var joinedUserList = from edu in Repository<User>.GetInstance().GetDataList()
-                                 where (edu.EducationId == tempEdu.Id)
-                                 select edu;
+            userListBox.ItemsSource = adminVM.GetStudentByEducation(tempEdu.Id);
 
-
-
-
-            var joinedQuizList = from quiz in Repository<Quiz>.GetInstance().GetDataList()
-                                 join user in Repository<User>.GetInstance().GetDataList()
-                                 on quiz.UserId equals user.Id
-                                 where (user.EducationId == tempEdu.Id)
-                                 select quiz;
-
-            quizListBox.ItemsSource = joinedQuizList.ToList();
-            userListBox.ItemsSource = joinedUserList.ToList();
         }
     }
 }
