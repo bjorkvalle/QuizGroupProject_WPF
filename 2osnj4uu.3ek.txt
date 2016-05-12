@@ -1,0 +1,39 @@
+﻿added a timer and broke out quiz correction handling
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch takeQuiz
+# Your branch is behind 'origin/takeQuiz' by 1 commit, and can be fast-forwarded.
+#   (use "git pull" to update your local branch)
+#
+# Changes to be committed:
+#	copied:     Quiz_StudentApp/ViewModels/QuizViewModel.cs -> Quiz_StudentApp/Models/QuizCorrector.cs
+#	new file:   Quiz_StudentApp/Models/QuizTimer.cs
+#	modified:   Quiz_StudentApp/Quiz_StudentApp.csproj
+#	modified:   Quiz_StudentApp/ViewModels/QuizViewModel.cs
+#	modified:   Quiz_StudentApp/Views/Student/CommenceQuiz.xaml.cs
+#	modified:   Quiz_StudentApp/bin/Debug/Quiz_StudentApp.exe
+#	modified:   Quiz_StudentApp/bin/Debug/Quiz_StudentApp.pdb
+#	deleted:    Quiz_StudentApp/bin/Debug/Quiz_StudentApp.vshost.exe.manifest
+#	new file:   Quiz_StudentApp/obj/Debug/GeneratedInternalTypeHelper.g.cs
+#	new file:   Quiz_StudentApp/obj/Debug/GeneratedInternalTypeHelper.g.i.cs
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.csproj.FileListAbsolute.txt
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.exe
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.g.resources
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp.pdb
+#	modified:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.cache
+#	new file:   Quiz_StudentApp/obj/Debug/Quiz_StudentApp_MarkupCompile.i.cache
+#	modified:   Quiz_StudentApp/obj/Debug/Views/Student/CommenceQuiz.baml
+#	modified:   Quiz_StudentApp/obj/Debug/Views/Student/CommenceQuiz.g.cs
+#	modified:   Quiz_StudentApp/obj/Debug/Views/Student/CommenceQuiz.g.i.cs
+#	modified:   Quiz_StudentApp/obj/Debug/Views/Student/StudentHome.baml
+#	modified:   Quiz_StudentApp/obj/Debug/Views/Student/StudentHome.g.cs
+#	modified:   Quiz_StudentApp/obj/Debug/Views/Student/StudentHome.g.i.cs
+#	modified:   Quiz_WPFVersion/.vs/Quiz_WPFVersion/v14/.suo
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.csproj.FileListAbsolute.txt
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.csproj.GenerateResource.Cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.exe
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion.pdb
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.i.cache
+#	modified:   Quiz_WPFVersion/obj/Debug/Quiz_WPFVersion_MarkupCompile.lref
+#
+

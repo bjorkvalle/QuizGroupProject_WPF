@@ -7,174 +7,111 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
 using System.Windows.Controls;
-
 using System.Collections.ObjectModel;
 using System.Data.Entity;
+using System.Windows.Threading;
+using Quiz_StudentApp.HelperClass;
 
 namespace Quiz_StudentApp.ViewModels
 {
     public class QuizViewModel
     {
+        public SingleChoiceCommand SingleChoiceCommand { get; set; }
+        public ObservableCollection<Question> Questions { get; set; }
         public Quiz ActiveQuiz { get; set; }
-        public string ErrorMessage { get; set; }
+        public string TimeLeft { get; set; }
+
+        private QuizCorrector _quizCorrector;
+        public QuizCorrector QuizCorrectorProp
+        {
+            get { return _quizCorrector; }
+            set { _quizCorrector = value; }
+        }
+
+        //private QuizTimer _quizTimer;
 
 
-        //private User _student;
+        //public QuizViewModel()
+        //{
+        //    Questions = new ObservableCollection<Question>();
 
+        //    //SetQuizContent2();
+        //}
+
+        //körs i view xaml
+        public QuizViewModel()
+        {
+        }
+
+        //körs i view cs
         public QuizViewModel(Quiz quiz)
         {
+            Questions = new ObservableCollection<Question>();
             ActiveQuiz = quiz;
-            //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
-
-            SetQuizContent();
-            HandInExam();
+            SetQuizContent2();
+            _quizCorrector = new QuizCorrector(ActiveQuiz);
+            //SetupTimer();//temp position
         }
-        
-        public void SetQuizContent()
+
+        //public QuizViewModel(Quiz quiz)
+        //{
+        //    ActiveQuiz = quiz;
+        //    //_student = Repository<User>.GetInstance().GetDataList().Where(x => x.Id == quiz.UserId).ToList().First() as User;
+
+        //    //HandInExam();
+        //}
+
+        // SetQuizContent();
+        //}
+
+        public void SetQuizContent2()
         {
-            //inkluderar även questions
+            ObservableCollection<Question> x;//
+
             using (var db = new QuizContext())
             {
                 ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
                                .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
 
+                x = new ObservableCollection<Question>(ActiveQuiz.Questions);
+
                 ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Education")
                                .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
             }
+
+            foreach (var item in x)
+            {
+                Questions.Add(item);
+            }
         }
-        
+
+        public void SetActiveQuiz(Quiz quiz)
+        {
+            this.ActiveQuiz = quiz;
+        }
+
+        //private void SetupTimer()
+        //{
+        //    _quizTimer = new QuizTimer((TimeSpan)ActiveQuiz.TimeLimit);
+        //}
+
+        //public TimeSpan CheckTimeLeft()
+        //{
+        //    if (_quizTimer.TimeLeft <= new TimeSpan(0, 0, 0))
+        //        _quizCorrector.SaveResult();
+
+        //    return _quizTimer.TimeLeft;
+        //}
+
         //save/hand in
         public bool HandInExam()
         {
-            //validate quiz data
-            if (!ValidateQuizData())
-                return false;
-             
-            //correct the quiz
-            if (!CorrectQuiz())
-                return false;
-
-            //prevent from being able to retake same quiz
-
-            return true;
+            return _quizCorrector.HandleQuiz();
         }
 
-        private bool ValidateQuizData()
+        public string DisplayExamHandInError()
         {
-            //what needs to be validated?
-
-            if ("1" == 1.ToString())
-            {
-                return true;
-            }
-            else
-            {
-                ErrorMessage = "What did you do?!";
-                return false;
-            }
-        }
-
-        private bool CorrectQuiz()
-        {
-            //om inte alla frågor är besvarade, skicka ett prompt för att bekräfta
-            if (!ReadyToHandIn())
-                return false;
-
-            //save the result
-            SaveResult();
-
-            return true;
-        }
-
-        private bool ReadyToHandIn()
-        {
-            if ("1" == 1.ToString()) //PromptWindow
-            {
-                ErrorMessage = "";
-                return true;
-            }
-            else
-            {
-                ErrorMessage = "Hand in cancelled";
-                return false;
-            }
-        }
-        
-        private void SaveResult()
-        {
-            Result res = new Result
-            {
-                Score = CalculateScore(),
-                QuizId = ActiveQuiz.Id,
-                UserId = ActiveQuiz.User.Id //not needed?
-            };
-
-            Repository<Result>.GetInstance().AddData(res);
-            ActiveQuiz.User.Results.Add(res);
-            Repository<User>.GetInstance().UpdateData(ActiveQuiz.User); //saves quiz too?
-        }
-
-        private int CalculateScore()
-        {
-            int score = 0;
-
-            foreach (var item in ActiveQuiz.Questions)
-            {
-                switch (item.Type)
-                {
-                    case Enums.QuestionType.SingleChoiceQuestion:
-                        ScoreSingleChoice(item, ref score);
-                        break;
-                    case Enums.QuestionType.MultiChoiceQuestion:
-                        ScoreMultiChoice(item, ref score);
-                        break;
-                    case Enums.QuestionType.RankQuestion:
-                        ScoreRanked(item, ref score);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            return score;
-        }
-
-        private void ScoreSingleChoice(Question question, ref int score)
-        {
-            foreach (var item in question.Alternatives)
-            {
-                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
-                    score++;
-            }
-        }
-
-        private void ScoreMultiChoice(Question question, ref int score)
-        {
-            int tempScore = 0;
-
-            foreach (var item in question.Alternatives)
-            {
-                if (item.ScoreValue > 0 && item.AnsweredValue > 0)
-                    tempScore++;
-                else //add more cases
-                    tempScore--;
-            }
-
-            score += tempScore > 0 ? tempScore : 0;
-        }
-
-        private void ScoreRanked(Question question, ref int score)
-        {
-            int tempScore = 0;
-
-            foreach (var item in question.Alternatives)
-            {
-                if (item.ScoreValue == item.AnsweredValue)
-                    tempScore++;
-                else //add more cases
-                    tempScore--;
-            }
-
-            score += tempScore > 0 ? tempScore : 0;
+            return _quizCorrector.ErrorMessage;
         }
     }
 }
