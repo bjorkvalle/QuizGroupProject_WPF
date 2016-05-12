@@ -123,18 +123,18 @@ namespace Quiz_WPFVersion.ViewModels.Admin
             ResetLabelMessages();
             var x = userBinding;
 
-            
+
 
             if (String.IsNullOrEmpty(userBinding.Name) || String.IsNullOrEmpty(userBinding.Password)) { view.lblMessageSave.Content = "• Vänligen fyll i namn och lösenord"; return; }
             if (view?.cmbAcess?.SelectedItem == null) { view.lblMessageSave.Content = "• Behörighet måste anges"; return; }
 
-            if(UserExist(userBinding.Name)) { view.lblMessageSave.Content = "• Användarnamnet används redan"; return; }
+            if (UserExist(userBinding.Name)) { view.lblMessageSave.Content = "• Användarnamnet används redan"; return; }
 
 
 
             UserType selAcess = ConverterEnumType(((ComboBoxItem)view.cmbAcess.SelectedItem).Content.ToString());
 
-            
+
             Repository<User>.GetInstance().AddData
                 (
                 new User
