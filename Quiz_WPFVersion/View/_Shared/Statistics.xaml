@@ -6,11 +6,45 @@
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       xmlns:ViewModels="clr-namespace:Quiz_WPFVersion.ViewModels" x:Class="Quiz_WPFVersion.View._Shared.Statistics"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="676.987"
+      d:DesignHeight="480" d:DesignWidth="676.987"
       Title="Statistics">
     <Page.Resources>
 
+        <Storyboard x:Key="GridAnimate">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="gridMain">
+                <EasingDoubleKeyFrame KeyTime="0" Value="19.2"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="gridMain">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.5" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="stack_Edu">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="-17"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="stacl_User">
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="-17"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stack_Edu">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.6" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.9" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="stacl_User">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.8" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1.1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
     </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource GridAnimate}"/>
+        </EventTrigger>
+    </Page.Triggers>
     <Page.DataContext>
         <ViewModels:Statistics_ViewModel/>
     </Page.DataContext>
@@ -19,10 +53,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="28"/>
             <RowDefinition Height="14"/>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="56*"/>
-            <RowDefinition Height="39"/>
-            <RowDefinition Height="115*"/>
+            <RowDefinition Height="14"/>
+            <RowDefinition Height="3*" MinHeight="100"/>
+            <RowDefinition Height="73"/>
+            <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
 
@@ -33,52 +67,86 @@
         <Grid.Background>
             <SolidColorBrush Color="{DynamicResource ListBox_GardinentBackground_List}"/>
         </Grid.Background>
-        <ListView x:Name="listView" Margin="7,13,62,36" ItemsSource="{Binding _Quiz}" Grid.Row="3" Grid.Column="1" Foreground="{DynamicResource fontColor}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" Grid.RowSpan="2" >
-            <ListView.Background>
-                <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
-            </ListView.Background>
-            <ListView.View>
-                <GridView>
-                    <!--<GridViewColumn Header="Datum" />-->
-                    <GridViewColumn Header="Prov" Width="129" DisplayMemberBinding="{Binding Title}"/>
-                    <GridViewColumn Header="Genomförd" Width="90" DisplayMemberBinding="{Binding QuizTaken}"/>
-                    <GridViewColumn Header="Ej genomförd" Width="87" DisplayMemberBinding="{Binding QuizNotTaken}"/>
-                    <GridViewColumn Header="Godkända" Width="71" DisplayMemberBinding="{Binding GradeG}"/>
-                    <GridViewColumn Header="Underkända" Width="87" DisplayMemberBinding="{Binding GradeF}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" Grid.Column="1" Foreground="{DynamicResource fontColor}" Margin="7,18,-7,1" Grid.RowSpan="2"><Run Text="STAT"/><Run Text="I"/><Run Text="STIK"/></TextBlock>
-        <TextBlock x:Name="textBlock_Copy" Margin="7,13,0,161" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="Genomförda prov" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="104" Foreground="{DynamicResource fontColor}" Grid.RowSpan="3"/>
+        <TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" Grid.Column="1" Foreground="{DynamicResource fontColor}" Margin="7,-10,-7,1" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"><Run Text="STAT"/><Run Text="I"/><Run Text="STIK"/></TextBlock>
+        <TextBlock x:Name="textBlock_Copy" Margin="7,-1,0,0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="Genomförda prov" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="104" Foreground="{DynamicResource fontColor}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+        <Grid x:Name="gridMain" Grid.Column="1" Margin="7,7,62,0" Grid.Row="3" Grid.RowSpan="2" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Grid.RenderTransform>
 
-        
-        
-        <StackPanel Grid.Column="1" Orientation="Horizontal" Grid.Row="4" Grid.RowSpan="2" Margin="27,13,-7,-13">
-            <StackPanel x:Name="stack_Edu" Margin="0,0.053,0,0" Orientation="Vertical" d:LayoutOverrides="Height" MinWidth="120">
-                <TextBlock x:Name="textBlock_Copy1" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Height="18" Foreground="{DynamicResource fontColor}" />
-                <ComboBox x:Name="comboBox_Education" Margin="1,0,0,0" ItemsSource="{Binding _Education}" SelectionChanged="comboBox_SelectionChanged_Education"  Height="21" MinWidth="120" >
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
+
+
+            <ListView x:Name="listView" Margin="0,0,0,70" ItemsSource="{Binding _Quiz}" Foreground="{DynamicResource fontColor}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
+                <ListView.Background>
+                    <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                </ListView.Background>
+                <ListView.View>
+                    <GridView>
+                        <!--<GridViewColumn Header="Datum" />-->
+                        <GridViewColumn Header="Prov" Width="129" DisplayMemberBinding="{Binding Title}"/>
+                        <GridViewColumn Header="Genomförd" Width="90" DisplayMemberBinding="{Binding QuizTaken}"/>
+                        <GridViewColumn Header="Ej genomförd" Width="87" DisplayMemberBinding="{Binding QuizNotTaken}"/>
+                        <GridViewColumn Header="Godkända" Width="71" DisplayMemberBinding="{Binding GradeG}"/>
+                        <GridViewColumn Header="Underkända" Width="87" DisplayMemberBinding="{Binding GradeF}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+
+            <StackPanel Orientation="Horizontal" Margin="20,0,0,0" Height="60" VerticalAlignment="Bottom">
+                <StackPanel x:Name="stack_Edu" Margin="0,0.053,0,0" Orientation="Vertical" d:LayoutOverrides="Height" MinWidth="120" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
+                    <TextBlock x:Name="textBlock_Copy1" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Height="18" Foreground="{DynamicResource fontColor}" />
+                    <ComboBox x:Name="comboBox_Education" Margin="1,0,0,0" ItemsSource="{Binding _Education}" SelectionChanged="comboBox_SelectionChanged_Education"  Height="21" MinWidth="120" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel x:Name="stacl_User" Margin="20,0,0,0" Orientation="Vertical" MinWidth="104" Height="52.8" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+                    <StackPanel.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </StackPanel.RenderTransform>
+                    <TextBlock x:Name="textBlock_Copy3" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="ELEV" Height="18" Foreground="{DynamicResource fontColor}" />
+                    <ComboBox x:Name="comboBox_User" ItemsSource="{Binding _Users}" SelectionChanged="comboBox_SelectionChanged_User" Height="21" MinWidth="60" >
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Name}" />
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
             </StackPanel>
-            
-            <StackPanel x:Name="stacl_User" Margin="20,0,0,0" Orientation="Vertical" d:LayoutOverrides="Height" MinWidth="104">
-                <TextBlock x:Name="textBlock_Copy3" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="ELEV" Height="18" Foreground="{DynamicResource fontColor}" />
-                <ComboBox x:Name="comboBox_User" ItemsSource="{Binding _Users}" SelectionChanged="comboBox_SelectionChanged_User" Height="21" MinWidth="60" >
-                    <ComboBox.ItemTemplate>
-                        <DataTemplate>
-                            <TextBlock Text="{Binding Name}" />
-                        </DataTemplate>
-                    </ComboBox.ItemTemplate>
-                </ComboBox>
-            </StackPanel>
-        </StackPanel>
-        
-        
-        <Rectangle Grid.Column="1" Fill="#FFF4F4F5" Margin="7,128,62,314" Grid.Row="3" Opacity="0.385" Panel.ZIndex="-3" Grid.RowSpan="3"/>
+
+
+            <Rectangle Fill="#FFFFE4B3" Panel.ZIndex="-3" d:LayoutOverrides="TopMargin, BottomMargin" RadiusY="30" RadiusX="30">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="25" Opacity="0.1"/>
+                </Rectangle.Effect>
+            </Rectangle>
+
+        </Grid>
 
     </Grid>
 </Page>
