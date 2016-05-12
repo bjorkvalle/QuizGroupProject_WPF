@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View.Teacher"
       mc:Ignorable="d" 
-      Title="TeacherView" d:DesignWidth="482" d:DesignHeight="333">
+      Title="TeacherView" d:DesignWidth="482" d:DesignHeight="529.509">
     <Page.Resources>
         <DataTemplate x:Key="DataTemplate1">
             <Grid>
@@ -23,8 +23,8 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="17"/>
                 <RowDefinition Height="17"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="2*"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="90"/>
@@ -33,25 +33,25 @@
             </Grid.ColumnDefinitions>
 
 
-            <TextBlock x:Name="txtb_labelWelcome" TextWrapping="Wrap" Text="Välkommen" HorizontalAlignment="Left" Height="20"  VerticalAlignment="Bottom" FontSize="16" Foreground="Black" FontWeight="Bold" Width="90"/>
+            <TextBlock x:Name="txtb_labelWelcome" TextWrapping="Wrap" Text="Välkommen" FontSize="16" Foreground="Black" FontWeight="Bold" Margin="0,4,0,0" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
-            <TextBlock x:Name="txtbName" Margin="0,5,-3,16" TextWrapping="Wrap" Text="Ingemo Illander"  HorizontalAlignment="Left" Foreground="Black" FontSize="16" FontFamily="Microsoft JhengHei UI Light" FontWeight="Light" Grid.Column="2" Grid.RowSpan="2" Width="200" />
+            <TextBlock x:Name="txtbName" Margin="0,5,-3,-2" TextWrapping="Wrap" Text="Ingemo Illander" Foreground="Black" FontSize="16" FontFamily="Microsoft JhengHei UI Light" FontWeight="Light" Grid.Column="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" />
 
-            <TextBlock x:Name="txtb_labelAcess" TextWrapping="Wrap" Text="Behörighet:"  FontSize="14" FontFamily="Segoe WP Light" FontStyle="Italic" Foreground="{StaticResource fontColor}" FontWeight="Thin" Grid.Row="1" Grid.RowSpan="2"/>
+            <TextBlock x:Name="txtb_labelAcess" TextWrapping="Wrap" Text="Behörighet:"  FontSize="14" FontFamily="Segoe WP Light" FontStyle="Italic" Foreground="{StaticResource fontColor}" FontWeight="Thin" Grid.Row="1" Grid.RowSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
-            <TextBlock x:Name="txtbAcess"   Text="Lärare" FontSize="14" FontFamily="Segoe WP Light" Foreground="{StaticResource fontColor}"  FontWeight="Thin" Grid.Row="1" Grid.Column="2"/>
+            <TextBlock x:Name="txtbAcess"   Text="Lärare" FontSize="14" FontFamily="Segoe WP Light" Foreground="{StaticResource fontColor}"  FontWeight="Thin" Grid.Row="1" Grid.Column="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
 
-            
 
-            <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Senast skickade prov" Grid.Row="3" Margin="0,10,9,1" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
-            <ListBox x:Name="quizListBox" HorizontalAlignment="Left" Height="100" Width="442" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,-140.2,0" Grid.ColumnSpan="3" ItemTemplate="{DynamicResource DataTemplate1}" SelectionChanged="quizListBox_SelectionChanged">
+
+            <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Senast skickade prov" Grid.Row="4" Margin="0,-7,9,1" TextWrapping="Wrap" Grid.ColumnSpan="3" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+            <ListBox x:Name="quizListBox" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,-142,9.143" Grid.ColumnSpan="3" ItemTemplate="{DynamicResource DataTemplate1}" SelectionChanged="quizListBox_SelectionChanged" ToolTip="Prov skickade till administratör." d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                 <ListBox.Background>
                     <SolidColorBrush Color="White" Opacity="0.565"/>
                 </ListBox.Background>
             </ListBox>
 
 
-            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}" Margin="-25,15,0,0" Grid.Row="6" Click="btnSendQuiz_Click">
+            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}" Margin="10,0,0,0" Grid.Row="6" Click="btnSendQuiz_Click" Width="33" ToolTip="Skicka prov" Height="41.12" VerticalAlignment="Top" HorizontalAlignment="Left" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>

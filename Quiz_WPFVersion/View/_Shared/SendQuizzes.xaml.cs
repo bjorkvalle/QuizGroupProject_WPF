@@ -15,6 +15,7 @@ using System.Windows.Shapes;
 using Quiz_WPFVersion.ViewModels;
 using Quiz_WPFVersion.Models;
 using Quiz_WPFVersion.Data;
+using Xceed.Wpf.Toolkit;
 
 namespace Quiz_WPFVersion.View._Shared
 {
@@ -28,6 +29,9 @@ namespace Quiz_WPFVersion.View._Shared
         User activeUser;
         List<User> selectedStudents;
         Quiz selectedQuiz;
+        DateTime? selDateBegin;
+        DateTime? selDateEnd;
+        TimeSpan? timeSpanQuiz;
 
 
         public SendQuiz(User user)
@@ -51,14 +55,27 @@ namespace Quiz_WPFVersion.View._Shared
 
         private void Button_Click_SendQuiz(object sender, RoutedEventArgs e)
         {
-            if (selectedStudents.Count != 0 && selectedQuiz != null)
+            //var t = new TimeSpan(0,0,0);
+
+            if (selectedStudents.Count != 0 
+                && selectedQuiz != null
+                && timeSpanQuiz.Value.ToString() != "00:00:00"
+                && selDateBegin.HasValue
+                && selDateEnd.HasValue
+                )
             {
+                //adminVM.AddStartDateAndEndDate(selDateBegin, selDateEnd, selectedQuiz);
+                adminVM.AddQuizTimeAndDates(timeSpanQuiz, selDateBegin, selDateEnd, selectedQuiz);
                 adminVM.SendQuizToStudents(selectedQuiz, selectedStudents);
                 lblMessage.Text = "• Provet är nu skickat";
 
                 comboBox_Education.SelectedIndex = -1;
                 selectedStudents.Clear();
                 e.Handled = true;
+            }
+            else
+            {
+                lblMessage.Text = "• Fyll i alla fält";
             }
         }
 
@@ -96,6 +113,24 @@ namespace Quiz_WPFVersion.View._Shared
 
             }
 
+        }
+        
+
+        private void DateBegin_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            selDateBegin = ((DatePicker)sender).SelectedDate ;
+            
+        }
+
+        private void DateEnd_CalendarClosed(object sender, RoutedEventArgs e)
+        {
+            selDateEnd = ((DatePicker)sender).SelectedDate;
+
+        }
+
+        private void TimeSpanQuiz_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            timeSpanQuiz = ((TimeSpanUpDown)sender).Value;
         }
     }
 }

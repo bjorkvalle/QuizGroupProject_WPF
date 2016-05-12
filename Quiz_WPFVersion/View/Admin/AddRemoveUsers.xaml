@@ -75,7 +75,7 @@
                     </TextBox.Background>
                 </TextBox>
                 <TextBlock x:Name="lblNamn_Copy" Height="15.275" Margin="113.488,28,139.992,0" TextWrapping="Wrap" Text="Lösenord" VerticalAlignment="Top" Foreground="{DynamicResource fontColor}"/>
-                <Button x:Name="btnAdd" Style="{StaticResource MyButtonStyle}"  Margin="0,94.239,22.284,0" Click="btn_AddUser" VerticalAlignment="Top" HorizontalAlignment="Right" RenderTransformOrigin="1.537,0.538">
+                <Button x:Name="btnAdd" Style="{StaticResource MyButtonStyle}"  Margin="0,94.239,22.284,0" Click="btn_AddUser" VerticalAlignment="Top" HorizontalAlignment="Right" RenderTransformOrigin="1.537,0.538" ToolTip="Spara ny användare">
                     <Button.Template>
                         <ControlTemplate>
                             <StackPanel>
@@ -85,7 +85,7 @@
                     </Button.Template>
                 </Button>
                 <TextBlock x:Name="lblEdu" HorizontalAlignment="Left" Height="15.275" Margin="3,73.958,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="57.284" Foreground="{DynamicResource fontColor}"><Run Text="Klass"/><LineBreak/><Run/></TextBlock>
-                <ComboBox x:Name="cmbEdu" Margin="0,92.233,0,0" VerticalAlignment="Top" Height="22.006" HorizontalAlignment="Left" Width="101.821" ItemsSource="{Binding educationList}" SelectedItem="{Binding userBinding/Education}">
+                <ComboBox x:Name="cmbEdu" Margin="0,92.233,0,0" VerticalAlignment="Top" Height="22.006" HorizontalAlignment="Left" Width="101.821" ItemsSource="{Binding educationList}" SelectedItem="{Binding userBinding/Education}" ToolTip="Välj klass">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />
@@ -93,7 +93,7 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <TextBlock x:Name="lblCourse" Height="15.275" Margin="113.488,73.958,139.992,0" TextWrapping="Wrap" Text="Kurs" VerticalAlignment="Top" Foreground="{DynamicResource fontColor}"/>
-                <ComboBox x:Name="cmbCourse" Margin="110.89,92.233,96.659,0" VerticalAlignment="Top" Height="22.006" ItemsSource="{Binding courseList}">
+                <ComboBox x:Name="cmbCourse" Margin="110.89,92.233,96.659,0" VerticalAlignment="Top" Height="22.006" ItemsSource="{Binding courseList}" ToolTip="Väljs kurs">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />
@@ -101,7 +101,7 @@
                     </ComboBox.ItemTemplate>
                 </ComboBox>
                 <TextBlock x:Name="lblAcess" Height="16" Margin="0,28,12,0" TextWrapping="Wrap" Text="Behörighet" VerticalAlignment="Top" HorizontalAlignment="Right" Width="67" Foreground="{DynamicResource fontColor}"/>
-                <ComboBox x:Name="cmbAcess" Margin="0,46,7,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Right" Width="76">
+                <ComboBox x:Name="cmbAcess" Margin="0,46,7,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Right" Width="76" ToolTip="Välj behörighet">
                     <ComboBox.DataContext>
                         <Enum:UserType>Teacher</Enum:UserType>
                     </ComboBox.DataContext>
@@ -136,7 +136,7 @@
                 </TransformGroup>
             </Grid.RenderTransform>
             <Grid Margin="15,15,15,48.5">
-                <ListView x:Name="listUsers" Margin="0,28.666,0,31.689" ItemsSource="{Binding userList}">
+                <ListView x:Name="listUsers" Margin="0,28.666,0,31.689" ItemsSource="{Binding userList}" ToolTip="Tillgängliga användare för att ta bort. Klicka på användare sedan klicka på ta bort ikonen för att ta bort.">
                     <ListView.Background>
                         <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                     </ListView.Background>
@@ -148,13 +148,13 @@
 
                 </ListView>
                 <Label x:Name="lblSearch" FontFamily="Segoe MDL2 Assets" Content="&#xE71E;" FontSize="10                " HorizontalAlignment="Right" VerticalAlignment="Bottom"  Background="{x:Null}" Foreground="{DynamicResource fontColor}" Margin="0,0,63.584,0.671" Panel.ZIndex="3"/>
-                <TextBox x:Name="txtbSearch" Height="22.006" Margin="0,0,59.254,0" TextWrapping="Wrap" VerticalAlignment="Bottom" KeyUp="txtbSearch_KeyUp">
+                <TextBox x:Name="txtbSearch" Height="22.006" Margin="0,0,59.254,0" TextWrapping="Wrap" VerticalAlignment="Bottom" KeyUp="txtbSearch_KeyUp" ToolTip="Sök efter användare">
                     <TextBox.Background>
                         <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                     </TextBox.Background>
                 </TextBox>
                 <TextBlock x:Name="textBlock_Copy3" TextWrapping="Wrap" FontSize="13.333" Foreground="{DynamicResource fontColor}" Margin="3,0,90.63,0" Text="TA BORT" FontFamily="Segoe UI Semibold" FontWeight="Bold" Height="23" VerticalAlignment="Top"/>
-                <Button x:Name="btnRemove" Style="{StaticResource MyButtonStyle}"  Margin="0,0,21.019,1.5" Click="btn_RemoveUser" VerticalAlignment="Bottom" HorizontalAlignment="Right" RenderTransformOrigin="-1.4,0.449">
+                <Button x:Name="btnRemove" Style="{StaticResource MyButtonStyle}"  Margin="0,0,21.019,1.5" Click="btn_RemoveUser" VerticalAlignment="Bottom" HorizontalAlignment="Right" RenderTransformOrigin="-1.4,0.449" ToolTip="Ta bort vald användare">
                     <Button.Template>
                         <ControlTemplate>
                             <StackPanel>
