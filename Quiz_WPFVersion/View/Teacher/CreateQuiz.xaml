@@ -109,11 +109,16 @@
                     </Grid.RenderTransform>
                     <Grid x:Name="gridRubrik" Height="38.92" VerticalAlignment="Top">
                         <TextBlock x:Name="blockHeader" TextWrapping="Wrap" Text="Rubrik" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource fontColor}"/>
-                        <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,16,0,4.92" Background="#FFFFEBC7">
+                        <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,16,98.667,4.92" Background="#FFFFEBC7">
                             <TextBox.Effect>
                                 <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
                             </TextBox.Effect>
                         </TextBox>
+                        <CheckBox x:Name="checkBoxResultat" Content="Visa resultat" HorizontalAlignment="Right" Margin="0,17.122,1.996,6.692" d:LayoutOverrides="Height" Foreground="{DynamicResource fontColor}" FontFamily="Segoe UI Light" BorderBrush="{x:Null}">
+                            <CheckBox.Background>
+                                <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                            </CheckBox.Background>
+                        </CheckBox>
                     </Grid>
                     <Grid x:Name="gridBeskrivning" Height="38.92" Margin="0,43.92,0,66.17" MinHeight="99">
                         <TextBlock x:Name="blockHeader1" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
