@@ -66,6 +66,7 @@ namespace Quiz_StudentApp.ViewModels
                 }
             }
             return oList;
+            
         }
 
         public ObservableCollection<Result> GetUserResults()
@@ -88,7 +89,7 @@ namespace Quiz_StudentApp.ViewModels
                     }
                 }
             }
-            return oList;
+            return oList; 
         }
     }
 }
