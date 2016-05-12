@@ -24,6 +24,7 @@
                 <RowDefinition Height="17"/>
                 <RowDefinition Height="17"/>
                 <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="90"/>
@@ -43,11 +44,25 @@
             
 
             <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Senast skickade prov" Grid.Row="3" Margin="0,10,9,1" TextWrapping="Wrap" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
-            <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Width="442" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,-140.2,0" Grid.ColumnSpan="3" ItemTemplate="{DynamicResource DataTemplate1}" ItemContainerStyle="{DynamicResource ListBox_Transparent}">
+            <ListBox x:Name="quizListBox" HorizontalAlignment="Left" Height="100" Width="442" VerticalAlignment="Top" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,-140.2,0" Grid.ColumnSpan="3" ItemTemplate="{DynamicResource DataTemplate1}" SelectionChanged="quizListBox_SelectionChanged">
                 <ListBox.Background>
                     <SolidColorBrush Color="White" Opacity="0.565"/>
                 </ListBox.Background>
             </ListBox>
+
+
+            <Button x:Name="btnSingelQuestion" Style="{StaticResource MyButtonStyle}" Margin="-25,15,0,0" Grid.Row="6" Click="btnSendQuiz_Click">
+                <Button.Template>
+                    <ControlTemplate>
+                        <StackPanel>
+                            <TextBlock  FontFamily="Segoe MDL2 Assets" Text="&#xE89C;" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"  Background="{x:Null}" Foreground="{DynamicResource fontColor}"/>
+                            <TextBlock Margin="0,0" Foreground="{DynamicResource fontColor}" HorizontalAlignment="Center" VerticalAlignment="Center" Text="Send"/>
+                        </StackPanel>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
         </Grid>
     </Grid>
 </Page>
