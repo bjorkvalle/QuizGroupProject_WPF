@@ -19,9 +19,23 @@ namespace Quiz_WPFVersion.Data
         {
             User user = new User()
             {
-                Name = "asd",
+                Name = "student",
                 Password = "asd",
                 Type = Enum.UserType.Student
+            };
+
+            User user2 = new User()
+            {
+                Name = "teacher",
+                Password = "asd",
+                Type = Enum.UserType.Teacher
+            };
+
+            User user3 = new User()
+            {
+                Name = "admin",
+                Password = "asd",
+                Type = Enum.UserType.Admin
             };
 
             user.Education = CreateEducation(user);
@@ -85,11 +99,18 @@ namespace Quiz_WPFVersion.Data
                 Title = "question2",
                 Type = Enum.QuestionType.MultiChoiceQuestion
             };
+            Question qz3 = new Question()
+            {
+                Title = "question3",
+                Type = Enum.QuestionType.RankQuestion
+            };
 
             qz.Alternatives = CreateAlternatives();
             qz2.Alternatives = CreateAlternatives();
+            qz3.Alternatives = CreateAlternatives();
             qlist.Add(qz);
             qlist.Add(qz2);
+            qlist.Add(qz3);
 
             return qlist;
         }

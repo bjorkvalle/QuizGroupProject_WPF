@@ -4,17 +4,17 @@
 exe
 C#
 .cs
-C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\obj\Debug\
 Quiz_StudentApp
 none
 false
 DEBUG;TRACE
-C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\App.xaml
-51972219085
+C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_StudentApp\App.xaml
+6809374746
 
-4056758568
-16984577974
-Data\ResourceDictionary.xaml;Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
+43-193903007
+161500826544
+Data\ResourceDictionary.xaml;Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\LoginView.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
 
-False
+True
 
