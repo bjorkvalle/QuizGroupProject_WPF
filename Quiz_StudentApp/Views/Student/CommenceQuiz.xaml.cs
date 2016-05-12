@@ -1,4 +1,5 @@
-﻿using Quiz_StudentApp.Models;
+﻿using Quiz_StudentApp.Data;
+using Quiz_StudentApp.Models;
 using Quiz_StudentApp.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -50,6 +51,7 @@ namespace Quiz_StudentApp.Views.Student
         {
             if (((QuizViewModel)DataContext).HandInExam())
             {
+                _timer.Stop();
                 NavigationService.GoBack();
             }
             else
@@ -81,6 +83,8 @@ namespace Quiz_StudentApp.Views.Student
             {
                 _timer.Stop();
                 ((QuizViewModel)DataContext).QuizCorrectorProp.SaveResult();
+
+                //this.NavigationService.Navigate(new StudentHome(((QuizViewModel)DataContext).ActiveQuiz.User));
                 NavigationService.GoBack();
             }
             else

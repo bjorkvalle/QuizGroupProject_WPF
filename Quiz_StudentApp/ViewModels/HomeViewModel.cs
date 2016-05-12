@@ -40,7 +40,7 @@ namespace Quiz_StudentApp.ViewModels
             {
                 bool foundMatch = false;
 
-                foreach (var r in GetUserResults())
+                foreach (var r in Repository<Result>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList())
                 {
                     if (r.QuizId == q.Id)
                     {
@@ -48,24 +48,42 @@ namespace Quiz_StudentApp.ViewModels
                         break;
                     }
                 }
-
                 if (!foundMatch)
                     oList.Add(q);
             }
-
             return oList;
         }
 
         public ObservableCollection<Result> GetUserResults()
         {
-            var results = Repository<Result>.GetInstance().GetDataList()
-                            .Where(u => u.UserId == ActiveUser.Id)
-                            .Where(u => u.Quiz.ShowStudentResult == true).ToList();
-
             ObservableCollection<Result> oList = new ObservableCollection<Result>();
-            results.ForEach(u => oList.Add(u));
+
+            //prevent from being able to retake same quiz
+            //check if quizId already in result table
+            foreach (var r in Repository<Result>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList())
+            {
+                foreach (var q in Repository<Quiz>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList())
+                {
+                    if (r.QuizId == q.Id && q.ShowStudentResult)
+                    {
+                        oList.Add(r);
+                        break;
+                    }
+                }
+            }
 
             return oList;
         }
+
+        //public ObservableCollection<Result> GetUserResults()
+        //{
+        //    ObservableCollection<Result> oList = new ObservableCollection<Result>();
+
+        //    var results = Repository<Result>.GetInstance().GetDataList().Where(u => u.UserId == ActiveUser.Id).ToList();
+
+        //    results.ForEach(u => oList.Add(u));
+
+        //    return oList;
+        //}
     }
 }
