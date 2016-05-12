@@ -64,26 +64,20 @@ namespace Quiz_WPFVersion.HelperClass.Command
             List<Question> listQuestion = QuestionListConverter(vModel.questionList);
             if (listQuestion == null || listQuestion.Count == 0) return;
 
-            //repo.AddData(new Quiz
-            //{
-            //    Title = vModel.createQuizView.txtbHeader.Text,
-            //    Description = vModel.createQuizView.txtbDescription.Text,
-            //    Questions = listQuestion,
 
-            //});
 
-            //new User().Quizs.Add(new Quiz());
-            //Repository<User>.GetInstance().UpdateData(activeUser)
 
-            vModel.activeUser.Quizs.Add(new Quiz
-            {
-                Title = vModel.createQuizView.txtbHeader.Text,
-                Description = vModel.createQuizView.txtbDescription.Text,
-                Questions = listQuestion,
 
-            });
 
-            Repository<User>.GetInstance().UpdateData(vModel.activeUser);
+            Repository<Quiz>.GetInstance().AddData(
+                new Quiz
+                {
+                    Title = vModel.createQuizView.txtbHeader.Text,
+                    Description = vModel.createQuizView.txtbDescription.Text,
+                    Questions = listQuestion,
+                    UserId = vModel.activeUser.Id,
+                    ShowStudentResult = (bool)vModel.createQuizView.checkBoxResultat.IsChecked,
+		}
 
             vModel.createQuizView.lblMessageBoard.Content = "• Provet är nu sparat.";
 

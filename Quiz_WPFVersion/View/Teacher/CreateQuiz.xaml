@@ -83,6 +83,7 @@
         <Grid Width="450" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="20,20,0,0">
 
             <StackPanel Orientation="Vertical">
+<<<<<<< HEAD
                 <TextBlock x:Name="lblHeader" TextWrapping="Wrap" Text="SKAPA ETT PROV"  FontFamily="Segoe UI Semibold" FontSize="20"/>
                 <TextBlock x:Name="lblHeader_under" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="13.333"  Foreground="{DynamicResource fontColor}"/>
                 <Grid x:Name="gridRubrik" Height="38.92" Margin="0,25,0,0">
@@ -97,6 +98,47 @@
                         </TextBox.Background>
                     </TextBox>
                 </Grid>
+=======
+                <!--<TextBlock x:Name="textBlock" TextWrapping="Wrap" FontWeight="Bold" FontSize="17.333" Grid.Column="1" Foreground="{DynamicResource fontColor}" Margin="7,-10,-7,1" Grid.Row="1" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"><Run Text="STAT"/><Run Text="I"/><Run Text="STIK"/></TextBlock>
+                <TextBlock x:Name="textBlock_Copy" Margin="7,-1,0,0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="Genomförda prov" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="104" Foreground="{DynamicResource fontColor}" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>-->
+
+
+                <TextBlock x:Name="lblHeader" TextWrapping="Wrap" Text="SKAPA ETT PROV"  FontWeight="Bold" FontSize="18" Foreground="{DynamicResource fontColor}"/>
+                <TextBlock x:Name="lblHeader_under" TextWrapping="Wrap" Text="Newtons testverktyg" FontFamily="Segoe UI Light" FontSize="10"  Foreground="{DynamicResource fontColor}"/>
+                <Grid x:Name="QuestionsCreate" Height="209.09" Margin="0,25,0,0" RenderTransformOrigin="0.5,0.5">
+                    <Grid.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Grid.RenderTransform>
+                    <Grid x:Name="gridRubrik" Height="38.92" VerticalAlignment="Top">
+                        <TextBlock x:Name="blockHeader" TextWrapping="Wrap" Text="Rubrik" FontWeight="Bold" VerticalAlignment="Top" FontFamily="Segoe UI Semibold" Foreground="{DynamicResource fontColor}"/>
+                        <TextBox x:Name="txtbHeader" TextWrapping="Wrap" BorderBrush="{x:Null}" Margin="0,16,98.667,4.92" Background="#FFFFEBC7">
+                            <TextBox.Effect>
+                                <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
+                            </TextBox.Effect>
+                        </TextBox>
+                        <CheckBox x:Name="checkBoxResultat" Content="Visa resultat" HorizontalAlignment="Right" Margin="0,17.122,1.996,6.692" d:LayoutOverrides="Height" Foreground="{DynamicResource fontColor}" FontFamily="Segoe UI Light" BorderBrush="{x:Null}">
+                            <CheckBox.Background>
+                                <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                            </CheckBox.Background>
+                        </CheckBox>
+                    </Grid>
+                    <Grid x:Name="gridBeskrivning" Height="38.92" Margin="0,43.92,0,66.17" MinHeight="99">
+                        <TextBlock x:Name="blockHeader1" TextWrapping="Wrap" Text="Beskrivning" VerticalAlignment="Top" FontFamily="Segoe WP Semibold" Foreground="{DynamicResource fontColor}"/>
+                        <TextBox x:Name="txtbDescription" TextWrapping="Wrap" BorderBrush="{x:Null}"  Margin="0,15.96,0,5">
+                            <TextBox.Effect>
+                                <DropShadowEffect BlurRadius="30" Opacity="0.1"/>
+                            </TextBox.Effect>
+                            <TextBox.Background>
+                                <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                            </TextBox.Background>
+                        </TextBox>
+                    </Grid>
+>>>>>>> refs/remotes/origin/master
 
                 <Grid x:Name="gridAddQuestionType" Height="66.17">
                     <StackPanel x:Name="menuAddQuestionType" d:LayoutOverrides="Width" Margin="0,4,0,0">

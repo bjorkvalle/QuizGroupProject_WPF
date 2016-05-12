@@ -21,10 +21,35 @@ namespace Quiz_WPFVersion.View.Teacher
     /// </summary>
     public partial class TeacherView : Page
     {
+<<<<<<< HEAD
 
         public TeacherView()
         {
             InitializeComponent();
         }
+=======
+        TeacherViewModel teacherVM;
+        Quiz selectedQuiz;
+
+        public TeacherView(User user)
+        {
+            InitializeComponent();
+            teacherVM = new TeacherViewModel(user);
+            txtbName.Text = user.Name;
+            //listBox.ItemsSource = Repository<Quiz>.GetInstance().GetDataList().Where(q => q.UserId == user.Id && !String.IsNullOrEmpty(q.Title) && q.SentToStudent).ToList();
+            quizListBox.ItemsSource = teacherVM.GetQuizzes();
+        }
+
+        private void btnSendQuiz_Click(object sender, RoutedEventArgs e)
+        {
+            if (selectedQuiz != null)
+                teacherVM.SendQuizToAdmin(selectedQuiz);
+        }
+
+        private void quizListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedQuiz = quizListBox.SelectedItem as Quiz;
+        }
+>>>>>>> refs/remotes/origin/master
     }
 }
