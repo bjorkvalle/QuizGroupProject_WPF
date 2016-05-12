@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using Quiz_WPFVersion.ViewModels._Shared;
 
 namespace Quiz_WPFVersion.ViewModels
 {
@@ -20,222 +21,76 @@ namespace Quiz_WPFVersion.ViewModels
         public ObservableCollection<Education> _Education { get; private set; }
         public ObservableCollection<User> _Users { get; private set; }
 
-        public ObservableCollection<Quiz> _Quiz { get; private set; }
+        public ObservableCollection<Statistics_Quiz> _Quiz { get; private set; }
 
         private Statistics viewStatistics { get; set; }
 
         public Statistics_ViewModel()
         {
 
-            //_Quiz = new ObservableCollection<Statistics_Quiz>
-            //{
-            //    new Statistics_Quiz
-            //    {
-            //        Title = "Prov1",
-            //        AverageTime = GetAverageTime(CreateQuizzes()),
-            //        QuizTaken = 14,  //Metod för att se hur många som är klara
-            //        QuizNotTaken = 2, //Metod för att se hur många som INTE är klara
-            //        GradeG = 13,  //Metod för att hämta alla godkända
-            //        GradeF = 1   //Metod för att hämta alla underkända
-            //    },
-            //    new Statistics_Quiz
-            //    {
-            //        Title = "Prov2",
-            //        AverageTime = GetAverageTime(CreateQuizzes()),
-            //        QuizTaken = 30,
-            //        QuizNotTaken = 0,
-            //        GradeG = 20,
-            //        GradeF = 10
-            //    },
-            //    new Statistics_Quiz
-            //    {
-            //        Title = "Prov3",
-            //        AverageTime = GetAverageTime(CreateQuizzes()),
-            //        QuizTaken = 37,
-            //        QuizNotTaken = 2,
-            //        GradeG = 33,
-            //        GradeF = 5
-
-            //    },
-            //    new Statistics_Quiz
-            //    {
-            //        Title = "Prov4",
-            //        AverageTime = GetAverageTime(CreateQuizzes()),
-            //        QuizTaken = 32,
-            //        QuizNotTaken = 5,
-            //        GradeG = 2,
-            //        GradeF = 30
-
-
-            //    },
-            //};
-
-
-            //#region Edu, Course, User + Repository
-
-            //_Users = new ObservableCollection<User>
-            //{
-            //    new User
-            //    {
-            //        Name = "Ba",
-            //    },
-            //    new User
-            //    {
-            //        Name = "Ka",
-            //    },
-            //    new User
-            //    {
-            //        Name = "Raad",
-            //    },
-            //    new User
-            //    {
-            //        Name = "Da",
-            //    },
-            //    new User
-            //    {
-            //        Name = "Fz",
-            //    },
-
-            //};
-
-            //_Courses = new ObservableCollection<Course>()
-            //{
-            //    new Course
-            //    {
-            //        Name = "Logic",
-
-            //    }, new Course
-            //    {
-            //        Name = "Basic",
-
-            //    },
-            //     new Course
-            //    {
-            //        Name = "Expert",
-
-            //    },
-
-            //};
-            //_Education = new ObservableCollection<Education>()
-            //{
-            //    new Education
-            //    {
-            //        Name = "Java"
-            //    },
-            //    new Education
-            //    {
-            //        Name = "C-Sharp"
-            //    },
-            //     new Education
-            //    {
-            //        Name = "Phyton"
-            //    },
-
-            //};
-
-            //var quizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == ActiveUser.Id);
-
-
-            //var course_temp = repo_Courses.GetDataList().ToList();
-            //course_temp.ForEach(u => _Courses.Add(u));
-
-            //var education_temp = repo_Education.GetDataList().ToList();
-            //education_temp.ForEach(u => _Education.Add(u));
-
-            //Education = repo_Education.GetDataList();
-            //#endregion
 
             _Education = new ObservableCollection<Education>(Repository<Education>.GetInstance().GetDataList());
+            _Courses = new ObservableCollection<Course>(Repository<Course>.GetInstance().GetDataList());
+            _Users = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList());
+            _Quiz = new ObservableCollection<Statistics_Quiz>();
 
         }
 
-        private DateTime GetAverageTime(List<Quiz> quizList)
-        {
-            List<DateTime> temp = new List<DateTime>();
+        //private DateTime GetAverageTime(List<Quiz> quizList)
+        //{
+        //    List<DateTime> temp = new List<DateTime>();
 
-            foreach (var quiz in quizList)
+        //    foreach (var quiz in quizList)
+        //    {
+        //        temp.Add(new DateTime(quiz.EndDate.Value.Ticks - quiz.StartDate.Value.Ticks));
+        //    }
+
+        //    var first = temp.First().Ticks;
+        //    DateTime average;
+        //    return average = new DateTime(first + (long)temp.Average(d => d.Ticks - first));
+
+        //}
+
+        private int GetGradeG(Quiz passedQuiz)
+        {
+            List<Result> tmpResults = Repository<Result>.GetInstance().GetDataList().Where(result => result.QuizId == passedQuiz.Id).ToList();
+
+            int gUsers = 0;
+
+            foreach (Result result in tmpResults)
             {
-                temp.Add(new DateTime(quiz.EndDate.Value.Ticks - quiz.StartDate.Value.Ticks));
+                if (result.Score >= passedQuiz.GScore)
+                    gUsers++;
             }
 
-            var first = temp.First().Ticks;
-            DateTime average;
-            return average = new DateTime(first + (long)temp.Average(d => d.Ticks - first));
-
+            return gUsers;
         }
-        Random rand = new Random();
 
-        private List<Quiz> CreateQuizzes()
+        private int GetGradeF(Quiz passedQuiz)
         {
+            List<Result> tmpResults = Repository<Result>.GetInstance().GetDataList().Where(result => result.QuizId == passedQuiz.Id).ToList();
 
-            List<Quiz> quizList;
-            quizList = new List<Quiz>()
+            int fUsers = 0;
+
+            foreach (Result result in tmpResults)
             {
-                new Quiz
-                {
-                      Id = 1,
-                      Title = "JavaQuiz",
-                      StartDate = new DateTime(2016, 05, 07, 13, 00, 00),
-                      EndDate = new DateTime(2016, 05, 07, rand.Next(13,17), rand.Next(00,59), 00),
+                if (result.Score < passedQuiz.GScore)
+                    fUsers++;
+            }
 
-                },
-                new Quiz
-                {
-                      Id = 1,
-                      Title = "JavaQuiz",
-                      StartDate = new DateTime(2016, 05, 07, 13, 00, 00),
-                      EndDate = new DateTime(2016, 05, 07, rand.Next(13,17), rand.Next(00,59), 00),
-                },
-                new Quiz
-                {
-                      Id = 1,
-                      Title = "JavaQuiz",
-                      StartDate = new DateTime(2016, 05, 07, 13, 00, 00),
-                      EndDate = new DateTime(2016, 05, 07, rand.Next(13,17), rand.Next(00,59), 00),
-                },
-                new Quiz
-                {
-                      Id = 1,
-                      Title = "JavaQuiz",
-                      StartDate = new DateTime(2016, 05, 07, 13, 00, 00),
-                      EndDate = new DateTime(2016, 05, 07, rand.Next(13,17), rand.Next(00,59), 00),
-                },
-                new Quiz
-                {
-                      Id = 1,
-                      Title = "JavaQuiz",
-                      StartDate = new DateTime(2016, 05, 07, 13, 00, 00),
-                      EndDate = new DateTime(2016, 05, 07, rand.Next(13,17), rand.Next(00,59), 00),
-                },
-                new Quiz
-                {
-                      Id = 1,
-                      Title = "JavaQuiz",
-                      StartDate = new DateTime(2016, 05, 07, 13, 00, 00),
-                      EndDate = new DateTime(2016, 05, 07, rand.Next(13,17), rand.Next(00,59), 00),
-                },
-                new Quiz
-                {
-                      Id = 1,
-                      Title = "JavaQuiz",
-                      StartDate = new DateTime(2016, 05, 07, 13, 00, 00),
-                      EndDate = new DateTime(2016, 05, 07, rand.Next(13,17), rand.Next(00,59), 00),
-                },
-                new Quiz
-                {
-                      Id = 1,
-                      Title = "JavaQuiz",
-                      StartDate = new DateTime(2016, 05, 07, 13, 00, 00),
-                      EndDate = new DateTime(2016, 05, 07, rand.Next(13,17), rand.Next(00,59), 00),
-                },
-
-
-            };
-
-            return quizList;
-
+            return fUsers;
         }
 
+        private int GetCompletedTestsCount(Quiz passedQuiz)
+        {
+            return Repository<Result>.GetInstance().GetDataList().Where(result => result.QuizId == passedQuiz.Id).ToList().Count;
+        }
+
+        private int GetNotCompletedTestsCount(Quiz passedQuiz)
+        {
+            int usersThatGotTheQuiz = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == passedQuiz.UserId).ToList().Count;
+            return (usersThatGotTheQuiz - GetCompletedTestsCount(passedQuiz));
+        }
 
 
         public void GetInstanceOfView(Statistics viewStatistics)
@@ -250,59 +105,76 @@ namespace Quiz_WPFVersion.ViewModels
         public void SetSelEducation(object selEducation)
         {
             this.selEducation = selEducation as Education;
-            Search();
+            SearchByEducation();
         }
 
-        private void Search()
+        private void SearchByEducation()
         {
-            if (selEducation != null)
+
+            var joinedQuizList = from quiz in Repository<Quiz>.GetInstance().GetDataList()
+                                 join user in Repository<User>.GetInstance().GetDataList()
+                                              on quiz.UserId equals user.Id
+                                 where (user.EducationId == selEducation.Id)
+                                 select quiz;
+
+
+
+            CreateStatisticQuizList(joinedQuizList.ToList());
+
+            //Fils the user box with user from the selected Education
+            _Users.Clear();
+
+            List<User> tmpUsers = Repository<User>.GetInstance().GetDataList().Where(user => user.EducationId == selEducation.Id).ToList();
+
+            foreach (var user in tmpUsers)
             {
-                _Users = new ObservableCollection<User>(Repository<User>.GetInstance().GetDataList().
-                     Where(user => user.EducationId == selEducation.Id));
-
-                //_Quiz = new ObservableCollection<Quiz>(Repository<Quiz>.GetInstance().GetDataList().
-                //     Where(quiz => quiz.UserId ==));
-
-
-                //IList<Quiz> quizzes = Repository<Quiz>.GetInstance().GetDataList();
-
-                //List<Quiz> tmpQuizzes = new List<Quiz>();
-
-                //foreach (var quiz in quizzes)
-                //{
-                //    foreach (var user in _Users)
-                //    {
-                //        if (quiz.UserId == user.Id)
-                //            tmpQuizzes.Add(quiz);
-                //    }
-                //}
-
-
+                _Users.Add(user);
             }
-            else if (selCourse != null)
-            {
-
-            }
-            else if (selUser != null)
-            {
-
-            }
-
-            //sök med tre värden
-
-
-
 
         }
 
-        public void SetSelCourse(object selCourse)
+
+        public void SearchByUser()
         {
-            this.selCourse = selCourse as Course;
+            List<Quiz> tmpQuizzes = Repository<Quiz>.GetInstance().GetDataList().Where(quiz => quiz.UserId == selUser.Id).ToList();
+
+            CreateStatisticQuizList(tmpQuizzes);
+
         }
+
+
+        private void CreateStatisticQuizList(List<Quiz> quizList)
+        {
+            _Quiz.Clear();
+
+            foreach (var quiz in quizList)
+            {
+                Statistics_Quiz tmpQuiz = new Statistics_Quiz
+                {
+                    Title = quiz.Title,
+                    GradeG = GetGradeG(quiz),
+                    //AverageTime = null, check later
+                    GradeF = GetGradeF(quiz),
+                    QuizTaken = GetCompletedTestsCount(quiz),
+                    QuizNotTaken = GetNotCompletedTestsCount(quiz)
+
+                };
+
+                _Quiz.Add(tmpQuiz);
+
+            }
+        }
+
+
+
+
 
         public void SetSelUser(object selUser)
         {
+            if (selUser == null)
+                return;
             this.selUser = selUser as User;
+            SearchByUser();
         }
     }
 }
