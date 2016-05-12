@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\obj\Debug\
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\obj\Debug\
 Quiz_WPFVersion
 none
 false
 DEBUG;TRACE
-C:\Users\Eric Björkvall\Dropbox\SystemutvecklingUtbildning\Windowsapplikationer\inlämningsuppgifter\333\NGG4_WPF\Quiz_WPFVersion\App.xaml
+C:\Users\Calle\Documents\Visual Studio 2015\Projects\NGG4_WPF\Quiz_WPFVersion\App.xaml
 1337759122
 
-57-1208071892
-17845568139
+58860856881
+17-58149942
 Data\ResourceDictionary.xaml;Simple Styles.xaml;View\Admin\AddRemoveUsers.xaml;View\Admin\AdminView.xaml;View\Student\StudentView.xaml;View\Teacher\TeacherView.xaml;View\Teacher\CreateQuiz.xaml;View\_Shared\LoginView.xaml;View\_Shared\MainWindow.xaml;View\_Shared\NavigationWindowView.xaml;View\_Shared\SeeQuiz.xaml;View\_Shared\SendQuizzes.xaml;View\_Shared\Statistics.xaml;
 
-False
+True
 
