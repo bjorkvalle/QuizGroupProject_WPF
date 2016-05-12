@@ -64,7 +64,9 @@ namespace Quiz_WPFVersion.HelperClass.Command
             List<Question> listQuestion = QuestionListConverter(vModel.questionList);
             if (listQuestion == null || listQuestion.Count == 0) return;
 
-            
+
+
+
 
 
             Repository<Quiz>.GetInstance().AddData(
@@ -74,11 +76,8 @@ namespace Quiz_WPFVersion.HelperClass.Command
                     Description = vModel.createQuizView.txtbDescription.Text,
                     Questions = listQuestion,
                     UserId = vModel.activeUser.Id,
-
-                });
-
-
-         
+                    ShowStudentResult = (bool)vModel.createQuizView.checkBoxResultat.IsChecked,
+		}
 
             vModel.createQuizView.lblMessageBoard.Content = "• Provet är nu sparat.";
 
@@ -106,7 +105,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
 
         public List<Alternative> AlternativeCorrectScore(Question_Binding question)
         {
-            int counter = 0;
+
             foreach (var alternative in question.Alternatives)
             {
                 if (question.Type == Enum.QuestionType.MultiChoiceQuestion)
@@ -130,9 +129,7 @@ namespace Quiz_WPFVersion.HelperClass.Command
                 }
                 else if (question.Type == Enum.QuestionType.RankQuestion)
                 {
-                    //alternative.ScoreValue = question.ScoreValue / question.Alternatives.Count;
-                    counter++;
-                    alternative.ScoreValue = counter;
+                    alternative.ScoreValue = question.ScoreValue / question.Alternatives.Count;
                 }
             }
 

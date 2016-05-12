@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Quiz_WPFVersion.Models;
-using Quiz_WPFVersion.Data;
-
 
 namespace Quiz_WPFVersion.ViewModels
 {
     class AdminViewModel
     {
+<<<<<<< HEAD
+=======
         User activeUser;
 
         public AdminViewModel(User user)
@@ -49,6 +49,16 @@ namespace Quiz_WPFVersion.ViewModels
 
         }
 
+        public void AddQuizTime(DateTime datetime, Quiz quiz)
+        {
+            var tmpTimeSpan = new TimeSpan();
+
+            Repository<Quiz>.GetInstance().DeleteData(quiz);
+            quiz.TimeLimit = tmpTimeSpan;
+            Repository<Quiz>.GetInstance().AddData(quiz);
+        }
+
+>>>>>>> refs/remotes/origin/master
 
     }
 }
