@@ -13,6 +13,22 @@ namespace Quiz_WPFVersion.Data
         public SeedData()
         {
             Repository<User>.GetInstance().AddData(CreateUser());
+
+            User user2 = new User()
+            {
+                Name = "teacher",
+                Password = "asd",
+                Type = Enum.UserType.Teacher
+            };
+            Repository<User>.GetInstance().AddData(user2);
+
+            User user3 = new User()
+            {
+                Name = "admin",
+                Password = "asd",
+                Type = Enum.UserType.Admin
+            };
+            Repository<User>.GetInstance().AddData(user3);
         }
 
         private User CreateUser()
@@ -20,23 +36,11 @@ namespace Quiz_WPFVersion.Data
             User user = new User()
             {
                 Name = "student",
-                Password = "1",
+                Password = "asd",
                 Type = Enum.UserType.Student
             };
 
-            User user2 = new User()
-            {
-                Name = "teacher",
-                Password = "1",
-                Type = Enum.UserType.Teacher
-            };
-
-            User user3 = new User()
-            {
-                Name = "admin",
-                Password = "1",
-                Type = Enum.UserType.Admin
-            };
+            
 
             user.Education = CreateEducation(user);
             user.Quizs = CreateQuiz();

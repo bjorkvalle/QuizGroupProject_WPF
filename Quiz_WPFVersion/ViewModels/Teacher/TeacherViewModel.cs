@@ -31,6 +31,12 @@ namespace Quiz_WPFVersion.ViewModels
 
             foreach (var admin in tmpAdmins)
             {
+                using (var db = new QuizContext())
+                {
+                    quiz = db.Quizs.Include("Questions").Include("Questions.Alternatives")
+                                   .Where(s => s.Id == quiz.Id).FirstOrDefault<Quiz>();
+                }
+
                 quiz.UserId = admin.Id;
                 Repository<Quiz>.GetInstance().AddData(quiz);
             }
