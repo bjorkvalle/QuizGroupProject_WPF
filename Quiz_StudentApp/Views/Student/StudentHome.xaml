@@ -9,53 +9,244 @@
       mc:Ignorable="d" 
       d:DesignHeight="400" d:DesignWidth="500"
       Title="StudentHome">
+    <Page.Resources>
+        <Storyboard x:Key="AnimateBlurIn">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="stackPanel">
+                <EasingDoubleKeyFrame KeyTime="0" Value="19.236"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="quizListTemplate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="19.236"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="19.236"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="btnNewQuiz">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="btnOldQuiz">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="quizListTemplate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Key="FlyInQuiz">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="btnNewQuiz">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="btnOldQuiz">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Effect).(BlurEffect.Radius)" Storyboard.TargetName="quizListTemplate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-800"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="quizListTemplate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-800"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="resultListTemplate">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="resultListTemplate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-800">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+        <Storyboard x:Key="FlyoutQuiz">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="rectangle">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-800"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="quizListTemplate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseIn"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="-800"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Visibility)" Storyboard.TargetName="resultListTemplate">
+                <DiscreteObjectKeyFrame KeyTime="0" Value="{x:Static Visibility.Visible}"/>
+                <DiscreteObjectKeyFrame KeyTime="0:0:0.3" Value="{x:Static Visibility.Visible}"/>
+            </ObjectAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.X)" Storyboard.TargetName="resultListTemplate">
+                <EasingDoubleKeyFrame KeyTime="0" Value="-800"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:0.3" Value="0">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <CircleEase EasingMode="EaseOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource AnimateBlurIn}"/>
+
+        </EventTrigger>
+    </Page.Triggers>
 
     <Grid Background="{DynamicResource backgroundOrangeLight}">
         <Grid Margin="20,20">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" MinHeight="63.9"/>
+                <RowDefinition Height="Auto" MinHeight="38"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="0" Orientation="Vertical">
-            <StackPanel Orientation="Horizontal">
+            <StackPanel x:Name="userInfoTemplate" Grid.Column="0" Grid.Row="0" Orientation="Vertical" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
+                <Image x:Name="image" HorizontalAlignment="Left" Width="81" Panel.ZIndex="5" Source="/Quiz_StudentApp;component/Data/Images/Newton_White.png" Height="22" d:LayoutOverrides="LeftPosition, RightPosition"/>
+
+                <StackPanel Orientation="Horizontal" Margin="0,6,0,0">
                     <TextBlock FontSize="16" FontWeight="Bold" Text="Välkommen "/>
                     <TextBlock x:Name="txtBlockName" Margin="12,0,0,0"  Foreground="Black" FontFamily="Microsoft JhengHei UI Light"  FontSize="16" Text="{Binding Name}" />
-            </StackPanel>
-            <StackPanel Margin="0,0,0,24" Orientation="Horizontal">
-                <TextBlock FontSize="14"  Text="Klass: "/>
+                </StackPanel>
+                <StackPanel Margin="0,0,0,24" Orientation="Horizontal">
+                    <TextBlock FontSize="14"  Text="Klass: "/>
                     <TextBlock x:Name="txtBlockEducation"  Margin="68,0,0,0" FontWeight="Thin" Foreground="{StaticResource fontColor}" FontFamily="Segoe WP Light" FontSize="14" />
+                </StackPanel>
             </StackPanel>
-        </StackPanel>
-        <StackPanel  Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-            <Button Style="{StaticResource MyButtonStyle}" Margin="4" Name="btnNewQuiz" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#59151;" Height="30" Width="60" Click="btnNewQuiz_Click"/>
-                <Button Style="{StaticResource MyButtonStyle}" Margin="4" Name="btnOldQuiz" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#59633;" Height="30" Width="60" Click="btnOldQuiz_Click" />
-        </StackPanel>
+            <StackPanel x:Name="stackPanel"  Grid.Row="1" Grid.Column="0" Orientation="Horizontal" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" RenderTransformOrigin="0.5,0.5">
+                <StackPanel.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </StackPanel.RenderTransform>
+                <Button Style="{StaticResource MyButtonStyle}" Margin="4" x:Name="btnNewQuiz" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE70F;" Height="30" Width="60" Click="btnNewQuiz_Click" ToolTip="Se tillgängliga prov" RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Effect>
+                        <BlurEffect/>
+                    </Button.Effect>
+                </Button>
+                <Button Style="{StaticResource MyButtonStyle}" Margin="4" x:Name="btnOldQuiz" FontFamily="Segoe MDL2 Assets" FontSize="24" Content="&#xE8F1;" Height="30" Width="60" Click="btnOldQuiz_Click" ToolTip="Se resultat. Om att se resultatet är tillåtet av din lärare." RenderTransformOrigin="0.5,0.5" >
+                    <Button.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Button.RenderTransform>
+                    <Button.Effect>
+                        <BlurEffect/>
+                    </Button.Effect>
+                </Button>
+            </StackPanel>
+            <Rectangle x:Name="rectangle" Height="104" Margin="0,0,0,-166.602" VerticalAlignment="Bottom" StrokeThickness="2" RadiusX="30" RadiusY="30" Grid.Row="2" Panel.ZIndex="-5" RenderTransformOrigin="0.5,0.5">
+                <Rectangle.Effect>
+                    <BlurEffect/>
+                </Rectangle.Effect>
+                <Rectangle.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Rectangle.RenderTransform>
+                <Rectangle.Fill>
+                    <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                </Rectangle.Fill>
+            </Rectangle>
 
-        <ListView ItemsSource="{Binding}" MouseDoubleClick="quizListTemplate_MouseDoubleClick" Name="quizListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="Titel" Width="Auto"  DisplayMemberBinding="{Binding Title}" />
-                    <GridViewColumn Header="Beskrivning" Width="Auto" DisplayMemberBinding="{Binding Description}" />
-                    <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate, StringFormat='yyyy-MM-dd HH:mm'}" />
-                    <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate, StringFormat='yyyy-MM-dd HH:mm'}" />
-                    <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit, StringFormat='HH:mm'}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ListView Visibility="Collapsed"  Name="resultListTemplate" Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="2">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Header="ResultatId" Width="Auto" DisplayMemberBinding="{Binding Id}" />
-                    <GridViewColumn Header="Totala antal rätt" Width="Auto"  DisplayMemberBinding="{Binding Score}" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-    
-</Grid>
+            <ListView ItemsSource="{Binding}" MouseDoubleClick="quizListTemplate_MouseDoubleClick" x:Name="quizListTemplate" Grid.Column="0" Grid.Row="2" Margin="0,0,0,-135.602" BorderBrush="{x:Null}" Height="125.602" VerticalAlignment="Bottom" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" ToolTip="Tillgängliga prov" RenderTransformOrigin="0.5,0.5" BorderThickness="0">
+                <ListView.Effect>
+                    <BlurEffect/>
+                </ListView.Effect>
+                <ListView.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ListView.RenderTransform>
+                <ListView.Background>
+                    <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                </ListView.Background>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Titel" Width="Auto"  DisplayMemberBinding="{Binding Title}" />
+                        <GridViewColumn Header="Beskrivning" Width="Auto" DisplayMemberBinding="{Binding Description}" />
+                        <GridViewColumn Header="Startdatum" Width="Auto" DisplayMemberBinding="{Binding StartDate, StringFormat=yyyy-MM-dd HH:mm}" />
+                        <GridViewColumn Header="Slutdatum" Width="Auto" DisplayMemberBinding="{Binding EndDate, StringFormat=yyyy-MM-dd HH:mm}" />
+                        <GridViewColumn Header="Tidsbegränsning" Width="Auto" DisplayMemberBinding="{Binding TimeLimit, StringFormat=HH:mm}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+            <ListView  x:Name="resultListTemplate" Grid.Column="0" Grid.Row="2" Height="175.955" VerticalAlignment="Bottom" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Margin="0,0,0,-185.955" BorderBrush="{x:Null}" Visibility="Collapsed" BorderThickness="0" RenderTransformOrigin="0.5,0.5">
+                <ListView.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </ListView.RenderTransform>
+                <ListView.Background>
+                    <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                </ListView.Background>
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ResultatId" Width="Auto" DisplayMemberBinding="{Binding Id}" />
+                        <GridViewColumn Header="Totala antal rätt" Width="Auto"  DisplayMemberBinding="{Binding Score}" />
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+        </Grid>
     </Grid>
 </Page>

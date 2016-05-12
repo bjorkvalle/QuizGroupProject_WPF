@@ -75,8 +75,8 @@ namespace Quiz_WPFVersion.ViewModels
                     window.btnCreateQuiz.Visibility = Visibility.Collapsed;
                     window.DetailFrame.Content = new AdminView(activeUser);
                     break;
-                case UserType.Student:
-                    throw new ArgumentException("User is student - no acessibility should be allowed in this program");
+                //case UserType.Student:
+                //    //throw new ArgumentException("User is student - no acessibility should be allowed in this program");
                 default:
                     break;
             }

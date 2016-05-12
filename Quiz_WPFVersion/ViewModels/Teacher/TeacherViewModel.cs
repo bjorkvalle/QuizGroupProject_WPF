@@ -36,7 +36,7 @@ namespace Quiz_WPFVersion.ViewModels
                     quiz = db.Quizs.Include("Questions").Include("Questions.Alternatives")
                                    .Where(s => s.Id == quiz.Id).FirstOrDefault<Quiz>();
                 }
-
+                quiz.SentToAdmin = true;
                 quiz.UserId = admin.Id;
                 Repository<Quiz>.GetInstance().AddData(quiz);
             }

@@ -43,7 +43,7 @@
 
 
 
-            <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Senast skickade prov" Grid.Row="4" Margin="0,-7,9,1" TextWrapping="Wrap" Grid.ColumnSpan="3" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+            <TextBlock x:Name="textBlock_Copy" Foreground="{StaticResource fontColor}" FontSize="14" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Text="Prov att skicka vidare" Grid.Row="4" Margin="0,-7,9,1" TextWrapping="Wrap" Grid.ColumnSpan="3" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
             <ListBox x:Name="quizListBox" Grid.Row="5" BorderBrush="{x:Null}" Foreground="{x:Null}" Margin="-1,0,-142,9.143" Grid.ColumnSpan="3" ItemTemplate="{DynamicResource DataTemplate1}" SelectionChanged="quizListBox_SelectionChanged" ToolTip="Prov skickade till administratör." d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                 <ListBox.Background>
                     <SolidColorBrush Color="White" Opacity="0.565"/>

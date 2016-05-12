@@ -11,6 +11,7 @@ using System.Collections.ObjectModel;
 using System.Data.Entity;
 using System.Windows.Threading;
 using Quiz_StudentApp.HelperClass;
+using Quiz_StudentApp.Enums;
 
 namespace Quiz_StudentApp.ViewModels
 {
@@ -20,6 +21,7 @@ namespace Quiz_StudentApp.ViewModels
         public ObservableCollection<Question> Questions { get; set; }
         public Quiz ActiveQuiz { get; set; }
         public string TimeLeft { get; set; }
+        Random randomizer = new Random();
 
         private QuizCorrector _quizCorrector;
         public QuizCorrector QuizCorrectorProp
@@ -66,22 +68,29 @@ namespace Quiz_StudentApp.ViewModels
 
         public void SetQuizContent2()
         {
-            ObservableCollection<Question> x;//
+            ObservableCollection<Question> activeQuiz;//
 
             using (var db = new QuizContext())
             {
                 ActiveQuiz = db.Quizs.Include("User").Include("Questions").Include("Questions.Alternatives")
                                .Where(s => s.Id == ActiveQuiz.Id).FirstOrDefault<Quiz>();
 
-                x = new ObservableCollection<Question>(ActiveQuiz.Questions);
+                activeQuiz = new ObservableCollection<Question>(ActiveQuiz.Questions);
 
                 ActiveQuiz.User = db.Users.Include("Results").Include("Quizs").Include("Education")
                                .Where(s => s.Id == ActiveQuiz.User.Id).FirstOrDefault<User>();
             }
 
-            foreach (var item in x)
+            //Randomize 
+            //QuestionType.RankQuestion
+
+            foreach (var question in activeQuiz)
             {
-                Questions.Add(item);
+                if (question.Type == QuestionType.RankQuestion)
+                {
+                   question.Alternatives = question.Alternatives.OrderBy(a => randomizer.Next()).ToList();
+                }
+                Questions.Add(question);
             }
         }
 

@@ -87,8 +87,10 @@ namespace Quiz_StudentApp.Views.Student
                 //this.NavigationService.Navigate(new StudentHome(((QuizViewModel)DataContext).ActiveQuiz.User));
                 NavigationService.GoBack();
             }
-            else
+            else { 
                 Timer.Text = new DateTime(TimeLeft.Ticks).ToString("HH:mm:ss");
+                Timer.Visibility = Visibility.Visible;
+            }
         }
     }
 }

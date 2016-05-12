@@ -49,6 +49,7 @@ namespace Quiz_WPFVersion.ViewModels
                                    .Where(s => s.Id == quiz.Id).FirstOrDefault<Quiz>();
                 }
 
+                quiz.SentToStudent = true;
                 quiz.UserId = student.Id;
                 Repository<Quiz>.GetInstance().AddData(quiz);
             }
@@ -60,6 +61,7 @@ namespace Quiz_WPFVersion.ViewModels
             quiz.StartDate = startDate;
             quiz.EndDate = endDate;
             quiz.TimeLimit = timespan;
+
             Repository<Quiz>.GetInstance().UpdateData(quiz);
             //Repository<Quiz>.GetInstance().AddData(quiz);
         }

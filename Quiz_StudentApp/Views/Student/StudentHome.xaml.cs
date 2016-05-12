@@ -12,6 +12,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -30,18 +31,24 @@ namespace Quiz_StudentApp.Views.Student
 
             InitializeComponent();
             vm = new HomeViewModel(user);
+            btnNewQuiz.IsEnabled = false;
         }
 
         private void btnNewQuiz_Click(object sender, RoutedEventArgs e)
         {
-            resultListTemplate.Visibility = Visibility.Collapsed;
-            quizListTemplate.Visibility = Visibility.Visible;
+            
+            ((Storyboard)FindResource("FlyInQuiz")).Begin();
+            btnNewQuiz.IsEnabled = false;
+            btnOldQuiz.IsEnabled = true;
         }
 
         private void btnOldQuiz_Click(object sender, RoutedEventArgs e)
         {
-            quizListTemplate.Visibility = Visibility.Collapsed;
+            ((Storyboard)FindResource("FlyoutQuiz")).Begin();
             resultListTemplate.Visibility = Visibility.Visible;
+            btnNewQuiz.IsEnabled = true;
+            btnOldQuiz.IsEnabled = false;
+
         }
 
         private void Page_Loaded(object sender, RoutedEventArgs e)

@@ -36,7 +36,7 @@
 
 
     <Grid Background="{StaticResource backgroundOrangeLight}">
-        <Grid Margin="23,18,109,35.722">
+        <Grid Margin="23,18,109,83">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="34"/>
@@ -80,15 +80,15 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <Button Content="&#xE8CA;" ToolTip="Skicka prov" Click="Button_Click_SendQuiz" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" FontFamily="Segoe MDL2 Assets" FontSize="18.667" Margin="0,0,20,4.333" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="43.974" d:LayoutOverrides="LeftMargin, RightMargin" Height="35.373" VerticalAlignment="Bottom"/>
+                <Button Content="&#xE8CA;" ToolTip="Skicka prov" Click="Button_Click_SendQuiz" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" FontFamily="Segoe MDL2 Assets" FontSize="18.667" Margin="0,0,15,4.16" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="44" Height="36" VerticalAlignment="Bottom"/>
                 <Rectangle Margin="0,23.334,0,0" RadiusX="30" RadiusY="30" Panel.ZIndex="-1" d:LayoutOverrides="LeftMargin, RightMargin" Fill="#FFFFF2DA">
                     <Rectangle.Effect>
                         <DropShadowEffect BlurRadius="30" Opacity="0.11"/>
                     </Rectangle.Effect>
                 </Rectangle>
-                <DatePicker x:Name="DateEnd" Margin="6.125,0,0,33.693" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.109" CalendarClosed="DateEnd_CalendarClosed" ToolTip="Slut datum för prov"/>
-                <DatePicker x:Name="DateBegin" Margin="6.125,0,0,57.692" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.642" CalendarClosed="DateBegin_CalendarClosed" ToolTip="Startdatum för prov"/>
-                <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,15.2,35.96" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="70" RenderTransformOrigin="0.5,0.5" AllowTextInput="False" ClipValueToMinMax="True" Minimum="0" ValueChanged="TimeSpanQuiz_ValueChanged"> 
+                <DatePicker x:Name="DateEnd" Margin="6,0,0,33.16" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29" CalendarClosed="DateEnd_CalendarClosed" ToolTip="Slut datum för prov"/>
+                <DatePicker x:Name="DateBegin" Margin="6,0,0,57.16" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="30" CalendarClosed="DateBegin_CalendarClosed" ToolTip="Startdatum för prov"/>
+                <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,27,36.16" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="70" RenderTransformOrigin="0.5,0.5" AllowTextInput="False" ClipValueToMinMax="True" Minimum="0" ValueChanged="TimeSpanQuiz_ValueChanged">
                     <xctk:TimeSpanUpDown.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -98,9 +98,9 @@
                         </TransformGroup>
                     </xctk:TimeSpanUpDown.RenderTransform>
                 </xctk:TimeSpanUpDown>
-                <Label x:Name="label" Content="Slutdatum" Margin="35.234,0,92.156,33.69" VerticalAlignment="Bottom" FontFamily="Segoe UI Light"/>
-                <Label x:Name="label_Copy" Content="Startdatum" Margin="35.234,0,92.156,55.731" VerticalAlignment="Bottom" FontFamily="Segoe UI Light"/>
-                <Label x:Name="label_Copy1" Content="Provtid" Margin="0,0,-7.8,54.96" VerticalAlignment="Bottom" FontFamily="Segoe UI Light" HorizontalAlignment="Right" Width="62" RenderTransformOrigin="0.5,0.402"/>
+                <Label x:Name="label" Content="Slutdatum" Margin="35,0,92,33.16" VerticalAlignment="Bottom" FontFamily="Segoe UI Light"/>
+                <Label x:Name="label_Copy" Content="Startdatum" Margin="35,0,92,55.16" VerticalAlignment="Bottom" FontFamily="Segoe UI Light"/>
+                <Label x:Name="label_Copy1" Content="Provtid" Margin="0,0,4,55.16" VerticalAlignment="Bottom" FontFamily="Segoe UI Light" HorizontalAlignment="Right" Width="62" RenderTransformOrigin="0.5,0.402"/>
             </Grid>
             <Grid x:Name="Users" Grid.Column="2" Margin="0,-16.16,0,-1.826" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                 <Grid.RenderTransform>
@@ -142,7 +142,7 @@
                     </Rectangle.Effect>
                 </Rectangle>
             </Grid>
-            <TextBlock x:Name="lblMessage" Foreground="{DynamicResource DisabledForegroundBrush}" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Grid.Row="5" TextWrapping="Wrap" Height="19.333" Margin="12.023,0,-69.34,-26.159" VerticalAlignment="Bottom" Grid.ColumnSpan="2" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin"/>
+            <TextBlock x:Name="lblMessage" Foreground="{DynamicResource DisabledForegroundBrush}" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Grid.Row="5" TextWrapping="Wrap" Height="19" Margin="30,0,107,-26" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
 
 
         </Grid>

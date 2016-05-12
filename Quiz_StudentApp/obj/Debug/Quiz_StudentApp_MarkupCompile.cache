@@ -1,19 +1,19 @@
 ﻿Quiz_StudentApp
 
 
-exe
+winexe
 C#
 .cs
-C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\obj\Debug\
+C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_StudentApp\obj\Debug\
 Quiz_StudentApp
 none
 false
 DEBUG;TRACE
-C:\Users\Haroun\Source\Repos\NGG4_WPF\Quiz_StudentApp\App.xaml
+C:\Users\Haron\Source\Repos\Fresh\NGG4_WPF\Quiz_StudentApp\App.xaml
 6809374746
 
 392529384
-16984577974
+16-1758288985
 Data\ResourceDictionary.xaml;Views\Student\CommenceQuiz.xaml;Views\Student\DisplayResult.xaml;Views\_Shared\LoginView.xaml;Views\_Shared\MainWindow.xaml;Views\Student\StudentHome.xaml;
 
 False

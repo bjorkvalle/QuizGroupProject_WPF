@@ -7,7 +7,7 @@
       xmlns:ViewModels="clr-namespace:Quiz_StudentApp.ViewModels"
       xmlns:helperClass="clr-namespace:Quiz_StudentApp.HelperClass"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="500"
+      d:DesignHeight="476" d:DesignWidth="555.87"
       Loaded="Page_Loaded"
       Title="CommenceQuiz">
 
@@ -79,22 +79,22 @@
             <RowDefinition Height="70"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="txtblockQuizTitle" Margin="0,12,0,0" Foreground="{StaticResource fontColor}" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" />
+        <TextBlock Grid.Column="0" Grid.Row="0" x:Name="txtblockQuizTitle" Margin="0,21,0,0" Foreground="{StaticResource fontColor}" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="24" />
 
         <ScrollViewer Grid.Column="0" Grid.Row="1"  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
 
-            <ListBox  ItemContainerStyle="{DynamicResource ListBox_Transparent}"
-                      ItemsSource="{Binding Questions, Mode=TwoWay}" 
+            <ListBox  ItemContainerStyle="{DynamicResource ListBox_Transparent}" 
                       x:Name="listBoxQuestions" 
                       ItemTemplateSelector="{StaticResource myDTS}"
-                      HorizontalContentAlignment="Stretch"
+                      HorizontalContentAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"
                       >
                 <ListBox.Background>
                     <SolidColorBrush Color="{DynamicResource ListBox_GardinentBackground_List}"/>
                 </ListBox.Background>
             </ListBox>
         </ScrollViewer>
-        <TextBlock x:Name="Timer"  Foreground="{StaticResource fontColor}" Text="{Binding}" Margin="0,0,30,0"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="18"/>
-        <Button Style="{StaticResource MyButtonStyle}" Grid.Row="0" Foreground="WhiteSmoke" FontFamily="Segoe MDL2 Assets"  Grid.Column="0" HorizontalAlignment="Right" Margin="0,0,24,5" FontSize="24" Content="&#59548;" Click="Btn_HandIn"/>
+        <TextBlock x:Name="Timer"  Foreground="{StaticResource fontColor}" Text="{Binding}" Margin="0,0,24.926,17.777"  Grid.Row="1" Grid.Column="0" VerticalAlignment="Bottom" HorizontalAlignment="Right" FontSize="16" FontFamily="Segoe UI Light" Visibility="Hidden"/>
+        <Button Style="{StaticResource MyButtonStyle}" Grid.Row="0" Foreground="WhiteSmoke" FontFamily="Segoe MDL2 Assets"  Grid.Column="0" HorizontalAlignment="Right" Margin="0,5,24,0" FontSize="24" Content="&#59548;" Click="Btn_HandIn"/>
+        <Image x:Name="image" HorizontalAlignment="Left" Width="100" Panel.ZIndex="5" Height="50" Source="/Quiz_StudentApp;component/Data/Images/Newton_White.png" Margin="16.363,9,0,11"/>
     </Grid>
 </Page>
