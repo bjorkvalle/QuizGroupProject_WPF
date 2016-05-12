@@ -22,12 +22,12 @@
 
             <!--Logo-->
             <!--Home button / welcome screen -->
-            <Image x:Name="menuLogo" Width="117" Margin="25,0,0,0.4" Source="/Quiz_WPFVersion;component/Data/Images/Newton_White.png" Stretch="Uniform" Cursor="Hand" MouseLeftButtonDown="Button_Click" />
+            <Image x:Name="menuLogo" Width="117" Margin="25,0,0,0.4" Source="/Quiz_WPFVersion;component/Data/Images/Newton_White.png" Stretch="Uniform" Cursor="Hand" MouseLeftButtonDown="Button_Click" ToolTip="Visa välkommnsskärmen" />
 
             <GridSplitter x:Name="gridSplitter" Height="30" Width="2.5" Background="{DynamicResource NavigationColor}" Margin="30,0,0,0" Opacity="0.5"/>
 
             <!--See Quizzes-->
-            <Button x:Name="btnSeeQuizzes" Style="{StaticResource MyButtonStyle}" Width="50" Height="40" Click="Button_Click" Margin="25,8,0,0">
+            <Button x:Name="btnSeeQuizzes" Style="{StaticResource MyButtonStyle}" Width="50" Height="40" Click="Button_Click" Margin="25,8,0,0" ToolTip="Se statisitik">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
@@ -40,7 +40,7 @@
 
             <!--Teacher-->
             <!--Create Quiz-->
-            <Button x:Name="btnCreateQuiz" Width="60" Height="40" Margin="25,8,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+            <Button x:Name="btnCreateQuiz" Width="60" Height="40" Margin="25,8,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click" ToolTip="Skapa nytt prov">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
@@ -54,7 +54,7 @@
 
             <!--Admin-->
             <!--send Quiz-->
-            <Button x:Name="btnSendQuiz" Width="60" Height="50" Margin="25,6,0,0"  Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+            <Button x:Name="btnSendQuiz" Width="60" Height="50" Margin="25,6,0,0"  Style="{StaticResource MyButtonStyle}" Click="Button_Click" ToolTip="Skicka prov till elever">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>
@@ -66,7 +66,7 @@
             </Button>
 
             <!--Add remove user-->
-            <Button x:Name="btnAdministrate" Width="67" Height="40" Margin="25,6,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click">
+            <Button x:Name="btnAdministrate" Width="67" Height="40" Margin="25,6,0,0" Style="{StaticResource MyButtonStyle}" Click="Button_Click" ToolTip="Administrera användare">
                 <Button.Template>
                     <ControlTemplate>
                         <StackPanel>

@@ -81,7 +81,7 @@
 
 
 
-            <ListView x:Name="listView" Margin="0,0,0,70" ItemsSource="{Binding _Quiz}" Foreground="{DynamicResource fontColor}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" >
+            <ListView x:Name="listView" Margin="0,0,0,70" ItemsSource="{Binding _Quiz}" Foreground="{DynamicResource fontColor}" ScrollViewer.HorizontalScrollBarVisibility="Hidden" ToolTip="Provresultat på prov som har genomförts" >
                 <ListView.Background>
                     <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                 </ListView.Background>
@@ -110,7 +110,7 @@
                         </TransformGroup>
                     </StackPanel.RenderTransform>
                     <TextBlock x:Name="textBlock_Copy1" Margin="0" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Height="18" Foreground="{DynamicResource fontColor}" />
-                    <ComboBox x:Name="comboBox_Education" Margin="1,0,0,0" ItemsSource="{Binding _Education}" SelectionChanged="comboBox_SelectionChanged_Education"  Height="21" MinWidth="120" >
+                    <ComboBox x:Name="comboBox_Education" Margin="1,0,0,0" ItemsSource="{Binding _Education}" SelectionChanged="comboBox_SelectionChanged_Education"  Height="21" MinWidth="120" ToolTip="Visa statestik för specifik klass" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}" />
@@ -129,7 +129,7 @@
                         </TransformGroup>
                     </StackPanel.RenderTransform>
                     <TextBlock x:Name="textBlock_Copy3" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="ELEV" Height="18" Foreground="{DynamicResource fontColor}" />
-                    <ComboBox x:Name="comboBox_User" ItemsSource="{Binding _Users}" SelectionChanged="comboBox_SelectionChanged_User" Height="21" MinWidth="60" >
+                    <ComboBox x:Name="comboBox_User" ItemsSource="{Binding _Users}" SelectionChanged="comboBox_SelectionChanged_User" Height="21" MinWidth="60" ToolTip="Visa statestik för specifik elev" >
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <TextBlock Text="{Binding Name}" />

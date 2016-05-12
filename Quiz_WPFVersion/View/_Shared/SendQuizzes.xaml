@@ -67,7 +67,7 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
                 <TextBlock x:Name="textBlock_Copy2" TextWrapping="Wrap" FontSize="13.333" Foreground="{DynamicResource fontColor}" Margin="3,0,0,0" Text="PROV" FontFamily="Segoe UI Semibold" FontWeight="Bold" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="16.16" VerticalAlignment="Top"/>
-                <ListBox x:Name="quizListBox" Grid.Column="0" SelectionChanged="quizListBox_SelectionChanged" BorderBrush="{x:Null}" BorderThickness="0" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,23.334,0,86.278">
+                <ListBox x:Name="quizListBox" Grid.Column="0" SelectionChanged="quizListBox_SelectionChanged" BorderBrush="{x:Null}" BorderThickness="0" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,23.334,0,86.278" ToolTip="Prov som går att skicka">
                     <ListBox.Background>
                         <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                     </ListBox.Background>
@@ -80,14 +80,14 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
 
-                <Button Content="&#xE8CA;" Click="Button_Click_SendQuiz" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" FontFamily="Segoe MDL2 Assets" FontSize="18.667" Margin="0,0,20,4.333" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="43.974" d:LayoutOverrides="LeftMargin, RightMargin" Height="35.373" VerticalAlignment="Bottom"/>
+                <Button Content="&#xE8CA;" ToolTip="Skicka prov" Click="Button_Click_SendQuiz" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" FontFamily="Segoe MDL2 Assets" FontSize="18.667" Margin="0,0,20,4.333" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="43.974" d:LayoutOverrides="LeftMargin, RightMargin" Height="35.373" VerticalAlignment="Bottom"/>
                 <Rectangle Margin="0,23.334,0,0" RadiusX="30" RadiusY="30" Panel.ZIndex="-1" d:LayoutOverrides="LeftMargin, RightMargin" Fill="#FFFFF2DA">
                     <Rectangle.Effect>
                         <DropShadowEffect BlurRadius="30" Opacity="0.11"/>
                     </Rectangle.Effect>
                 </Rectangle>
-                <DatePicker x:Name="DateEnd" Margin="6.125,0,0,33.693" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.109" CalendarClosed="DateEnd_CalendarClosed"/>
-                <DatePicker x:Name="DateBegin" Margin="6.125,0,0,57.692" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.642" CalendarClosed="DateBegin_CalendarClosed"/>
+                <DatePicker x:Name="DateEnd" Margin="6.125,0,0,33.693" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.109" CalendarClosed="DateEnd_CalendarClosed" ToolTip="Slut datum för prov"/>
+                <DatePicker x:Name="DateBegin" Margin="6.125,0,0,57.692" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.642" CalendarClosed="DateBegin_CalendarClosed" ToolTip="Startdatum för prov"/>
                 <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,15.2,35.96" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="70" RenderTransformOrigin="0.5,0.5" AllowTextInput="False" ClipValueToMinMax="True" Minimum="0" ValueChanged="TimeSpanQuiz_ValueChanged"> 
                     <xctk:TimeSpanUpDown.RenderTransform>
                         <TransformGroup>
@@ -112,7 +112,7 @@
                     </TransformGroup>
                 </Grid.RenderTransform>
 
-                <ListBox x:Name="userListBox" SelectionMode="Multiple" SelectionChanged="userListBox_SelectionChanged" d:LayoutOverrides="LeftMargin, RightMargin" BorderBrush="{x:Null}" BorderThickness="0" Margin="0,23.334,0,89.104">
+                <ListBox x:Name="userListBox" SelectionMode="Multiple" SelectionChanged="userListBox_SelectionChanged" d:LayoutOverrides="LeftMargin, RightMargin" BorderBrush="{x:Null}" BorderThickness="0" Margin="0,23.334,0,89.104" ToolTip="Elever som kan ta emot prov">
                     <ListBox.Background>
                         <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
                     </ListBox.Background>
@@ -127,9 +127,9 @@
                 <TextBlock x:Name="textBlock_Copy1" TextWrapping="Wrap" FontSize="13.333" Foreground="{DynamicResource fontColor}" Margin="3,0,0,0" Text="ELEVER" FontFamily="Segoe UI Semibold" FontWeight="Bold" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="16.16" VerticalAlignment="Top"/>
 
                 <StackPanel Orientation="Horizontal" Margin="54.701,0,54.7,1.846" d:LayoutOverrides="LeftMargin, RightMargin" d:IsHidden="True" Height="30.333" VerticalAlignment="Bottom"/>
-                <Button Content="&#xE716;" Click="Button_Click_All" RenderTransformOrigin="0.66,2.067" Margin="0,0,10,10.368" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="34.701" FontFamily="Segoe MDL2 Assets" FontSize="21.333" Height="31.621" VerticalAlignment="Bottom" />
+                <Button Content="&#xE716;" Click="Button_Click_All" RenderTransformOrigin="0.66,2.067" Margin="0,0,10,10.368" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="34.701" FontFamily="Segoe MDL2 Assets" FontSize="21.333" Height="31.621" VerticalAlignment="Bottom" ToolTip="Visa alla elever" />
                 <TextBlock x:Name="textBlock_Copy3" Margin="22.002,0,0,32.199" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Foreground="{DynamicResource fontColor}" Width="55.15" HorizontalAlignment="Left" Height="16" VerticalAlignment="Bottom" />
-                <ComboBox x:Name="comboBox_Education" SelectionChanged="comboBox_SelectionChanged_Education" Margin="22.002,0,82.369,12.826" Height="18.712" VerticalAlignment="Bottom" >
+                <ComboBox x:Name="comboBox_Education" SelectionChanged="comboBox_SelectionChanged_Education" Margin="22.002,0,82.369,12.826" Height="18.712" VerticalAlignment="Bottom" ToolTip="Se elever från en specific klass" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />

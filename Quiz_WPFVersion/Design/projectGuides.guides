@@ -10,14 +10,5 @@
         </GuideModel>
       </GuideModels>
     </ProjectItemGuide>
-    <ProjectItemGuide TargetFile="View\Teacher\CreateQuiz.xaml">
-      <GuideModels>
-        <GuideModel>
-          <Guides>
-            <Guide Alignment="Left" Position="342" />
-          </Guides>
-        </GuideModel>
-      </GuideModels>
-    </ProjectItemGuide>
   </ProjectItemGuides>
 </ProjectGuidesConfiguration>
