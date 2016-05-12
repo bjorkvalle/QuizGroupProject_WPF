@@ -5,11 +5,133 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       mc:Ignorable="d" 
-      d:DesignHeight="300" d:DesignWidth="300"
+      d:DesignHeight="453" d:DesignWidth="561.332"
       Title="SendQuiz">
+    <Page.Resources>
+        <Storyboard x:Key="AnimateListView">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Quiz">
+                <EasingDoubleKeyFrame KeyTime="0" Value="28.666"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(TransformGroup.Children)[3].(TranslateTransform.Y)" Storyboard.TargetName="Users">
+                <EasingDoubleKeyFrame KeyTime="0" Value="28.666"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Quiz">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)" Storyboard.TargetName="Users">
+                <EasingDoubleKeyFrame KeyTime="0" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="0:0:1" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </Page.Resources>
+    <Page.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource AnimateListView}"/>
+        </EventTrigger>
+    </Page.Triggers>
 
-    <Grid>
-        <Ellipse Fill="#FFFF2C2C" HorizontalAlignment="Left" Height="100" Margin="85,97,0,0" Stroke="Black" VerticalAlignment="Top" Width="100"/>
+
+    <Grid Background="{StaticResource backgroundOrangeLight}">
+        <Grid Margin="23,18,109,128">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="34"/>
+                <RowDefinition Height="7.174"/>
+                <RowDefinition/>
+                <RowDefinition Height="21"/>
+                <RowDefinition Height="30.373"/>
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="178*"/>
+                <ColumnDefinition Width="24*"/>
+                <ColumnDefinition Width="177*"/>
+                <ColumnDefinition Width="12*"/>
+            </Grid.ColumnDefinitions>
+
+            <StackPanel x:Name="Header" Orientation="Vertical" Margin="0" Grid.ColumnSpan="4" d:LayoutOverrides="Height, LeftMargin, RightMargin, TopMargin, BottomMargin">
+                <TextBlock x:Name="blockHeader_Copy" TextWrapping="Wrap" Text="SKICKA PROV" d:LayoutOverrides="LeftPosition, RightPosition" FontSize="17.333" FontWeight="Bold" Foreground="{DynamicResource fontColor}"/>
+                <TextBlock x:Name="blockHeader_Copy1" TextWrapping="Wrap" Text="För granskning" FontFamily="Segoe UI Light" FontSize="13.333" d:LayoutOverrides="LeftPosition, RightPosition" Foreground="{DynamicResource fontColor}"/>
+            </StackPanel>
+            <Grid x:Name="Quiz" Margin="0,-16.16,0,1" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+                <TextBlock x:Name="textBlock_Copy2" TextWrapping="Wrap" FontSize="13.333" Foreground="{DynamicResource fontColor}" Margin="3,0,0,0" Text="PROV" FontFamily="Segoe UI Semibold" FontWeight="Bold" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="16.16" VerticalAlignment="Top"/>
+                <ListBox x:Name="quizListBox" Grid.Column="0" SelectionChanged="quizListBox_SelectionChanged" BorderBrush="{x:Null}" BorderThickness="0" d:LayoutOverrides="LeftMargin, RightMargin" Margin="0,23.334,0,50.373">
+                    <ListBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </ListBox.Background>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <TextBlock Text="{Binding Title}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <Button Content="&#xE8CA;" Click="Button_Click_SendQuiz" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" FontFamily="Segoe MDL2 Assets" FontSize="18.667" Margin="0,0,20,4.333" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="43.974" d:LayoutOverrides="LeftMargin, RightMargin" Height="35.373" VerticalAlignment="Bottom"/>
+                <Rectangle Margin="0,23.334,0,0" RadiusX="30" RadiusY="30" Panel.ZIndex="-1" d:LayoutOverrides="LeftMargin, RightMargin" Fill="#FFFFF2DA">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="30" Opacity="0.11"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+            </Grid>
+            <Grid x:Name="Users" Grid.Column="2" Margin="0,-16.16,0,-1.826" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5">
+                <Grid.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Grid.RenderTransform>
+
+                <ListBox x:Name="userListBox" SelectionMode="Multiple" SelectionChanged="userListBox_SelectionChanged" d:LayoutOverrides="LeftMargin, RightMargin" BorderBrush="{x:Null}" BorderThickness="0" Margin="0,23.334,0,53.199">
+                    <ListBox.Background>
+                        <SolidColorBrush Color="{DynamicResource TextBox_Background_LightYellow}"/>
+                    </ListBox.Background>
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,2">
+                                <TextBlock Text="{Binding Name}" />
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <TextBlock x:Name="textBlock_Copy1" TextWrapping="Wrap" FontSize="13.333" Foreground="{DynamicResource fontColor}" Margin="3,0,0,0" Text="ELEVER" FontFamily="Segoe UI Semibold" FontWeight="Bold" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin" Height="16.16" VerticalAlignment="Top"/>
+
+                <StackPanel Orientation="Horizontal" Margin="54.701,0,54.7,1.846" d:LayoutOverrides="LeftMargin, RightMargin" d:IsHidden="True" Height="30.333" VerticalAlignment="Bottom">
+
+                </StackPanel>
+                <Button Content="&#xE716;" Click="Button_Click_All" RenderTransformOrigin="0.66,2.067" Margin="0,0,10,10.368" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="34.701" FontFamily="Segoe MDL2 Assets" FontSize="21.333" Height="31.621" VerticalAlignment="Bottom" />
+                <TextBlock x:Name="textBlock_Copy3" Margin="22.002,0,0,32.199" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Foreground="{DynamicResource fontColor}" Width="55.15" HorizontalAlignment="Left" Height="16" VerticalAlignment="Bottom" />
+                <ComboBox x:Name="comboBox_Education" SelectionChanged="comboBox_SelectionChanged_Education" Margin="22.002,0,82.369,12.826" Height="18.712" VerticalAlignment="Bottom" >
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Name}" />
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+                <Rectangle Margin="0,23.334,0,0" RadiusX="30" RadiusY="30" Panel.ZIndex="-1" d:LayoutOverrides="LeftMargin, RightMargin" Fill="#FFFFF2DA">
+                    <Rectangle.Effect>
+                        <DropShadowEffect BlurRadius="30" Opacity="0.11"/>
+                    </Rectangle.Effect>
+                </Rectangle>
+            </Grid>
+            <TextBlock x:Name="lblMessage" Foreground="{DynamicResource DisabledForegroundBrush}" FontFamily="Segoe UI Symbol" TextAlignment="Justify" Grid.Row="5" TextWrapping="Wrap" Height="19.333" Margin="54.667,0,82.369,-29.333" VerticalAlignment="Bottom" Grid.ColumnSpan="3"/>
+
+
+        </Grid>
+
 
     </Grid>
 </Page>

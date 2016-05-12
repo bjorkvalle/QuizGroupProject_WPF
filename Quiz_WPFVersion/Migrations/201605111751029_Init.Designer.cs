@@ -13,7 +13,7 @@ namespace Quiz_WPFVersion.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201605101440437_Init"; }
+            get { return "201605111751029_Init"; }
         }
         
         string IMigrationMetadata.Source

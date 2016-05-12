@@ -35,11 +35,11 @@ namespace Quiz_WPFVersion.ViewModels
                     if (activeUser.Type == UserType.Teacher)
                     {
                         
-                        window.DetailFrame.Content = new TeacherView();
+                        window.DetailFrame.Content = new TeacherView(activeUser);
                     }
                     else if (activeUser.Type == UserType.Admin)
                     {
-                        window.DetailFrame.Content = new AdminView();
+                        window.DetailFrame.Content = new AdminView(activeUser);
                     }
                     break;
                 case "btnSeeQuizzes":
@@ -49,7 +49,7 @@ namespace Quiz_WPFVersion.ViewModels
                     window.DetailFrame.Content = new CreateQuiz(activeUser);
                     break;
                 case "btnSendQuiz":
-                    window.DetailFrame.Content = new SendQuiz();
+                    window.DetailFrame.Content = new SendQuiz(activeUser);
                     break;
                 case "btnAdministrate":
                     window.DetailFrame.Content = new AddRemoveUsers();
@@ -69,11 +69,11 @@ namespace Quiz_WPFVersion.ViewModels
                 case UserType.Teacher:
                     window.btnSendQuiz.Visibility = Visibility.Collapsed;
                     window.btnAdministrate.Visibility = Visibility.Collapsed;
-                    window.DetailFrame.Content = new TeacherView();
+                    window.DetailFrame.Content = new TeacherView(activeUser);
                     break;
                 case UserType.Admin:
                     window.btnCreateQuiz.Visibility = Visibility.Collapsed;
-                    window.DetailFrame.Content = new AdminView();
+                    window.DetailFrame.Content = new AdminView(activeUser);
                     break;
                 case UserType.Student:
                     throw new ArgumentException("User is student - no acessibility should be allowed in this program");
