@@ -49,6 +49,15 @@ namespace Quiz_WPFVersion.ViewModels
 
         }
 
+        public void AddQuizTime(DateTime datetime, Quiz quiz)
+        {
+            var tmpTimeSpan = new TimeSpan();
+
+            Repository<Quiz>.GetInstance().DeleteData(quiz);
+            quiz.TimeLimit = tmpTimeSpan;
+            Repository<Quiz>.GetInstance().AddData(quiz);
+        }
+
 
     }
 }
