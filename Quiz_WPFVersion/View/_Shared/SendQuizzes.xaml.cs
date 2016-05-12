@@ -64,6 +64,8 @@ namespace Quiz_WPFVersion.View._Shared
                 && selDateEnd.HasValue
                 )
             {
+                adminVM.AddStartDateAndEndDate(selDateBegin, selDateEnd, selectedQuiz);
+                adminVM.AddQuizTime(timeSpanQuiz, selectedQuiz);
                 adminVM.SendQuizToStudents(selectedQuiz, selectedStudents);
                 lblMessage.Text = "• Provet är nu skickat";
 
@@ -114,6 +116,7 @@ namespace Quiz_WPFVersion.View._Shared
         private void DateBegin_CalendarClosed(object sender, RoutedEventArgs e)
         {
             selDateBegin = ((DatePicker)sender).SelectedDate ;
+            
         }
 
         private void DateEnd_CalendarClosed(object sender, RoutedEventArgs e)

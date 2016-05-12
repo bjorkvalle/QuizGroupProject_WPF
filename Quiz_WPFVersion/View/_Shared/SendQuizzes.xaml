@@ -88,7 +88,7 @@
                 </Rectangle>
                 <DatePicker x:Name="DateEnd" Margin="6.125,0,0,33.693" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.109" CalendarClosed="DateEnd_CalendarClosed"/>
                 <DatePicker x:Name="DateBegin" Margin="6.125,0,0,57.692" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29.642" CalendarClosed="DateBegin_CalendarClosed"/>
-                <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,15.2,35.96" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="59" RenderTransformOrigin="0.5,0.5" AllowTextInput="False" ClipValueToMinMax="True" Minimum="0" ValueChanged="TimeSpanQuiz_ValueChanged"> 
+                <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,15.2,35.96" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="70" RenderTransformOrigin="0.5,0.5" AllowTextInput="False" ClipValueToMinMax="True" Minimum="0" ValueChanged="TimeSpanQuiz_ValueChanged"> 
                     <xctk:TimeSpanUpDown.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
