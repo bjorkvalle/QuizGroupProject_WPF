@@ -41,10 +41,18 @@ namespace Quiz_StudentApp.View._Shared
         {
             User user = loginVM.LoginControll(UsernameBox.Text, PasswordBox.Password);
 
-            if (user != null)
+            if (user != null) {
+                if (user.Type != UserType.Student)
+                {
+                    errormessageBox.Visibility = Visibility.Visible;
+
+                    return;
+                }
                 this.NavigationService.Navigate(new StudentHome(user));
-            else
+            }
+            else { 
             errormessageBox.Visibility = Visibility.Visible;
+            }
 
         }
 

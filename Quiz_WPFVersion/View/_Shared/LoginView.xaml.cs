@@ -40,10 +40,20 @@ namespace Quiz_WPFVersion.View._Shared
         {
             User user = loginVM.LoginControll(UsernameBox.Text, PasswordBox.Password);
 
-            if (user != null || user.Type != UserType.Student)
+            if (user != null)
+            {
+                if (user.Type == UserType.Student)
+                {
+                    return;
+                }
                 this.NavigationService.Navigate(new NavigationWindowView(user));
+
+            }
             else
-            errormessageBox.Visibility = Visibility.Visible;
+            {
+
+                errormessageBox.Visibility = Visibility.Visible;
+            }
 
         }
 
