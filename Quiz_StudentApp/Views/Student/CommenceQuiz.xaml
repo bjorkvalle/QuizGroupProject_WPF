@@ -87,7 +87,8 @@
                       x:Name="listBoxQuestions" 
                       ItemTemplateSelector="{StaticResource myDTS}"
                       HorizontalContentAlignment="Stretch" BorderBrush="{x:Null}" BorderThickness="0"
-                      ItemsSource="{Binding Questions}"
+                      ItemsSource="{Binding Questions, Mode=TwoWay}"
+                      
                       >
                 <ListBox.Background>
                     <SolidColorBrush Color="{DynamicResource ListBox_GardinentBackground_List}"/>
