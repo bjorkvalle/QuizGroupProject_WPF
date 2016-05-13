@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="Quiz_WPFVersion.View._Shared.SendQuiz"
       mc:Ignorable="d" 
-      d:DesignHeight="453" d:DesignWidth="561.332"
+      d:DesignHeight="453" d:DesignWidth="1043.932" MinWidth="800"
       Title="SendQuiz">
     <Page.Resources>
         <Storyboard x:Key="AnimateListView">
@@ -35,7 +35,7 @@
     </Page.Triggers>
 
 
-    <Grid Background="{StaticResource backgroundOrangeLight}">
+    <Grid Background="{StaticResource backgroundOrangeLight}" >
         <Grid Margin="23,18,109,83">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
@@ -81,14 +81,14 @@
                 </ListBox>
 
                 <Button Content="&#xE8CA;" ToolTip="Skicka prov" Click="Button_Click_SendQuiz" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" FontFamily="Segoe MDL2 Assets" FontSize="18.667" Margin="0,0,15,4.16" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="44" Height="36" VerticalAlignment="Bottom"/>
-                <Rectangle Margin="0,23.334,0,0" RadiusX="30" RadiusY="30" Panel.ZIndex="-1" d:LayoutOverrides="LeftMargin, RightMargin" Fill="#FFFFF2DA">
+                <Rectangle Margin="0,23.334,0,0" RadiusX="30" RadiusY="30" Panel.ZIndex="-4" d:LayoutOverrides="LeftMargin, RightMargin" Fill="#FFFFF2DA">
                     <Rectangle.Effect>
                         <DropShadowEffect BlurRadius="30" Opacity="0.11"/>
                     </Rectangle.Effect>
                 </Rectangle>
-                <DatePicker x:Name="DateEnd" Margin="6,0,0,33.16" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="29" CalendarClosed="DateEnd_CalendarClosed" ToolTip="Slut datum för prov"/>
-                <DatePicker x:Name="DateBegin" Margin="6,0,0,57.16" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="30" CalendarClosed="DateBegin_CalendarClosed" ToolTip="Startdatum för prov"/>
-                <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,27,36.16" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="70" RenderTransformOrigin="0.5,0.5" AllowTextInput="False" ClipValueToMinMax="True" Minimum="0" ValueChanged="TimeSpanQuiz_ValueChanged">
+                <DatePicker x:Name="DateEnd" Margin="90,0,0,27.76" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="106" CalendarClosed="DateEnd_CalendarClosed" ToolTip="Slut datum för prov"/>
+                <DatePicker x:Name="DateBegin" Margin="90,0,0,51.76" VerticalAlignment="Bottom" BorderBrush="{x:Null}" HorizontalAlignment="Left" Width="106" CalendarClosed="DateBegin_CalendarClosed" ToolTip="Startdatum för prov"/>
+                <xctk:TimeSpanUpDown x:Name="TimeSpanQuiz" Margin="0,0,27.2,39.76" VerticalAlignment="Bottom" Value="0" HorizontalAlignment="Right" Width="70" RenderTransformOrigin="0.5,0.5" AllowTextInput="False" ClipValueToMinMax="True" Minimum="0" ValueChanged="TimeSpanQuiz_ValueChanged">
                     <xctk:TimeSpanUpDown.RenderTransform>
                         <TransformGroup>
                             <ScaleTransform/>
@@ -98,9 +98,9 @@
                         </TransformGroup>
                     </xctk:TimeSpanUpDown.RenderTransform>
                 </xctk:TimeSpanUpDown>
-                <Label x:Name="label" Content="Slutdatum" Margin="35,0,92,33.16" VerticalAlignment="Bottom" FontFamily="Segoe UI Light"/>
-                <Label x:Name="label_Copy" Content="Startdatum" Margin="35,0,92,55.16" VerticalAlignment="Bottom" FontFamily="Segoe UI Light"/>
-                <Label x:Name="label_Copy1" Content="Provtid" Margin="0,0,4,55.16" VerticalAlignment="Bottom" FontFamily="Segoe UI Light" HorizontalAlignment="Right" Width="62" RenderTransformOrigin="0.5,0.402"/>
+                <Label x:Name="label" Content="Slutdatum" Margin="18,0,0.2,27.76" VerticalAlignment="Bottom" FontFamily="Segoe UI Light" Panel.ZIndex="-2" />
+                <Label x:Name="label_Copy" Content="Startdatum" Margin="18,0,0.2,49.76" VerticalAlignment="Bottom" FontFamily="Segoe UI Light" Panel.ZIndex="-2"/>
+                <Label x:Name="label_Copy1" Content="Provtid" Margin="0,0,6.2,57.76" VerticalAlignment="Bottom" FontFamily="Segoe UI Light" HorizontalAlignment="Right" Width="62" RenderTransformOrigin="0.5,0.402"/>
             </Grid>
             <Grid x:Name="Users" Grid.Column="2" Margin="0,-16.16,0,-1.826" Grid.Row="2" Grid.RowSpan="4" RenderTransformOrigin="0.5,0.5" d:LayoutOverrides="LeftMargin, RightMargin, TopMargin, BottomMargin">
                 <Grid.RenderTransform>
@@ -128,8 +128,7 @@
 
                 <StackPanel Orientation="Horizontal" Margin="54.701,0,54.7,1.846" d:LayoutOverrides="LeftMargin, RightMargin" d:IsHidden="True" Height="30.333" VerticalAlignment="Bottom"/>
                 <Button Content="&#xE716;" Click="Button_Click_All" RenderTransformOrigin="0.66,2.067" Margin="0,0,10,10.368" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{DynamicResource fontColor}" Style="{DynamicResource MyButtonStyle}" HorizontalAlignment="Right" Width="34.701" FontFamily="Segoe MDL2 Assets" FontSize="21.333" Height="31.621" VerticalAlignment="Bottom" ToolTip="Visa alla elever" />
-                <TextBlock x:Name="textBlock_Copy3" Margin="22.002,0,0,32.199" TextWrapping="Wrap" FontWeight="Bold" FontFamily="Segoe UI Light" Text="KLASSER" Foreground="{DynamicResource fontColor}" Width="55.15" HorizontalAlignment="Left" Height="16" VerticalAlignment="Bottom" />
-                <ComboBox x:Name="comboBox_Education" SelectionChanged="comboBox_SelectionChanged_Education" Margin="22.002,0,82.369,12.826" Height="18.712" VerticalAlignment="Bottom" ToolTip="Se elever från en specific klass" >
+                <ComboBox x:Name="comboBox_Education" SelectionChanged="comboBox_SelectionChanged_Education" Margin="22,0,100,55.586" Height="19" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" ToolTip="Se elever från en specific klass" >
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <TextBlock Text="{Binding Name}" />

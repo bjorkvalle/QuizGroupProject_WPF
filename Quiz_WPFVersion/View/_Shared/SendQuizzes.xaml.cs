@@ -43,7 +43,9 @@ namespace Quiz_WPFVersion.View._Shared
             userListBox.ItemsSource = adminVM.GetAllStudents();
             selectedStudents = new List<User>();
             comboBox_Education.ItemsSource = Repository<Education>.GetInstance().GetDataList().ToList();
-
+            CalendarDateRange cdr = new CalendarDateRange(DateTime.MinValue, DateTime.Today);
+            DateBegin.BlackoutDates.Add(cdr);
+            DateEnd.BlackoutDates.Add(cdr);
         }
 
         private void Button_Click_All(object sender, RoutedEventArgs e)

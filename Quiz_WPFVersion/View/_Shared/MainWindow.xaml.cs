@@ -14,7 +14,7 @@ namespace Quiz_WPFVersion
         public MainWindow()
         {
             InitializeComponent();
-            //new SeedData();
+            new SeedData();
             MainFrame.Content = new LoginView();
 
             //Repository<User>.GetInstance().AddData(new User() { Name = "Timmy!" });

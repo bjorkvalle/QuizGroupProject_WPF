@@ -7,7 +7,7 @@
       xmlns:Admin="clr-namespace:Quiz_WPFVersion.ViewModels.Admin" xmlns:Enum="clr-namespace:Quiz_WPFVersion.Enum" x:Class="Quiz_WPFVersion.View.Admin.AddRemoveUsers"
       mc:Ignorable="d" 
       d:DesignHeight="584.054" d:DesignWidth="428.562"
-      Title="AddRemoveUsers" Background="Black">
+      Title="AddRemoveUsers" Background="Black" MinWidth="800">
     <Page.Resources>
         <Color x:Key="Blue">#FF93EBFF</Color>
         <Color x:Key="Background">#FFFFE1AE</Color>

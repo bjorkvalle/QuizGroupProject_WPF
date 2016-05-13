@@ -6,8 +6,8 @@
       xmlns:local="clr-namespace:Quiz_WPFVersion.View._Shared"
       xmlns:ViewModels="clr-namespace:Quiz_WPFVersion.ViewModels" x:Class="Quiz_WPFVersion.View._Shared.Statistics"
       mc:Ignorable="d" 
-      d:DesignHeight="480" d:DesignWidth="676.987"
-      Title="Statistics">
+      d:DesignHeight="480" d:DesignWidth="583.589"
+      Title="Statistics" MinWidth="550">
     <Page.Resources>
 
         <Storyboard x:Key="GridAnimate">
